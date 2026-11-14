@@ -292,99 +292,89 @@ footer{padding:24px 0 140px;text-align:center;font-size:12px;color:var(--muted)}
 .stk{float:right;width:76px;height:76px;object-fit:contain;margin:-6px -4px 0 8px}
 @media (min-width:720px){body{font-size:17.5px}.stats{grid-template-columns:repeat(4,1fr)}}
 
-/* ============ APPLE-STYLE LAYER: glass, gradients, pulse ============ */
-:root{--glass:rgba(255,255,255,.62);--glass-b:rgba(255,255,255,.75);--blur:saturate(180%) blur(22px);
-  --apple:#0A84FF;--grad:linear-gradient(135deg,#0A84FF 0%,#5E5CE6 55%,#2E8BD8 100%);--r-lg:28px}
-body{background:#F2F5FA;letter-spacing:-.01em}
-/* ambient mesh gradient behind everything */
-.ambient{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none;background:#F2F5FA}
-.ambient i{position:absolute;border-radius:50%;filter:blur(70px);opacity:.55;will-change:transform}
-.ambient i:nth-child(1){width:70vmax;height:70vmax;left:-25vmax;top:-20vmax;background:radial-gradient(circle,#BFE0FF 0%,transparent 65%);animation:drift1 22s ease-in-out infinite alternate}
-.ambient i:nth-child(2){width:60vmax;height:60vmax;right:-25vmax;top:30vh;background:radial-gradient(circle,#D9D3FF 0%,transparent 65%);animation:drift2 26s ease-in-out infinite alternate}
-.ambient i:nth-child(3){width:55vmax;height:55vmax;left:-10vmax;bottom:-25vmax;background:radial-gradient(circle,#C8F1EC 0%,transparent 65%);animation:drift3 30s ease-in-out infinite alternate}
-@keyframes drift1{to{transform:translate(18vw,22vh) scale(1.15)}}
-@keyframes drift2{to{transform:translate(-20vw,-18vh) scale(1.1)}}
-@keyframes drift3{to{transform:translate(25vw,-12vh) scale(1.2)}}
-h2{letter-spacing:-.035em;font-size:clamp(30px,8vw,44px)}
+/* ============ APPLE LAYER v2: light & fast ============
+   Rules: glass (backdrop-filter) only on fixed chrome (top bar, bottom bar, sheet).
+   Animations: transform/opacity only, on few elements. No filter blur on scroll. */
+:root{--apple:#0A84FF;--grad:linear-gradient(135deg,#0A84FF 0%,#5E5CE6 60%,#2E8BD8 100%);--r-lg:26px;
+  --card:rgba(255,255,255,.86);--glassbar:saturate(180%) blur(18px)}
+html{background:#F2F5FA}
+body{letter-spacing:-.01em;background:
+  radial-gradient(900px 700px at 110% 18%,rgba(191,224,255,.55),transparent 60%),
+  radial-gradient(800px 700px at -20% 52%,rgba(217,211,255,.45),transparent 60%),
+  radial-gradient(800px 700px at 110% 85%,rgba(200,241,236,.5),transparent 60%),#F2F5FA}
+section{padding:56px 0 6px;content-visibility:auto;contain-intrinsic-size:auto 900px}
+#quiz{content-visibility:visible}
 h1{letter-spacing:-.04em}
-h2 i.s,.lead i.s{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:.08em}
-.kicker{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:30px;background:var(--glass);border:1px solid var(--glass-b);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);letter-spacing:1.2px;font-size:11.5px;color:var(--apple)}
-/* glass cards */
-.card,.danger,.olist button{background:var(--glass);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);border:1px solid var(--glass-b);box-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 10px 30px rgba(20,40,90,.08)}
-.danger{border:1.5px solid rgba(217,34,27,.45);background:rgba(255,255,255,.7)}
+h2{letter-spacing:-.035em;font-size:clamp(30px,8vw,42px)}
+h2 i.s{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:.08em}
+.kicker{color:var(--apple);letter-spacing:1.4px;font-size:12px}
+.skip{top:auto;left:-9999px}.skip:focus{left:12px;top:12px}
+/* cards: solid-ish white, soft shadow (no blur = smooth scroll) */
+.card,.olist button{background:var(--card);border:1px solid rgba(255,255,255,.95);box-shadow:0 1px 0 #fff inset,0 8px 24px rgba(20,40,90,.07)}
 .card{border-radius:24px}
-/* primary buttons: Apple pill + glow pulse */
-.btn{border-radius:999px;background:var(--grad);background-size:200% 200%;animation:gshift 6s ease infinite;box-shadow:0 10px 30px rgba(10,132,255,.35),inset 0 1px 0 rgba(255,255,255,.35);position:relative;isolation:isolate}
-.btn::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:0 0 0 0 rgba(10,132,255,.45);animation:ring 2.4s cubic-bezier(.2,.8,.2,1) infinite;z-index:-1}
-.btn.ghost,.btn.dark{animation:none}.btn.ghost::after,.btn.dark::after,.sticky .btn::after,.row2 .btn::after{display:none}
-.btn.ghost{background:var(--glass);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);border:1px solid var(--glass-b);color:var(--apple)}
-.btn.dark{background:#1d1d1f}
-@keyframes gshift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
-@keyframes ring{0%{box-shadow:0 0 0 0 rgba(10,132,255,.45)}80%,100%{box-shadow:0 0 0 14px rgba(10,132,255,0)}}
-/* hero: immersive aurora */
-.hero{position:relative;overflow:hidden;background:#05070d;border-radius:0 0 36px 36px;padding-bottom:34px}
-.hero::before,.hero::after{content:"";position:absolute;border-radius:50%;filter:blur(60px);pointer-events:none}
-.hero::before{width:520px;height:520px;right:-180px;top:-160px;background:radial-gradient(circle,rgba(10,132,255,.75),transparent 65%);animation:aur1 14s ease-in-out infinite alternate}
-.hero::after{width:460px;height:460px;left:-200px;bottom:-160px;background:radial-gradient(circle,rgba(94,92,230,.6),transparent 65%);animation:aur2 18s ease-in-out infinite alternate}
-@keyframes aur1{to{transform:translate(-120px,140px) scale(1.2)}}
-@keyframes aur2{to{transform:translate(140px,-100px) scale(1.15)}}
-.hero .wrap{position:relative;z-index:1}
-.hero h1 i.s{background:linear-gradient(90deg,#9FD3FF,#C7B8FF,#7FE3D8);-webkit-background-clip:text;background-clip:text;color:transparent;background-size:200% auto;animation:gshift 8s ease infinite}
-.hero .pill.o,.hero .pill.f{backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
-.hero .pill.f{background:rgba(159,211,255,.18);color:#CFE8FF;border:1px solid rgba(159,211,255,.35)}
-.hero .pill.o{border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.06)}
-.hero .ph img{border-radius:24px;box-shadow:0 30px 60px rgba(0,0,0,.5);transform:translateY(var(--py,0));will-change:transform}
-.hero ol{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:6px 14px;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
-.hero ol li:last-child{border-bottom:0}
-.livedot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#30D158;box-shadow:0 0 0 0 rgba(48,209,88,.6);animation:live 1.8s infinite;margin-right:6px;vertical-align:middle}
-@keyframes live{70%{box-shadow:0 0 0 8px rgba(48,209,88,0)}100%{box-shadow:0 0 0 0 rgba(48,209,88,0)}}
-/* top bar & sticky & sheet & fab: glass */
-.topbar{background:rgba(242,245,250,.6);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);border-bottom:1px solid rgba(255,255,255,.6)}
+.danger{border:1.5px solid rgba(217,34,27,.4);border-radius:24px}
+/* buttons */
+.btn{border-radius:999px;background:var(--grad);box-shadow:0 10px 26px rgba(10,132,255,.32);position:relative;isolation:isolate}
+.btn.pulse::after{content:"";position:absolute;inset:0;border-radius:inherit;border:2px solid rgba(10,132,255,.55);z-index:-1;animation:ring 2.6s cubic-bezier(.2,.8,.2,1) infinite}
+@keyframes ring{0%{transform:scale(1);opacity:.9}80%,100%{transform:scale(1.12,1.5);opacity:0}}
+.btn.ghost{background:#fff;border:1px solid #E3EAF4;color:var(--apple);box-shadow:none}
+.btn.dark{background:#1d1d1f;box-shadow:none}
+/* hero */
+.hero{background:radial-gradient(520px 420px at 105% -5%,rgba(10,132,255,.55),transparent 65%),radial-gradient(460px 420px at -15% 105%,rgba(94,92,230,.45),transparent 65%),#05070d;border-radius:0 0 34px 34px;padding:18px 0 30px}
+.hero h1 i.s{background:linear-gradient(90deg,#9FD3FF,#C7B8FF);-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:.06em}
+.hero .pill.f{background:rgba(159,211,255,.14);color:#CFE8FF;border:1px solid rgba(159,211,255,.3)}
+.hero .lead{font-size:17px}
+.banner{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;object-position:50% 40%;border-radius:22px;margin-top:20px;box-shadow:0 24px 50px rgba(0,0,0,.45)}
+.hero .cap{margin-top:6px}
+.hero .btn{margin-top:16px}
+.livedot{position:relative;display:inline-block;width:8px;height:8px;border-radius:50%;background:#30D158;margin-right:6px;vertical-align:middle}
+.livedot::after{content:"";position:absolute;inset:0;border-radius:50%;background:#30D158;animation:live 1.8s ease-out infinite}
+@keyframes live{to{transform:scale(2.6);opacity:0}}
+/* fixed chrome: real glass */
+.topbar{background:rgba(242,245,250,.72);backdrop-filter:var(--glassbar);-webkit-backdrop-filter:var(--glassbar);border-bottom:1px solid rgba(0,0,0,.05);padding-top:env(safe-area-inset-top,0px);visibility:hidden;transition:transform var(--t) var(--ease),visibility 0s var(--t)}
+.topbar.on{visibility:visible;transition:transform var(--t) var(--ease)}
 .progress{background:var(--grad)}
 .chips a.on{background:#1d1d1f}
-.sticky{background:rgba(255,255,255,.6);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);border-top:1px solid rgba(255,255,255,.7);margin:0 10px calc(10px + var(--safe-b));border-radius:24px;border:1px solid rgba(255,255,255,.8);box-shadow:0 12px 40px rgba(20,40,90,.18);padding:10px 12px}
-.sticky:not(.on){transform:translateY(calc(100% + 40px))}
-.sticky.on{transform:none}
-.fab{background:rgba(255,255,255,.65);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);border:1px solid rgba(255,255,255,.85);color:#1d1d1f}
+.sticky{left:10px;right:10px;bottom:calc(10px + var(--safe-b));padding:8px 8px 8px 10px;border-radius:999px;background:rgba(255,255,255,.72);backdrop-filter:var(--glassbar);-webkit-backdrop-filter:var(--glassbar);border:1px solid rgba(255,255,255,.9);box-shadow:0 12px 36px rgba(20,40,90,.18);transform:translateY(calc(100% + 30px));visibility:hidden;transition:transform .3s var(--ease),visibility 0s .3s}
+.sticky.on{transform:none;visibility:visible;transition:transform .3s var(--ease)}
+.sticky .in{gap:8px}
+.sticky .t{font-size:12px;padding-left:4px}.sticky .t b{font-size:13.5px}
+.sticky .btn{min-height:46px;padding:10px 16px;font-size:15px}
+.fab{position:static;transform:none;display:none;box-shadow:none;border:0;background:#EEF4FC;color:#1d1d1f;min-height:46px;padding:8px 12px;border-radius:999px;flex:none}
+.fab.on{display:flex;transform:none}
+.fab .fl{font-size:13.5px}
 .fab b{background:var(--apple)}
-.sheet{background:rgba(250,251,253,.82);backdrop-filter:saturate(180%) blur(30px);-webkit-backdrop-filter:saturate(180%) blur(30px);border-radius:32px 32px 0 0}
-.scrim{background:rgba(10,15,30,.35);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
-.toast{background:rgba(29,29,31,.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-radius:999px}
-/* quiz: iOS segmented feel */
-.qans button{border-radius:20px;background:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.9);box-shadow:0 4px 14px rgba(20,40,90,.08)}
-.qans button.yes{background:var(--grad);border:0;box-shadow:0 10px 26px rgba(10,132,255,.35)}
+.fab.on ~ .t{display:none}
+.sheet{background:rgba(250,251,253,.9);backdrop-filter:saturate(180%) blur(24px);-webkit-backdrop-filter:saturate(180%) blur(24px);border-radius:30px 30px 0 0}
+.toast{background:rgba(29,29,31,.9);border-radius:999px;bottom:calc(90px + var(--safe-b))}
+/* quiz */
+.qans button{border-radius:20px;background:#fff;border:1px solid #E3EAF4}
+.qans button.yes{background:var(--grad);border:0;box-shadow:0 10px 24px rgba(10,132,255,.3)}
 .qbar{background:rgba(10,132,255,.1)}.qbar i{background:var(--grad)}
-.ring .v b{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-.ring{filter:drop-shadow(0 10px 24px rgba(10,132,255,.25))}
-/* stats as glowing tiles */
-.stat .v{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-.stat{position:relative;overflow:hidden}
-.stat::before{content:"";position:absolute;width:120px;height:120px;right:-40px;top:-40px;border-radius:50%;background:radial-gradient(circle,rgba(10,132,255,.18),transparent 70%)}
-/* map: soft glow pins */
-.pin circle:not(.pulse){fill:#0A84FF;filter:drop-shadow(0 4px 10px rgba(10,132,255,.5))}
-.organ .pin .pulse{display:block}
-.mapwrap svg{filter:drop-shadow(0 20px 30px rgba(20,40,90,.12))}
-/* dark blocks become deep glass */
-.quote,.fit,.ny{background:radial-gradient(120% 120% at 100% 0%,rgba(10,132,255,.45),transparent 55%),radial-gradient(120% 120% at 0% 100%,rgba(94,92,230,.35),transparent 55%),#0b0f1a;border-radius:28px;box-shadow:0 20px 50px rgba(5,10,30,.25)}
-.ny .big b{background:linear-gradient(90deg,#9FD3FF,#C7B8FF);-webkit-background-clip:text;background-clip:text;color:transparent}
-.node .ib,.bul li .ib,.todo .n,.fact .ib{background:linear-gradient(145deg,rgba(10,132,255,.14),rgba(94,92,230,.14));color:var(--apple)}
-.steps .num{background:var(--grad);box-shadow:0 6px 16px rgba(10,132,255,.35)}
+.ring .v b,.stat .v,.facts b,.ny .big b{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.ny .big b{background:linear-gradient(90deg,#9FD3FF,#C7B8FF);-webkit-background-clip:text;background-clip:text}
+.facts b{font-size:23px;line-height:1.2}.facts b .cnt{font-size:inherit}
+/* dark blocks */
+.quote,.fit,.ny{background:radial-gradient(120% 120% at 100% 0%,rgba(10,132,255,.4),transparent 55%),radial-gradient(120% 120% at 0% 100%,rgba(94,92,230,.3),transparent 55%),#0b0f1a;border-radius:26px}
+.node .ib,.bul li .ib,.todo .n,.fact .ib{background:linear-gradient(145deg,rgba(10,132,255,.12),rgba(94,92,230,.12));color:var(--apple)}
+.steps .num{background:var(--grad)}
 .link{background:var(--grad);width:3px;border-radius:3px}
-.add{border-color:var(--apple);color:var(--apple);background:rgba(255,255,255,.6)}.add.on{background:var(--apple);color:#fff}
-/* scroll reveal with blur, Apple keynote style */
-.rv{opacity:0;transform:translateY(28px) scale(.98);filter:blur(6px);transition:opacity .7s var(--ease),transform .7s var(--ease),filter .7s var(--ease)}
-.rv.in{opacity:1;transform:none;filter:none}
-.stk{animation:float 5s ease-in-out infinite;filter:drop-shadow(0 12px 18px rgba(20,40,90,.18))}
-@keyframes float{50%{transform:translateY(-8px) rotate(-3deg)}}
-.facts b{font-size:23px;line-height:1.2;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-.facts b .cnt{font-size:inherit}
-.fab{bottom:calc(112px + var(--safe-b))}
-@media (prefers-reduced-motion:reduce){.ambient i,.hero::before,.hero::after,.btn,.btn::after,.stk,.livedot{animation:none!important}.rv{filter:none}}
-@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.card,.sticky,.sheet,.fab,.topbar{background:rgba(255,255,255,.96)}}
+.pin circle:not(.pulse){fill:#0A84FF}
+.add{border-color:var(--apple);color:var(--apple)}.add.on{background:var(--apple);color:#fff}
+.stk{width:64px;height:64px}
+/* collapsible "how" */
+.how summary{list-style:none;display:flex;justify-content:space-between;align-items:center;font-size:17px;padding:2px 0}
+.how summary::-webkit-details-marker{display:none}
+.how[open] .chev{transform:rotate(180deg)}
+.how .chev{transition:transform var(--t) var(--ease);color:var(--muted)}
+.how .steps{margin-top:6px}
+/* reveal: opacity + transform only */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.btn.pulse::after,.livedot::after{animation:none!important}}
 </style>
 </head>
 <body>
-<div class="ambient" aria-hidden="true"><i></i><i></i><i></i></div>
 <a class="skip" href="#main">К содержанию</a>
 
 <!-- SVG icon sprite (Lucide-style, 2px stroke) -->
@@ -421,16 +411,13 @@ h2 i.s,.lead i.s{background:var(--grad);-webkit-background-clip:text;background-
 <header class="hero">
   <div class="wrap">
     <div class="brand"><img src="img/avatar.jpg" alt="Шынгыс Садык" width="46" height="46"><div><div class="n">ШЫНГЫС САДЫК</div><div class="s">МЕТАБОЛИЧЕСКОЕ ЗДОРОВЬЕ</div></div></div>
-    <span class="pill f">СПРАВОЧНИК №4 · ЖКТ</span><span class="pill o">ПО ДАННЫМ ИССЛЕДОВАНИЙ</span>
+    <span class="pill f">СПРАВОЧНИК №4 · ЖКТ</span>
     <h1>Кишечник, энергия <i class="s">и&nbsp;ваши анализы</i></h1>
-    <p class="lead">8 сигналов, что кишечник крадёт энергию. Что проверить, чтобы не терять железо, B12 и силы.</p>
-    <div class="ph">
-      <img src="img/cover_tubes.jpg" alt="Пробирки с кровью для анализов" width="380" height="507">
-      <ol><li>Стоп-сигналы</li><li>Самопроверка</li><li>Карта ЖКТ и 8 анализов</li><li>План на сегодня</li></ol>
-    </div>
+    <p class="lead">8 сигналов, что кишечник крадёт энергию, и какие анализы это покажут.</p>
+    <img class="banner" src="img/cover_tubes.jpg" alt="Пробирки с кровью для анализов" width="760" height="428" fetchpriority="high">
     <div class="cap">Фото: Oleg Yunakov · Wikimedia Commons · CC BY-SA 4.0</div>
     <div class="meta"><span><svg class="ic" style="width:16px;height:16px"><use href="#i-clock"/></svg>3 минуты</span><span><svg class="ic" style="width:16px;height:16px"><use href="#i-check"/></svg>8 вопросов</span></div>
-    <a class="btn" href="#quiz" data-ev="hero_quiz">Пройти самопроверку <svg class="ic"><use href="#i-down"/></svg></a>
+    <a class="btn pulse" href="#quiz" data-ev="hero_quiz">Пройти самопроверку <svg class="ic"><use href="#i-down"/></svg></a>
   </div>
 </header>
 
@@ -440,7 +427,7 @@ h2 i.s,.lead i.s{background:var(--grad);-webkit-background-clip:text;background-
   <img class="stk" src="img/s_intestine.png" alt="" width="76" height="76" loading="lazy">
   <div class="kicker">Сначала главное</div>
   <h2>Когда <i class="s">не ждать</i></h2>
-  <p class="lead">Вздутие и тяжесть чаще всего не опасны. Но есть признаки, при которых сначала нужно исключить серьёзное.</p>
+  <p class="lead">Вздутие чаще всего не опасно. Но эти признаки - повод не ждать.</p>
   <div class="danger mt">
     <h3><svg class="ic"><use href="#i-alert"/></svg>Стоп-сигналы</h3>
     <ul>
@@ -501,10 +488,10 @@ h2 i.s,.lead i.s{background:var(--grad);-webkit-background-clip:text;background-
   <div class="kicker">Почему это важно</div>
   <h2>ЖКТ - это <i class="s">не только живот</i></h2>
   <div class="stats mt">
-    <div class="card stat"><div class="v"><span class="cnt" data-to="40">0</span><small>%</small></div><p>взрослых в онлайн-опросе - с функциональным расстройством ЖКТ</p><em>Rome Foundation · 73 076 человек, 33 страны</em></div>
-    <div class="card stat"><div class="v"><span class="cnt" data-to="4.4" data-dec="1">0</span><small> млрд</small></div><p>людей в мире заражены хеликобактером</p><em>оценка на 2015 год</em></div>
-    <div class="card stat"><div class="v"><span class="cnt" data-to="1.4" data-dec="1">0</span><small>%</small></div><p>людей - целиакия по антителам, 0,7% - по биопсии</p><em>≈ 1 из 70-140 (наш расчёт)</em></div>
-    <div class="card stat"><div class="v"><span class="cnt" data-to="12">0</span><small>% vs 7,2%</small></div><p>людей с дефицитом B12 принимали омепразол 2+ года</p><em>JAMA, 2013</em></div>
+    <div class="card stat"><div class="v"><span class="cnt" data-to="40">0</span><small>%</small></div><p>взрослых - с расстройством ЖКТ</p><em>Rome Foundation · 73 076 человек, 33 страны</em></div>
+    <div class="card stat"><div class="v"><span class="cnt" data-to="4.4" data-dec="1">0</span><small> млрд</small></div><p>людей с хеликобактером</p><em>оценка на 2015 год</em></div>
+    <div class="card stat"><div class="v"><span class="cnt" data-to="1.4" data-dec="1">0</span><small>%</small></div><p>людей - целиакия по антителам</p><em>0,7% по биопсии</em></div>
+    <div class="card stat"><div class="v"><span class="cnt" data-to="12">0</span><small>% vs 7,2%</small></div><p>с дефицитом B12 пили омепразол 2+ года</p><em>JAMA, 2013</em></div>
   </div>
   <p class="lead" style="color:var(--navy);font-weight:500">Живот может и не болеть. Это видно только в анализах.</p>
 </section>
@@ -535,14 +522,14 @@ h2 i.s,.lead i.s{background:var(--grad);-webkit-background-clip:text;background-
       <button data-z="3"><b>4</b><span>Толстая кишка<small>понос, запор</small></span></button>
     </div>
   </div>
-  <div class="hint"><svg class="ic" style="width:16px;height:16px"><use href="#i-hand"/></svg>Нажмите на номер на схеме или на кнопку справа</div>
+  
 </section>
 
 <section id="tests" class="rv">
   <img class="stk" src="img/s_tube.png" alt="" width="76" height="76" loading="lazy">
   <div class="kicker">Какие анализы сдать</div>
   <h2>8 анализов <i class="s">для ЖКТ</i></h2>
-  <p class="lead">Раскройте карточку и добавьте анализ в свой список - его можно скопировать или отправить себе.</p>
+  <p class="lead">Нажмите на анализ и добавьте его в свой список.</p>
   <div class="groupt"><svg class="ic" style="width:18px;height:18px"><use href="#i-flask"/></svg>В кале и дыхании</div>
   <div class="stack" id="tg1"></div>
   <div class="groupt"><svg class="ic" style="width:18px;height:18px"><use href="#i-drop"/></svg>В крови</div>
@@ -554,10 +541,10 @@ h2 i.s,.lead i.s{background:var(--grad);-webkit-background-clip:text;background-
   <div class="kicker">Частые ошибки</div>
   <h2>4 ошибки, из-за которых <i class="s">живот лечат годами</i></h2>
   <div class="stack mt">
-    <div class="card m"><div class="x"><svg class="ic" style="width:18px;height:18px"><use href="#i-x"/></svg></div><div><h3>«Сдам анализ на дисбактериоз»</h3><p>Посев кала показывает бактерии последней порции стула, а не то, что происходит в тонкой кишке. Для решений он почти ничего не даёт.</p></div></div>
-    <div class="card m"><div class="x"><svg class="ic" style="width:18px;height:18px"><use href="#i-x"/></svg></div><div><h3>«Уберу глютен и посмотрю»</h3><p>Анализ на целиакию сдают на обычном питании с глютеном. Без глютена он может стать ложно чистым - а целиакия есть у 0,7-1,4% людей.</p></div></div>
-    <div class="card m"><div class="x"><svg class="ic" style="width:18px;height:18px"><use href="#i-x"/></svg></div><div><h3>«Омепразол - безобидная таблетка»</h3><p>Среди людей с дефицитом B12 2 года и больше его принимали 12% - против 7,2% без дефицита. Магний тоже может падать.</p></div></div>
-    <div class="card m"><div class="x"><svg class="ic" style="width:18px;height:18px"><use href="#i-x"/></svg></div><div><h3>«Ферменты и пробиотики на всякий случай»</h3><p>Ферменты нужны, когда эластаза низкая. Без анализов это наугад: сначала цифры, потом добавки.</p></div></div>
+    <div class="card m"><div class="x"><svg class="ic" style="width:18px;height:18px"><use href="#i-x"/></svg></div><div><h3>«Сдам анализ на дисбактериоз»</h3><p>Посев кала не видит, что происходит в тонкой кишке.</p></div></div>
+    <div class="card m"><div class="x"><svg class="ic" style="width:18px;height:18px"><use href="#i-x"/></svg></div><div><h3>«Уберу глютен и посмотрю»</h3><p>Без глютена анализ на целиакию может стать ложно чистым.</p></div></div>
+    <div class="card m"><div class="x"><svg class="ic" style="width:18px;height:18px"><use href="#i-x"/></svg></div><div><h3>«Омепразол - безобидная таблетка»</h3><p>При долгом приёме чаще падают B12 и магний.</p></div></div>
+    <div class="card m"><div class="x"><svg class="ic" style="width:18px;height:18px"><use href="#i-x"/></svg></div><div><h3>«Ферменты и пробиотики на всякий случай»</h3><p>Без анализов это наугад: сначала цифры, потом добавки.</p></div></div>
   </div>
 </section>
 
@@ -616,7 +603,7 @@ h2 i.s,.lead i.s{background:var(--grad);-webkit-background-clip:text;background-
   </div>
   <div class="facts mt"><div class="card"><b><span class="cnt" data-to="1000">0</span>+</b><span>консультаций с 2023</span></div><div class="card"><b>3 года</b><span>частной практики</span></div><div class="card"><b>1:1</b><span>Zoom, 60-90 мин</span></div></div>
   <div class="ny mt"><div class="big"><b>~20</b><span>МЕСТ ДО НГ</span></div><div><h3><span class="livedot"></span>До Нового года - около 20 мест</h3><p>Беру до 3 человек в неделю - места быстро заканчиваются. Разберитесь до праздников: застолья - нагрузка на ЖКТ, а анализы готовятся несколько дней.</p></div></div>
-  <div class="card mt">
+  <details class="card mt how"><summary>Как проходит разбор · 5 шагов <svg class="ic chev"><use href="#i-down"/></svg></summary>
     <ul class="steps">
       <li><span class="num">1</span><div><b>Анкета</b><span>Короткая анкета - менеджер пишет в WhatsApp, отвечает на вопросы и подбирает формат.</span></div></li>
       <li><span class="num">2</span><div><b>Подробнее о вас</b><span>Симптомы, стул, питание, лекарства, что уже пробовали.</span></div></li>
@@ -624,9 +611,9 @@ h2 i.s,.lead i.s{background:var(--grad);-webkit-background-clip:text;background-
       <li><span class="num">4</span><div><b>Консультация со мной</b><span>Zoom, 60-90 минут, один на один.</span></div></li>
       <li><span class="num">5</span><div><b>После консультации</b><span>Карта восстановления, план питания и 3-5 дней обратной связи.</span></div></li>
     </ul>
-  </div>
+  </details>
   <p style="font-size:14px;margin-top:10px;color:var(--ink)">Консультация платная. Стоимость зависит от формата - менеджер подберёт его под вашу ситуацию.</p>
-  <a class="btn mt" href="https://forms.gle/igVPeinj4NKTAGSYA" target="_blank" rel="noopener" data-ev="invite_form">Заполнить анкету <svg class="ic"><use href="#i-arrow"/></svg></a>
+  <a class="btn mt pulse" href="https://forms.gle/igVPeinj4NKTAGSYA" target="_blank" rel="noopener" data-ev="invite_form">Заполнить анкету <svg class="ic"><use href="#i-arrow"/></svg></a>
   <p class="small">Пара минут. Менеджер ответит в WhatsApp - ни к чему не обязывает.</p>
 </section>
 
@@ -652,9 +639,8 @@ h2 i.s,.lead i.s{background:var(--grad);-webkit-background-clip:text;background-
 
 <footer class="wrap">Просветительский материал, не медицинская рекомендация. Не отменяйте и не меняйте дозу препарата самостоятельно. Границы норм различаются между лабораториями.<br><br>Шынгыс Садык · Метаболическое здоровье · @shynggys_health</footer>
 
-<button class="fab" id="fab" aria-label="Открыть мой список анализов"><svg class="ic" style="width:18px;height:18px"><use href="#i-list"/></svg>Мой список <b id="fabn">0</b></button>
 
-<div class="sticky" id="sticky"><div class="in"><div class="t" id="stickyT"><b>Разберём ваш ЖКТ</b><span class="livedot"></span>До Нового года ~20 мест</div><a class="btn" href="https://forms.gle/igVPeinj4NKTAGSYA" target="_blank" rel="noopener" data-ev="sticky_form">Заполнить анкету</a></div></div>
+<div class="sticky" id="sticky"><div class="in"><button class="fab" id="fab" aria-label="Открыть мой список анализов"><svg class="ic" style="width:18px;height:18px"><use href="#i-list"/></svg><span class="fl">Список</span> <b id="fabn">0</b></button><div class="t" id="stickyT"><b>Разберём ваш ЖКТ</b><span class="livedot"></span>До Нового года ~20 мест</div><a class="btn" href="https://forms.gle/igVPeinj4NKTAGSYA" target="_blank" rel="noopener" data-ev="sticky_form">Заполнить анкету</a></div></div>
 
 <div class="scrim" id="scrim"></div>
 <div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="shTitle">
@@ -684,16 +670,17 @@ const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return
 $$('.rv').forEach(el=>io.observe(el));
 function countUp(el){if(el._d)return;el._d=1;const to=+el.dataset.to,dec=+(el.dataset.dec||0),fmt=v=>v.toFixed(dec).replace('.',',').replace(/\B(?=(\d{3})+(?!\d))/g,' ');if(reduce){el.textContent=fmt(to);return}const t0=performance.now(),d=900;const f=t=>{const p=Math.min(1,(t-t0)/d),e=1-Math.pow(1-p,3);el.textContent=fmt(to*e);if(p<1)requestAnimationFrame(f)};requestAnimationFrame(f)}
 
-// top bar: progress + active chip
+// top bar & progress: IntersectionObserver for sections, one cheap rAF for the bar
 const secs=['stop','quiz','why','map','tests','today','invite'].map(id=>document.getElementById(id));
+const chips=$('#chips'),chipA=$$('#chips a');let cur=null;
+const setChip=id=>{if(id===cur)return;cur=id;chipA.forEach(a=>{const on=a.getAttribute('href')==='#'+id;a.classList.toggle('on',on);if(on)chips.scrollTo({left:a.offsetLeft-chips.clientWidth/2+a.offsetWidth/2})})};
+const sio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)setChip(e.target.id)}),{rootMargin:'-45% 0px -50% 0px'});secs.forEach(x=>sio.observe(x));
+const topEl=$('#topbar'),stk=$('#sticky'),bar=$('#progress'),quizEl=$('#quiz');
+new IntersectionObserver(([e])=>topEl.classList.toggle('on',!e.isIntersecting&&e.boundingClientRect.top<0)).observe($('.hero'));
 let ticking=false;
 addEventListener('scroll',()=>{if(ticking)return;ticking=true;requestAnimationFrame(()=>{ticking=false;
-  const h=document.documentElement,p=h.scrollTop/(h.scrollHeight-h.clientHeight);$('#progress').style.transform='scaleX('+p+')';
-  const heroB=$('.hero').getBoundingClientRect().bottom;$('#topbar').classList.toggle('on',heroB<0);
-  if(!reduce){const ph=$('.hero .ph img');if(ph&&h.scrollTop<900)ph.style.setProperty('--py',(h.scrollTop*-.12)+'px')}
-  $('#sticky').classList.toggle('on',$('#quiz').getBoundingClientRect().top<0);
-  let cur=secs[0];secs.forEach(s=>{if(s.getBoundingClientRect().top<120)cur=s});
-  $$('#chips a').forEach(a=>{const on=a.getAttribute('href')==='#'+cur.id;if(on&&!a.classList.contains('on'))a.scrollIntoView({inline:'center',block:'nearest',behavior:reduce?'auto':'smooth'});a.classList.toggle('on',on)});
+  const h=document.documentElement;bar.style.transform='scaleX('+(h.scrollTop/(h.scrollHeight-h.clientHeight))+')';
+  stk.classList.toggle('on',quizEl.getBoundingClientRect().top<0||list.size>0&&h.scrollTop>400);
 })},{passive:true});
 
 // QUIZ
@@ -753,7 +740,7 @@ const addBtn=id=>'<button class="add" data-add="'+id+'" aria-pressed="false"><sv
 ['#tg1','#tg2'].forEach((sel,gi)=>{$(sel).innerHTML=T.filter(x=>x.g===gi+1).map(x=>
  '<div class="card acc" id="acc-'+x.id+'"><button class="acc-h" aria-expanded="false" aria-controls="b-'+x.id+'">'+(x.img?'<img src="'+x.img+'" alt="" width="48" height="48" loading="lazy">':'')+'<div class="ti"><h3>'+x.t+'</h3><span class="thr">'+x.thr+'</span></div><svg class="ic chev"><use href="#i-down"/></svg></button><div class="acc-b" id="b-'+x.id+'"><div><p>'+x.p+'</p>'+addBtn(x.id)+'</div></div></div>').join('')});
 $$('.acc-h').forEach(h=>h.onclick=()=>{const c=h.parentElement,o=!c.classList.contains('open');c.classList.toggle('open',o);h.setAttribute('aria-expanded',o);if(o)track('test_open',{id:c.id})});
-function toggleList(id){buzz();if(list.has(id)){list.delete(id);toast('Убрано из списка')}else{list.add(id);toast('Добавлено в список ✓');track('list_add',{id});const f=$('#fab');f.classList.remove('bump');void f.offsetWidth;f.classList.add('bump')}store.set('list',[...list]);syncList()}
+function toggleList(id){buzz();if(list.has(id)){list.delete(id);toast('Убрано из списка')}else{list.add(id);toast('Добавлено в список ✓');track('list_add',{id});const f=$('#fab');f.classList.remove('bump');void f.offsetWidth;f.classList.add('bump');$('#sticky').classList.add('on')}store.set('list',[...list]);syncList()}
 function syncList(){ $$('[data-add]').forEach(b=>{const on=list.has(b.dataset.add);b.classList.toggle('on',on);b.setAttribute('aria-pressed',on);b.querySelector('span').textContent=on?'в списке':'в мой список';b.querySelector('use').setAttribute('href',on?'#i-check':'#i-plus')});
   $('#fabn').textContent=list.size;$('#fab').classList.toggle('on',list.size>0);if(sheetMode==='list')openList() }
 document.addEventListener('click',e=>{const b=e.target.closest('[data-add]');if(b)toggleList(b.dataset.add)});
