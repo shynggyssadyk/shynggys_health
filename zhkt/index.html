@@ -374,7 +374,7 @@ h2 i.s{background:var(--grad);-webkit-background-clip:text;background-clip:text;
 @media (prefers-reduced-motion:reduce){.btn.pulse::after,.livedot::after{animation:none!important}}
 
 /* hero video background */
-.hero{min-height:88svh;display:flex;flex-direction:column;justify-content:flex-end;isolation:isolate;overflow:hidden;background:#070a1a url(img/hero_poster.jpg) center/cover no-repeat}
+.hero{min-height:88svh;display:flex;flex-direction:column;justify-content:flex-end;isolation:isolate;overflow:hidden;background:#070a1a url(img/hero_poster.jpg?v=2) center/cover no-repeat}
 .hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;opacity:0;transition:opacity .8s ease}
 .hero-bg.on{opacity:1}
 .hero-shade{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(5,7,13,.55) 0%,rgba(5,7,13,.15) 30%,rgba(5,7,13,.55) 58%,rgba(5,7,13,.92) 100%)}
@@ -435,7 +435,7 @@ h2 i.s{background:var(--grad);-webkit-background-clip:text;background-clip:text;
 </nav>
 
 <header class="hero">
-  <video class="hero-bg" id="heroVid" muted loop playsinline preload="none" poster="img/hero_poster.jpg" aria-hidden="true" disablepictureinpicture disableremoteplayback></video>
+  <video class="hero-bg" id="heroVid" muted loop playsinline preload="none" poster="img/hero_poster.jpg?v=2" aria-hidden="true" disablepictureinpicture disableremoteplayback></video>
   <div class="hero-shade" aria-hidden="true"></div>
   <div class="wrap">
     <div class="brand"><img src="img/avatar.jpg" alt="Шынгыс Садык" width="46" height="46"><div><div class="n">ШЫНГЫС САДЫК</div><div class="s">МЕТАБОЛИЧЕСКОЕ ЗДОРОВЬЕ</div></div></div>
@@ -803,7 +803,7 @@ $$('#bristol button').forEach(b=>b.onclick=()=>{buzz();$$('#bristol button').for
 
 // hero background video: plays muted inline, no controls; skipped on Save-Data / reduced motion
 (()=>{const v=$('#heroVid');if(!v)return;const c=navigator.connection;if(reduce||(c&&(c.saveData||/2g/.test(c.effectiveType||''))))return;
- v.src='img/hero.mp4';v.muted=true;v.load();
+ v.src='img/hero.mp4?v=2';v.muted=true;v.load();
  const go=()=>{const pr=v.play();pr&&pr.then(()=>v.classList.add('on')).catch(()=>{})};v.addEventListener('canplay',go,{once:true});
  new IntersectionObserver(([e])=>{if(e.isIntersecting){v.paused&&go()}else v.pause()}).observe(v);})();
 track('page_view');
