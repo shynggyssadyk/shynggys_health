@@ -417,6 +417,10 @@ section h2.a{transform:translate3d(0,24px,0)}
 .hero .brand,.hero .pill,.hero h1,.hero .lead,.hero .meta,.hero .btn{animation:heroIn 1s var(--spring) both}
 .hero .pill{animation-delay:.08s}.hero h1{animation-delay:.16s}.hero .lead{animation-delay:.26s}.hero .meta{animation-delay:.34s}.hero .btn{animation-delay:.42s}
 @keyframes heroIn{from{opacity:0;transform:translate3d(0,28px,0)}to{opacity:1;transform:none}}
+.node{padding:12px 16px 12px 10px}
+.ico3d{flex:none;width:72px;height:72px;object-fit:contain;transform:scale(.6) rotate(-10deg);opacity:0;transition:transform 1s cubic-bezier(.34,1.56,.64,1) calc(var(--d,0ms) + 150ms),opacity .5s ease calc(var(--d,0ms) + 150ms)}
+.node.in .ico3d{transform:none;opacity:1}
+@media (prefers-reduced-motion:reduce){.ico3d{transform:none;opacity:1}}
 @media (prefers-reduced-motion:reduce){.a,.a-side,.a-pop,.a-grow{opacity:1!important;transform:none!important}}
 </style>
 </head>
@@ -521,11 +525,11 @@ section h2.a{transform:translate3d(0,24px,0)}
   <div class="kicker">Почему кишечник = энергия</div>
   <h2>Вы - не то, что съели, <i class="s">а то, что усвоили</i></h2>
   <div class="mt">
-    <div class="card node"><div class="ib"><svg class="ic"><use href="#i-plate"/></svg></div><div><h3>Едите правильно</h3><p>мясо, овощи, витамины</p></div></div>
+    <div class="card node"><img class="ico3d" src="img/c_plate.png" alt="" width="72" height="72" loading="lazy"><div><h3>Едите правильно</h3><p>мясо, овощи, витамины</p></div></div>
     <div class="link"></div>
-    <div class="card node bad"><div class="ib"><svg class="ic"><use href="#i-gut"/></svg></div><div><h3>Кишечник не усваивает</h3><p>гастрит, СИБР, целиакия</p></div></div>
+    <div class="card node bad"><img class="ico3d" src="img/c_gut.png" alt="" width="72" height="72" loading="lazy"><div><h3>Кишечник не усваивает</h3><p>гастрит, СИБР, целиакия</p></div></div>
     <div class="link"></div>
-    <div class="card node warn"><div class="ib"><svg class="ic"><use href="#i-battery"/></svg></div><div><h3>Железо и B12 на нуле</h3><p>усталость, туман, выпадают волосы</p></div></div>
+    <div class="card node warn"><img class="ico3d" src="img/c_battery.png" alt="" width="72" height="72" loading="lazy"><div><h3>Железо и B12 на нуле</h3><p>усталость, туман, выпадают волосы</p></div></div>
   </div>
   <div class="quote">Нет сил? <i class="s">Ищите в животе.</i></div>
 </section>
