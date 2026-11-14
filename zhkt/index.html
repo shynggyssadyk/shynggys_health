@@ -394,7 +394,7 @@ h2 i.s{background:var(--grad);-webkit-background-clip:text;background-clip:text;
 @media (max-height:520px){.hero .lead{display:none}}
 
 /* hero v3: calm video on top, text on solid dark below - always readable */
-.hero{background:#06080f}
+.hero{background:#06080f;position:relative}
 .hero-bg{inset:0 0 auto 0;height:64%;object-position:50% 45%}
 .hero-shade{background:linear-gradient(180deg,rgba(6,8,15,.6) 0%,rgba(6,8,15,0) 18%,rgba(6,8,15,0) 34%,rgba(6,8,15,.75) 52%,#06080f 63%,#06080f 100%)}
 .hero h1{text-shadow:none}
@@ -422,6 +422,30 @@ section h2.a{transform:translate3d(0,24px,0)}
 .node.in .ico3d{transform:none;opacity:1}
 @media (prefers-reduced-motion:reduce){.ico3d{transform:none;opacity:1}}
 @media (prefers-reduced-motion:reduce){.a,.a-side,.a-pop,.a-grow{opacity:1!important;transform:none!important}}
+
+/* 3D icons */
+.i3{flex:none;object-fit:contain;display:block}
+.danger h3 .i3{width:34px;height:34px}
+.danger li .i3.sm,.fit li .i3.sm{width:24px;height:24px}
+.fit li{align-items:center}
+.groupt .i3{width:30px;height:30px}
+.when .i3{width:44px;height:44px}
+.m .i3{width:40px;height:40px}
+.bul li{align-items:center}.bul li .i3{width:52px;height:52px}
+.fact-i{width:64px;height:64px;margin:0 auto 8px}
+.acc-h img{object-fit:contain;border-radius:0;width:52px;height:52px}
+
+/* 3D GI map with pins */
+.gimap{position:relative;width:100%;aspect-ratio:2/3}
+.gimap img{width:100%;height:100%;display:block;object-fit:contain}
+.gpin{position:absolute;transform:translate(-50%,-50%);width:44px;height:44px;border:0;background:none;padding:0;display:flex;align-items:center;justify-content:center}
+.gpin b{position:relative;z-index:1;width:28px;height:28px;border-radius:50%;background:rgba(10,132,255,.92);color:#fff;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;border:2.5px solid #fff;box-shadow:0 4px 12px rgba(10,60,140,.4);transition:transform .25s var(--spring,ease),background .2s}
+.gpin i{position:absolute;width:28px;height:28px;border-radius:50%;background:rgba(10,132,255,.45);animation:gpulse 2.2s ease-out infinite}
+.gpin:nth-of-type(2) i{animation-delay:.5s}.gpin:nth-of-type(3) i{animation-delay:1s}.gpin:nth-of-type(4) i{animation-delay:1.5s}
+@keyframes gpulse{from{transform:scale(1);opacity:.9}to{transform:scale(2.3);opacity:0}}
+.gpin:active b{transform:scale(.88)}
+.gpin.on b{background:#E3261F}
+@media (prefers-reduced-motion:reduce){.gpin i{animation:none;opacity:0}}
 </style>
 </head>
 <body>
@@ -479,13 +503,13 @@ section h2.a{transform:translate3d(0,24px,0)}
   <h2>Когда <i class="s">не ждать</i></h2>
   <p class="lead">Вздутие чаще всего не опасно. Но эти признаки - повод не ждать.</p>
   <div class="danger mt">
-    <h3><svg class="ic"><use href="#i-alert"/></svg>Стоп-сигналы</h3>
+    <h3><img class="i3" src="img/i_warn.png" alt="" width="34" height="34" loading="lazy">Стоп-сигналы</h3>
     <ul>
-      <li><b>!</b>Кровь в стуле или чёрный стул</li>
-      <li><b>!</b>Вес уходит сам, без диеты</li>
-      <li><b>!</b>Боль или понос будят ночью</li>
-      <li><b>!</b>Трудно глотать, повторяется рвота</li>
-      <li><b>!</b>Всё началось после 50 лет</li>
+      <li><img class="i3 sm" src="img/i_warn.png" alt="" width="24" height="24" loading="lazy">Кровь в стуле или чёрный стул</li>
+      <li><img class="i3 sm" src="img/i_warn.png" alt="" width="24" height="24" loading="lazy">Вес уходит сам, без диеты</li>
+      <li><img class="i3 sm" src="img/i_warn.png" alt="" width="24" height="24" loading="lazy">Боль или понос будят ночью</li>
+      <li><img class="i3 sm" src="img/i_warn.png" alt="" width="24" height="24" loading="lazy">Трудно глотать, повторяется рвота</li>
+      <li><img class="i3 sm" src="img/i_warn.png" alt="" width="24" height="24" loading="lazy">Всё началось после 50 лет</li>
     </ul>
     <p>Есть хотя бы один пункт? Не откладывайте - <a href="https://forms.gle/igVPeinj4NKTAGSYA" target="_blank" rel="noopener" data-ev="stop_form">заполните анкету</a>: помогу составить план обследования и разберу результаты.</p>
   </div>
@@ -552,19 +576,13 @@ section h2.a{transform:translate3d(0,24px,0)}
   <h2>Где <i class="s">сбой?</i></h2>
   <p class="lead">Нажмите на орган - покажу симптомы и нужный анализ.</p>
   <div class="mapwrap mt">
-    <svg viewBox="0 0 400 780" fill="none" stroke-linecap="round" stroke-linejoin="round" role="group" aria-label="Схема желудочно-кишечного тракта">
-      <path d="M205 352 C 207 380 207 405 208 430 C 262 424 292 444 287 470 C 282 500 142 490 137 520 C 132 552 287 542 287 576 C 287 610 152 598 142 622 C 136 640 118 650 98 652" stroke="#2E8BD8" stroke-width="12"/>
-      <path d="M80 668 L 80 425 Q 80 388 117 388 L 298 388 Q 336 388 336 425 L 336 628 Q 336 676 292 688 Q 242 700 222 718 L 214 778" stroke="#A9CDF0" stroke-width="32"/>
-      <circle cx="82" cy="672" r="22" fill="#A9CDF0"/>
-      <path d="M188 0 C 190 50 194 100 206 146" stroke="#A9CDF0" stroke-width="18"/>
-      <path d="M203 142 C 232 104 322 108 328 185 C 334 258 292 302 236 302 C 204 302 182 290 168 270 L 152 266 C 160 252 178 250 196 254 C 232 262 262 222 246 190 C 236 170 214 160 203 142 Z" stroke="#2E8BD8" stroke-width="8" fill="#EAF3FC"/>
-      <path d="M154 266 C 112 268 98 302 108 332 C 118 362 168 366 205 352" stroke="#2E8BD8" stroke-width="12"/>
-      <path d="M128 312 C 140 296 196 306 250 306 C 292 306 324 300 338 308 C 348 316 336 326 306 328 C 256 332 206 338 168 342 C 140 345 120 330 128 312 Z" stroke="#2E8BD8" stroke-width="7" fill="#fff"/>
-      <g class="organ" data-z="0" tabindex="0" role="button" aria-label="Желудок"><rect class="hit" x="150" y="100" width="190" height="196"/><g class="pin"><circle class="pulse" cx="278" cy="205" r="24"/><circle cx="278" cy="205" r="24"/><text x="278" y="213">1</text></g></g>
-      <g class="organ" data-z="1" tabindex="0" role="button" aria-label="Поджелудочная"><rect class="hit" x="110" y="296" width="240" height="56"/><g class="pin"><circle cx="240" cy="322" r="24"/><text x="240" y="330">2</text></g></g>
-      <g class="organ" data-z="2" tabindex="0" role="button" aria-label="Тонкая кишка"><rect class="hit" x="125" y="420" width="175" height="240"/><g class="pin"><circle cx="212" cy="520" r="24"/><text x="212" y="528">3</text></g></g>
-      <g class="organ" data-z="3" tabindex="0" role="button" aria-label="Толстая кишка"><rect class="hit" x="300" y="400" width="60" height="300"/><rect class="hit" x="55" y="400" width="50" height="290"/><g class="pin"><circle cx="336" cy="560" r="24"/><text x="336" y="568">4</text></g></g>
-    </svg>
+    <div class="gimap" role="group" aria-label="3D-модель желудочно-кишечного тракта">
+      <img src="img/gi_model.webp" alt="3D-модель ЖКТ: пищевод, желудок, печень, поджелудочная, тонкая и толстая кишка" width="560" height="840" loading="lazy">
+      <button class="gpin" data-z="0" style="left:67%;top:26%" aria-label="Желудок"><i></i><b>1</b></button>
+      <button class="gpin" data-z="1" style="left:55%;top:39%" aria-label="Поджелудочная"><i></i><b>2</b></button>
+      <button class="gpin" data-z="2" style="left:45%;top:63%" aria-label="Тонкая кишка"><i></i><b>3</b></button>
+      <button class="gpin" data-z="3" style="left:17%;top:57%" aria-label="Толстая кишка"><i></i><b>4</b></button>
+    </div>
     <div class="olist">
       <button data-z="0"><b>1</b><span>Желудок<small>изжога, тяжесть</small></span></button>
       <button data-z="1"><b>2</b><span>Поджелудочная<small>жирный стул</small></span></button>
@@ -580,21 +598,21 @@ section h2.a{transform:translate3d(0,24px,0)}
   <div class="kicker">Какие анализы сдать</div>
   <h2>8 анализов <i class="s">для ЖКТ</i></h2>
   <p class="lead">Нажмите на анализ и добавьте его в свой список.</p>
-  <div class="groupt"><svg class="ic" style="width:18px;height:18px"><use href="#i-flask"/></svg>В кале и дыхании</div>
+  <div class="groupt"><img class="i3" src="img/t_cal.png" alt="" width="30" height="30" loading="lazy">В кале и дыхании</div>
   <div class="stack" id="tg1"></div>
-  <div class="groupt"><svg class="ic" style="width:18px;height:18px"><use href="#i-drop"/></svg>В крови</div>
+  <div class="groupt"><img class="i3" src="img/i_drop.png" alt="" width="30" height="30" loading="lazy">В крови</div>
   <div class="stack" id="tg2"></div>
-  <div class="when"><svg class="ic"><use href="#i-clock"/></svg><div><b>Когда сдавать:</b> до диет, пробиотиков, ферментов и «чисток». Иначе картина изменится, и причину уже не увидеть.</div></div>
+  <div class="when"><img class="i3" src="img/i_clock.png" alt="" width="44" height="44" loading="lazy"><div><b>Когда сдавать:</b> до диет, пробиотиков, ферментов и «чисток». Иначе картина изменится, и причину уже не увидеть.</div></div>
 </section>
 
 <section id="mistakes" class="rv">
   <div class="kicker">Частые ошибки</div>
   <h2>4 ошибки, из-за которых <i class="s">живот лечат годами</i></h2>
   <div class="stack mt">
-    <div class="card m"><div class="x"><svg class="ic" style="width:18px;height:18px"><use href="#i-x"/></svg></div><div><h3>«Сдам анализ на дисбактериоз»</h3><p>Посев кала не видит, что происходит в тонкой кишке.</p></div></div>
-    <div class="card m"><div class="x"><svg class="ic" style="width:18px;height:18px"><use href="#i-x"/></svg></div><div><h3>«Уберу глютен и посмотрю»</h3><p>Без глютена анализ на целиакию может стать ложно чистым.</p></div></div>
-    <div class="card m"><div class="x"><svg class="ic" style="width:18px;height:18px"><use href="#i-x"/></svg></div><div><h3>«Омепразол - безобидная таблетка»</h3><p>При долгом приёме чаще падают B12 и магний.</p></div></div>
-    <div class="card m"><div class="x"><svg class="ic" style="width:18px;height:18px"><use href="#i-x"/></svg></div><div><h3>«Ферменты и пробиотики на всякий случай»</h3><p>Без анализов это наугад: сначала цифры, потом добавки.</p></div></div>
+    <div class="card m"><img class="i3" src="img/i_x.png" alt="" width="40" height="40" loading="lazy"><div><h3>«Сдам анализ на дисбактериоз»</h3><p>Посев кала не видит, что происходит в тонкой кишке.</p></div></div>
+    <div class="card m"><img class="i3" src="img/i_x.png" alt="" width="40" height="40" loading="lazy"><div><h3>«Уберу глютен и посмотрю»</h3><p>Без глютена анализ на целиакию может стать ложно чистым.</p></div></div>
+    <div class="card m"><img class="i3" src="img/i_x.png" alt="" width="40" height="40" loading="lazy"><div><h3>«Омепразол - безобидная таблетка»</h3><p>При долгом приёме чаще падают B12 и магний.</p></div></div>
+    <div class="card m"><img class="i3" src="img/i_x.png" alt="" width="40" height="40" loading="lazy"><div><h3>«Ферменты и пробиотики на всякий случай»</h3><p>Без анализов это наугад: сначала цифры, потом добавки.</p></div></div>
   </div>
 </section>
 
@@ -629,11 +647,11 @@ section h2.a{transform:translate3d(0,24px,0)}
   <div class="fit mt">
     <h3>Разбор подойдёт, если:</h3>
     <ul>
-      <li><svg class="ic" style="width:18px;height:18px"><use href="#i-check"/></svg>устаёте, хотя спите достаточно</li>
-      <li><svg class="ic" style="width:18px;height:18px"><use href="#i-check"/></svg>ферритин или B12 не растут</li>
-      <li><svg class="ic" style="width:18px;height:18px"><use href="#i-check"/></svg>живот беспокоит дольше месяца</li>
-      <li><svg class="ic" style="width:18px;height:18px"><use href="#i-check"/></svg>анализы «в норме», а сил нет</li>
-      <li><svg class="ic" style="width:18px;height:18px"><use href="#i-check"/></svg>совпало 3+ пункта в самопроверке</li>
+      <li><img class="i3 sm" src="img/i_ok.png" alt="" width="24" height="24" loading="lazy">устаёте, хотя спите достаточно</li>
+      <li><img class="i3 sm" src="img/i_ok.png" alt="" width="24" height="24" loading="lazy">ферритин или B12 не растут</li>
+      <li><img class="i3 sm" src="img/i_ok.png" alt="" width="24" height="24" loading="lazy">живот беспокоит дольше месяца</li>
+      <li><img class="i3 sm" src="img/i_ok.png" alt="" width="24" height="24" loading="lazy">анализы «в норме», а сил нет</li>
+      <li><img class="i3 sm" src="img/i_ok.png" alt="" width="24" height="24" loading="lazy">совпало 3+ пункта в самопроверке</li>
     </ul>
     <p><b>Не знаете, с чего начать?</b> С этого разбор и начинается.</p>
   </div>
@@ -645,10 +663,10 @@ section h2.a{transform:translate3d(0,24px,0)}
   <h2>Разберём ваш ЖКТ <i class="s">и вашу усталость</i></h2>
   <div class="card mt">
     <ul class="bul">
-      <li><div class="ib"><svg class="ic"><use href="#i-list"/></svg></div><div><b>Персональный список анализов</b><span>Что сдать именно вам, без лишнего.</span></div></li>
-      <li><div class="ib"><svg class="ic"><use href="#i-drop"/></svg></div><div><b>Где теряются железо и витамины</b><span>По вашим цифрам, а не по среднему референсу.</span></div></li>
-      <li><div class="ib"><svg class="ic"><use href="#i-leaf"/></svg></div><div><b>Питание под ваш живот</b><span>Чтобы не вздувало, без жёстких диет.</span></div></li>
-      <li><div class="ib"><svg class="ic"><use href="#i-flask"/></svg></div><div><b>Добавки по анализам</b><span>Что нужно, а что можно не покупать.</span></div></li>
+      <li><img class="i3" src="img/i_list.png" alt="" width="52" height="52" loading="lazy"><div><b>Персональный список анализов</b><span>Что сдать именно вам, без лишнего.</span></div></li>
+      <li><img class="i3" src="img/i_drop.png" alt="" width="52" height="52" loading="lazy"><div><b>Где теряются железо и витамины</b><span>По вашим цифрам, а не по среднему референсу.</span></div></li>
+      <li><img class="i3" src="img/i_bowl.png" alt="" width="52" height="52" loading="lazy"><div><b>Питание под ваш живот</b><span>Чтобы не вздувало, без жёстких диет.</span></div></li>
+      <li><img class="i3" src="img/i_supp.png" alt="" width="52" height="52" loading="lazy"><div><b>Добавки по анализам</b><span>Что нужно, а что можно не покупать.</span></div></li>
     </ul>
   </div>
   <div class="facts mt"><div class="card"><b><span class="cnt" data-to="1000">0</span>+</b><span>консультаций с 2023</span></div><div class="card"><b>3 года</b><span>частной практики</span></div><div class="card"><b>1:1</b><span>Zoom, 60-90 мин</span></div></div>
@@ -718,7 +736,7 @@ document.fonts.ready.then(()=>$$('.brand').forEach(b=>{const n=b.querySelector('
 // MOTION (Apple-style): each element animates when it actually enters the screen,
 // and replays every time it comes back. Counters restart from 0 each time.
 function initMotion(){
-const ANIM_SEL='section .kicker,section h2,section .lead,section .stk,.card,.danger,.quote,.fit,.ny,.link,.fibre,.groupt,.when,.bristol,.mapwrap svg,.olist button,.stats .stat,.facts .card,.bul li,.steps li,.tl li,.fit li,.danger li,.how';
+const ANIM_SEL='section .kicker,section h2,section .lead,section .stk,.card,.danger,.quote,.fit,.ny,.link,.fibre,.groupt,.when,.bristol,.mapwrap .gimap,.olist button,.stats .stat,.facts .card,.bul li,.steps li,.tl li,.fit li,.danger li,.how';
 const animEls=$$(ANIM_SEL).filter(el=>!el.closest('.hero,.sheet,.sticky,.topbar')&&!el.parentElement.closest('.a-done'));
 animEls.forEach(el=>{
   // stagger siblings of the same kind inside one parent
@@ -768,7 +786,7 @@ function renderQ(){ if(qi>=Q.length)return analyzing();
   $('#qcount').textContent=(qi+1)+' из '+Q.length;$('#qbar').style.width=(qi/Q.length*100)+'%';$('#qback').disabled=qi===0;
   $('#qrun').style.display='';$('#qres').classList.remove('on'); }
 function renderFact(i){const f=FACT[i];slide.classList.remove('anim');void slide.offsetWidth;if(!reduce)slide.classList.add('anim');
-  slide.innerHTML='<div class="fact"><div class="ib"><svg class="ic"><use href="#i-leaf"/></svg></div><div class="qn">'+f[0]+'</div><p>'+f[1]+'</p><button class="btn" id="qnext">Дальше <svg class="ic"><use href="#i-arrow"/></svg></button></div>';
+  slide.innerHTML='<div class="fact"><img class="i3 fact-i" src="img/'+(i===2?'i_drop':'i_list')+'.png" alt="" width="64" height="64"><div class="qn">'+f[0]+'</div><p>'+f[1]+'</p><button class="btn" id="qnext">Дальше <svg class="ic"><use href="#i-arrow"/></svg></button></div>';
   $('.qans').style.display='none';$('#qnext').onclick=()=>{buzz();$('.qans').style.display='';renderQ()};}
 function analyzing(){$('#qbar').style.width='100%';$('.qans').style.display='none';$('#qback').disabled=true;$('#qcount').textContent='Готово';
   if(reduce){$('.qans').style.display='';return showRes()}
@@ -798,14 +816,14 @@ const initQuiz=()=>{if(ans.length>=Q.length){qi=Q.length;showRes()}else{qi=Math.
 
 // TESTS data
 const T=[
- {g:1,id:'hp',img:'img/t_breath.jpg',t:'Хеликобактер',thr:'дыхательный тест или антиген в кале',p:'<b>Важно:</b> 14 дней до теста без омепразола и похожих препаратов, 4 недели без антибиотиков - иначе результат может быть ложно отрицательным.',L:'Хеликобактер (дыхательный тест или антиген в кале)'},
- {g:1,id:'cal',img:'img/t_stool.jpg',t:'Кальпротектин в кале',thr:'порог: 50 мкг/г',p:'Показывает воспаление в кишечнике. Помогает отличить «чувствительный кишечник» от воспалительного заболевания.',L:'Кальпротектин в кале'},
- {g:1,id:'el',t:'Эластаза-1 в кале',thr:'чаще всего порог 200 мкг/г',p:'Ферменты поджелудочной. Если их мало - жирный, «плавающий» стул, вздутие, хуже усваиваются жиры и витамины A, D, E, K.',L:'Эластаза-1 в кале'},
- {g:1,id:'sibo',t:'Дыхательный тест на СИБР',thr:'водород: +20 ppm за 90 мин · метан от 10 ppm',p:'Избыток бактерий в тонкой кишке. Типичная картина - живот раздувается вскоре после еды.',L:'Дыхательный тест на СИБР (водород и метан)'},
- {g:2,id:'ttg',t:'Антитела к тТГ IgA + общий IgA',thr:'проверка на целиакию',p:'Сдавать <b>на обычном питании с глютеном</b>. Общий IgA - чтобы не пропустить его нехватку, при которой тТГ IgA выглядит нормальным.',L:'Антитела к тТГ IgA + общий IgA'},
- {g:2,id:'fer',t:'Ферритин + общий анализ крови',thr:'дефицит: ферритин < 30 нг/мл',p:'Запас железа. Если ферритин не растёт на железе, причину ищут во всасывании.',L:'Ферритин + общий анализ крови'},
- {g:2,id:'b12',t:'Витамин B12',thr:'норма 148-740 пмоль/л · низ нормы - смотреть глубже',p:'Чаще низкий у тех, кто 2 года и дольше принимает омепразол и похожие препараты.',L:'Витамин B12'},
- {g:2,id:'dmg',t:'Витамин D и магний',thr:'D: дефицит < 20 нг/мл · Mg 0,66-1,07 ммоль/л',p:'Магний может падать при приёме омепразола и похожих препаратов, обычно дольше года - FDA предупреждает об этом с 2011 года.',L:'Витамин D (25-OH) и магний'}];
+ {g:1,id:'hp',img:'img/t_hp.png',t:'Хеликобактер',thr:'дыхательный тест или антиген в кале',p:'<b>Важно:</b> 14 дней до теста без омепразола и похожих препаратов, 4 недели без антибиотиков - иначе результат может быть ложно отрицательным.',L:'Хеликобактер (дыхательный тест или антиген в кале)'},
+ {g:1,id:'cal',img:'img/t_cal.png',t:'Кальпротектин в кале',thr:'порог: 50 мкг/г',p:'Показывает воспаление в кишечнике. Помогает отличить «чувствительный кишечник» от воспалительного заболевания.',L:'Кальпротектин в кале'},
+ {g:1,id:'el',img:'img/t_el.png',t:'Эластаза-1 в кале',thr:'чаще всего порог 200 мкг/г',p:'Ферменты поджелудочной. Если их мало - жирный, «плавающий» стул, вздутие, хуже усваиваются жиры и витамины A, D, E, K.',L:'Эластаза-1 в кале'},
+ {g:1,id:'sibo',img:'img/t_sibo.png',t:'Дыхательный тест на СИБР',thr:'водород: +20 ppm за 90 мин · метан от 10 ppm',p:'Избыток бактерий в тонкой кишке. Типичная картина - живот раздувается вскоре после еды.',L:'Дыхательный тест на СИБР (водород и метан)'},
+ {g:2,id:'ttg',img:'img/t_ttg.png',t:'Антитела к тТГ IgA + общий IgA',thr:'проверка на целиакию',p:'Сдавать <b>на обычном питании с глютеном</b>. Общий IgA - чтобы не пропустить его нехватку, при которой тТГ IgA выглядит нормальным.',L:'Антитела к тТГ IgA + общий IgA'},
+ {g:2,id:'fer',img:'img/t_fer.png',t:'Ферритин + общий анализ крови',thr:'дефицит: ферритин < 30 нг/мл',p:'Запас железа. Если ферритин не растёт на железе, причину ищут во всасывании.',L:'Ферритин + общий анализ крови'},
+ {g:2,id:'b12',img:'img/t_b12.png',t:'Витамин B12',thr:'норма 148-740 пмоль/л · низ нормы - смотреть глубже',p:'Чаще низкий у тех, кто 2 года и дольше принимает омепразол и похожие препараты.',L:'Витамин B12'},
+ {g:2,id:'dmg',img:'img/t_dmg.png',t:'Витамин D и магний',thr:'D: дефицит < 20 нг/мл · Mg 0,66-1,07 ммоль/л',p:'Магний может падать при приёме омепразола и похожих препаратов, обычно дольше года - FDA предупреждает об этом с 2011 года.',L:'Витамин D (25-OH) и магний'}];
 const byId=Object.fromEntries(T.map(x=>[x.id,x]));
 let list=new Set(store.get('list',[]).filter(id=>byId[id]));
 const addBtn=id=>'<button class="add" data-add="'+id+'" aria-pressed="false"><svg class="ic" style="width:16px;height:16px"><use href="#i-plus"/></svg><span>в мой список</span></button>';
