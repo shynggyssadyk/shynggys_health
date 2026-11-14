@@ -2,6 +2,12 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
+<!-- security -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-/itVlzQO2u9qRJD2iFHQMqC+9TSdRShaREp+3jqrRoA='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
+<meta name="format-detection" content="telephone=no">
+<!-- /security -->
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Кишечник, энергия и ваши анализы · Шынгыс Садык</title>
 <meta name="description" content="8 сигналов, что кишечник крадёт энергию: самопроверка за 30 секунд, карта ЖКТ и список анализов.">
@@ -65,7 +71,8 @@ h2{font-weight:700;color:var(--navy);font-size:clamp(27px,7.2vw,38px);line-heigh
 .brand{display:flex;align-items:center;gap:12px}
 .brand img{width:46px;height:46px;border-radius:50%;display:block}
 .brand .n{font-weight:600;font-size:18px;color:#fff;display:table;white-space:nowrap;line-height:1.1}
-.brand .s{font-weight:600;font-size:10.5px;letter-spacing:1.5px;color:#7fd6d3;margin-top:3px;display:table;white-space:nowrap}
+.brand .s{font-weight:600;font-size:11px;letter-spacing:1.2px;color:#7fd6d3;margin-top:4px;display:table;white-space:nowrap;line-height:1}
+.brand .n{line-height:.95}
 
 /* hero */
 .hero{background:radial-gradient(120% 80% at 90% 10%,#2a4372 0%,transparent 60%),linear-gradient(160deg,#111827 0%,#283953 100%);color:#fff;padding:20px 0 28px;border-radius:0 0 30px 30px}
@@ -390,7 +397,7 @@ h2 i.s{background:var(--grad);-webkit-background-clip:text;background-clip:text;
 .hero .pill{margin-top:0}
 .hero .meta{margin-top:12px}
 .hero .wrap{padding-top:0;padding-bottom:4px}
-@media (max-height:620px){.hero .meta{display:none}.hero .brand img{width:38px;height:38px}.hero .btn{margin-top:14px;min-height:50px}}
+@media (max-height:620px){.hero .meta{display:none}.hero .btn{margin-top:14px;min-height:50px}}
 @media (max-height:520px){.hero .lead{display:none}}
 
 /* hero v3: calm video on top, text on solid dark below - always readable */
@@ -446,6 +453,7 @@ section h2.a{transform:translate3d(0,24px,0)}
 .gpin:active b{transform:scale(.88)}
 .gpin.on b{background:#E3261F}
 @media (prefers-reduced-motion:reduce){.gpin i{animation:none;opacity:0}}
+img,video{-webkit-touch-callout:none;-webkit-user-drag:none;user-select:none}
 </style>
 </head>
 <body>
@@ -511,7 +519,7 @@ section h2.a{transform:translate3d(0,24px,0)}
       <li><img class="i3 sm" src="img/i_warn.png" alt="" width="24" height="24" loading="lazy">Трудно глотать, повторяется рвота</li>
       <li><img class="i3 sm" src="img/i_warn.png" alt="" width="24" height="24" loading="lazy">Всё началось после 50 лет</li>
     </ul>
-    <p>Есть хотя бы один пункт? Не откладывайте - <a href="https://forms.gle/igVPeinj4NKTAGSYA" target="_blank" rel="noopener" data-ev="stop_form">заполните анкету</a>: помогу составить план обследования и разберу результаты.</p>
+    <p>Есть хотя бы один пункт? Не откладывайте - <a href="https://forms.gle/igVPeinj4NKTAGSYA" target="_blank" rel="noopener noreferrer" data-ev="stop_form">заполните анкету</a>: помогу составить план обследования и разберу результаты.</p>
   </div>
 </section>
 
@@ -538,7 +546,7 @@ section h2.a{transform:translate3d(0,24px,0)}
       <p id="rtext"></p>
       <div class="matched" id="rmatched"></div>
       <div id="rrec"></div>
-      <a class="btn" id="rcta" href="https://forms.gle/igVPeinj4NKTAGSYA" target="_blank" rel="noopener" data-ev="quiz_form">Разобрать мой случай <svg class="ic"><use href="#i-arrow"/></svg></a>
+      <a class="btn" id="rcta" href="https://forms.gle/igVPeinj4NKTAGSYA" target="_blank" rel="noopener noreferrer" data-ev="quiz_form">Разобрать мой случай <svg class="ic"><use href="#i-arrow"/></svg></a>
       <p class="small">Короткая анкета. Менеджер ответит в WhatsApp - ни к чему не обязывает.</p>
       <button class="again" id="qagain">Пройти заново</button>
     </div>
@@ -681,7 +689,7 @@ section h2.a{transform:translate3d(0,24px,0)}
     </ul>
   </details>
   <p style="font-size:14px;margin-top:10px;color:var(--ink)">Консультация платная. Стоимость зависит от формата - менеджер подберёт его под вашу ситуацию.</p>
-  <a class="btn mt pulse" href="https://forms.gle/igVPeinj4NKTAGSYA" target="_blank" rel="noopener" data-ev="invite_form">Заполнить анкету <svg class="ic"><use href="#i-arrow"/></svg></a>
+  <a class="btn mt pulse" href="https://forms.gle/igVPeinj4NKTAGSYA" target="_blank" rel="noopener noreferrer" data-ev="invite_form">Заполнить анкету <svg class="ic"><use href="#i-arrow"/></svg></a>
   <p class="small">Пара минут. Менеджер ответит в WhatsApp - ни к чему не обязывает.</p>
 </section>
 
@@ -705,10 +713,10 @@ section h2.a{transform:translate3d(0,24px,0)}
 </section>
 </main>
 
-<footer class="wrap">Просветительский материал, не медицинская рекомендация. Не отменяйте и не меняйте дозу препарата самостоятельно. Границы норм различаются между лабораториями.<br><br>Шынгыс Садык · Метаболическое здоровье · @shynggys_health</footer>
+<footer class="wrap">Просветительский материал, не медицинская рекомендация. Не отменяйте и не меняйте дозу препарата самостоятельно. Границы норм различаются между лабораториями.<br><br>Шынгыс Садык · Метаболическое здоровье · @shynggys_health<br>© 2026 Шынгыс Садык. Копирование и распространение материалов без письменного разрешения автора запрещено.</footer>
 
 
-<div class="sticky" id="sticky"><div class="in"><button class="fab" id="fab" aria-label="Открыть мой список анализов"><svg class="ic" style="width:18px;height:18px"><use href="#i-list"/></svg><span class="fl">Список</span> <b id="fabn">0</b></button><div class="t" id="stickyT"><b>Разберём ваш ЖКТ</b><span class="livedot"></span>До Нового года ~20 мест</div><a class="btn" href="https://forms.gle/igVPeinj4NKTAGSYA" target="_blank" rel="noopener" data-ev="sticky_form">Заполнить анкету</a></div></div>
+<div class="sticky" id="sticky"><div class="in"><button class="fab" id="fab" aria-label="Открыть мой список анализов"><svg class="ic" style="width:18px;height:18px"><use href="#i-list"/></svg><span class="fl">Список</span> <b id="fabn">0</b></button><div class="t" id="stickyT"><b>Разберём ваш ЖКТ</b><span class="livedot"></span>До Нового года ~20 мест</div><a class="btn" href="https://forms.gle/igVPeinj4NKTAGSYA" target="_blank" rel="noopener noreferrer" data-ev="sticky_form">Заполнить анкету</a></div></div>
 
 <div class="scrim" id="scrim"></div>
 <div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="shTitle">
@@ -719,6 +727,7 @@ section h2.a{transform:translate3d(0,24px,0)}
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script>
+(()=>{if(window.top!==window.self){try{window.top.location.replace(window.self.location.href)}catch(e){document.documentElement.style.display='none'}}})();
 (()=>{
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const FORM='https://forms.gle/igVPeinj4NKTAGSYA';
@@ -731,7 +740,9 @@ document.addEventListener('click',e=>{const a=e.target.closest('[data-ev]');if(a
 const toast=t=>{const el=$('#toast');el.textContent=t;el.classList.add('on');clearTimeout(el._t);el._t=setTimeout(()=>el.classList.remove('on'),2200)};
 
 // brand lockup: name fitted to subtitle width
-document.fonts.ready.then(()=>$$('.brand').forEach(b=>{const n=b.querySelector('.n'),s=b.querySelector('.s');const ls=parseFloat(getComputedStyle(s).letterSpacing)||0,target=s.getBoundingClientRect().width-ls;let fs=18;n.style.letterSpacing='.6px';n.style.marginRight='-.6px';for(let i=0;i<4;i++){n.style.fontSize=fs+'px';fs=fs*target/(n.getBoundingClientRect().width-.6)}n.style.fontSize=fs+'px'}));
+document.fonts.ready.then(()=>$$('.brand').forEach(b=>{const n=b.querySelector('.n'),s=b.querySelector('.s');const ls=parseFloat(getComputedStyle(s).letterSpacing)||0,target=s.getBoundingClientRect().width-ls;let fs=18;n.style.letterSpacing='.6px';n.style.marginRight='-.6px';for(let i=0;i<4;i++){n.style.fontSize=fs+'px';fs=fs*target/(n.getBoundingClientRect().width-.6)}n.style.fontSize=fs+'px';
+  // avatar diameter = height of the two-line text block (cap of name to baseline of subtitle) -> balanced lockup
+  const img=b.querySelector('img'),t=n.parentElement.getBoundingClientRect();if(img){const d=Math.round(t.height*1.18);img.style.width=img.style.height=d+'px';b.style.gap=Math.round(d*.24)+'px'}}));
 
 // MOTION (Apple-style): each element animates when it actually enters the screen,
 // and replays every time it comes back. Counters restart from 0 each time.
@@ -847,13 +858,13 @@ $('#scrim').onclick=closeSheet;$('#shClose').onclick=closeSheet;addEventListener
 const Z=[{t:'Желудок',s:[['Изжога, тяжесть, отрыжка','hp']]},{t:'Поджелудочная',s:[['Жирный, «плавающий» стул, вздутие','el']]},{t:'Тонкая кишка',s:[['Вздутие через 30-90 минут после еды','sibo'],['Железо не поднимается','ttg']]},{t:'Толстая кишка',s:[['Понос, запор, слизь','cal']]}];
 function openZone(i){buzz();const z=Z[i];track('map_zone',{z:i});
  openSheet((i+1)+' · '+z.t, z.s.map(([sym,id])=>'<div class="sym"><svg class="ic" style="width:18px;height:18px"><use href="#i-alert"/></svg>'+sym+'</div><div class="trow"><b>→ '+byId[id].t+'</b>'+addBtn(id)+'</div>').join('')+
- '<a class="btn mt" href="'+FORM+'" target="_blank" rel="noopener" data-ev="map_form">Разобрать мой случай <svg class="ic"><use href="#i-arrow"/></svg></a><button class="btn ghost" style="margin-top:8px" onclick="document.getElementById(\'tests\').scrollIntoView();" data-close>Все анализы</button>','zone');syncList()}
+ '<a class="btn mt" href="'+FORM+'" target="_blank" rel="noopener noreferrer" data-ev="map_form">Разобрать мой случай <svg class="ic"><use href="#i-arrow"/></svg></a><button class="btn ghost" style="margin-top:8px" data-goto="tests" data-close>Все анализы</button>','zone');syncList()}
 $$('[data-z]').forEach(el=>{el.addEventListener('click',()=>openZone(+el.dataset.z));el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openZone(+el.dataset.z)}})});
-document.addEventListener('click',e=>{if(e.target.closest('[data-close]'))closeSheet()});
+document.addEventListener('click',e=>{const g=e.target.closest('[data-goto]');if(e.target.closest('[data-close]'))closeSheet();if(g){const t=document.getElementById(g.dataset.goto);t&&t.scrollIntoView()}});
 
 // MY LIST
 const listText=()=>'Мой список анализов (ЖКТ):\n'+[...list].map((id,i)=>(i+1)+'. '+byId[id].L).join('\n')+'\n\nСдавать до диет, пробиотиков и ферментов. Анализ на целиакию - на обычном питании с глютеном.\nИз справочника Шынгыса Садыка @shynggys_health';
-function openList(){const html=list.size?'<ol class="mlist">'+[...list].map(id=>'<li>'+byId[id].L+'<button data-add="'+id+'" aria-label="Убрать"><svg class="ic" style="width:18px;height:18px"><use href="#i-x"/></svg><span class="sr"></span></button></li>').join('')+'</ol><div class="row2"><button class="btn ghost" id="cpy"><svg class="ic" style="width:18px;height:18px"><use href="#i-copy"/></svg>Скопировать</button><button class="btn" id="shr"><svg class="ic" style="width:18px;height:18px"><use href="#i-share"/></svg>Отправить</button></div><p class="small">Хотите, чтобы список подобрали именно под вас?</p><a class="btn dark" style="margin-top:8px" href="'+FORM+'" target="_blank" rel="noopener" data-ev="list_form">Заполнить анкету</a>':'<p class="empty">Список пуст. Добавляйте анализы кнопкой «+ в мой список».</p>';
+function openList(){const html=list.size?'<ol class="mlist">'+[...list].map(id=>'<li>'+byId[id].L+'<button data-add="'+id+'" aria-label="Убрать"><svg class="ic" style="width:18px;height:18px"><use href="#i-x"/></svg><span class="sr"></span></button></li>').join('')+'</ol><div class="row2"><button class="btn ghost" id="cpy"><svg class="ic" style="width:18px;height:18px"><use href="#i-copy"/></svg>Скопировать</button><button class="btn" id="shr"><svg class="ic" style="width:18px;height:18px"><use href="#i-share"/></svg>Отправить</button></div><p class="small">Хотите, чтобы список подобрали именно под вас?</p><a class="btn dark" style="margin-top:8px" href="'+FORM+'" target="_blank" rel="noopener noreferrer" data-ev="list_form">Заполнить анкету</a>':'<p class="empty">Список пуст. Добавляйте анализы кнопкой «+ в мой список».</p>';
  if(sheetMode==='list'){$('#shBody').innerHTML=html;$('#shTitle').textContent='Мой список анализов ('+list.size+')'}else openSheet('Мой список анализов ('+list.size+')',html,'list');
  const c=$('#cpy'),s=$('#shr');
  c&&(c.onclick=async()=>{try{await navigator.clipboard.writeText(listText());toast('Скопировано ✓')}catch(_){prompt('Скопируйте список:',listText())}track('list_copy')});
@@ -870,6 +881,7 @@ $$('#bristol button').forEach(b=>b.onclick=()=>{buzz();$$('#bristol button').for
  v.src='img/hero.mp4?v=2';v.muted=true;v.load();
  const go=()=>{const pr=v.play();pr&&pr.then(()=>v.classList.add('on')).catch(()=>{})};v.addEventListener('canplay',go,{once:true});
  new IntersectionObserver(([e])=>{if(e.isIntersecting){v.paused&&go()}else v.pause()}).observe(v);})();
+document.addEventListener('contextmenu',e=>{if(e.target.closest('img,video'))e.preventDefault()});document.addEventListener('dragstart',e=>{if(e.target.closest('img,video'))e.preventDefault()});
 track('page_view');
 })();
 </script>
