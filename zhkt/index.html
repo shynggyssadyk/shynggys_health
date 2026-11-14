@@ -586,6 +586,39 @@ h2 i.s{background:var(--grad);-webkit-background-clip:text;background-clip:text;
 @keyframes showQ{to{opacity:1}}
 .appeal.speak .ap-sub{margin-top:0}
 @media (prefers-reduced-motion:reduce){.appeal.speak .bubble,.appeal.speak .sp-quote{opacity:1!important;transform:none!important;animation:none!important}.appeal.speak .typing{display:none!important}.sp-ava{animation:none}}
+/* ===== v5 polish ===== */
+/* journey: step 1 calm but readable; numbers without white halo rings */
+.j-steps li:nth-child(1) i{background:#D6E8FA;color:#1F5FA8;box-shadow:none}
+.j-steps li:nth-child(1) b{color:var(--navy);font-weight:700}
+.j-steps li:nth-child(1) span{color:var(--sec)}
+.j-steps li:nth-child(2) i{box-shadow:none}
+.j-steps li:nth-child(3) i{box-shadow:0 4px 10px rgba(62,142,230,.25)}
+.j-steps li:nth-child(4) i{box-shadow:0 6px 14px rgba(94,92,230,.3)}
+.j-steps li:nth-child(5) i{box-shadow:0 0 0 3px rgba(94,92,230,.35),0 6px 16px rgba(11,15,26,.3)}
+.j-steps .me b img{box-shadow:none}
+/* screenshots inside steps */
+.shot{margin-top:10px}
+.shot.phone{width:120px;border-radius:18px;overflow:hidden;border:5px solid #11151f;box-shadow:0 10px 24px rgba(20,40,90,.18);background:#fff}
+.shot.phone img{display:block;width:100%;height:auto;aspect-ratio:420/925;object-fit:cover;object-position:top}
+.has-shot>div{flex:1}
+.shot.pages{display:flex;flex-wrap:wrap;align-items:flex-start;margin-top:12px;padding:4px 0 0 4px}
+.shot.pages img{width:46%;max-width:150px;height:auto;border-radius:6px;box-shadow:0 10px 24px rgba(0,0,0,.35)}
+.shot.pages img:first-child{transform:rotate(-4deg)}
+.shot.pages img:nth-child(2){margin-left:-6%;margin-top:8px;transform:rotate(4deg)}
+.shot.pages figcaption{flex-basis:100%;margin-top:10px;font-size:11.5px;color:#9fb1cc;line-height:1.35}
+/* appeal: clean soft shadows (no hard comic offset), avatar without square glow */
+.sp-ava{box-shadow:none;filter:drop-shadow(0 6px 14px rgba(10,60,140,.25))}
+.sp-head span{display:block}
+.sp-head span:first-of-type{color:var(--navy);font-weight:600;font-size:13.5px;margin-top:2px}
+.bubble{box-shadow:none;border-width:1.5px;filter:drop-shadow(0 10px 22px rgba(20,40,90,.10))}
+.ap-list i{box-shadow:none}
+/* seats block calmer */
+.cap-note b{color:#fff}
+/* bottom bar: dark Apple-style glass, clearly visible */
+.sticky{background:rgba(17,22,38,.72)!important;backdrop-filter:saturate(180%) blur(22px)!important;-webkit-backdrop-filter:saturate(180%) blur(22px)!important;border:1px solid rgba(255,255,255,.18)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 18px 44px rgba(5,10,30,.35)!important}
+.sticky .t{color:#C9D8EA}.sticky .t b{color:#fff}
+.sticky .fab{background:rgba(255,255,255,.12);color:#fff}
+.sticky .btn{background:linear-gradient(135deg,#0A84FF,#5E5CE6);box-shadow:0 8px 22px rgba(10,132,255,.45);font-weight:700}
 /* seats + New Year countdown */
 .ny{display:block!important;padding:18px}
 .ny-top{display:flex;gap:14px;align-items:center}
@@ -880,22 +913,22 @@ h2{font-size:clamp(26px,7vw,36px)}
       <div class="j-chips"><span><b>1 000+</b> консультаций</span><span>Zoom 1:1</span><span>60-90 минут</span></div>
     </div>
     <ol class="j-steps">
-      <li><i>1</i><div><b>Анкета</b><span>Пара минут. Менеджер напишет в WhatsApp и подберёт формат.</span></div></li>
+      <li class="has-shot"><i>1</i><div><b>Анкета</b><span>Всего 3 вопроса и пара минут. Менеджер напишет в WhatsApp и подберёт формат.</span><figure class="shot phone"><img src="img/form_shot.webp" alt="Анкета: имя, телефон и пара слов о проблеме" width="420" height="925" loading="lazy"></figure></div></li>
       <li><i>2</i><div><b>Ваша история</b><span>Симптомы, стул, питание, лекарства, что уже пробовали.</span></div></li>
       <li><i>3</i><div><b>Анализы</b><span>Составлю персональный список. Есть свежие - посмотрю, чего не хватает.</span></div></li>
       <li class="me"><i>4</i><div><b>Консультация со мной <img src="img/avatar.jpg" alt="" width="26" height="26" loading="lazy"></b><span>Один на один в Zoom: разбираем цифры и находим, где теряется энергия.</span></div></li>
-      <li class="fin"><i>5</i><div><b>Ваш план</b><span>Карта восстановления, питание под ваш живот и 3-5 дней обратной связи.</span></div></li>
+      <li class="fin"><i>5</i><div><b>Ваш план</b><span>Персональный протокол восстановления, питание под ваш живот и 3-5 дней обратной связи.</span><figure class="shot pages"><img src="img/proto1.webp" alt="Обложка протокола восстановления" width="450" height="637" loading="lazy"><img src="img/proto2.webp" alt="Страница протокола «С чего мы начинаем»" width="450" height="637" loading="lazy"><figcaption>Так выглядит протокол. Данные клиента скрыты.</figcaption></figure></div></li>
     </ol>
   </div>
   <div class="ny mt" id="ny">
     <div class="ny-top"><div class="big"><b id="seats">~20</b><span>МЕСТ ДО НГ</span></div><div><h3><span class="livedot"></span>Беру до 3 человек в неделю</h3><p>Разберитесь до праздников: застолья - нагрузка на ЖКТ, а анализы готовятся несколько дней.</p></div></div>
-    <div class="cd" aria-label="Время до Нового года"><span class="cd-l">До Нового года</span><div class="cd-t"><div><b id="cdD">--</b><small>дней</small></div><div><b id="cdH">--</b><small>часов</small></div><div><b id="cdM">--</b><small>минут</small></div><div><b id="cdS">--</b><small>секунд</small></div></div></div>
-    <div class="cap-bar"><i id="capFill"></i></div><p class="cap-note">Свободные места считаю по реальному графику: 3 консультации в неделю до 31 декабря.</p>
+    <div class="cap-bar"><i id="capFill"></i></div>
+    <p class="cap-note">До Нового года <b id="cdD">--</b> дн. · места считаю по реальному графику - 3 консультации в неделю<span hidden><b id="cdH"></b><b id="cdM"></b><b id="cdS"></b></span></p>
   </div>
   <div class="appeal speak mt" id="appeal">
     <div class="sp-head">
       <img class="sp-ava" src="img/logo_round.webp" alt="Шынгыс Садык" width="88" height="88" loading="lazy">
-      <div><b>Шынгыс Садык</b><span>Метаболическое здоровье · 1 000+ консультаций</span></div>
+      <div><b>Шынгыс Садык</b><span>Дипломированный химик · Назарбаев Университет</span><span>Метаболическое здоровье · 1 000+ консультаций</span></div>
     </div>
     <div class="bubble b1">
       <div class="typing" aria-hidden="true"><i></i><i></i><i></i></div>
@@ -910,7 +943,6 @@ h2{font-size:clamp(26px,7vw,36px)}
         <li><i>4</i><div><b>План, который можно начать в тот же день</b><span>Питание и шаги под ваш живот, без жёстких диет.</span></div></li>
         <li><i>5</i><div><b>Не оставлю одних после консультации</b><span>3-5 дней на связи, чтобы ответить на вопросы.</span></div></li>
       </ul>
-      <div class="ap-sign">Шынгыс Садык</div>
     </div>
   </div>
   <a class="btn mt pulse" href="https://forms.gle/igVPeinj4NKTAGSYA" target="_blank" rel="noopener noreferrer" data-ev="invite_form">Записаться на разбор <svg class="ic"><use href="#i-arrow"/></svg></a>
