@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <!-- security -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-1PRFpSW9toGkiYS3X3JGC8LUQYWAG6A42r4rTabjoIM='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-7sj9ELTPgTGb1F05admfgxrQaVMd+NkfDK5mFUvclT0='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
 <meta name="format-detection" content="telephone=no">
@@ -575,7 +575,7 @@ img,video{-webkit-touch-callout:none;-webkit-user-drag:none;user-select:none}
     <div class="card stat"><div class="v"><span class="cnt" data-to="1.4" data-dec="1">0</span><small>%</small></div><p>людей - целиакия по антителам</p><em>0,7% по биопсии</em></div>
     <div class="card stat"><div class="v"><span class="cnt" data-to="12">0</span><small>% vs 7,2%</small></div><p>с дефицитом B12 пили омепразол 2+ года</p><em>JAMA, 2013</em></div>
   </div>
-  <p class="lead" style="color:var(--navy);font-weight:500">Живот может и не болеть. Это видно только в анализах.</p>
+  <p class="lead" style="color:var(--navy);font-weight:500;margin-top:24px">Живот может и не болеть. Это видно только в анализах.</p>
 </section>
 
 <section id="map" class="rv">
@@ -766,10 +766,13 @@ function countUp(el){const to=+el.dataset.to,dec=+(el.dataset.dec||0);cancelAnim
   const t0=performance.now(),d=1600;const f=t=>{const p=Math.min(1,(t-t0)/d),e=p===1?1:1-Math.pow(2,-10*p);el.textContent=fmtN(to*e,dec);if(p<1)el._raf=requestAnimationFrame(f)};el._raf=requestAnimationFrame(f)}
 function countReset(el){cancelAnimationFrame(el._raf);el.textContent=fmtN(0,+(el.dataset.dec||0))}
 if(reduce){animEls.forEach(el=>el.classList.add('in'));$$('.cnt').forEach(countUp)}else{
-  const aio=new IntersectionObserver(es=>es.forEach(e=>{e.target.classList.toggle('in',e.isIntersecting)}),{rootMargin:'0px 0px -10% 0px',threshold:.12});
+  // show when entering; reset ONLY when the element leaves through the bottom (user scrolled back up),
+  // so elements leaving at the top never shift down onto the content below
+  const below=e=>e.boundingClientRect.top>(e.rootBounds?e.rootBounds.bottom:innerHeight)-1;
+  const aio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in');else if(below(e))e.target.classList.remove('in')}),{rootMargin:'0px 0px -10% 0px',threshold:.12});
   animEls.forEach(el=>aio.observe(el));
   // observe the (non-animated) grid that holds the numbers, so tile transforms don't interfere
-  const cio=new IntersectionObserver(es=>es.forEach(e=>{const cs=e.target.querySelectorAll('.cnt');clearTimeout(e.target._t);if(e.isIntersecting){e.target._t=setTimeout(()=>cs.forEach(countUp),200)}else cs.forEach(countReset)}),{rootMargin:'0px 0px -15% 0px',threshold:.35});
+  const cio=new IntersectionObserver(es=>es.forEach(e=>{const cs=e.target.querySelectorAll('.cnt');clearTimeout(e.target._t);if(e.isIntersecting){if(!e.target._done){e.target._done=1;e.target._t=setTimeout(()=>cs.forEach(countUp),200)}}else if(below(e)){e.target._done=0;cs.forEach(countReset)}}),{rootMargin:'0px 0px -15% 0px',threshold:.35});
   [...new Set($$('.cnt').map(el=>el.closest('.stats,.facts')||el))].forEach(g=>cio.observe(g));
 }}
 
