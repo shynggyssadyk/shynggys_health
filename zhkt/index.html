@@ -4,32 +4,62 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Кишечник, энергия и ваши анализы · Шынгыс Садык</title>
-<meta name="description" content="8 сигналов, что кишечник крадёт энергию: самопроверка за 30 секунд, какие анализы сдать и с чего начать.">
+<meta name="description" content="8 сигналов, что кишечник крадёт энергию: самопроверка за 30 секунд, карта ЖКТ и список анализов.">
 <meta property="og:title" content="Кишечник, энергия и ваши анализы">
-<meta property="og:description" content="Самопроверка за 30 секунд и список анализов для ЖКТ">
-<meta property="og:image" content="img/cover_tubes.jpg">
+<meta property="og:description" content="Самопроверка за 30 секунд, карта ЖКТ и список анализов">
+<meta property="og:image" content="https://shynggyssadyk.github.io/shynggys_health/zhkt/img/cover_tubes.jpg">
 <meta name="theme-color" content="#111827">
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geologica:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@1,8..60,560&display=swap" rel="stylesheet">
 <style>
-:root{--navy:#00306C;--sec:#33507A;--muted:#7A8FAD;--acc:#2E8BD8;--red:#E3261F;--line:#E1EAF5;--teal:#1FA3A0;--bg2:#F2F7FD;--soft:#EAF3FC}
-*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#00306C;--ink:#16294a;--sec:#33507A;--muted:#5f7393;--acc:#2E8BD8;--acc2:#1F6DB5;--sky:#9FD3FF;
+  --red:#D9221B;--green:#1A7A50;--line:#E1EAF5;--soft:#EAF3FC;--bg:#F5F9FE;--dark:#111827;
+  --r-lg:22px;--r-md:16px;--sh:0 8px 24px rgba(0,48,108,.08);--sh2:0 14px 40px rgba(0,48,108,.16);
+  --ease:cubic-bezier(.2,.8,.2,1);--t:220ms;
+  --safe-b:env(safe-area-inset-bottom,0px);
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{font-family:'Geologica',system-ui,sans-serif;color:var(--sec);background:linear-gradient(180deg,#fff 0%,var(--bg2) 100%);line-height:1.45;font-size:17px}
+body{font-family:'Geologica',system-ui,-apple-system,sans-serif;color:var(--sec);background:var(--bg);line-height:1.5;font-size:16.5px;min-height:100dvh}
 a{color:inherit}
-i,.it{font-family:'Source Serif 4',Georgia,serif;font-style:italic;font-weight:560;font-size:1.07em;color:var(--acc)}
-.wrap{max-width:720px;margin:0 auto;padding:0 18px}
-section{padding:46px 0 10px}
-.kicker{font-weight:600;font-size:13px;letter-spacing:2.2px;color:var(--acc);text-transform:uppercase}
-h1{font-weight:700;color:#fff;font-size:clamp(34px,9vw,54px);line-height:1.06;letter-spacing:-.5px;margin-top:22px}
-h2{font-weight:700;color:var(--navy);font-size:clamp(28px,7.4vw,40px);line-height:1.1;letter-spacing:-.3px;margin-top:8px}
-.lead{font-size:18px;margin-top:12px}
-.card{background:#fff;border:2px solid var(--line);border-radius:22px;padding:18px 20px}
+button{font-family:inherit;cursor:pointer;touch-action:manipulation}
+:focus-visible{outline:3px solid var(--acc);outline-offset:3px;border-radius:8px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.skip{position:absolute;left:12px;top:-60px;background:#fff;padding:10px 14px;border-radius:10px;z-index:100}
+.skip:focus{top:12px}
+i.s,.it{font-family:'Source Serif 4',Georgia,serif;font-style:italic;font-weight:560;font-size:1.07em;color:var(--acc)}
+svg.ic{width:22px;height:22px;flex:none;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.wrap{max-width:680px;margin:0 auto;padding:0 16px}
+section{padding:44px 0 8px;scroll-margin-top:64px}
+.kicker{font-weight:600;font-size:12.5px;letter-spacing:2px;color:var(--acc);text-transform:uppercase}
+h1{font-weight:700;color:#fff;font-size:clamp(34px,9.4vw,52px);line-height:1.05;letter-spacing:-.6px;margin-top:20px}
+h2{font-weight:700;color:var(--navy);font-size:clamp(27px,7.2vw,38px);line-height:1.1;letter-spacing:-.4px;margin-top:8px}
+.lead{font-size:17.5px;margin-top:10px;color:var(--sec)}
+.card{background:#fff;border:1.5px solid var(--line);border-radius:var(--r-lg);padding:18px;box-shadow:var(--sh)}
 .stack>*+*{margin-top:12px}
 .mt{margin-top:18px}
-.btn{display:block;text-align:center;text-decoration:none;background:linear-gradient(90deg,#1F6DB5,#3A9BE8);color:#fff;font-weight:600;font-size:18px;border-radius:18px;padding:17px 18px;border:0;cursor:pointer;width:100%;font-family:inherit}
-.btn.ghost{background:#fff;color:var(--navy);border:2px solid var(--line)}
-.small{font-size:14px;color:var(--muted);text-align:center;margin-top:8px}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;min-height:54px;text-align:center;text-decoration:none;background:linear-gradient(90deg,var(--acc2),#3A9BE8);color:#fff;font-weight:600;font-size:17px;border-radius:16px;padding:14px 18px;border:0;width:100%;transition:transform var(--t) var(--ease),box-shadow var(--t);box-shadow:0 10px 24px rgba(31,109,181,.28)}
+.btn:active{transform:scale(.97)}
+.btn.ghost{background:#fff;color:var(--navy);border:1.5px solid var(--line);box-shadow:none}
+.btn.dark{background:var(--navy);box-shadow:none}
+.small{font-size:13.5px;color:var(--muted);text-align:center;margin-top:8px}
+.press{transition:transform var(--t) var(--ease)}.press:active{transform:scale(.97)}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(16px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.rv{opacity:1;transform:none}}
+
+/* top bar */
+.topbar{position:fixed;top:0;left:0;right:0;z-index:30;background:rgba(245,249,254,.9);backdrop-filter:saturate(1.4) blur(10px);-webkit-backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--line);transform:translateY(-100%);transition:transform var(--t) var(--ease)}
+.topbar.on{transform:none}
+.progress{height:3px;background:linear-gradient(90deg,var(--acc),var(--sky));transform-origin:0 50%;transform:scaleX(0)}
+.chips{display:flex;gap:6px;overflow-x:auto;padding:8px 12px;scrollbar-width:none;max-width:680px;margin:0 auto}
+.chips::-webkit-scrollbar{display:none}
+.chips a{flex:none;text-decoration:none;font-size:13.5px;font-weight:600;color:var(--sec);padding:8px 12px;border-radius:30px;min-height:36px;display:flex;align-items:center;transition:background var(--t),color var(--t)}
+.chips a.on{background:var(--navy);color:#fff}
 
 /* brand */
 .brand{display:flex;align-items:center;gap:12px}
@@ -38,187 +68,290 @@ h2{font-weight:700;color:var(--navy);font-size:clamp(28px,7.4vw,40px);line-heigh
 .brand .s{font-weight:600;font-size:10.5px;letter-spacing:1.5px;color:#7fd6d3;margin-top:3px;display:table;white-space:nowrap}
 
 /* hero */
-.hero{background:linear-gradient(160deg,#111827 0%,#283953 100%);color:#fff;padding:22px 0 30px;border-radius:0 0 28px 28px}
-.pill{display:inline-block;border-radius:40px;padding:8px 14px;font-weight:600;font-size:12.5px;letter-spacing:1.4px;margin:18px 6px 0 0}
-.pill.f{background:#9FD3FF;color:#00306C}.pill.o{border:1.5px solid #9FD3FF;color:#fff}
-.hero h1 i{color:#9FD3FF}
-.hero p.lead{color:#C9D8EA}
-.hero .ph{display:flex;gap:14px;align-items:flex-end;margin-top:20px}
-.hero .ph img{width:44%;max-width:240px;aspect-ratio:3/4;object-fit:cover;border-radius:18px}
-.hero .ph ul{list-style:none;font-size:15.5px;color:#E6EEF8;flex:1}
-.hero .ph li{padding:6px 0;border-bottom:1px solid rgba(255,255,255,.12)}
-.hero .ph li b{color:#9FD3FF;margin-right:6px}
-.hero .cap{font-size:11px;color:#8fa3c0;margin-top:6px}
-.hero .btn{margin-top:22px}
+.hero{background:radial-gradient(120% 80% at 90% 10%,#2a4372 0%,transparent 60%),linear-gradient(160deg,#111827 0%,#283953 100%);color:#fff;padding:20px 0 28px;border-radius:0 0 30px 30px}
+.pill{display:inline-flex;align-items:center;border-radius:40px;padding:7px 13px;font-weight:600;font-size:12px;letter-spacing:1.3px;margin:18px 6px 0 0}
+.pill.f{background:var(--sky);color:var(--navy)}.pill.o{border:1.5px solid var(--sky);color:#fff}
+.hero h1 i.s{color:var(--sky)}
+.hero .lead{color:#C9D8EA}
+.hero .ph{display:grid;grid-template-columns:44% 1fr;gap:14px;align-items:end;margin-top:20px}
+.hero .ph img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:18px;display:block}
+.hero ol{list-style:none;counter-reset:c;font-size:15px;color:#E6EEF8}
+.hero ol li{counter-increment:c;display:flex;gap:8px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.12)}
+.hero ol li::before{content:counter(c);color:var(--sky);font-weight:700}
+.hero .cap{font-size:11px;color:#9fb1cc;margin-top:6px}
+.hero .meta{display:flex;gap:14px;margin-top:16px;font-size:13px;color:#C9D8EA}
+.hero .meta span{display:flex;gap:6px;align-items:center}
+.hero .btn{margin-top:18px}
 
 /* stop */
-.danger{border:3px solid var(--red);border-radius:22px;background:#fff;padding:16px 18px}
-.danger h3{color:var(--red);font-size:20px}
-.danger li{list-style:none;display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1.5px solid #f6e3e2;color:var(--navy);font-size:16.5px}
-.danger li:last-of-type{border-bottom:0}
-.danger li b{flex:none;width:24px;height:24px;border-radius:50%;background:var(--red);color:#fff;font-size:14px;display:flex;align-items:center;justify-content:center}
-.danger p{margin-top:10px;color:var(--navy);font-weight:500;font-size:16px}
+.danger{border:2.5px solid var(--red);border-radius:var(--r-lg);background:#fff;padding:16px 18px;box-shadow:var(--sh)}
+.danger h3{color:var(--red);font-size:19px;display:flex;gap:8px;align-items:center}
+.danger ul{list-style:none;margin-top:6px}
+.danger li{display:flex;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid #f6e3e2;color:var(--ink);font-size:16px}
+.danger li:last-child{border-bottom:0}
+.danger li b{flex:none;width:24px;height:24px;border-radius:50%;background:var(--red);color:#fff;font-size:13px;display:flex;align-items:center;justify-content:center}
+.danger p{margin-top:8px;color:var(--ink);font-weight:500;font-size:15.5px}
 .danger p a{color:var(--red);font-weight:600}
 
 /* quiz */
-.q label{display:flex;gap:14px;align-items:center;padding:13px 4px;border-bottom:1.5px solid #eef3f9;font-size:17px;color:var(--navy);cursor:pointer;user-select:none}
-.q label:last-child{border-bottom:0}
-.q input{position:absolute;opacity:0;pointer-events:none}
-.q .box{flex:none;width:28px;height:28px;border:3px solid var(--acc);border-radius:8px;display:flex;align-items:center;justify-content:center;transition:.15s}
-.q input:checked+.box{background:var(--acc)}
-.q input:checked+.box::after{content:"✓";color:#fff;font-weight:700;font-size:17px}
-.score{display:flex;align-items:center;gap:14px;margin-top:14px;background:var(--soft);border-radius:18px;padding:14px 18px}
-.score .num{font-weight:700;font-size:40px;color:var(--acc);line-height:1;min-width:76px}
-.score .num small{font-size:20px;color:var(--muted)}
-.res{margin-top:12px;border-radius:22px;padding:18px 20px;display:none}
-.res.on{display:block;animation:fade .3s}
-.res h3{font-size:21px}
-.res p{margin-top:6px;font-size:16px}
-.res .btn{margin-top:14px}
-.res.hi{background:var(--navy);color:#fff}.res.hi p{color:#D6E2F3}
-.res.lo{background:#fff;border:2px solid var(--line);color:var(--navy)}
-@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1}}
+.quiz{position:relative;overflow:hidden;padding:20px}
+.qtop{display:flex;align-items:center;justify-content:space-between;font-size:13.5px;color:var(--muted);font-weight:600}
+.qback{border:0;background:none;color:var(--acc);font-weight:600;font-size:14px;display:flex;gap:4px;align-items:center;min-height:44px;padding:0 8px 0 0}
+.qback[disabled]{opacity:.35;pointer-events:none}
+.qbar{height:6px;background:var(--soft);border-radius:6px;margin-top:6px;overflow:hidden}
+.qbar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--acc),var(--sky));border-radius:6px;transition:width .35s var(--ease)}
+.qslide{min-height:180px;display:flex;flex-direction:column;justify-content:center;padding:18px 0 6px}
+.qslide .qn{font-size:13px;color:var(--acc);font-weight:600;letter-spacing:1px;text-transform:uppercase}
+.qslide h3{font-size:24px;line-height:1.2;color:var(--navy);margin-top:6px}
+.qslide p{font-size:14.5px;color:var(--muted);margin-top:6px}
+.qslide.anim{animation:slidein .32s var(--ease)}
+@keyframes slidein{from{opacity:0;transform:translateX(24px)}to{opacity:1;transform:none}}
+.qans{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:6px}
+.qans button{min-height:58px;border-radius:16px;font-size:17px;font-weight:600;border:1.5px solid var(--line);background:#fff;color:var(--navy);display:flex;align-items:center;justify-content:center;gap:8px;transition:transform var(--t) var(--ease),background var(--t)}
+.qans button.yes{background:var(--navy);color:#fff;border-color:var(--navy)}
+.qans button:active{transform:scale(.96)}
+.result{display:none;text-align:center;padding:6px 0 0}
+.result.on{display:block;animation:fadeup .4s var(--ease)}
+@keyframes fadeup{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.ring{width:150px;height:150px;margin:6px auto 0;position:relative}
+.ring svg{transform:rotate(-90deg)}
+.ring .v{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .v b{font-size:40px;color:var(--navy);line-height:1}
+.ring .v span{font-size:13px;color:var(--muted)}
+.result h3{font-size:22px;color:var(--navy);margin-top:12px;line-height:1.2}
+.result p{font-size:15.5px;margin-top:6px}
+.matched{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:12px}
+.matched span{font-size:13px;background:var(--soft);color:var(--navy);border-radius:20px;padding:6px 10px;font-weight:500}
+.result .btn{margin-top:16px}
+.fact{text-align:center}.fact .ib{width:52px;height:52px;border-radius:16px;background:var(--soft);color:var(--acc);display:flex;align-items:center;justify-content:center;margin:0 auto 10px}
+.fact p{font-size:17px;color:var(--ink);margin:8px 0 16px}
+.anl{text-align:center}.anl ul{list-style:none;margin-top:14px;text-align:left;display:inline-block}
+.anl li{padding:6px 0 6px 28px;position:relative;color:var(--muted);font-size:15px;transition:color var(--t)}
+.anl li::before{content:"";position:absolute;left:0;top:9px;width:16px;height:16px;border-radius:50%;border:2px solid var(--line)}
+.anl li.ok{color:var(--navy);font-weight:500}.anl li.ok::before{background:var(--green);border-color:var(--green)}
+.spin{width:44px;height:44px;margin:0 auto;border-radius:50%;border:4px solid var(--soft);border-top-color:var(--acc);animation:sp .8s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+.rec{text-align:left;background:var(--bg);border-radius:16px;padding:14px;margin-top:14px}
+.rec b{color:var(--navy);font-size:15px}.rec ul{list-style:none;margin:6px 0 10px}
+.rec li{display:flex;gap:8px;align-items:center;padding:5px 0;font-size:15px;color:var(--ink)}.rec li svg{color:var(--acc)}
+.again{border:0;background:none;color:var(--acc);font-weight:600;font-size:14px;min-height:44px;margin-top:4px}
 
 /* chain */
 .node{display:flex;gap:14px;align-items:center}
-.node .ic{flex:none;width:52px;height:52px;border-radius:16px;background:var(--soft);display:flex;align-items:center;justify-content:center;font-size:24px}
-.node h3{font-size:19px;color:var(--navy)}
-.node p{font-size:15px}
-.arrow{text-align:center;color:var(--acc);font-size:22px;line-height:1;margin:6px 0}
+.node .ib{flex:none;width:48px;height:48px;border-radius:14px;background:var(--soft);color:var(--acc);display:flex;align-items:center;justify-content:center}
+.node.bad .ib{background:#fde9e8;color:var(--red)}
+.node.warn .ib{background:#fff3df;color:#b46a0d}
+.node h3{font-size:18px;color:var(--navy)}
+.node p{font-size:14.5px}
+.link{width:2px;height:22px;margin:4px auto;background:linear-gradient(var(--acc),var(--sky))}
 .quote{background:var(--navy);color:#fff;border-radius:18px;padding:16px 18px;text-align:center;font-weight:600;font-size:18px;margin-top:14px}
-.quote i{color:#9FD3FF}
+.quote i.s{color:var(--sky)}
 
 /* stats */
-.stats{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.stat .v{font-weight:700;font-size:30px;color:var(--acc);line-height:1}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.stat{padding:16px}
+.stat .v{font-weight:700;font-size:30px;color:var(--acc);line-height:1;font-variant-numeric:tabular-nums}
 .stat .v small{font-size:16px}
-.stat p{font-size:14.5px;margin-top:8px;color:var(--navy)}
-.stat em{display:block;font-style:normal;color:var(--muted);font-size:12.5px;margin-top:4px}
+.stat p{font-size:14px;margin-top:8px;color:var(--ink);line-height:1.35}
+.stat em{display:block;font-style:normal;color:var(--muted);font-size:12px;margin-top:6px}
 
 /* map */
-.mapbox{display:grid;grid-template-columns:42% 1fr;gap:12px;align-items:start}
-.mapbox svg{width:100%;height:auto}
-.zone{cursor:pointer}
-.zone .hit{fill:transparent}
-.pin circle{fill:var(--navy);stroke:#fff;stroke-width:3;transition:.2s}
-.pin.on circle{fill:#E3261F;stroke:#fff;stroke-width:5}
+.mapwrap{display:grid;grid-template-columns:46% 1fr;gap:12px;align-items:center}
+.mapwrap svg{width:100%;height:auto;display:block}
+.organ{cursor:pointer;outline:none}
+.organ .hit{fill:transparent}
+.pin circle{fill:var(--navy);stroke:#fff;stroke-width:4;transition:fill var(--t)}
 .pin text{fill:#fff;font:700 22px Geologica,sans-serif;text-anchor:middle;pointer-events:none}
-.tabs{display:flex;flex-wrap:wrap;gap:6px}
-.tabs button{font-family:inherit;border:2px solid var(--line);background:#fff;color:var(--navy);font-weight:600;font-size:13.5px;border-radius:30px;padding:7px 11px;cursor:pointer}
-.tabs button.on{background:var(--navy);color:#fff;border-color:var(--navy)}
-.zinfo{margin-top:10px}
-.zinfo h3{font-size:19px;color:var(--navy)}
-.zinfo .sym{font-size:15px;margin-top:8px}
-.zinfo .t{display:block;margin-top:6px;background:var(--soft);color:#155da3;font-weight:600;font-size:14.5px;border-radius:10px;padding:5px 10px}
+.pin .pulse{fill:none;stroke:var(--acc);stroke-width:3;opacity:0;transform-box:fill-box;transform-origin:center;animation:pulse 2s infinite}
+@keyframes pulse{0%{opacity:.6;transform:scale(1)}100%{opacity:0;transform:scale(1.8)}}
+.olist{display:flex;flex-direction:column;gap:8px}
+.olist button{display:flex;align-items:center;gap:10px;text-align:left;border:1.5px solid var(--line);background:#fff;border-radius:14px;padding:10px 12px;min-height:52px;color:var(--navy);font-weight:600;font-size:15px;box-shadow:var(--sh);transition:transform var(--t) var(--ease)}
+.olist button:active{transform:scale(.97)}
+.olist button b{flex:none;width:26px;height:26px;border-radius:50%;background:var(--navy);color:#fff;font-size:13px;display:flex;align-items:center;justify-content:center}
+.olist button small{display:block;font-weight:400;font-size:12.5px;color:var(--muted)}
+.hint{display:flex;gap:6px;align-items:center;font-size:13px;color:var(--muted);margin-top:10px}
 
-/* tests */
-.test{display:flex;gap:12px;align-items:flex-start}
-.test img{flex:none;width:64px;height:64px;border-radius:14px;object-fit:cover}
-.test h3{font-size:18px;color:var(--navy)}
-.thr{display:inline-block;margin-top:5px;font-size:13px;font-weight:600;color:var(--acc);background:var(--soft);border-radius:8px;padding:4px 9px}
-.test p{font-size:15px;margin-top:6px}
-.add{margin-top:10px;font-family:inherit;font-size:14px;font-weight:600;border:2px solid var(--acc);color:var(--acc);background:#fff;border-radius:30px;padding:7px 12px;cursor:pointer}
+/* tests accordion */
+.groupt{font-weight:700;color:var(--navy);font-size:13px;letter-spacing:1.2px;text-transform:uppercase;margin:22px 0 10px;display:flex;gap:8px;align-items:center}
+.acc{padding:0;overflow:hidden}
+.acc-h{display:flex;align-items:center;gap:12px;width:100%;border:0;background:none;text-align:left;padding:14px 16px;min-height:64px}
+.acc-h img{width:48px;height:48px;border-radius:12px;object-fit:cover;flex:none}
+.acc-h .ti{flex:1}
+.acc-h h3{font-size:17px;color:var(--navy);line-height:1.25}
+.acc-h .thr{display:inline-block;margin-top:4px;font-size:12.5px;font-weight:600;color:var(--acc2);background:var(--soft);border-radius:8px;padding:3px 8px}
+.acc-h .chev{transition:transform var(--t) var(--ease);color:var(--muted)}
+.acc.open .chev{transform:rotate(180deg)}
+.acc-b{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s var(--ease)}
+.acc.open .acc-b{grid-template-rows:1fr}
+.acc-b>div{overflow:hidden}
+.acc-b p{padding:0 16px;font-size:15px}
+.acc-b p b{color:var(--navy)}
+.add{margin:10px 16px 16px;display:inline-flex;align-items:center;gap:6px;font-weight:600;font-size:14px;border:1.5px solid var(--acc);color:var(--acc);background:#fff;border-radius:30px;padding:8px 14px;min-height:44px;transition:background var(--t),color var(--t),transform var(--t) var(--ease)}
+.add:active{transform:scale(.95)}
 .add.on{background:var(--acc);color:#fff}
-.groupt{font-weight:700;color:var(--navy);font-size:15px;letter-spacing:1px;text-transform:uppercase;margin:22px 0 10px}
-.mylist{position:sticky;bottom:86px;z-index:5;background:#fff;border:2px solid var(--acc);border-radius:18px;padding:12px 14px;margin-top:16px;display:none;box-shadow:0 10px 30px rgba(0,48,108,.12)}
-.mylist.on{display:block}
-.mylist h3{font-size:16px;color:var(--navy)}
-.mylist ol{margin:6px 0 0 18px;font-size:14.5px;color:var(--navy)}
-.mylist .row{display:flex;gap:8px;margin-top:10px}
-.mylist .row button{flex:1;font-family:inherit;font-weight:600;font-size:14px;border-radius:12px;padding:10px;border:2px solid var(--acc);background:#fff;color:var(--acc);cursor:pointer}
-.when{background:var(--soft);border-radius:18px;padding:14px 16px;font-size:15.5px;color:var(--navy);margin-top:12px}
+.when{background:var(--soft);border-radius:16px;padding:14px 16px;font-size:15px;color:var(--ink);margin-top:12px;display:flex;gap:10px}
+.when svg{color:var(--acc);margin-top:2px}
+
+/* FAB list */
+.fab{position:fixed;right:14px;bottom:calc(84px + var(--safe-b));z-index:25;display:flex;align-items:center;gap:8px;background:#fff;color:var(--navy);border:1.5px solid var(--acc);border-radius:30px;padding:10px 14px;min-height:48px;font-weight:600;font-size:14px;box-shadow:var(--sh2);transform:scale(0);transition:transform var(--t) var(--ease)}
+.fab.on{transform:scale(1)}
+.fab b{background:var(--acc);color:#fff;border-radius:20px;min-width:24px;height:24px;display:flex;align-items:center;justify-content:center;font-size:13px;padding:0 6px}
+.fab.bump{animation:bump .35s var(--ease)}
+@keyframes bump{50%{transform:scale(1.12)}}
 
 /* mistakes, todo */
-.m h3{font-size:18px;color:var(--navy)}
-.m h3 span{color:var(--red);margin-right:6px}
-.m p{font-size:15.5px;margin-top:6px}
+.m{display:flex;gap:12px}
+.m .x{flex:none;width:34px;height:34px;border-radius:10px;background:#fde9e8;color:var(--red);display:flex;align-items:center;justify-content:center}
+.m h3{font-size:17px;color:var(--navy)}
+.m p{font-size:15px;margin-top:4px}
 .todo{display:flex;gap:12px}
-.todo .ic{flex:none;width:42px;height:42px;border-radius:13px;background:var(--soft);color:var(--acc);font-weight:700;display:flex;align-items:center;justify-content:center}
-.todo h3{font-size:18px;color:var(--navy)}
-.todo p{font-size:15.5px;margin-top:4px}
-.bar{display:flex;margin-top:10px;border-radius:10px;overflow:hidden;font-weight:600;font-size:13px;text-align:center}
-.bar div{padding:8px 3px}
-.fibre{width:100%;height:150px;object-fit:cover;border-radius:18px;margin-top:12px;display:block}
+.todo .n{flex:none;width:36px;height:36px;border-radius:11px;background:var(--soft);color:var(--acc);font-weight:700;display:flex;align-items:center;justify-content:center}
+.todo h3{font-size:17px;color:var(--navy)}
+.todo p{font-size:15px;margin-top:4px}
+.bristol{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-top:10px}
+.bristol button{min-height:44px;border-radius:10px;border:1.5px solid transparent;font-weight:700;font-size:15px;transition:transform var(--t) var(--ease)}
+.bristol button:active{transform:scale(.92)}
+.bristol .a{background:#FFF1DE;color:#8a4f08}.bristol .g{background:#E2F5EC;color:var(--green)}.bristol .r{background:#FDE8E7;color:#a51b15}
+.bristol button.on{border-color:var(--navy)}
+.binfo{margin-top:8px;font-size:14px;color:var(--ink);min-height:42px;background:var(--bg);border-radius:10px;padding:10px 12px}
+.fibre{width:100%;aspect-ratio:10/3;object-fit:cover;border-radius:18px;margin-top:12px;display:block}
 .cap2{font-size:11px;color:var(--muted);text-align:right;margin-top:4px}
 
-/* case, fit, offer */
+/* case, fit, invite */
 .case{border-left:5px solid var(--acc)}
-.case .lbl{font-weight:600;font-size:12px;letter-spacing:1.5px;color:var(--acc);text-transform:uppercase}
+.case .lbl{font-weight:600;font-size:12px;letter-spacing:1.4px;color:var(--acc);text-transform:uppercase}
 .case h3{font-size:19px;color:var(--navy);margin-top:4px}
-.case p{font-size:15.5px;margin-top:6px}
-.case p b{color:var(--navy)}
-.case em{display:block;font-style:normal;font-size:12.5px;color:var(--muted);margin-top:8px}
-.fit{background:var(--navy);color:#fff;border-radius:22px;padding:18px 20px}
-.fit h3{font-size:20px}
+.tl{list-style:none;margin-top:10px}
+.tl li{display:flex;gap:10px;padding:6px 0;font-size:15px}
+.tl li b{flex:none;width:58px;color:var(--navy)}
+.case em{display:block;font-style:normal;font-size:12px;color:var(--muted);margin-top:8px}
+.fit{background:var(--navy);color:#fff;border-radius:var(--r-lg);padding:18px}
+.fit h3{font-size:19px}
 .fit ul{list-style:none;margin-top:8px}
-.fit li{padding:5px 0 5px 24px;position:relative;color:#D6E2F3;font-size:15.5px}
-.fit li::before{content:"✓";position:absolute;left:0;color:#9FD3FF;font-weight:700}
-.fit p{margin-top:8px}.fit p b{color:#9FD3FF}
-.ny{background:#111827;color:#fff;border-radius:22px;padding:16px 18px;display:flex;gap:14px;align-items:center}
+.fit li{display:flex;gap:10px;padding:6px 0;color:#D6E2F3;font-size:15px}
+.fit li svg{color:var(--sky);margin-top:1px}
+.fit p{margin-top:8px}.fit p b{color:var(--sky)}
+.ny{background:var(--dark);color:#fff;border-radius:var(--r-lg);padding:16px 18px;display:flex;gap:14px;align-items:center}
 .ny .big{flex:none;text-align:center}
-.ny .big b{display:block;font-size:40px;color:#9FD3FF;line-height:1}
-.ny .big span{font-size:11px;color:#C9D8EA;letter-spacing:1px}
-.ny h3{font-size:18px}
-.ny p{font-size:14.5px;color:#C9D8EA;margin-top:4px}
-.bul li{list-style:none;padding:8px 0 8px 20px;position:relative}
-.bul li::before{content:"";position:absolute;left:0;top:16px;width:9px;height:9px;border-radius:50%;background:var(--acc)}
-.bul b{color:var(--navy);display:block;font-size:17px}
-.bul span{font-size:15px}
+.ny .big b{display:block;font-size:40px;color:var(--sky);line-height:1}
+.ny .big span{font-size:10.5px;color:#C9D8EA;letter-spacing:1px}
+.ny h3{font-size:17px}
+.ny p{font-size:14px;color:#C9D8EA;margin-top:4px}
+.bul{list-style:none}
+.bul li{display:flex;gap:12px;padding:9px 0;border-bottom:1px solid var(--line)}
+.bul li:last-child{border-bottom:0}
+.bul li .ib{flex:none;width:38px;height:38px;border-radius:11px;background:var(--soft);color:var(--acc);display:flex;align-items:center;justify-content:center}
+.bul b{color:var(--navy);display:block;font-size:16px}
+.bul span{font-size:14.5px}
 .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
 .facts .card{text-align:center;padding:12px 6px}
-.facts b{display:block;color:var(--acc);font-size:24px}
-.facts span{font-size:12.5px;color:var(--navy)}
-.steps li{list-style:none;display:flex;gap:12px;padding:9px 0}
-.steps .num{flex:none;width:32px;height:32px;border-radius:50%;background:var(--acc);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center}
+.facts b{display:block;color:var(--acc);font-size:23px}
+.facts span{font-size:12px;color:var(--ink)}
+.steps{list-style:none;position:relative}
+.steps li{display:flex;gap:12px;padding:9px 0;position:relative}
+.steps li:not(:last-child)::after{content:"";position:absolute;left:15px;top:44px;bottom:-6px;width:2px;background:var(--line)}
+.steps .num{flex:none;width:32px;height:32px;border-radius:50%;background:var(--acc);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;z-index:1}
 .steps b{color:var(--navy);display:block}
-.steps span{font-size:15px}
-details{margin-top:10px}
-summary{cursor:pointer;font-weight:600;color:var(--navy);padding:8px 0}
-.src li{font-size:13px;padding:5px 0;border-bottom:1px solid #eef3f9;list-style:none}
-footer{padding:26px 0 120px;text-align:center;font-size:12.5px;color:var(--muted)}
+.steps span{font-size:14.5px}
+details{margin-top:6px}
+summary{cursor:pointer;font-weight:600;color:var(--navy);min-height:44px;display:flex;align-items:center}
+.src{list-style:none}
+.src li{font-size:12.5px;padding:6px 0;border-bottom:1px solid var(--line)}
+footer{padding:24px 0 140px;text-align:center;font-size:12px;color:var(--muted)}
 
 /* sticky CTA */
-.sticky{position:fixed;left:0;right:0;bottom:0;z-index:10;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.96);border-top:1px solid var(--line);transform:translateY(110%);transition:transform .25s}
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:20;padding:10px 14px calc(10px + var(--safe-b));background:rgba(255,255,255,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--line);transform:translateY(110%);transition:transform var(--t) var(--ease)}
 .sticky.on{transform:none}
-.sticky .in{max-width:720px;margin:0 auto;display:flex;gap:10px;align-items:center}
-.sticky .t{flex:1;font-size:12.5px;color:var(--navy);line-height:1.25}
-.sticky .t b{display:block;font-size:14px}
-.sticky .btn{width:auto;flex:none;padding:13px 16px;font-size:15px}
-.stk{float:right;width:84px;height:84px;object-fit:contain;margin:-8px -4px 0 8px}
-@media (min-width:700px){body{font-size:18px}.stats{grid-template-columns:repeat(4,1fr)}}
+.sticky .in{max-width:680px;margin:0 auto;display:flex;gap:10px;align-items:center}
+.sticky .t{flex:1;font-size:12.5px;color:var(--ink);line-height:1.25}
+.sticky .t b{display:block;font-size:14px;color:var(--navy)}
+.sticky .btn{width:auto;flex:none;min-height:48px;padding:10px 16px;font-size:15px}
+
+/* bottom sheet */
+.scrim{position:fixed;inset:0;background:rgba(10,20,40,.5);z-index:50;opacity:0;pointer-events:none;transition:opacity var(--t)}
+.scrim.on{opacity:1;pointer-events:auto}
+.sheet{position:fixed;left:0;right:0;bottom:0;z-index:60;background:#fff;border-radius:24px 24px 0 0;padding:8px 18px calc(18px + var(--safe-b));max-height:84dvh;overflow:auto;transform:translateY(105%);transition:transform .3s var(--ease);max-width:680px;margin:0 auto;box-shadow:0 -10px 40px rgba(0,0,0,.2)}
+.sheet.on{transform:none}
+.grab{width:42px;height:5px;border-radius:5px;background:#d5deea;margin:4px auto 10px}
+.sheet .sh-h{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.sheet h3{font-size:20px;color:var(--navy)}
+.x-btn{border:0;background:var(--soft);color:var(--navy);width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex:none}
+.sym{margin-top:12px;font-size:15px;color:var(--ink);display:flex;gap:8px;align-items:flex-start}
+.sym svg{color:var(--acc);margin-top:1px}
+.trow{display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--soft);border-radius:14px;padding:10px 12px;margin-top:8px}
+.trow b{color:var(--navy);font-size:15px}
+.trow .add{margin:0;flex:none;white-space:nowrap}
+.mlist{list-style:none;margin-top:10px;counter-reset:m}
+.mlist li{counter-increment:m;display:flex;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line);font-size:15px;color:var(--ink)}
+.mlist li::before{content:counter(m);flex:none;width:24px;height:24px;border-radius:50%;background:var(--soft);color:var(--acc);font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center}
+.mlist li button{margin-left:auto;border:0;background:none;color:var(--muted);width:44px;height:44px;display:flex;align-items:center;justify-content:center}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}
+.empty{color:var(--muted);font-size:15px;padding:14px 0}
+.toast{position:fixed;left:50%;bottom:calc(96px + var(--safe-b));transform:translate(-50%,20px);background:var(--navy);color:#fff;padding:10px 16px;border-radius:12px;font-size:14px;z-index:70;opacity:0;transition:opacity var(--t),transform var(--t) var(--ease);pointer-events:none}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+.stk{float:right;width:76px;height:76px;object-fit:contain;margin:-6px -4px 0 8px}
+@media (min-width:720px){body{font-size:17.5px}.stats{grid-template-columns:repeat(4,1fr)}}
 </style>
 </head>
 <body>
+<a class="skip" href="#main">К содержанию</a>
+
+<!-- SVG icon sprite (Lucide-style, 2px stroke) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+  <symbol id="i-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></symbol>
+  <symbol id="i-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="m21.7 18-8-14a2 2 0 0 0-3.4 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.7-3z"/><path d="M12 9v4M12 17h.01"/></symbol>
+  <symbol id="i-plate" viewBox="0 0 24 24"><circle cx="12" cy="13" r="7"/><circle cx="12" cy="13" r="3.5"/><path d="M4 3v5M2.5 3v3a1.5 1.5 0 0 0 3 0V3M20 3c-1.5 1-2 3-2 5h2v13"/></symbol>
+  <symbol id="i-gut" viewBox="0 0 24 24"><path d="M8 3v3c0 2 4 1.5 4 4s-5 1-5 4 5 1.5 5 4-4 2-4 3M16 3v3c0 2 3 1.5 3 4s-4 1-4 4 4 1.5 4 4-3 2-3 3"/></symbol>
+  <symbol id="i-battery" viewBox="0 0 24 24"><rect x="2" y="7" width="17" height="10" rx="2"/><path d="M22 11v2M6 10v4"/></symbol>
+  <symbol id="i-list" viewBox="0 0 24 24"><path d="M9 6h11M9 12h11M9 18h11M4 6h.01M4 12h.01M4 18h.01"/></symbol>
+  <symbol id="i-flask" viewBox="0 0 24 24"><path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 1.8 3h10.4a2 2 0 0 0 1.8-3l-5-9V3"/><path d="M7 15h10"/></symbol>
+  <symbol id="i-drop" viewBox="0 0 24 24"><path d="M12 3s-6 7-6 11a6 6 0 0 0 12 0c0-4-6-11-6-11z"/></symbol>
+  <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M5 20c0-9 6-14 15-15 0 9-5 15-15 15z"/><path d="M5 20 13 12"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></symbol>
+  <symbol id="i-share" viewBox="0 0 24 24"><path d="M4 12v7a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7M16 6l-4-4-4 4M12 2v14"/></symbol>
+  <symbol id="i-hand" viewBox="0 0 24 24"><path d="M9 11V5a2 2 0 0 1 4 0v6M13 10V4a2 2 0 0 1 4 0v7M17 9a2 2 0 0 1 4 0v5a8 8 0 0 1-8 8h-1a7 7 0 0 1-6-3l-3-5a2 2 0 0 1 3.5-2L9 14V8a2 2 0 0 1 0 0"/></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 11h18"/></symbol>
+</svg>
+
+<nav class="topbar" id="topbar" aria-label="Разделы">
+  <div class="progress" id="progress"></div>
+  <div class="chips" id="chips">
+    <a href="#stop">Стоп-сигналы</a><a href="#quiz">Самопроверка</a><a href="#why">Почему</a><a href="#map">Карта ЖКТ</a><a href="#tests">Анализы</a><a href="#today">Что делать</a><a href="#invite">Разбор</a>
+  </div>
+</nav>
 
 <header class="hero">
   <div class="wrap">
-    <div class="brand"><img src="img/avatar.jpg" alt=""><div><div class="n">ШЫНГЫС САДЫК</div><div class="s">МЕТАБОЛИЧЕСКОЕ ЗДОРОВЬЕ</div></div></div>
+    <div class="brand"><img src="img/avatar.jpg" alt="Шынгыс Садык" width="46" height="46"><div><div class="n">ШЫНГЫС САДЫК</div><div class="s">МЕТАБОЛИЧЕСКОЕ ЗДОРОВЬЕ</div></div></div>
     <span class="pill f">СПРАВОЧНИК №4 · ЖКТ</span><span class="pill o">ПО ДАННЫМ ИССЛЕДОВАНИЙ</span>
-    <h1>Кишечник, энергия <i>и&nbsp;ваши анализы</i></h1>
+    <h1>Кишечник, энергия <i class="s">и&nbsp;ваши анализы</i></h1>
     <p class="lead">8 сигналов, что кишечник крадёт энергию. Что проверить, чтобы не терять железо, B12 и силы.</p>
     <div class="ph">
-      <img src="img/cover_tubes.jpg" alt="Пробирки с кровью">
-      <ul>
-        <li><b>1</b>Стоп-сигналы</li>
-        <li><b>2</b>Самопроверка за 30 секунд</li>
-        <li><b>3</b>Карта ЖКТ и 8 анализов</li>
-        <li><b>4</b>С чего начать сегодня</li>
-      </ul>
+      <img src="img/cover_tubes.jpg" alt="Пробирки с кровью для анализов" width="380" height="507">
+      <ol><li>Стоп-сигналы</li><li>Самопроверка</li><li>Карта ЖКТ и 8 анализов</li><li>План на сегодня</li></ol>
     </div>
     <div class="cap">Фото: Oleg Yunakov · Wikimedia Commons · CC BY-SA 4.0</div>
-    <a class="btn" href="#quiz" data-ev="hero_quiz">Пройти самопроверку ↓</a>
+    <div class="meta"><span><svg class="ic" style="width:16px;height:16px"><use href="#i-clock"/></svg>3 минуты</span><span><svg class="ic" style="width:16px;height:16px"><use href="#i-check"/></svg>8 вопросов</span></div>
+    <a class="btn" href="#quiz" data-ev="hero_quiz">Пройти самопроверку <svg class="ic"><use href="#i-down"/></svg></a>
   </div>
 </header>
 
-<main class="wrap">
+<main class="wrap" id="main">
 
-<section id="stop">
-  <img class="stk" src="img/s_intestine.png" alt="">
+<section id="stop" class="rv">
+  <img class="stk" src="img/s_intestine.png" alt="" width="76" height="76" loading="lazy">
   <div class="kicker">Сначала главное</div>
-  <h2>Когда <i>не ждать</i></h2>
+  <h2>Когда <i class="s">не ждать</i></h2>
   <p class="lead">Вздутие и тяжесть чаще всего не опасны. Но есть признаки, при которых сначала нужно исключить серьёзное.</p>
   <div class="danger mt">
-    <h3>Стоп-сигналы</h3>
+    <h3><svg class="ic"><use href="#i-alert"/></svg>Стоп-сигналы</h3>
     <ul>
       <li><b>!</b>Кровь в стуле или чёрный стул</li>
       <li><b>!</b>Вес уходит сам, без диеты</li>
@@ -230,66 +363,68 @@ footer{padding:26px 0 120px;text-align:center;font-size:12.5px;color:var(--muted
   </div>
 </section>
 
-<section id="quiz">
-  <img class="stk" src="img/s_checklist.png" alt="">
+<section id="quiz" class="rv">
+  <img class="stk" src="img/s_checklist.png" alt="" width="76" height="76" loading="lazy">
   <div class="kicker">Самопроверка · 30 секунд</div>
-  <h2>8 сигналов, что кишечник <i>крадёт энергию</i></h2>
-  <p class="lead">Отметьте, что есть у вас:</p>
-  <div class="card q mt" id="q">
-    <label><input type="checkbox"><span class="box"></span>Вздутие после еды</label>
-    <label><input type="checkbox"><span class="box"></span>Нерегулярный стул</label>
-    <label><input type="checkbox"><span class="box"></span>Ферритин не растёт на железе</label>
-    <label><input type="checkbox"><span class="box"></span>B12 на нижней границе</label>
-    <label><input type="checkbox"><span class="box"></span>Тяжесть и сонливость после еды</label>
-    <label><input type="checkbox"><span class="box"></span>Изжога</label>
-    <label><input type="checkbox"><span class="box"></span>Тянет на сладкое</label>
-    <label><input type="checkbox"><span class="box"></span>Частые простуды</label>
-  </div>
-  <div class="score"><div class="num" id="cnt">0<small>/8</small></div><div id="hint">Отметьте пункты - результат появится здесь</div></div>
-  <div class="res hi" id="resHi">
-    <h3>Совпало 3 и больше - это повод искать причину</h3>
-    <p>А не лечить симптомы по отдельности. Железо, B12 и магний всасываются в кишечнике - если всасывание нарушено, можно есть правильно и всё равно жить на дефиците. Какие анализы это покажут - ниже.</p>
-    <a class="btn" href="https://forms.gle/igVPeinj4NKTAGSYA" target="_blank" rel="noopener" data-ev="quiz_hi_form">Разобрать мой случай - заполнить анкету</a>
-    <p class="small" style="color:#9fb4d4">Менеджер напишет в WhatsApp и ответит на вопросы. Ни к чему не обязывает.</p>
-  </div>
-  <div class="res lo" id="resLo">
-    <h3>Совпало немного - уже хорошо 🙌</h3>
-    <p>Но если вы устаёте, а анализы «в норме», причина может быть не на виду. Посмотрите карту ЖКТ и анализы ниже - и сохраните страницу.</p>
-    <a class="btn ghost" href="#map">Смотреть карту ЖКТ ↓</a>
+  <h2>8 сигналов, что кишечник <i class="s">крадёт энергию</i></h2>
+  <div class="card quiz mt" aria-live="polite">
+    <div id="qrun">
+      <div class="qtop"><button class="qback" id="qback" disabled aria-label="Предыдущий вопрос"><svg class="ic"><use href="#i-left"/></svg>Назад</button><span id="qcount">1 из 8</span></div>
+      <div class="qbar"><i id="qbar"></i></div>
+      <div class="qslide" id="qslide"></div>
+      <div class="qans">
+        <button id="qno" aria-label="Нет">Нет</button>
+        <button id="qyes" class="yes" aria-label="Да"><svg class="ic"><use href="#i-check"/></svg>Да</button>
+      </div>
+    </div>
+    <div class="result" id="qres">
+      <div class="ring" role="img" id="ringLabel">
+        <svg viewBox="0 0 150 150" width="150" height="150"><circle cx="75" cy="75" r="64" stroke="#EAF3FC" stroke-width="12" fill="none"/><circle id="ringArc" cx="75" cy="75" r="64" stroke="url(#rg)" stroke-width="12" fill="none" stroke-linecap="round" stroke-dasharray="402" stroke-dashoffset="402" style="transition:stroke-dashoffset 1s cubic-bezier(.2,.8,.2,1)"/><defs><linearGradient id="rg" x1="0" x2="1"><stop offset="0" stop-color="#2E8BD8"/><stop offset="1" stop-color="#00306C"/></linearGradient></defs></svg>
+        <div class="v"><b id="rnum">0</b><span>из 8</span></div>
+      </div>
+      <h3 id="rtitle"></h3>
+      <p id="rtext"></p>
+      <div class="matched" id="rmatched"></div>
+      <div id="rrec"></div>
+      <a class="btn" id="rcta" href="https://forms.gle/igVPeinj4NKTAGSYA" target="_blank" rel="noopener" data-ev="quiz_form">Разобрать мой случай <svg class="ic"><use href="#i-arrow"/></svg></a>
+      <p class="small">Короткая анкета. Менеджер ответит в WhatsApp - ни к чему не обязывает.</p>
+      <button class="again" id="qagain">Пройти заново</button>
+    </div>
   </div>
 </section>
 
-<section id="why">
+<section id="why" class="rv">
   <div class="kicker">Почему кишечник = энергия</div>
-  <h2>Вы - не то, что съели, <i>а то, что усвоили</i></h2>
+  <h2>Вы - не то, что съели, <i class="s">а то, что усвоили</i></h2>
   <div class="mt">
-    <div class="card node"><div class="ic">🍽️</div><div><h3>Едите правильно</h3><p>мясо, овощи, витамины</p></div></div>
-    <div class="arrow">↓</div>
-    <div class="card node"><div class="ic">⚠️</div><div><h3>Кишечник не усваивает</h3><p>гастрит, СИБР, целиакия</p></div></div>
-    <div class="arrow">↓</div>
-    <div class="card node"><div class="ic">🔋</div><div><h3>Железо и B12 на нуле</h3><p>усталость, туман, выпадают волосы</p></div></div>
+    <div class="card node"><div class="ib"><svg class="ic"><use href="#i-plate"/></svg></div><div><h3>Едите правильно</h3><p>мясо, овощи, витамины</p></div></div>
+    <div class="link"></div>
+    <div class="card node bad"><div class="ib"><svg class="ic"><use href="#i-gut"/></svg></div><div><h3>Кишечник не усваивает</h3><p>гастрит, СИБР, целиакия</p></div></div>
+    <div class="link"></div>
+    <div class="card node warn"><div class="ib"><svg class="ic"><use href="#i-battery"/></svg></div><div><h3>Железо и B12 на нуле</h3><p>усталость, туман, выпадают волосы</p></div></div>
   </div>
-  <div class="quote">Нет сил? <i>Ищите в животе.</i></div>
+  <div class="quote">Нет сил? <i class="s">Ищите в животе.</i></div>
 </section>
 
-<section id="numbers">
+<section id="numbers" class="rv">
   <div class="kicker">Почему это важно</div>
-  <h2>ЖКТ - это <i>не только живот</i></h2>
+  <h2>ЖКТ - это <i class="s">не только живот</i></h2>
   <div class="stats mt">
-    <div class="card stat"><div class="v">40<small>%</small></div><p>взрослых в онлайн-опросе отвечают критериям функционального расстройства ЖКТ</p><em>Rome Foundation, 73 076 человек, 33 страны</em></div>
-    <div class="card stat"><div class="v">4,4<small> млрд</small></div><p>людей в мире заражены хеликобактером</p><em>оценка на 2015 год</em></div>
-    <div class="card stat"><div class="v">1,4<small>%</small></div><p>людей - целиакия по антителам, 0,7% - по биопсии</p><em>≈ 1 из 70-140 (наш расчёт)</em></div>
-    <div class="card stat"><div class="v">12<small>% vs 7,2%</small></div><p>людей с дефицитом B12 принимали омепразол 2+ года - против 7,2% без дефицита</p><em>JAMA, 2013</em></div>
+    <div class="card stat"><div class="v"><span class="cnt" data-to="40">0</span><small>%</small></div><p>взрослых в онлайн-опросе - с функциональным расстройством ЖКТ</p><em>Rome Foundation · 73 076 человек, 33 страны</em></div>
+    <div class="card stat"><div class="v"><span class="cnt" data-to="4.4" data-dec="1">0</span><small> млрд</small></div><p>людей в мире заражены хеликобактером</p><em>оценка на 2015 год</em></div>
+    <div class="card stat"><div class="v"><span class="cnt" data-to="1.4" data-dec="1">0</span><small>%</small></div><p>людей - целиакия по антителам, 0,7% - по биопсии</p><em>≈ 1 из 70-140 (наш расчёт)</em></div>
+    <div class="card stat"><div class="v"><span class="cnt" data-to="12">0</span><small>% vs 7,2%</small></div><p>людей с дефицитом B12 принимали омепразол 2+ года</p><em>JAMA, 2013</em></div>
   </div>
   <p class="lead" style="color:var(--navy);font-weight:500">Живот может и не болеть. Это видно только в анализах.</p>
 </section>
 
-<section id="map">
-  <img class="stk" src="img/s_stomach.png" alt="">
-  <div class="kicker">Карта ЖКТ · нажмите на орган</div>
-  <h2>Где <i>сбой?</i></h2>
-  <div class="mapbox mt">
-    <svg viewBox="0 0 400 780" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-label="Схема ЖКТ">
+<section id="map" class="rv">
+  <img class="stk" src="img/s_stomach.png" alt="" width="76" height="76" loading="lazy">
+  <div class="kicker">Карта ЖКТ</div>
+  <h2>Где <i class="s">сбой?</i></h2>
+  <p class="lead">Нажмите на орган - покажу симптомы и нужный анализ.</p>
+  <div class="mapwrap mt">
+    <svg viewBox="0 0 400 780" fill="none" stroke-linecap="round" stroke-linejoin="round" role="group" aria-label="Схема желудочно-кишечного тракта">
       <path d="M205 352 C 207 380 207 405 208 430 C 262 424 292 444 287 470 C 282 500 142 490 137 520 C 132 552 287 542 287 576 C 287 610 152 598 142 622 C 136 640 118 650 98 652" stroke="#2E8BD8" stroke-width="12"/>
       <path d="M80 668 L 80 425 Q 80 388 117 388 L 298 388 Q 336 388 336 425 L 336 628 Q 336 676 292 688 Q 242 700 222 718 L 214 778" stroke="#A9CDF0" stroke-width="32"/>
       <circle cx="82" cy="672" r="22" fill="#A9CDF0"/>
@@ -297,110 +432,101 @@ footer{padding:26px 0 120px;text-align:center;font-size:12.5px;color:var(--muted
       <path d="M203 142 C 232 104 322 108 328 185 C 334 258 292 302 236 302 C 204 302 182 290 168 270 L 152 266 C 160 252 178 250 196 254 C 232 262 262 222 246 190 C 236 170 214 160 203 142 Z" stroke="#2E8BD8" stroke-width="8" fill="#EAF3FC"/>
       <path d="M154 266 C 112 268 98 302 108 332 C 118 362 168 366 205 352" stroke="#2E8BD8" stroke-width="12"/>
       <path d="M128 312 C 140 296 196 306 250 306 C 292 306 324 300 338 308 C 348 316 336 326 306 328 C 256 332 206 338 168 342 C 140 345 120 330 128 312 Z" stroke="#2E8BD8" stroke-width="7" fill="#fff"/>
-      <g class="zone" data-z="0"><rect class="hit" x="150" y="100" width="190" height="200"/><g class="pin"><circle cx="278" cy="205" r="24"/><text x="278" y="213">1</text></g></g>
-      <g class="zone" data-z="1"><rect class="hit" x="110" y="296" width="240" height="56"/><g class="pin"><circle cx="240" cy="322" r="24"/><text x="240" y="330">2</text></g></g>
-      <g class="zone" data-z="2"><rect class="hit" x="125" y="420" width="175" height="240"/><g class="pin"><circle cx="212" cy="520" r="24"/><text x="212" y="528">3</text></g></g>
-      <g class="zone" data-z="3"><rect class="hit" x="300" y="400" width="60" height="300"/><rect class="hit" x="55" y="400" width="50" height="290"/><g class="pin"><circle cx="336" cy="560" r="24"/><text x="336" y="568">4</text></g></g>
+      <g class="organ" data-z="0" tabindex="0" role="button" aria-label="Желудок"><rect class="hit" x="150" y="100" width="190" height="196"/><g class="pin"><circle class="pulse" cx="278" cy="205" r="24"/><circle cx="278" cy="205" r="24"/><text x="278" y="213">1</text></g></g>
+      <g class="organ" data-z="1" tabindex="0" role="button" aria-label="Поджелудочная"><rect class="hit" x="110" y="296" width="240" height="56"/><g class="pin"><circle cx="240" cy="322" r="24"/><text x="240" y="330">2</text></g></g>
+      <g class="organ" data-z="2" tabindex="0" role="button" aria-label="Тонкая кишка"><rect class="hit" x="125" y="420" width="175" height="240"/><g class="pin"><circle cx="212" cy="520" r="24"/><text x="212" y="528">3</text></g></g>
+      <g class="organ" data-z="3" tabindex="0" role="button" aria-label="Толстая кишка"><rect class="hit" x="300" y="400" width="60" height="300"/><rect class="hit" x="55" y="400" width="50" height="290"/><g class="pin"><circle cx="336" cy="560" r="24"/><text x="336" y="568">4</text></g></g>
     </svg>
-    <div>
-      <div class="tabs" id="tabs"><button data-z="0">1 Желудок</button><button data-z="1">2 Поджелудочная</button><button data-z="2">3 Тонкая</button><button data-z="3">4 Толстая</button></div>
-      <div class="card zinfo" id="zinfo"></div>
+    <div class="olist">
+      <button data-z="0"><b>1</b><span>Желудок<small>изжога, тяжесть</small></span></button>
+      <button data-z="1"><b>2</b><span>Поджелудочная<small>жирный стул</small></span></button>
+      <button data-z="2"><b>3</b><span>Тонкая кишка<small>вздутие, железо</small></span></button>
+      <button data-z="3"><b>4</b><span>Толстая кишка<small>понос, запор</small></span></button>
     </div>
   </div>
+  <div class="hint"><svg class="ic" style="width:16px;height:16px"><use href="#i-hand"/></svg>Нажмите на номер на схеме или на кнопку справа</div>
 </section>
 
-<section id="tests">
-  <img class="stk" src="img/s_tube.png" alt="">
+<section id="tests" class="rv">
+  <img class="stk" src="img/s_tube.png" alt="" width="76" height="76" loading="lazy">
   <div class="kicker">Какие анализы сдать</div>
-  <h2>8 анализов <i>для ЖКТ</i></h2>
-  <p class="lead">Нажмите «+ в мой список» - соберёте личный список и сможете скопировать его или отправить себе.</p>
-  <div class="groupt">В кале и дыхании</div>
-  <div class="stack">
-    <div class="card test"><img src="img/t_breath.jpg" alt=""><div><h3>Хеликобактер</h3><span class="thr">дыхательный тест или антиген в кале</span><p><b>Важно:</b> 14 дней до теста без омепразола и похожих препаратов, 4 недели без антибиотиков - иначе результат может быть ложно отрицательным.</p><button class="add" data-t="Хеликобактер (дыхательный тест или антиген в кале)">+ в мой список</button></div></div>
-    <div class="card test"><img src="img/t_stool.jpg" alt=""><div><h3>Кальпротектин в кале</h3><span class="thr">порог: 50 мкг/г</span><p>Показывает воспаление в кишечнике. Помогает отличить «чувствительный кишечник» от воспалительного заболевания.</p><button class="add" data-t="Кальпротектин в кале">+ в мой список</button></div></div>
-    <div class="card test"><div><h3>Эластаза-1 в кале</h3><span class="thr">чаще всего порог 200 мкг/г</span><p>Ферменты поджелудочной. Если их мало - жирный, «плавающий» стул, вздутие, хуже усваиваются жиры и витамины A, D, E, K.</p><button class="add" data-t="Эластаза-1 в кале">+ в мой список</button></div></div>
-    <div class="card test"><div><h3>Дыхательный тест на СИБР</h3><span class="thr">водород: рост от 20 ppm за 90 мин · метан от 10 ppm</span><p>Избыток бактерий в тонкой кишке. Типичная картина - живот раздувается вскоре после еды.</p><button class="add" data-t="Дыхательный тест на СИБР (водород и метан)">+ в мой список</button></div></div>
-  </div>
-  <div class="groupt">В крови</div>
-  <div class="stack">
-    <div class="card test"><div><h3>Антитела к тТГ IgA + общий IgA</h3><span class="thr">проверка на целиакию</span><p>Сдавать <b>на обычном питании с глютеном</b>. Общий IgA - чтобы не пропустить его нехватку, при которой тТГ IgA выглядит нормальным.</p><button class="add" data-t="Антитела к тТГ IgA + общий IgA">+ в мой список</button></div></div>
-    <div class="card test"><div><h3>Ферритин + общий анализ крови</h3><span class="thr">дефицит: ферритин &lt; 30 нг/мл</span><p>Запас железа. Если ферритин не растёт на железе, причину ищут во всасывании.</p><button class="add" data-t="Ферритин + общий анализ крови">+ в мой список</button></div></div>
-    <div class="card test"><div><h3>Витамин B12</h3><span class="thr">норма 148-740 пмоль/л · низ нормы - смотреть глубже</span><p>Чаще низкий у тех, кто 2 года и дольше принимает омепразол и похожие препараты.</p><button class="add" data-t="Витамин B12">+ в мой список</button></div></div>
-    <div class="card test"><div><h3>Витамин D и магний</h3><span class="thr">D: дефицит &lt; 20 нг/мл · Mg 0,66-1,07 ммоль/л</span><p>Магний может падать при приёме омепразола и похожих препаратов, обычно дольше года - FDA предупреждает об этом с 2011 года.</p><button class="add" data-t="Витамин D (25-OH) и магний">+ в мой список</button></div></div>
-  </div>
-  <div class="when"><b>Когда сдавать:</b> до диет, пробиотиков, ферментов и «чисток». Иначе картина изменится, и причину уже не увидеть.</div>
-  <div class="mylist" id="mylist">
-    <h3>Мой список анализов (<span id="mlc">0</span>)</h3>
-    <ol id="mlo"></ol>
-    <div class="row"><button id="copyBtn">Скопировать</button><button id="shareBtn">Отправить себе</button></div>
-  </div>
+  <h2>8 анализов <i class="s">для ЖКТ</i></h2>
+  <p class="lead">Раскройте карточку и добавьте анализ в свой список - его можно скопировать или отправить себе.</p>
+  <div class="groupt"><svg class="ic" style="width:18px;height:18px"><use href="#i-flask"/></svg>В кале и дыхании</div>
+  <div class="stack" id="tg1"></div>
+  <div class="groupt"><svg class="ic" style="width:18px;height:18px"><use href="#i-drop"/></svg>В крови</div>
+  <div class="stack" id="tg2"></div>
+  <div class="when"><svg class="ic"><use href="#i-clock"/></svg><div><b>Когда сдавать:</b> до диет, пробиотиков, ферментов и «чисток». Иначе картина изменится, и причину уже не увидеть.</div></div>
 </section>
 
-<section id="mistakes">
+<section id="mistakes" class="rv">
   <div class="kicker">Частые ошибки</div>
-  <h2>4 ошибки, из-за которых <i>живот лечат годами</i></h2>
-  <div class="stack mt m">
-    <div class="card"><h3><span>✕</span>«Сдам анализ на дисбактериоз»</h3><p>Посев кала показывает бактерии последней порции стула, а не то, что происходит в тонкой кишке. Для решений он почти ничего не даёт.</p></div>
-    <div class="card"><h3><span>✕</span>«Уберу глютен и посмотрю»</h3><p>Анализ на целиакию сдают на обычном питании с глютеном. Без глютена он может стать ложно чистым - а целиакия есть у <b>0,7-1,4%</b> людей.</p></div>
-    <div class="card"><h3><span>✕</span>«Омепразол - безобидная таблетка»</h3><p>Среди людей с дефицитом B12 2 года и больше его принимали <b>12%</b> - против <b>7,2%</b> без дефицита. Магний тоже может падать.</p></div>
-    <div class="card"><h3><span>✕</span>«Ферменты и пробиотики на всякий случай»</h3><p>Ферменты нужны, когда эластаза низкая. Без анализов это наугад: сначала цифры, потом добавки.</p></div>
+  <h2>4 ошибки, из-за которых <i class="s">живот лечат годами</i></h2>
+  <div class="stack mt">
+    <div class="card m"><div class="x"><svg class="ic" style="width:18px;height:18px"><use href="#i-x"/></svg></div><div><h3>«Сдам анализ на дисбактериоз»</h3><p>Посев кала показывает бактерии последней порции стула, а не то, что происходит в тонкой кишке. Для решений он почти ничего не даёт.</p></div></div>
+    <div class="card m"><div class="x"><svg class="ic" style="width:18px;height:18px"><use href="#i-x"/></svg></div><div><h3>«Уберу глютен и посмотрю»</h3><p>Анализ на целиакию сдают на обычном питании с глютеном. Без глютена он может стать ложно чистым - а целиакия есть у 0,7-1,4% людей.</p></div></div>
+    <div class="card m"><div class="x"><svg class="ic" style="width:18px;height:18px"><use href="#i-x"/></svg></div><div><h3>«Омепразол - безобидная таблетка»</h3><p>Среди людей с дефицитом B12 2 года и больше его принимали 12% - против 7,2% без дефицита. Магний тоже может падать.</p></div></div>
+    <div class="card m"><div class="x"><svg class="ic" style="width:18px;height:18px"><use href="#i-x"/></svg></div><div><h3>«Ферменты и пробиотики на всякий случай»</h3><p>Ферменты нужны, когда эластаза низкая. Без анализов это наугад: сначала цифры, потом добавки.</p></div></div>
   </div>
 </section>
 
-<section id="today">
-  <img class="stk" src="img/s_fibre.png" alt="">
+<section id="today" class="rv">
+  <img class="stk" src="img/s_fibre.png" alt="" width="76" height="76" loading="lazy">
   <div class="kicker">Что делать уже сегодня</div>
-  <h2>С чего начать <i>без вреда</i></h2>
+  <h2>С чего начать <i class="s">без вреда</i></h2>
   <div class="stack mt">
-    <div class="card todo"><div class="ic">1</div><div><h3>Клетчатка - по 5 г в неделю</h3><p>Овощи, ягоды, бобовые, цельные крупы. Резкий скачок даёт вздутие.</p></div></div>
-    <div class="card todo"><div class="ic">2</div><div><h3>Вода - вместе с клетчаткой</h3><p>Без воды клетчатка может крепить.</p></div></div>
-    <div class="card todo"><div class="ic">3</div><div><h3>Еда вместо порошков</h3><p>Сначала тарелка, потом банки с добавками.</p></div></div>
-    <div class="card todo"><div class="ic">4</div><div><h3>Дневник на 14 дней</h3><p>Еда, симптомы и стул по Бристольской шкале:</p>
-      <div class="bar"><div style="flex:2;background:#FFF1DE;color:#A05E0B">1-2 запор</div><div style="flex:2;background:#E2F5EC;color:#1A7A50">3-4 норма</div><div style="flex:3;background:#FDE8E7;color:#B3221B">5-7 жидкий</div></div></div></div>
+    <div class="card todo"><div class="n">1</div><div><h3>Клетчатка - по 5 г в неделю</h3><p>Овощи, ягоды, бобовые, цельные крупы. Резкий скачок даёт вздутие.</p></div></div>
+    <div class="card todo"><div class="n">2</div><div><h3>Вода - вместе с клетчаткой</h3><p>Без воды клетчатка может крепить.</p></div></div>
+    <div class="card todo"><div class="n">3</div><div><h3>Еда вместо порошков</h3><p>Сначала тарелка, потом банки с добавками.</p></div></div>
+    <div class="card todo"><div class="n">4</div><div style="flex:1"><h3>Дневник на 14 дней</h3><p>Еда, симптомы и стул. Какой тип по Бристольской шкале у вас чаще?</p>
+      <div class="bristol" id="bristol" role="group" aria-label="Бристольская шкала стула">
+        <button class="a" data-b="1">1</button><button class="a" data-b="2">2</button><button class="g" data-b="3">3</button><button class="g" data-b="4">4</button><button class="r" data-b="5">5</button><button class="r" data-b="6">6</button><button class="r" data-b="7">7</button>
+      </div>
+      <div class="binfo" id="binfo">Нажмите на цифру - подскажу, что это значит.</div></div></div>
   </div>
-  <img class="fibre" src="img/fibre.jpg" alt="Чечевица, семена, цельнозерновой хлеб">
+  <img class="fibre" src="img/fibre.jpg" alt="Чечевица, семена и цельнозерновой хлеб" width="1100" height="330" loading="lazy">
   <div class="cap2">Фото: formulatehealth · Wikimedia Commons · CC BY 2.0</div>
 </section>
 
-<section id="next">
+<section id="next" class="rv">
   <div class="kicker">Анализы сданы. Что дальше?</div>
-  <h2>Одна и та же цифра <i>значит разное</i></h2>
+  <h2>Одна и та же цифра <i class="s">значит разное</i></h2>
   <p class="lead">Ферритин 25 у человека с хеликобактером и у вегетарианца - две разные истории и два разных решения.</p>
   <div class="card case mt">
     <div class="lbl">Случай из практики</div>
     <h3>Аружан, 33 года</h3>
-    <p><b>Было:</b> разбитость с утра, усталость к середине дня, выпадение волос. <b>Нашли:</b> скрытый железодефицит - низкий ферритин при нормальном гемоглобине. <b>Стало:</b> больше энергии, дефицит железа восполнен.</p>
+    <ul class="tl"><li><b>Было</b>разбитость с утра, усталость к середине дня, выпадение волос</li><li><b>Нашли</b>скрытый железодефицит - низкий ферритин при нормальном гемоглобине</li><li><b>Стало</b>больше энергии, дефицит железа восполнен</li></ul>
     <em>Результат индивидуален и зависит от исходных данных.</em>
   </div>
   <div class="fit mt">
     <h3>Разбор подойдёт, если:</h3>
     <ul>
-      <li>устаёте, хотя спите достаточно</li>
-      <li>ферритин или B12 не растут</li>
-      <li>живот беспокоит дольше месяца</li>
-      <li>анализы «в норме», а сил нет</li>
-      <li>совпало 3+ пункта в самопроверке</li>
+      <li><svg class="ic" style="width:18px;height:18px"><use href="#i-check"/></svg>устаёте, хотя спите достаточно</li>
+      <li><svg class="ic" style="width:18px;height:18px"><use href="#i-check"/></svg>ферритин или B12 не растут</li>
+      <li><svg class="ic" style="width:18px;height:18px"><use href="#i-check"/></svg>живот беспокоит дольше месяца</li>
+      <li><svg class="ic" style="width:18px;height:18px"><use href="#i-check"/></svg>анализы «в норме», а сил нет</li>
+      <li><svg class="ic" style="width:18px;height:18px"><use href="#i-check"/></svg>совпало 3+ пункта в самопроверке</li>
     </ul>
     <p><b>Не знаете, с чего начать?</b> С этого разбор и начинается.</p>
   </div>
 </section>
 
-<section id="invite">
-  <img class="stk" src="img/s_diary.png" alt="">
+<section id="invite" class="rv">
+  <img class="stk" src="img/s_diary.png" alt="" width="76" height="76" loading="lazy">
   <div class="kicker">Личное приглашение</div>
-  <h2>Разберём ваш ЖКТ <i>и вашу усталость</i></h2>
-  <div class="card bul mt">
-    <ul>
-      <li><b>Персональный список анализов</b><span>Что сдать именно вам, без лишнего.</span></li>
-      <li><b>Где теряются железо и витамины</b><span>По вашим цифрам, а не по среднему референсу.</span></li>
-      <li><b>Питание под ваш живот</b><span>Чтобы не вздувало, без жёстких диет.</span></li>
-      <li><b>Добавки по анализам</b><span>Что нужно, а что можно не покупать.</span></li>
+  <h2>Разберём ваш ЖКТ <i class="s">и вашу усталость</i></h2>
+  <div class="card mt">
+    <ul class="bul">
+      <li><div class="ib"><svg class="ic"><use href="#i-list"/></svg></div><div><b>Персональный список анализов</b><span>Что сдать именно вам, без лишнего.</span></div></li>
+      <li><div class="ib"><svg class="ic"><use href="#i-drop"/></svg></div><div><b>Где теряются железо и витамины</b><span>По вашим цифрам, а не по среднему референсу.</span></div></li>
+      <li><div class="ib"><svg class="ic"><use href="#i-leaf"/></svg></div><div><b>Питание под ваш живот</b><span>Чтобы не вздувало, без жёстких диет.</span></div></li>
+      <li><div class="ib"><svg class="ic"><use href="#i-flask"/></svg></div><div><b>Добавки по анализам</b><span>Что нужно, а что можно не покупать.</span></div></li>
     </ul>
   </div>
-  <div class="facts mt"><div class="card"><b>1000+</b><span>консультаций с 2023</span></div><div class="card"><b>3 года</b><span>частной практики</span></div><div class="card"><b>1:1</b><span>Zoom, 60-90 мин</span></div></div>
+  <div class="facts mt"><div class="card"><b><span class="cnt" data-to="1000">0</span>+</b><span>консультаций с 2023</span></div><div class="card"><b>3 года</b><span>частной практики</span></div><div class="card"><b>1:1</b><span>Zoom, 60-90 мин</span></div></div>
   <div class="ny mt"><div class="big"><b>~20</b><span>МЕСТ ДО НГ</span></div><div><h3>До Нового года - около 20 мест</h3><p>Беру до 3 человек в неделю - места быстро заканчиваются. Разберитесь до праздников: застолья - нагрузка на ЖКТ, а анализы готовятся несколько дней.</p></div></div>
-  <div class="card steps mt">
-    <ul>
+  <div class="card mt">
+    <ul class="steps">
       <li><span class="num">1</span><div><b>Анкета</b><span>Короткая анкета - менеджер пишет в WhatsApp, отвечает на вопросы и подбирает формат.</span></div></li>
       <li><span class="num">2</span><div><b>Подробнее о вас</b><span>Симптомы, стул, питание, лекарства, что уже пробовали.</span></div></li>
       <li><span class="num">3</span><div><b>Анализы</b><span>Составляю персональный список. Есть свежие - смотрю, чего не хватает.</span></div></li>
@@ -408,8 +534,8 @@ footer{padding:26px 0 120px;text-align:center;font-size:12.5px;color:var(--muted
       <li><span class="num">5</span><div><b>После консультации</b><span>Карта восстановления, план питания и 3-5 дней обратной связи.</span></div></li>
     </ul>
   </div>
-  <p style="font-size:14.5px;margin-top:10px;color:var(--navy)">Консультация платная. Стоимость зависит от формата - менеджер подберёт его под вашу ситуацию.</p>
-  <a class="btn mt" href="https://forms.gle/igVPeinj4NKTAGSYA" target="_blank" rel="noopener" data-ev="invite_form">Заполнить анкету →</a>
+  <p style="font-size:14px;margin-top:10px;color:var(--ink)">Консультация платная. Стоимость зависит от формата - менеджер подберёт его под вашу ситуацию.</p>
+  <a class="btn mt" href="https://forms.gle/igVPeinj4NKTAGSYA" target="_blank" rel="noopener" data-ev="invite_form">Заполнить анкету <svg class="ic"><use href="#i-arrow"/></svg></a>
   <p class="small">Пара минут. Менеджер ответит в WhatsApp - ни к чему не обязывает.</p>
 </section>
 
@@ -431,61 +557,147 @@ footer{padding:26px 0 120px;text-align:center;font-size:12.5px;color:var(--muted
     </ol>
   </details>
 </section>
-
 </main>
 
 <footer class="wrap">Просветительский материал, не медицинская рекомендация. Не отменяйте и не меняйте дозу препарата самостоятельно. Границы норм различаются между лабораториями.<br><br>Шынгыс Садык · Метаболическое здоровье · @shynggys_health</footer>
 
-<div class="sticky" id="sticky"><div class="in"><div class="t"><b>Разберём ваш ЖКТ</b>До Нового года ~20 мест</div><a class="btn" href="https://forms.gle/igVPeinj4NKTAGSYA" target="_blank" rel="noopener" data-ev="sticky_form">Заполнить анкету</a></div></div>
+<button class="fab" id="fab" aria-label="Открыть мой список анализов"><svg class="ic" style="width:18px;height:18px"><use href="#i-list"/></svg>Мой список <b id="fabn">0</b></button>
+
+<div class="sticky" id="sticky"><div class="in"><div class="t" id="stickyT"><b>Разберём ваш ЖКТ</b>До Нового года ~20 мест</div><a class="btn" href="https://forms.gle/igVPeinj4NKTAGSYA" target="_blank" rel="noopener" data-ev="sticky_form">Заполнить анкету</a></div></div>
+
+<div class="scrim" id="scrim"></div>
+<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="shTitle">
+  <div class="grab"></div>
+  <div class="sh-h"><h3 id="shTitle"></h3><button class="x-btn" id="shClose" aria-label="Закрыть"><svg class="ic"><use href="#i-x"/></svg></button></div>
+  <div id="shBody"></div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script>
-// Analytics hook: plug Yandex Metrica / GA here later. Logs to console for now.
-function track(ev,data){ try{ if(window.ym&&window.YM_ID) ym(window.YM_ID,'reachGoal',ev,data); if(window.gtag) gtag('event',ev,data||{}); console.log('[track]',ev,data||''); }catch(e){} }
-document.querySelectorAll('[data-ev]').forEach(a=>a.addEventListener('click',()=>track(a.dataset.ev)));
+(()=>{
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const FORM='https://forms.gle/igVPeinj4NKTAGSYA';
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const buzz=()=>{try{if(navigator.vibrate&&navigator.userActivation&&navigator.userActivation.hasBeenActive)navigator.vibrate(8)}catch(e){}};
+const store={get(k,d){try{return JSON.parse(localStorage.getItem('zhkt_'+k))??d}catch(e){return d}},set(k,v){try{localStorage.setItem('zhkt_'+k,JSON.stringify(v))}catch(e){}}};
+// Analytics hook: plug Yandex Metrica / GA later
+window.track=(ev,data)=>{try{if(window.ym&&window.YM_ID)ym(window.YM_ID,'reachGoal',ev,data);if(window.gtag)gtag('event',ev,data||{});console.log('[track]',ev,data||'')}catch(e){}};
+document.addEventListener('click',e=>{const a=e.target.closest('[data-ev]');if(a)track(a.dataset.ev)});
+const toast=t=>{const el=$('#toast');el.textContent=t;el.classList.add('on');clearTimeout(el._t);el._t=setTimeout(()=>el.classList.remove('on'),2200)};
 
-// Brand lockup: name fitted to exactly the subtitle width
-document.fonts.ready.then(()=>{ document.querySelectorAll('.brand').forEach(b=>{ const n=b.querySelector('.n'),s=b.querySelector('.s');
-  const ls=parseFloat(getComputedStyle(s).letterSpacing)||0, target=s.getBoundingClientRect().width-ls; let fs=18;
-  n.style.letterSpacing='.6px'; n.style.marginRight='-.6px';
-  for(let i=0;i<4;i++){ n.style.fontSize=fs+'px'; fs=fs*target/(n.getBoundingClientRect().width-.6); } n.style.fontSize=fs+'px'; }); });
+// brand lockup: name fitted to subtitle width
+document.fonts.ready.then(()=>$$('.brand').forEach(b=>{const n=b.querySelector('.n'),s=b.querySelector('.s');const ls=parseFloat(getComputedStyle(s).letterSpacing)||0,target=s.getBoundingClientRect().width-ls;let fs=18;n.style.letterSpacing='.6px';n.style.marginRight='-.6px';for(let i=0;i<4;i++){n.style.fontSize=fs+'px';fs=fs*target/(n.getBoundingClientRect().width-.6)}n.style.fontSize=fs+'px'}));
 
-// Quiz
-const boxes=[...document.querySelectorAll('#q input')], cnt=document.getElementById('cnt'), hint=document.getElementById('hint');
-const hi=document.getElementById('resHi'), lo=document.getElementById('resLo'); let quizTracked=false;
-function upd(){ const c=boxes.filter(b=>b.checked).length; cnt.innerHTML=c+'<small>/8</small>';
-  if(c===0){hint.textContent='Отметьте пункты - результат появится здесь';hi.classList.remove('on');lo.classList.remove('on');return;}
-  hint.textContent=c>=3?'Совпало 3 и больше':'Совпало 0-2';
-  hi.classList.toggle('on',c>=3); lo.classList.toggle('on',c<3);
-  if(!quizTracked){quizTracked=true;track('quiz_started');} }
-boxes.forEach(b=>b.addEventListener('change',()=>{upd(); if(boxes.filter(x=>x.checked).length>=3) track('quiz_3plus');}));
+// reveal + counters
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;e.target.classList.add('in');e.target.querySelectorAll('.cnt').forEach(countUp);io.unobserve(e.target)}),{threshold:.12});
+$$('.rv').forEach(el=>io.observe(el));
+function countUp(el){if(el._d)return;el._d=1;const to=+el.dataset.to,dec=+(el.dataset.dec||0),fmt=v=>v.toFixed(dec).replace('.',',').replace(/\B(?=(\d{3})+(?!\d))/g,' ');if(reduce){el.textContent=fmt(to);return}const t0=performance.now(),d=900;const f=t=>{const p=Math.min(1,(t-t0)/d),e=1-Math.pow(1-p,3);el.textContent=fmt(to*e);if(p<1)requestAnimationFrame(f)};requestAnimationFrame(f)}
 
-// GI map
-const Z=[
- {t:'1 · Желудок',s:[['Изжога, тяжесть, отрыжка','Хеликобактер (дыхательный тест или антиген в кале)']]},
- {t:'2 · Поджелудочная',s:[['Жирный, «плавающий» стул','Эластаза-1 в кале']]},
- {t:'3 · Тонкая кишка',s:[['Вздутие через 30-90 минут после еды','Дыхательный тест на СИБР'],['Железо не поднимается','тТГ IgA + общий IgA']]},
- {t:'4 · Толстая кишка',s:[['Понос, запор, слизь','Кальпротектин в кале']]}];
-const zinfo=document.getElementById('zinfo');
-function showZ(i){ const z=Z[i]; zinfo.innerHTML='<h3>'+z.t+'</h3>'+z.s.map(x=>'<div class="sym">'+x[0]+'</div><span class="t">→ '+x[1]+'</span>').join('');
-  document.querySelectorAll('#tabs button').forEach(b=>b.classList.toggle('on',+b.dataset.z===i));
-  document.querySelectorAll('.zone').forEach(g=>g.querySelector('.pin').classList.toggle('on',+g.dataset.z===i)); }
-document.querySelectorAll('[data-z]').forEach(el=>el.addEventListener('click',()=>{showZ(+el.dataset.z);track('map_zone',{z:el.dataset.z});}));
-showZ(0);
+// top bar: progress + active chip
+const secs=['stop','quiz','why','map','tests','today','invite'].map(id=>document.getElementById(id));
+let ticking=false;
+addEventListener('scroll',()=>{if(ticking)return;ticking=true;requestAnimationFrame(()=>{ticking=false;
+  const h=document.documentElement,p=h.scrollTop/(h.scrollHeight-h.clientHeight);$('#progress').style.transform='scaleX('+p+')';
+  const heroB=$('.hero').getBoundingClientRect().bottom;$('#topbar').classList.toggle('on',heroB<0);
+  $('#sticky').classList.toggle('on',$('#quiz').getBoundingClientRect().top<0);
+  let cur=secs[0];secs.forEach(s=>{if(s.getBoundingClientRect().top<120)cur=s});
+  $$('#chips a').forEach(a=>{const on=a.getAttribute('href')==='#'+cur.id;if(on&&!a.classList.contains('on'))a.scrollIntoView({inline:'center',block:'nearest',behavior:reduce?'auto':'smooth'});a.classList.toggle('on',on)});
+})},{passive:true});
 
-// My list
-const list=new Set(), ml=document.getElementById('mylist'), mlo=document.getElementById('mlo'), mlc=document.getElementById('mlc');
-function render(){ mlo.innerHTML=[...list].map(t=>'<li>'+t+'</li>').join(''); mlc.textContent=list.size; ml.classList.toggle('on',list.size>0); }
-document.querySelectorAll('.add').forEach(b=>b.addEventListener('click',()=>{ const t=b.dataset.t;
-  if(list.has(t)){list.delete(t);b.classList.remove('on');b.textContent='+ в мой список';} else {list.add(t);b.classList.add('on');b.textContent='✓ в списке';track('list_add');}
-  render(); }));
-function listText(){ return 'Мой список анализов (ЖКТ):\n'+[...list].map((t,i)=>(i+1)+'. '+t).join('\n')+'\n\nСдавать до диет, пробиотиков и ферментов. Анализ на целиакию - на обычном питании с глютеном.\nИз справочника Шынгыса Садыка @shynggys_health'; }
-document.getElementById('copyBtn').addEventListener('click',async e=>{ try{await navigator.clipboard.writeText(listText()); e.target.textContent='Скопировано ✓';}catch(_){ prompt('Скопируйте список:',listText()); } track('list_copy'); setTimeout(()=>e.target.textContent='Скопировать',2000); });
-document.getElementById('shareBtn').addEventListener('click',async ()=>{ if(navigator.share){ try{await navigator.share({title:'Мой список анализов',text:listText()});}catch(_){} } else { location.href='https://wa.me/?text='+encodeURIComponent(listText()); } track('list_share'); });
+// QUIZ
+const Q=[['Вздутие после еды','Живот раздувается в течение пары часов после еды'],['Нерегулярный стул','Запоры, жидкий стул или «то так, то так»'],['Ферритин не растёт на железе','Пьёте железо, а цифра почти не меняется'],['B12 на нижней границе','Или ниже нормы в последних анализах'],['Тяжесть и сонливость после еды','Тянет поспать после обеда'],['Изжога','Жжение за грудиной, кислый привкус'],['Тянет на сладкое','Особенно во второй половине дня'],['Частые простуды','Чаще 3-4 раз в год']];
+let qi=0,ans=store.get('ans',[]);
+const slide=$('#qslide');
+const FACT={2:['Знали ли вы?','Железо всасывается в начале тонкой кишки. Если там воспаление или СИБР, таблетки могут почти не работать.'],5:['Вы не одни','В исследовании на 73 000 человек функциональное расстройство ЖКТ нашли у 40% взрослых. С 2023 года я провёл 1000+ консультаций - похожие истории встречаются постоянно.']};
+let factShown={};
+function renderQ(){ if(qi>=Q.length)return analyzing();
+  if(FACT[qi]&&!factShown[qi]){factShown[qi]=1;return renderFact(qi)}
+  slide.classList.remove('anim');void slide.offsetWidth;if(!reduce)slide.classList.add('anim');
+  slide.innerHTML='<div class="qn">Вопрос '+(qi+1)+'</div><h3>'+Q[qi][0]+'?</h3><p>'+Q[qi][1]+'</p>';
+  $('#qcount').textContent=(qi+1)+' из '+Q.length;$('#qbar').style.width=(qi/Q.length*100)+'%';$('#qback').disabled=qi===0;
+  $('#qrun').style.display='';$('#qres').classList.remove('on'); }
+function renderFact(i){const f=FACT[i];slide.classList.remove('anim');void slide.offsetWidth;if(!reduce)slide.classList.add('anim');
+  slide.innerHTML='<div class="fact"><div class="ib"><svg class="ic"><use href="#i-leaf"/></svg></div><div class="qn">'+f[0]+'</div><p>'+f[1]+'</p><button class="btn" id="qnext">Дальше <svg class="ic"><use href="#i-arrow"/></svg></button></div>';
+  $('.qans').style.display='none';$('#qnext').onclick=()=>{buzz();$('.qans').style.display='';renderQ()};}
+function analyzing(){$('#qbar').style.width='100%';$('.qans').style.display='none';$('#qback').disabled=true;$('#qcount').textContent='Готово';
+  if(reduce){$('.qans').style.display='';return showRes()}
+  const st=['Сверяю ответы с картой ЖКТ','Подбираю анализы под ваши сигналы','Готовлю вывод'];
+  slide.innerHTML='<div class="anl"><div class="spin"></div><ul>'+st.map(s=>'<li>'+s+'</li>').join('')+'</ul></div>';
+  const li=slide.querySelectorAll('li');li.forEach((l,i)=>setTimeout(()=>l.classList.add('ok'),350+i*450));
+  setTimeout(()=>{$('.qans').style.display='';showRes()},1750);}
+function answer(v){buzz();ans[qi]=v;store.set('ans',ans);if(qi===0)track('quiz_started');qi++;renderQ()}
+$('#qyes').onclick=()=>answer(1);$('#qno').onclick=()=>answer(0);
+$('#qback').onclick=()=>{if(qi>0){qi--;renderQ()}};
+$('#qagain').onclick=()=>{ans=[];store.set('ans',ans);qi=0;factShown={};renderQ();updSticky(null)};
+const QT=[['sibo'],['cal'],['ttg','fer'],['b12'],['hp'],['hp'],['sibo'],['dmg']];
+function showRes(){ const n=ans.filter(Boolean).length;$('#qbar').style.width='100%';$('#qrun').style.display='none';const r=$('#qres');r.classList.add('on');
+  $('#rnum').textContent=n;$('#ringLabel').setAttribute('aria-label','Совпало '+n+' из 8');
+  requestAnimationFrame(()=>$('#ringArc').style.strokeDashoffset=402-402*n/8);
+  const hi=n>=3;
+  $('#rtitle').textContent=hi?'Совпало '+n+' - это повод искать причину':(n===0?'Сигналов нет - отлично 🙌':'Совпало немного - уже хорошо');
+  $('#rtext').textContent=hi?'А не лечить симптомы по отдельности. Железо, B12 и магний всасываются в кишечнике - если всасывание нарушено, можно есть правильно и всё равно жить на дефиците.':'Но если вы устаёте, а анализы «в норме», причина может быть не на виду. Посмотрите карту ЖКТ и анализы ниже.';
+  $('#rmatched').innerHTML=Q.filter((q,i)=>ans[i]).map(q=>'<span>'+q[0]+'</span>').join('');
+  const rec=[...new Set(QT.flatMap((t,i)=>ans[i]?t:[]))];
+  $('#rrec').innerHTML=rec.length?'<div class="rec"><b>Анализы под ваши ответы:</b><ul>'+rec.map(id=>'<li><svg class="ic" style="width:16px;height:16px"><use href="#i-flask"/></svg>'+byId[id].t+'</li>').join('')+'</ul><button class="btn ghost" id="addAll"><svg class="ic" style="width:18px;height:18px"><use href="#i-plus"/></svg>Добавить все в мой список</button></div>':'';
+  const aa=$('#addAll');aa&&(aa.onclick=()=>{buzz();rec.forEach(id=>list.add(id));store.set('list',[...list]);syncList();toast('Добавлено: '+rec.length+' ✓');track('list_add_all',{n:rec.length})});
+  const cta=$('#rcta');cta.className='btn'+(hi?'':' ghost');cta.innerHTML=(hi?'Разобрать мой случай':'Задать вопрос через анкету')+' <svg class="ic"><use href="#i-arrow"/></svg>';
+  track(hi?'quiz_3plus':'quiz_low',{n});updSticky(n); }
+function updSticky(n){ $('#stickyT').innerHTML= n==null?'<b>Разберём ваш ЖКТ</b>До Нового года ~20 мест': n>=3?'<b>У вас '+n+' из 8 - разберём?</b>До Нового года ~20 мест':'<b>Остались вопросы?</b>Ответим в WhatsApp'; }
+const initQuiz=()=>{if(ans.length>=Q.length){qi=Q.length;showRes()}else{qi=Math.min(ans.length,Q.length-1);factShown=Object.fromEntries(Object.keys(FACT).filter(k=>k<=qi).map(k=>[k,1]));renderQ()}};
 
-// Sticky CTA after the quiz section
-const sticky=document.getElementById('sticky'), qs=document.getElementById('quiz');
-addEventListener('scroll',()=>{ sticky.classList.toggle('on', qs.getBoundingClientRect().top<0); },{passive:true});
+// TESTS data
+const T=[
+ {g:1,id:'hp',img:'img/t_breath.jpg',t:'Хеликобактер',thr:'дыхательный тест или антиген в кале',p:'<b>Важно:</b> 14 дней до теста без омепразола и похожих препаратов, 4 недели без антибиотиков - иначе результат может быть ложно отрицательным.',L:'Хеликобактер (дыхательный тест или антиген в кале)'},
+ {g:1,id:'cal',img:'img/t_stool.jpg',t:'Кальпротектин в кале',thr:'порог: 50 мкг/г',p:'Показывает воспаление в кишечнике. Помогает отличить «чувствительный кишечник» от воспалительного заболевания.',L:'Кальпротектин в кале'},
+ {g:1,id:'el',t:'Эластаза-1 в кале',thr:'чаще всего порог 200 мкг/г',p:'Ферменты поджелудочной. Если их мало - жирный, «плавающий» стул, вздутие, хуже усваиваются жиры и витамины A, D, E, K.',L:'Эластаза-1 в кале'},
+ {g:1,id:'sibo',t:'Дыхательный тест на СИБР',thr:'водород: +20 ppm за 90 мин · метан от 10 ppm',p:'Избыток бактерий в тонкой кишке. Типичная картина - живот раздувается вскоре после еды.',L:'Дыхательный тест на СИБР (водород и метан)'},
+ {g:2,id:'ttg',t:'Антитела к тТГ IgA + общий IgA',thr:'проверка на целиакию',p:'Сдавать <b>на обычном питании с глютеном</b>. Общий IgA - чтобы не пропустить его нехватку, при которой тТГ IgA выглядит нормальным.',L:'Антитела к тТГ IgA + общий IgA'},
+ {g:2,id:'fer',t:'Ферритин + общий анализ крови',thr:'дефицит: ферритин < 30 нг/мл',p:'Запас железа. Если ферритин не растёт на железе, причину ищут во всасывании.',L:'Ферритин + общий анализ крови'},
+ {g:2,id:'b12',t:'Витамин B12',thr:'норма 148-740 пмоль/л · низ нормы - смотреть глубже',p:'Чаще низкий у тех, кто 2 года и дольше принимает омепразол и похожие препараты.',L:'Витамин B12'},
+ {g:2,id:'dmg',t:'Витамин D и магний',thr:'D: дефицит < 20 нг/мл · Mg 0,66-1,07 ммоль/л',p:'Магний может падать при приёме омепразола и похожих препаратов, обычно дольше года - FDA предупреждает об этом с 2011 года.',L:'Витамин D (25-OH) и магний'}];
+const byId=Object.fromEntries(T.map(x=>[x.id,x]));
+let list=new Set(store.get('list',[]).filter(id=>byId[id]));
+const addBtn=id=>'<button class="add" data-add="'+id+'" aria-pressed="false"><svg class="ic" style="width:16px;height:16px"><use href="#i-plus"/></svg><span>в мой список</span></button>';
+['#tg1','#tg2'].forEach((sel,gi)=>{$(sel).innerHTML=T.filter(x=>x.g===gi+1).map(x=>
+ '<div class="card acc" id="acc-'+x.id+'"><button class="acc-h" aria-expanded="false" aria-controls="b-'+x.id+'">'+(x.img?'<img src="'+x.img+'" alt="" width="48" height="48" loading="lazy">':'')+'<div class="ti"><h3>'+x.t+'</h3><span class="thr">'+x.thr+'</span></div><svg class="ic chev"><use href="#i-down"/></svg></button><div class="acc-b" id="b-'+x.id+'"><div><p>'+x.p+'</p>'+addBtn(x.id)+'</div></div></div>').join('')});
+$$('.acc-h').forEach(h=>h.onclick=()=>{const c=h.parentElement,o=!c.classList.contains('open');c.classList.toggle('open',o);h.setAttribute('aria-expanded',o);if(o)track('test_open',{id:c.id})});
+function toggleList(id){buzz();if(list.has(id)){list.delete(id);toast('Убрано из списка')}else{list.add(id);toast('Добавлено в список ✓');track('list_add',{id});const f=$('#fab');f.classList.remove('bump');void f.offsetWidth;f.classList.add('bump')}store.set('list',[...list]);syncList()}
+function syncList(){ $$('[data-add]').forEach(b=>{const on=list.has(b.dataset.add);b.classList.toggle('on',on);b.setAttribute('aria-pressed',on);b.querySelector('span').textContent=on?'в списке':'в мой список';b.querySelector('use').setAttribute('href',on?'#i-check':'#i-plus')});
+  $('#fabn').textContent=list.size;$('#fab').classList.toggle('on',list.size>0);if(sheetMode==='list')openList() }
+document.addEventListener('click',e=>{const b=e.target.closest('[data-add]');if(b)toggleList(b.dataset.add)});
+
+// SHEET
+let sheetMode=null,lastFocus=null;
+function openSheet(title,html,mode){lastFocus=document.activeElement;sheetMode=mode;$('#shTitle').textContent=title;$('#shBody').innerHTML=html;$('#scrim').classList.add('on');$('#sheet').classList.add('on');document.body.style.overflow='hidden';setTimeout(()=>$('#shClose').focus(),50)}
+function closeSheet(){sheetMode=null;$('#scrim').classList.remove('on');$('#sheet').classList.remove('on');document.body.style.overflow='';lastFocus&&lastFocus.focus&&lastFocus.focus()}
+$('#scrim').onclick=closeSheet;$('#shClose').onclick=closeSheet;addEventListener('keydown',e=>{if(e.key==='Escape'&&sheetMode)closeSheet()});
+// swipe down to close
+(()=>{let y0=null;const s=$('#sheet');s.addEventListener('touchstart',e=>{if(s.scrollTop<=0)y0=e.touches[0].clientY},{passive:true});s.addEventListener('touchmove',e=>{if(y0==null)return;const dy=e.touches[0].clientY-y0;if(dy>0)s.style.transform='translateY('+dy+'px)'},{passive:true});s.addEventListener('touchend',e=>{if(y0==null)return;const dy=e.changedTouches[0].clientY-y0;s.style.transform='';y0=null;if(dy>90)closeSheet()})})();
+
+// MAP
+const Z=[{t:'Желудок',s:[['Изжога, тяжесть, отрыжка','hp']]},{t:'Поджелудочная',s:[['Жирный, «плавающий» стул, вздутие','el']]},{t:'Тонкая кишка',s:[['Вздутие через 30-90 минут после еды','sibo'],['Железо не поднимается','ttg']]},{t:'Толстая кишка',s:[['Понос, запор, слизь','cal']]}];
+function openZone(i){buzz();const z=Z[i];track('map_zone',{z:i});
+ openSheet((i+1)+' · '+z.t, z.s.map(([sym,id])=>'<div class="sym"><svg class="ic" style="width:18px;height:18px"><use href="#i-alert"/></svg>'+sym+'</div><div class="trow"><b>→ '+byId[id].t+'</b>'+addBtn(id)+'</div>').join('')+
+ '<a class="btn mt" href="'+FORM+'" target="_blank" rel="noopener" data-ev="map_form">Разобрать мой случай <svg class="ic"><use href="#i-arrow"/></svg></a><button class="btn ghost" style="margin-top:8px" onclick="document.getElementById(\'tests\').scrollIntoView();" data-close>Все анализы</button>','zone');syncList()}
+$$('[data-z]').forEach(el=>{el.addEventListener('click',()=>openZone(+el.dataset.z));el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openZone(+el.dataset.z)}})});
+document.addEventListener('click',e=>{if(e.target.closest('[data-close]'))closeSheet()});
+
+// MY LIST
+const listText=()=>'Мой список анализов (ЖКТ):\n'+[...list].map((id,i)=>(i+1)+'. '+byId[id].L).join('\n')+'\n\nСдавать до диет, пробиотиков и ферментов. Анализ на целиакию - на обычном питании с глютеном.\nИз справочника Шынгыса Садыка @shynggys_health';
+function openList(){const html=list.size?'<ol class="mlist">'+[...list].map(id=>'<li>'+byId[id].L+'<button data-add="'+id+'" aria-label="Убрать"><svg class="ic" style="width:18px;height:18px"><use href="#i-x"/></svg><span class="sr"></span></button></li>').join('')+'</ol><div class="row2"><button class="btn ghost" id="cpy"><svg class="ic" style="width:18px;height:18px"><use href="#i-copy"/></svg>Скопировать</button><button class="btn" id="shr"><svg class="ic" style="width:18px;height:18px"><use href="#i-share"/></svg>Отправить</button></div><p class="small">Хотите, чтобы список подобрали именно под вас?</p><a class="btn dark" style="margin-top:8px" href="'+FORM+'" target="_blank" rel="noopener" data-ev="list_form">Заполнить анкету</a>':'<p class="empty">Список пуст. Добавляйте анализы кнопкой «+ в мой список».</p>';
+ if(sheetMode==='list'){$('#shBody').innerHTML=html;$('#shTitle').textContent='Мой список анализов ('+list.size+')'}else openSheet('Мой список анализов ('+list.size+')',html,'list');
+ const c=$('#cpy'),s=$('#shr');
+ c&&(c.onclick=async()=>{try{await navigator.clipboard.writeText(listText());toast('Скопировано ✓')}catch(_){prompt('Скопируйте список:',listText())}track('list_copy')});
+ s&&(s.onclick=async()=>{if(navigator.share){try{await navigator.share({title:'Мой список анализов',text:listText()})}catch(_){}}else location.href='https://wa.me/?text='+encodeURIComponent(listText());track('list_share')});}
+$('#fab').onclick=()=>{buzz();openList();track('list_open')};
+syncList();initQuiz();
+
+// BRISTOL
+const B={1:'Тип 1 - отдельные твёрдые комочки. Это запор.',2:'Тип 2 - комковатая «колбаска». Склонность к запору.',3:'Тип 3 - «колбаска» с трещинами. Норма.',4:'Тип 4 - гладкая мягкая «колбаска». Идеал.',5:'Тип 5 - мягкие кусочки. Склонность к ускоренному стулу.',6:'Тип 6 - кашицеобразный. Слишком жидкий.',7:'Тип 7 - водянистый. Если часто - повод разобраться.'};
+$$('#bristol button').forEach(b=>b.onclick=()=>{buzz();$$('#bristol button').forEach(x=>x.classList.toggle('on',x===b));$('#binfo').textContent=B[b.dataset.b];track('bristol',{t:b.dataset.b})});
+
 track('page_view');
+})();
 </script>
 </body>
 </html>
