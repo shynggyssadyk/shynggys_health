@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <!-- security -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-/itVlzQO2u9qRJD2iFHQMqC+9TSdRShaREp+3jqrRoA='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-1PRFpSW9toGkiYS3X3JGC8LUQYWAG6A42r4rTabjoIM='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
 <meta name="format-detection" content="telephone=no">
@@ -733,7 +733,9 @@ const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const FORM='https://forms.gle/igVPeinj4NKTAGSYA';
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const buzz=()=>{try{if(navigator.vibrate&&navigator.userActivation&&navigator.userActivation.hasBeenActive)navigator.vibrate(8)}catch(e){}};
-const store={get(k,d){try{return JSON.parse(localStorage.getItem('zhkt_'+k))??d}catch(e){return d}},set(k,v){try{localStorage.setItem('zhkt_'+k,JSON.stringify(v))}catch(e){}}};
+// No persistence: every visit starts clean (quiz at question 1, empty list). Old saved data is wiped.
+try{['ans','list'].forEach(k=>localStorage.removeItem('zhkt_'+k))}catch(e){}
+const store={get(k,d){return d},set(){}};
 // Analytics hook: plug Yandex Metrica / GA later
 window.track=(ev,data)=>{try{if(window.ym&&window.YM_ID)ym(window.YM_ID,'reachGoal',ev,data);if(window.gtag)gtag('event',ev,data||{});console.log('[track]',ev,data||'')}catch(e){}};
 document.addEventListener('click',e=>{const a=e.target.closest('[data-ev]');if(a)track(a.dataset.ev)});
