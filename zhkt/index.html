@@ -291,9 +291,100 @@ footer{padding:24px 0 140px;text-align:center;font-size:12px;color:var(--muted)}
 .toast.on{opacity:1;transform:translate(-50%,0)}
 .stk{float:right;width:76px;height:76px;object-fit:contain;margin:-6px -4px 0 8px}
 @media (min-width:720px){body{font-size:17.5px}.stats{grid-template-columns:repeat(4,1fr)}}
+
+/* ============ APPLE-STYLE LAYER: glass, gradients, pulse ============ */
+:root{--glass:rgba(255,255,255,.62);--glass-b:rgba(255,255,255,.75);--blur:saturate(180%) blur(22px);
+  --apple:#0A84FF;--grad:linear-gradient(135deg,#0A84FF 0%,#5E5CE6 55%,#2E8BD8 100%);--r-lg:28px}
+body{background:#F2F5FA;letter-spacing:-.01em}
+/* ambient mesh gradient behind everything */
+.ambient{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none;background:#F2F5FA}
+.ambient i{position:absolute;border-radius:50%;filter:blur(70px);opacity:.55;will-change:transform}
+.ambient i:nth-child(1){width:70vmax;height:70vmax;left:-25vmax;top:-20vmax;background:radial-gradient(circle,#BFE0FF 0%,transparent 65%);animation:drift1 22s ease-in-out infinite alternate}
+.ambient i:nth-child(2){width:60vmax;height:60vmax;right:-25vmax;top:30vh;background:radial-gradient(circle,#D9D3FF 0%,transparent 65%);animation:drift2 26s ease-in-out infinite alternate}
+.ambient i:nth-child(3){width:55vmax;height:55vmax;left:-10vmax;bottom:-25vmax;background:radial-gradient(circle,#C8F1EC 0%,transparent 65%);animation:drift3 30s ease-in-out infinite alternate}
+@keyframes drift1{to{transform:translate(18vw,22vh) scale(1.15)}}
+@keyframes drift2{to{transform:translate(-20vw,-18vh) scale(1.1)}}
+@keyframes drift3{to{transform:translate(25vw,-12vh) scale(1.2)}}
+h2{letter-spacing:-.035em;font-size:clamp(30px,8vw,44px)}
+h1{letter-spacing:-.04em}
+h2 i.s,.lead i.s{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:.08em}
+.kicker{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:30px;background:var(--glass);border:1px solid var(--glass-b);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);letter-spacing:1.2px;font-size:11.5px;color:var(--apple)}
+/* glass cards */
+.card,.danger,.olist button{background:var(--glass);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);border:1px solid var(--glass-b);box-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 10px 30px rgba(20,40,90,.08)}
+.danger{border:1.5px solid rgba(217,34,27,.45);background:rgba(255,255,255,.7)}
+.card{border-radius:24px}
+/* primary buttons: Apple pill + glow pulse */
+.btn{border-radius:999px;background:var(--grad);background-size:200% 200%;animation:gshift 6s ease infinite;box-shadow:0 10px 30px rgba(10,132,255,.35),inset 0 1px 0 rgba(255,255,255,.35);position:relative;isolation:isolate}
+.btn::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:0 0 0 0 rgba(10,132,255,.45);animation:ring 2.4s cubic-bezier(.2,.8,.2,1) infinite;z-index:-1}
+.btn.ghost,.btn.dark{animation:none}.btn.ghost::after,.btn.dark::after,.sticky .btn::after,.row2 .btn::after{display:none}
+.btn.ghost{background:var(--glass);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);border:1px solid var(--glass-b);color:var(--apple)}
+.btn.dark{background:#1d1d1f}
+@keyframes gshift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+@keyframes ring{0%{box-shadow:0 0 0 0 rgba(10,132,255,.45)}80%,100%{box-shadow:0 0 0 14px rgba(10,132,255,0)}}
+/* hero: immersive aurora */
+.hero{position:relative;overflow:hidden;background:#05070d;border-radius:0 0 36px 36px;padding-bottom:34px}
+.hero::before,.hero::after{content:"";position:absolute;border-radius:50%;filter:blur(60px);pointer-events:none}
+.hero::before{width:520px;height:520px;right:-180px;top:-160px;background:radial-gradient(circle,rgba(10,132,255,.75),transparent 65%);animation:aur1 14s ease-in-out infinite alternate}
+.hero::after{width:460px;height:460px;left:-200px;bottom:-160px;background:radial-gradient(circle,rgba(94,92,230,.6),transparent 65%);animation:aur2 18s ease-in-out infinite alternate}
+@keyframes aur1{to{transform:translate(-120px,140px) scale(1.2)}}
+@keyframes aur2{to{transform:translate(140px,-100px) scale(1.15)}}
+.hero .wrap{position:relative;z-index:1}
+.hero h1 i.s{background:linear-gradient(90deg,#9FD3FF,#C7B8FF,#7FE3D8);-webkit-background-clip:text;background-clip:text;color:transparent;background-size:200% auto;animation:gshift 8s ease infinite}
+.hero .pill.o,.hero .pill.f{backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.hero .pill.f{background:rgba(159,211,255,.18);color:#CFE8FF;border:1px solid rgba(159,211,255,.35)}
+.hero .pill.o{border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.06)}
+.hero .ph img{border-radius:24px;box-shadow:0 30px 60px rgba(0,0,0,.5);transform:translateY(var(--py,0));will-change:transform}
+.hero ol{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:6px 14px;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
+.hero ol li:last-child{border-bottom:0}
+.livedot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#30D158;box-shadow:0 0 0 0 rgba(48,209,88,.6);animation:live 1.8s infinite;margin-right:6px;vertical-align:middle}
+@keyframes live{70%{box-shadow:0 0 0 8px rgba(48,209,88,0)}100%{box-shadow:0 0 0 0 rgba(48,209,88,0)}}
+/* top bar & sticky & sheet & fab: glass */
+.topbar{background:rgba(242,245,250,.6);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);border-bottom:1px solid rgba(255,255,255,.6)}
+.progress{background:var(--grad)}
+.chips a.on{background:#1d1d1f}
+.sticky{background:rgba(255,255,255,.6);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);border-top:1px solid rgba(255,255,255,.7);margin:0 10px calc(10px + var(--safe-b));border-radius:24px;border:1px solid rgba(255,255,255,.8);box-shadow:0 12px 40px rgba(20,40,90,.18);padding:10px 12px}
+.sticky:not(.on){transform:translateY(calc(100% + 40px))}
+.sticky.on{transform:none}
+.fab{background:rgba(255,255,255,.65);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);border:1px solid rgba(255,255,255,.85);color:#1d1d1f}
+.fab b{background:var(--apple)}
+.sheet{background:rgba(250,251,253,.82);backdrop-filter:saturate(180%) blur(30px);-webkit-backdrop-filter:saturate(180%) blur(30px);border-radius:32px 32px 0 0}
+.scrim{background:rgba(10,15,30,.35);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+.toast{background:rgba(29,29,31,.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-radius:999px}
+/* quiz: iOS segmented feel */
+.qans button{border-radius:20px;background:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.9);box-shadow:0 4px 14px rgba(20,40,90,.08)}
+.qans button.yes{background:var(--grad);border:0;box-shadow:0 10px 26px rgba(10,132,255,.35)}
+.qbar{background:rgba(10,132,255,.1)}.qbar i{background:var(--grad)}
+.ring .v b{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.ring{filter:drop-shadow(0 10px 24px rgba(10,132,255,.25))}
+/* stats as glowing tiles */
+.stat .v{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat{position:relative;overflow:hidden}
+.stat::before{content:"";position:absolute;width:120px;height:120px;right:-40px;top:-40px;border-radius:50%;background:radial-gradient(circle,rgba(10,132,255,.18),transparent 70%)}
+/* map: soft glow pins */
+.pin circle:not(.pulse){fill:#0A84FF;filter:drop-shadow(0 4px 10px rgba(10,132,255,.5))}
+.organ .pin .pulse{display:block}
+.mapwrap svg{filter:drop-shadow(0 20px 30px rgba(20,40,90,.12))}
+/* dark blocks become deep glass */
+.quote,.fit,.ny{background:radial-gradient(120% 120% at 100% 0%,rgba(10,132,255,.45),transparent 55%),radial-gradient(120% 120% at 0% 100%,rgba(94,92,230,.35),transparent 55%),#0b0f1a;border-radius:28px;box-shadow:0 20px 50px rgba(5,10,30,.25)}
+.ny .big b{background:linear-gradient(90deg,#9FD3FF,#C7B8FF);-webkit-background-clip:text;background-clip:text;color:transparent}
+.node .ib,.bul li .ib,.todo .n,.fact .ib{background:linear-gradient(145deg,rgba(10,132,255,.14),rgba(94,92,230,.14));color:var(--apple)}
+.steps .num{background:var(--grad);box-shadow:0 6px 16px rgba(10,132,255,.35)}
+.link{background:var(--grad);width:3px;border-radius:3px}
+.add{border-color:var(--apple);color:var(--apple);background:rgba(255,255,255,.6)}.add.on{background:var(--apple);color:#fff}
+/* scroll reveal with blur, Apple keynote style */
+.rv{opacity:0;transform:translateY(28px) scale(.98);filter:blur(6px);transition:opacity .7s var(--ease),transform .7s var(--ease),filter .7s var(--ease)}
+.rv.in{opacity:1;transform:none;filter:none}
+.stk{animation:float 5s ease-in-out infinite;filter:drop-shadow(0 12px 18px rgba(20,40,90,.18))}
+@keyframes float{50%{transform:translateY(-8px) rotate(-3deg)}}
+.facts b{font-size:23px;line-height:1.2;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.facts b .cnt{font-size:inherit}
+.fab{bottom:calc(112px + var(--safe-b))}
+@media (prefers-reduced-motion:reduce){.ambient i,.hero::before,.hero::after,.btn,.btn::after,.stk,.livedot{animation:none!important}.rv{filter:none}}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.card,.sticky,.sheet,.fab,.topbar{background:rgba(255,255,255,.96)}}
 </style>
 </head>
 <body>
+<div class="ambient" aria-hidden="true"><i></i><i></i><i></i></div>
 <a class="skip" href="#main">К содержанию</a>
 
 <!-- SVG icon sprite (Lucide-style, 2px stroke) -->
@@ -524,7 +615,7 @@ footer{padding:24px 0 140px;text-align:center;font-size:12px;color:var(--muted)}
     </ul>
   </div>
   <div class="facts mt"><div class="card"><b><span class="cnt" data-to="1000">0</span>+</b><span>консультаций с 2023</span></div><div class="card"><b>3 года</b><span>частной практики</span></div><div class="card"><b>1:1</b><span>Zoom, 60-90 мин</span></div></div>
-  <div class="ny mt"><div class="big"><b>~20</b><span>МЕСТ ДО НГ</span></div><div><h3>До Нового года - около 20 мест</h3><p>Беру до 3 человек в неделю - места быстро заканчиваются. Разберитесь до праздников: застолья - нагрузка на ЖКТ, а анализы готовятся несколько дней.</p></div></div>
+  <div class="ny mt"><div class="big"><b>~20</b><span>МЕСТ ДО НГ</span></div><div><h3><span class="livedot"></span>До Нового года - около 20 мест</h3><p>Беру до 3 человек в неделю - места быстро заканчиваются. Разберитесь до праздников: застолья - нагрузка на ЖКТ, а анализы готовятся несколько дней.</p></div></div>
   <div class="card mt">
     <ul class="steps">
       <li><span class="num">1</span><div><b>Анкета</b><span>Короткая анкета - менеджер пишет в WhatsApp, отвечает на вопросы и подбирает формат.</span></div></li>
@@ -563,7 +654,7 @@ footer{padding:24px 0 140px;text-align:center;font-size:12px;color:var(--muted)}
 
 <button class="fab" id="fab" aria-label="Открыть мой список анализов"><svg class="ic" style="width:18px;height:18px"><use href="#i-list"/></svg>Мой список <b id="fabn">0</b></button>
 
-<div class="sticky" id="sticky"><div class="in"><div class="t" id="stickyT"><b>Разберём ваш ЖКТ</b>До Нового года ~20 мест</div><a class="btn" href="https://forms.gle/igVPeinj4NKTAGSYA" target="_blank" rel="noopener" data-ev="sticky_form">Заполнить анкету</a></div></div>
+<div class="sticky" id="sticky"><div class="in"><div class="t" id="stickyT"><b>Разберём ваш ЖКТ</b><span class="livedot"></span>До Нового года ~20 мест</div><a class="btn" href="https://forms.gle/igVPeinj4NKTAGSYA" target="_blank" rel="noopener" data-ev="sticky_form">Заполнить анкету</a></div></div>
 
 <div class="scrim" id="scrim"></div>
 <div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="shTitle">
@@ -599,6 +690,7 @@ let ticking=false;
 addEventListener('scroll',()=>{if(ticking)return;ticking=true;requestAnimationFrame(()=>{ticking=false;
   const h=document.documentElement,p=h.scrollTop/(h.scrollHeight-h.clientHeight);$('#progress').style.transform='scaleX('+p+')';
   const heroB=$('.hero').getBoundingClientRect().bottom;$('#topbar').classList.toggle('on',heroB<0);
+  if(!reduce){const ph=$('.hero .ph img');if(ph&&h.scrollTop<900)ph.style.setProperty('--py',(h.scrollTop*-.12)+'px')}
   $('#sticky').classList.toggle('on',$('#quiz').getBoundingClientRect().top<0);
   let cur=secs[0];secs.forEach(s=>{if(s.getBoundingClientRect().top<120)cur=s});
   $$('#chips a').forEach(a=>{const on=a.getAttribute('href')==='#'+cur.id;if(on&&!a.classList.contains('on'))a.scrollIntoView({inline:'center',block:'nearest',behavior:reduce?'auto':'smooth'});a.classList.toggle('on',on)});
@@ -642,7 +734,7 @@ function showRes(){ const n=ans.filter(Boolean).length;$('#qbar').style.width='1
   const aa=$('#addAll');aa&&(aa.onclick=()=>{buzz();rec.forEach(id=>list.add(id));store.set('list',[...list]);syncList();toast('Добавлено: '+rec.length+' ✓');track('list_add_all',{n:rec.length})});
   const cta=$('#rcta');cta.className='btn'+(hi?'':' ghost');cta.innerHTML=(hi?'Разобрать мой случай':'Задать вопрос через анкету')+' <svg class="ic"><use href="#i-arrow"/></svg>';
   track(hi?'quiz_3plus':'quiz_low',{n});updSticky(n); }
-function updSticky(n){ $('#stickyT').innerHTML= n==null?'<b>Разберём ваш ЖКТ</b>До Нового года ~20 мест': n>=3?'<b>У вас '+n+' из 8 - разберём?</b>До Нового года ~20 мест':'<b>Остались вопросы?</b>Ответим в WhatsApp'; }
+function updSticky(n){ $('#stickyT').innerHTML= n==null?'<b>Разберём ваш ЖКТ</b><span class="livedot"></span>До Нового года ~20 мест': n>=3?'<b>У вас '+n+' из 8 - разберём?</b><span class="livedot"></span>До Нового года ~20 мест':'<b>Остались вопросы?</b>Ответим в WhatsApp'; }
 const initQuiz=()=>{if(ans.length>=Q.length){qi=Q.length;showRes()}else{qi=Math.min(ans.length,Q.length-1);factShown=Object.fromEntries(Object.keys(FACT).filter(k=>k<=qi).map(k=>[k,1]));renderQ()}};
 
 // TESTS data
