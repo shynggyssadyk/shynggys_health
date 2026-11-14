@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <!-- security -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-CkGv1XKGSPZx4hiBo6XhvVySAp+zv+TZkOQtihOry+4='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-OWJzV/taLf0J8QYcrSRa/64rbfDMj4y5kbhjSl0dZw0='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
 <meta name="format-detection" content="telephone=no">
@@ -506,6 +506,40 @@ h2 i.s{background:var(--grad);-webkit-background-clip:text;background-clip:text;
 .a-grow{transform:scaleY(0);transform-origin:top}
 .a-grow.in{transform:none}
 .stats .stat.a,.facts .card.a{transform:translate3d(0,28px,0) scale(.9)}
+/* premium "how it works" journey */
+.journey{position:relative;border-radius:28px;padding:22px 18px 10px;background:
+  radial-gradient(130% 90% at 100% 0%,rgba(10,132,255,.10),transparent 60%),
+  radial-gradient(120% 90% at 0% 100%,rgba(94,92,230,.10),transparent 60%),#fff;
+  border:1px solid rgba(255,255,255,.95);box-shadow:0 1px 0 #fff inset,0 18px 44px rgba(20,40,90,.10)}
+.journey::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;background:linear-gradient(135deg,rgba(10,132,255,.45),rgba(94,92,230,.15) 40%,rgba(255,255,255,0) 70%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+.j-head h3{font-size:22px;line-height:1.2;color:var(--navy);margin-top:6px;letter-spacing:-.02em}
+.j-head h3 span{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.j-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.j-chips span{font-size:12.5px;font-weight:600;color:var(--navy);background:rgba(10,132,255,.08);border-radius:20px;padding:6px 10px}
+.j-chips b{color:var(--apple)}
+.j-steps{list-style:none;position:relative;margin-top:16px}
+.j-steps::before{content:"";position:absolute;left:17px;top:18px;bottom:58px;width:2px;border-radius:2px;background:linear-gradient(var(--apple),#5E5CE6 60%,rgba(94,92,230,.2))}
+.j-steps li{position:relative;display:flex;gap:14px;padding:0 0 18px}
+.j-steps i{flex:none;position:relative;z-index:1;width:36px;height:36px;border-radius:50%;font-style:normal;font-weight:700;font-size:15px;color:#fff;display:flex;align-items:center;justify-content:center;background:var(--grad);box-shadow:0 0 0 4px #fff,0 6px 16px rgba(10,132,255,.35)}
+.j-steps b{display:flex;align-items:center;gap:8px;color:var(--navy);font-size:16px;line-height:1.25;padding-top:2px}
+.j-steps span{display:block;font-size:14.5px;color:var(--sec);margin-top:3px;line-height:1.4}
+.j-steps .me b img{width:26px;height:26px;border-radius:50%;box-shadow:0 0 0 2px #fff,0 2px 6px rgba(0,0,0,.15)}
+.j-steps .me>div,.j-steps .fin>div{flex:1;border-radius:16px;padding:10px 12px;margin-top:-4px}
+/* hierarchy: calm & light at the start -> saturated -> highest contrast at the result */
+.j-steps::before{background:linear-gradient(#DCEBFA 0%,#9CC7F2 30%,#3E8EE6 55%,#5E5CE6 78%,#0b0f1a 100%);width:3px}
+.j-steps li:nth-child(1) i{background:#EAF3FC;color:#6E95C4;box-shadow:0 0 0 4px #fff}
+.j-steps li:nth-child(1) b{color:#47658f;font-weight:600}
+.j-steps li:nth-child(1) span{color:#7a8ca8}
+.j-steps li:nth-child(2) i{background:#CFE3F8;color:#2F6DB0;box-shadow:0 0 0 4px #fff}
+.j-steps li:nth-child(2) b{color:#2c4f80}
+.j-steps li:nth-child(3) i{background:linear-gradient(135deg,#8CC2F2,#3E8EE6);box-shadow:0 0 0 4px #fff,0 4px 12px rgba(62,142,230,.3)}
+.j-steps li:nth-child(4) i{background:linear-gradient(135deg,#0A84FF,#5E5CE6);box-shadow:0 0 0 4px #fff,0 6px 18px rgba(94,92,230,.45)}
+.j-steps li:nth-child(4)>div{background:linear-gradient(135deg,rgba(10,132,255,.10),rgba(94,92,230,.14));box-shadow:inset 0 0 0 1px rgba(94,92,230,.18)}
+.j-steps li:nth-child(5){padding-bottom:12px}
+.j-steps li:nth-child(5) i{background:#0b0f1a;box-shadow:0 0 0 4px #fff,0 0 0 6px #5E5CE6,0 8px 22px rgba(11,15,26,.45)}
+.j-steps li:nth-child(5)>div{background:radial-gradient(120% 140% at 100% 0%,rgba(10,132,255,.45),transparent 55%),radial-gradient(120% 140% at 0% 100%,rgba(94,92,230,.4),transparent 55%),#0b0f1a;box-shadow:0 12px 30px rgba(11,15,26,.3)}
+.j-steps li:nth-child(5) b{color:#fff;font-size:17px}
+.j-steps li:nth-child(5) span{color:#C9D8EA}
 /* quiz illustrations */
 .qslide{text-align:center;min-height:0;padding-top:8px}
 .q-ill{display:block;width:100%;aspect-ratio:16/9;height:auto;object-fit:cover;border-radius:18px;margin:0 0 12px;background:#e9eef6;box-shadow:0 10px 24px rgba(20,40,90,.12);animation:qpop .55s cubic-bezier(.16,1,.3,1) both}
@@ -639,7 +673,7 @@ h2{font-size:clamp(26px,7vw,36px)}
   <div class="hero-shade" aria-hidden="true"></div>
   <div class="wrap">
     <div class="brand"><img src="img/avatar.jpg" alt="Шынгыс Садык" width="46" height="46"><div><div class="n">ШЫНГЫС САДЫК</div><div class="s">МЕТАБОЛИЧЕСКОЕ ЗДОРОВЬЕ</div></div></div>
-    <span class="pill f">СПРАВОЧНИК №4 · ЖКТ</span>
+    <span class="pill f">ИНТЕРАКТИВНЫЙ ГИД · ЖКТ</span>
     <h1>Кишечник, энергия <i class="s">и&nbsp;ваши анализы</i></h1>
     <p class="lead">8 сигналов, что кишечник крадёт энергию, и какие анализы это покажут.</p>
     <div class="meta"><span><svg class="ic" style="width:16px;height:16px"><use href="#i-clock"/></svg>3 минуты</span><span><svg class="ic" style="width:16px;height:16px"><use href="#i-check"/></svg>8 вопросов</span></div>
@@ -781,19 +815,23 @@ h2{font-size:clamp(26px,7vw,36px)}
     <div class="card"><img class="i3" src="img/i_bowl.png" alt="" width="44" height="44" loading="lazy"><b>Питание под ваш живот</b></div>
     <div class="card"><img class="i3" src="img/i_supp.png" alt="" width="44" height="44" loading="lazy"><b>Добавки по анализам</b></div>
   </div>
-  <p class="trust mt"><b>1 000+</b> консультаций с 2023 · Zoom 1:1, 60-90 минут</p>
+  <div class="journey mt">
+    <div class="j-head">
+      <div class="kicker">Как проходит разбор</div>
+      <h3>От анкеты до личного плана <span>за 5 шагов</span></h3>
+      <div class="j-chips"><span><b>1 000+</b> консультаций</span><span>Zoom 1:1</span><span>60-90 минут</span></div>
+    </div>
+    <ol class="j-steps">
+      <li><i>1</i><div><b>Анкета</b><span>Пара минут. Менеджер напишет в WhatsApp и подберёт формат.</span></div></li>
+      <li><i>2</i><div><b>Ваша история</b><span>Симптомы, стул, питание, лекарства, что уже пробовали.</span></div></li>
+      <li><i>3</i><div><b>Анализы</b><span>Составлю персональный список. Есть свежие - посмотрю, чего не хватает.</span></div></li>
+      <li class="me"><i>4</i><div><b>Консультация со мной <img src="img/avatar.jpg" alt="" width="26" height="26" loading="lazy"></b><span>Один на один в Zoom: разбираем цифры и находим, где теряется энергия.</span></div></li>
+      <li class="fin"><i>5</i><div><b>Ваш план</b><span>Карта восстановления, питание под ваш живот и 3-5 дней обратной связи.</span></div></li>
+    </ol>
+  </div>
   <div class="ny mt"><div class="big"><b>~20</b><span>МЕСТ ДО НГ</span></div><div><h3><span class="livedot"></span>До Нового года - около 20 мест</h3><p>Беру до 3 человек в неделю. Разберитесь до праздников: застолья - нагрузка на ЖКТ, а анализы готовятся несколько дней.</p></div></div>
   <a class="btn mt pulse" href="https://forms.gle/igVPeinj4NKTAGSYA" target="_blank" rel="noopener noreferrer" data-ev="invite_form">Заполнить анкету <svg class="ic"><use href="#i-arrow"/></svg></a>
   <p class="small">Пара минут. Менеджер ответит в WhatsApp - ни к чему не обязывает. Консультация платная, стоимость зависит от формата.</p>
-  <details class="how mt"><summary>Как проходит разбор · 5 шагов <svg class="ic chev"><use href="#i-down"/></svg></summary>
-    <ul class="steps">
-      <li><span class="num">1</span><div><b>Анкета</b><span>Менеджер пишет в WhatsApp, отвечает на вопросы и подбирает формат.</span></div></li>
-      <li><span class="num">2</span><div><b>Подробнее о вас</b><span>Симптомы, стул, питание, лекарства, что уже пробовали.</span></div></li>
-      <li><span class="num">3</span><div><b>Анализы</b><span>Составляю персональный список. Есть свежие - смотрю, чего не хватает.</span></div></li>
-      <li><span class="num">4</span><div><b>Консультация со мной</b><span>Zoom, 60-90 минут, один на один.</span></div></li>
-      <li><span class="num">5</span><div><b>После консультации</b><span>Карта восстановления, план питания и 3-5 дней обратной связи.</span></div></li>
-    </ul>
-  </details>
 </section>
 
 <section id="sources">
@@ -852,7 +890,7 @@ document.fonts.ready.then(()=>$$('.brand').forEach(b=>{const n=b.querySelector('
 // MOTION (Apple-style): each element animates when it actually enters the screen,
 // and replays every time it comes back. Counters restart from 0 each time.
 function initMotion(){
-const ANIM_SEL='section h2,section .stk,.card,.quote,.ny,.link,.mapwrap .gimap,.alert,.how,.trust,.stats .stat';
+const ANIM_SEL='section h2,section .stk,.card,.quote,.ny,.link,.mapwrap .gimap,.alert,.journey,.stats .stat';
 const animEls=$$(ANIM_SEL).filter(el=>!el.closest('.hero,.sheet,.sticky,.topbar')&&!el.parentElement.closest('.a-done'));
 animEls.forEach(el=>{
   // stagger siblings of the same kind inside one parent
@@ -972,7 +1010,7 @@ $$('[data-z]').forEach(el=>{el.addEventListener('click',()=>openZone(+el.dataset
 document.addEventListener('click',e=>{const g=e.target.closest('[data-goto]');if(e.target.closest('[data-close]'))closeSheet();if(g){const t=document.getElementById(g.dataset.goto);if(t){if(t.tagName==='DETAILS')t.open=true;t.scrollIntoView()}}});
 
 // MY LIST
-const listText=()=>'Мой список анализов (ЖКТ):\n'+[...list].map((id,i)=>(i+1)+'. '+byId[id].L).join('\n')+'\n\nСдавать до диет, пробиотиков и ферментов. Анализ на целиакию - на обычном питании с глютеном.\nИз справочника Шынгыса Садыка @shynggys_health';
+const listText=()=>'Мой список анализов (ЖКТ):\n'+[...list].map((id,i)=>(i+1)+'. '+byId[id].L).join('\n')+'\n\nСдавать до диет, пробиотиков и ферментов. Анализ на целиакию - на обычном питании с глютеном.\nИз гида Шынгыса Садыка @shynggys_health';
 function openList(){const html=list.size?'<ol class="mlist">'+[...list].map(id=>'<li>'+byId[id].L+'<button data-add="'+id+'" aria-label="Убрать"><svg class="ic" style="width:18px;height:18px"><use href="#i-x"/></svg><span class="sr"></span></button></li>').join('')+'</ol><div class="row2"><button class="btn ghost" id="cpy"><svg class="ic" style="width:18px;height:18px"><use href="#i-copy"/></svg>Скопировать</button><button class="btn" id="shr"><svg class="ic" style="width:18px;height:18px"><use href="#i-share"/></svg>Отправить</button></div><p class="small">Хотите, чтобы список подобрали именно под вас?</p><a class="btn dark" style="margin-top:8px" href="'+FORM+'" target="_blank" rel="noopener noreferrer" data-ev="list_form">Заполнить анкету</a>':'<p class="empty">Список пуст. Добавляйте анализы кнопкой «+ в мой список».</p>';
  if(sheetMode==='list'){$('#shBody').innerHTML=html;$('#shTitle').textContent='Мой список анализов ('+list.size+')'}else openSheet('Мой список анализов ('+list.size+')',html,'list');
  const c=$('#cpy'),s=$('#shr');
