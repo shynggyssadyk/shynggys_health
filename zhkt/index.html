@@ -417,6 +417,9 @@ h2 i.s{background:var(--grad);-webkit-background-clip:text;background-clip:text;
 .a-grow{transform:scaleY(0);transform-origin:top}
 .a-grow.in{transform:none}
 .stats .stat.a,.facts .card.a{transform:translate3d(0,28px,0) scale(.9)}
+/* final state must win over every "from" rule above (same or higher specificity) */
+.stats .stat.a.in,.facts .card.a.in,section h2.a.in,.a.a-side.in,.a.a-grow.in{transform:none}
+.facts b span.cnt{color:transparent;-webkit-text-fill-color:transparent;font-size:inherit}
 .fibre.a{transform:scale(1.08);opacity:0}
 .fibre.a.in{transform:none;opacity:1}
 section h2.a{transform:translate3d(0,24px,0)}
