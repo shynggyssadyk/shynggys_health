@@ -793,6 +793,30 @@ section.band::before{content:"";position:absolute;top:0;bottom:0;left:calc(50% -
 .stat::before{display:none}
 .band.b5 .card,.band.b5 .gets .card,.band.b5 .case,.band.b5 .journey,.band.b5 .bubble{box-shadow:0 1px 2px rgba(0,0,0,.2),0 14px 34px rgba(0,0,0,.28)!important}
 .band.b5 .sp-ava{box-shadow:0 0 0 3px rgba(255,255,255,.15),0 8px 18px rgba(0,0,0,.35)!important}
+/* ===== journey finale: "certainty" as the win ===== */
+.j-final{position:relative;margin-top:6px;border-radius:24px;padding:20px 18px 18px;color:#fff;overflow:hidden;
+  background:radial-gradient(120% 90% at 100% 0%,rgba(48,209,88,.35),transparent 55%),radial-gradient(120% 120% at 0% 100%,rgba(94,92,230,.55),transparent 60%),linear-gradient(135deg,#0A84FF 0%,#5E5CE6 100%);
+  box-shadow:0 2px 6px rgba(10,60,140,.15),0 22px 50px rgba(70,80,230,.35)}
+.j-final::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 0%,rgba(255,255,255,.25),transparent 40%);pointer-events:none}
+.jf-top{display:flex;gap:12px;align-items:center;position:relative;z-index:1}
+.jf-top img{width:56px;height:56px;flex:none}
+.jf-l{display:block;font-size:11.5px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:#C9F7D6}
+.j-final h4{font-size:23px;line-height:1.15;letter-spacing:-.02em;margin-top:2px}
+.j-final h4 em{font-family:'Source Serif 4',Georgia,serif;font-style:italic;font-weight:560;color:#D8FFE4}
+.j-final p{position:relative;z-index:1;font-size:15px;line-height:1.5;color:#E6EEFF;margin-top:12px}
+.j-final p b{color:#fff}
+.jf-track{position:relative;z-index:1;margin-top:16px}
+.jf-bar{height:8px;border-radius:8px;background:rgba(255,255,255,.22);overflow:hidden}
+.jf-bar i{display:block;height:100%;width:0;border-radius:8px;background:linear-gradient(90deg,#9FD3FF,#7CF0A6);transition:width 1.6s cubic-bezier(.16,1,.3,1) .3s}
+.journey.in .jf-bar i{width:100%}
+.jf-ticks{display:flex;justify-content:space-between;font-size:11.5px;color:#D6E2FF;margin-top:6px;font-weight:600}
+.jf-wins{list-style:none;position:relative;z-index:1;margin-top:14px;display:grid;gap:8px}
+.jf-wins li{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);border-radius:14px;padding:10px 12px;font-size:14.5px;color:#E6EEFF;display:flex;gap:10px;align-items:flex-start}
+.jf-wins li::before{content:"";flex:none;width:18px;height:18px;margin-top:1px;border-radius:50%;background:#30D158 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center/11px no-repeat}
+.jf-wins b{color:#fff}
+.j-final .jf-quote{font-family:'Source Serif 4',Georgia,serif;font-style:italic;font-weight:560;font-size:17px;color:#fff;margin-top:14px}
+@media (prefers-reduced-motion:reduce){.jf-bar i{width:100%;transition:none}}
+.j-steps li:nth-child(5){padding-bottom:18px}
 /* ===== appeal typography & accents ===== */
 .bubble{border-color:rgba(0,48,108,.85)}
 .sp-hook{font-family:'Geologica',sans-serif;font-weight:700;font-size:21px;line-height:1.3;letter-spacing:-.01em;color:var(--navy)}
@@ -1002,6 +1026,20 @@ section.band::before{content:"";position:absolute;top:0;bottom:0;left:calc(50% -
       <li class="me"><i>4</i><div><b>Консультация со мной <img src="img/avatar.jpg" alt="" width="26" height="26" loading="lazy"></b><span>Один на один в Zoom: разбираем цифры и находим, где теряется энергия.</span></div></li>
       <li class="fin"><i>5</i><div><b>Ваш план</b><span>Персональный протокол восстановления, питание под ваш живот и 3-5 дней обратной связи.</span><figure class="shot pages"><img src="img/proto1.webp?v=2" alt="Обложка протокола: план ведения на 8 недель" width="450" height="637" loading="lazy"><img src="img/proto2.webp?v=2" alt="Письмо с главными выводами по анализам" width="450" height="637" loading="lazy"><figcaption>Так выглядит протокол: план ведения и письмо с выводами по вашим анализам. Данные клиента скрыты.</figcaption></figure></div></li>
     </ol>
+    <div class="j-final">
+      <div class="jf-top"><img src="img/i_ok.png" alt="" width="56" height="56" loading="lazy"><div><span class="jf-l">Итог</span><h4>У вас появляется <em>определённость</em></h4></div></div>
+      <p>Больше никаких догадок. Вы знаете, <b>что происходит с вашим телом</b>, почему уходят силы и что делать каждый день.</p>
+      <div class="jf-track" aria-label="8-12 недель по плану">
+        <div class="jf-bar"><i></i></div>
+        <div class="jf-ticks"><span>Неделя 1</span><span>4</span><span>8</span><span>12</span></div>
+      </div>
+      <ul class="jf-wins">
+        <li><b>Понятная причина</b> вместо «всё в норме»</li>
+        <li><b>Чёткий план на 8-12 недель</b> - день за днём</li>
+        <li><b>Вы идёте к своей цели</b> по курсу, а не наугад</li>
+      </ul>
+      <p class="jf-quote">Это и есть главное, ради чего приходят на разбор.</p>
+    </div>
   </div>
   <div class="ny mt" id="ny">
     <div class="ny-top"><div class="big"><b id="seats">~20</b><span>МЕСТ ДО НГ</span></div><div><h3><span class="livedot"></span>Беру до 3 человек в неделю</h3><p>Разберитесь до праздников: застолья - нагрузка на ЖКТ, а анализы готовятся несколько дней.</p></div></div>
