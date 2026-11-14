@@ -859,6 +859,16 @@ section.band::before{content:"";position:absolute;top:0;bottom:0;left:calc(50% -
 
 .j-steps .j-final .jf-wins li{display:block!important;position:relative!important;padding:8px 10px 8px 36px!important}
 .j-steps .j-final .jf-wins li::before{position:absolute;left:10px;top:9px;margin:0}
+
+/* connector: one segment from each circle to the next, nothing after the final check */
+.j-steps::before{display:none!important}
+.j-steps>li{position:relative}
+.j-steps>li:not(:last-child)::after{content:"";position:absolute;left:16.5px;top:36px;bottom:0;width:3px;border-radius:3px;z-index:0}
+.j-steps>li:nth-child(1)::after{background:linear-gradient(#DCEBFA,#BCD9F5)}
+.j-steps>li:nth-child(2)::after{background:linear-gradient(#BCD9F5,#8CC2F2)}
+.j-steps>li:nth-child(3)::after{background:linear-gradient(#8CC2F2,#3E8EE6)}
+.j-steps>li:nth-child(4)::after{background:linear-gradient(#3E8EE6,#5E5CE6)}
+.j-steps>li:nth-child(5)::after{background:linear-gradient(#5E5CE6,#30D158)}
 </style>
 </head>
 <body>
