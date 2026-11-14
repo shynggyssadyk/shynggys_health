@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <!-- security -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-ZXBJ+KId/9HiKrw+TrLmU3Z4C03ksbyQgvcQb315LFw='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-qIxBKrZyOvRkM/NaPSuzKhYuzow9cqx8LwQIWdQ80Lc='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
 <meta name="format-detection" content="telephone=no">
@@ -905,6 +905,13 @@ section.band::before{content:"";position:absolute;top:0;bottom:0;left:calc(50% -
 .bk-s i{flex:none;width:10px;height:10px;border-radius:50%;border:2px solid #3E8EE6;background:#fff}
 .bk-note{font-size:12.5px!important;color:var(--muted)!important;margin-top:10px!important;line-height:1.45}
 @media (max-width:380px){.dial{width:112px;height:112px}.dial svg{width:112px;height:112px}.dl-v b{font-size:30px}}
+
+.bk-s.busy{border-style:solid;border-color:#E3E8F0;background:#F2F4F7;color:#98A2B3}
+.bk-s.busy i{border-color:#C0C8D4;background:#C0C8D4}
+.bk-s.free{border-style:solid;border-color:#30D158;background:#ECFBF1;color:#127A3A;box-shadow:0 0 0 3px rgba(48,209,88,.15)}
+.bk-s.free i{border-color:#30D158;background:#30D158;box-shadow:0 0 0 3px rgba(48,209,88,.25)}
+.bk-live.hot{background:#FFF1E6;color:#C2410C}
+.bk-live.hot .livedot,.bk-live.hot .livedot::after{background:#F97316}
 </style>
 </head>
 <body>
@@ -1130,9 +1137,9 @@ section.band::before{content:"";position:absolute;top:0;bottom:0;left:calc(50% -
       <div class="ny-txt"><span class="cd-l">До Нового года</span><h3><span class="livedot"></span><b id="seats">~20</b>&nbsp;мест на разбор</h3><p>Беру до 3 человек в неделю. Разберитесь до праздников: застолья - нагрузка на ЖКТ.</p></div>
     </div>
     <div class="book">
-      <div class="bk-h"><span class="bk-ico"><svg class="ic" style="width:16px;height:16px"><use href="#i-cal"/></svg></span><div><b>Запись на следующую неделю</b><small id="bkRange">--</small></div><span class="bk-live">Zoom</span></div>
+      <div class="bk-h"><span class="bk-ico"><svg class="ic" style="width:16px;height:16px"><use href="#i-cal"/></svg></span><div><b>Запись на следующую неделю</b><small id="bkRange">--</small></div><span class="bk-live" id="bkBadge">Zoom</span></div>
       <div class="bk-days" id="bkDays"></div>
-      <div class="bk-seats"><div class="bk-s"><i></i><span>Место 1</span></div><div class="bk-s"><i></i><span>Место 2</span></div><div class="bk-s"><i></i><span>Место 3</span></div></div>
+      <div class="bk-seats" id="bkSeats"><div class="bk-s"><i></i><span>Место 1</span></div><div class="bk-s"><i></i><span>Место 2</span></div><div class="bk-s"><i></i><span>Место 3</span></div></div>
       <p class="bk-note">До 3 консультаций в неделю, Zoom 60-90 минут. Удобный день и время подберёт менеджер после анкеты.</p>
     </div>
   </div>
@@ -1381,6 +1388,13 @@ function seatsTxt(){return '~'+seatsLeft()+' мест'}
  const days=[...Array(7)].map((_,i)=>new Date(mon.getTime()+i*864e5));
  $('#bkRange').textContent=days[0].getUTCDate()+' '+MN[days[0].getUTCMonth()]+' - '+days[6].getUTCDate()+' '+MN[days[6].getUTCMonth()];
  $('#bkDays').innerHTML=days.map((d,i)=>'<div class="bk-d'+(i>4?' we':'')+'"><span>'+DN[i]+'</span><b>'+d.getUTCDate()+'</b></div>').join('');
+
+ // REAL bookings, set by Shynggys. Applies only to that exact week; other weeks fall back to neutral slots.
+ const BOOKINGS={'2026-11-16':{taken:2}};
+ const wk=mon.toISOString().slice(0,10),bk=BOOKINGS[wk];
+ if(bk){const left=Math.max(0,3-bk.taken);
+   [...document.querySelectorAll('#bkSeats .bk-s')].forEach((el,i)=>{const busy=i<bk.taken;el.classList.add(busy?'busy':'free');el.querySelector('span').textContent=busy?'Занято':'Свободно'});
+   const bd=$('#bkBadge');bd.innerHTML='<span class="livedot"></span>'+(left===1?'Осталось 1 место':left===0?'Мест нет':'Осталось '+left+' места');bd.classList.add(left<=1?'hot':'ok');}
 })();
 track('page_view');
 })();
