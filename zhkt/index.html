@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <!-- security -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-utWdKm2WfgmziMj2fMJml4pnOCzLFy8lUN9qeh94KMM='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-CkGv1XKGSPZx4hiBo6XhvVySAp+zv+TZkOQtihOry+4='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
 <meta name="format-detection" content="telephone=no">
@@ -218,7 +218,7 @@ h2{font-weight:700;color:var(--navy);font-size:clamp(27px,7.2vw,38px);line-heigh
 .bristol{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-top:10px}
 .bristol button{min-height:44px;border-radius:10px;border:1.5px solid transparent;font-weight:700;font-size:15px;transition:transform var(--t) var(--ease)}
 .bristol button:active{transform:scale(.92)}
-.bristol .a{background:#FFF1DE;color:#8a4f08}.bristol .g{background:#E2F5EC;color:var(--green)}.bristol .r{background:#FDE8E7;color:#a51b15}
+.bristol .am{background:#FFF1DE;color:#8a4f08}.bristol .g{background:#E2F5EC;color:var(--green)}.bristol .r{background:#FDE8E7;color:#a51b15}
 .bristol button.on{border-color:var(--navy)}
 .binfo{margin-top:8px;font-size:14px;color:var(--ink);min-height:42px;background:var(--bg);border-radius:10px;padding:10px 12px}
 .fibre{width:100%;aspect-ratio:10/3;object-fit:cover;border-radius:18px;margin-top:12px;display:block}
@@ -464,6 +464,51 @@ section h2.a{transform:translate3d(0,24px,0)}
 .gpin.on b{background:#E3261F}
 @media (prefers-reduced-motion:reduce){.gpin i{animation:none;opacity:0}}
 img,video{-webkit-touch-callout:none;-webkit-user-drag:none;user-select:none}
+
+/* ===== v4 simplified layout ===== */
+section{padding-top:48px}
+h2{font-size:clamp(26px,7vw,36px)}
+.stk{width:56px;height:56px}
+/* stop signals: one compact expandable row */
+.alert{border:1.5px solid rgba(217,34,27,.35);background:#fff;border-radius:18px;padding:0 14px}
+.alert summary{list-style:none;display:flex;align-items:center;gap:12px;min-height:56px;cursor:pointer;color:var(--ink);font-weight:600;font-size:15.5px}
+.alert summary::-webkit-details-marker{display:none}
+.alert summary small{display:block;font-weight:400;font-size:13px;color:var(--muted)}
+.alert summary>span:nth-child(2){flex:1}
+.alert .dot{flex:none;width:28px;height:28px;border-radius:50%;background:var(--red);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center}
+.alert .chev{color:var(--muted);transition:transform var(--t) var(--ease)}.alert[open] .chev{transform:rotate(180deg)}
+.alert ul{margin:0 0 6px 40px;font-size:15px;color:var(--ink)}.alert li{padding:3px 0}
+.alert p{font-size:14.5px;color:var(--ink);padding:4px 0 14px}.alert p a{color:var(--red);font-weight:600}
+/* why: 2 stats */
+.stats.two{grid-template-columns:1fr 1fr}
+/* all tests collapsed */
+.alltests{padding:0 16px}
+.alltests summary{list-style:none;display:flex;align-items:center;gap:8px;min-height:58px;cursor:pointer;font-weight:700;color:var(--navy);font-size:17px}
+.alltests summary::-webkit-details-marker{display:none}
+.alltests summary small{font-weight:400;font-size:13px;color:var(--muted);flex:1}
+.alltests .chev{transition:transform var(--t) var(--ease);color:var(--muted)}.alltests[open] .chev{transform:rotate(180deg)}
+.alltests .groupt{margin:6px 0 8px;font-size:12px}
+.alltests .acc{box-shadow:none;border:1px solid var(--line)}
+.alltests .note{font-size:14px;color:var(--ink);padding:12px 0 16px}
+/* do / don't */
+.dd{display:grid;gap:12px}
+.dd h3{margin-bottom:6px}
+.tag{display:inline-block;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;border-radius:20px;padding:5px 10px}
+.tag.ok{background:#E2F5EC;color:var(--green)}.tag.no{background:#FDE8E7;color:#a51b15}
+.dd ul{list-style:none}
+.dd li{padding:9px 0;border-top:1px solid var(--line);font-size:15px;color:var(--sec)}
+.dd li:first-child{border-top:0}
+.dd li b{color:var(--navy)}
+/* invite */
+.gets{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.gets .card{display:flex;flex-direction:column;align-items:flex-start;gap:8px;padding:14px}
+.gets .i3{width:44px;height:44px}
+.gets b{color:var(--navy);font-size:14.5px;line-height:1.25}
+.trust{text-align:center;font-size:14px;color:var(--ink)}
+.trust b{font-size:18px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.trust b .cnt{color:transparent;-webkit-text-fill-color:transparent}
+.how{border-top:1px solid var(--line);padding-top:4px}
+.how summary{font-size:15px}
 </style>
 </head>
 <body>
@@ -496,7 +541,7 @@ img,video{-webkit-touch-callout:none;-webkit-user-drag:none;user-select:none}
 <nav class="topbar" id="topbar" aria-label="Разделы">
   <div class="progress" id="progress"></div>
   <div class="chips" id="chips">
-    <a href="#stop">Стоп-сигналы</a><a href="#quiz">Самопроверка</a><a href="#why">Почему</a><a href="#map">Карта ЖКТ</a><a href="#tests">Анализы</a><a href="#today">Что делать</a><a href="#invite">Разбор</a>
+    <a href="#quiz">Тест</a><a href="#why">Почему</a><a href="#map">Анализы</a><a href="#today">Что делать</a><a href="#invite">Разбор</a>
   </div>
 </nav>
 
@@ -515,28 +560,21 @@ img,video{-webkit-touch-callout:none;-webkit-user-drag:none;user-select:none}
 
 <main class="wrap" id="main">
 
-<section id="stop" class="rv">
-  <img class="stk" src="img/s_intestine.png" alt="" width="76" height="76" loading="lazy">
-  <div class="kicker">Сначала главное</div>
-  <h2>Когда <i class="s">не ждать</i></h2>
-  <p class="lead">Вздутие чаще всего не опасно. Но эти признаки - повод не ждать.</p>
-  <div class="danger mt">
-    <h3><img class="i3" src="img/i_warn.png" alt="" width="34" height="34" loading="lazy">Стоп-сигналы</h3>
-    <ul>
-      <li><img class="i3 sm" src="img/i_warn.png" alt="" width="24" height="24" loading="lazy">Кровь в стуле или чёрный стул</li>
-      <li><img class="i3 sm" src="img/i_warn.png" alt="" width="24" height="24" loading="lazy">Вес уходит сам, без диеты</li>
-      <li><img class="i3 sm" src="img/i_warn.png" alt="" width="24" height="24" loading="lazy">Боль или понос будят ночью</li>
-      <li><img class="i3 sm" src="img/i_warn.png" alt="" width="24" height="24" loading="lazy">Трудно глотать, повторяется рвота</li>
-      <li><img class="i3 sm" src="img/i_warn.png" alt="" width="24" height="24" loading="lazy">Всё началось после 50 лет</li>
-    </ul>
-    <p>Есть хотя бы один пункт? Не откладывайте - <a href="https://forms.gle/igVPeinj4NKTAGSYA" target="_blank" rel="noopener noreferrer" data-ev="stop_form">заполните анкету</a>: помогу составить план обследования и разберу результаты.</p>
-  </div>
-</section>
-
 <section id="quiz" class="rv">
   <img class="stk" src="img/s_checklist.png" alt="" width="76" height="76" loading="lazy">
-  <div class="kicker">Самопроверка · 30 секунд</div>
-  <h2>8 сигналов, что кишечник <i class="s">крадёт энергию</i></h2>
+  <div class="kicker">Шаг 1 · самопроверка за 30 секунд</div>
+  <h2>8 сигналов, что кишечник крадёт энергию</h2>
+  <details class="alert mt" id="stop">
+    <summary><span class="dot">!</span><span>Есть тревожные признаки?<small>5 стоп-сигналов - проверьте сначала</small></span><svg class="ic chev"><use href="#i-down"/></svg></summary>
+    <ul>
+      <li>Кровь в стуле или чёрный стул</li>
+      <li>Вес уходит сам, без диеты</li>
+      <li>Боль или понос будят ночью</li>
+      <li>Трудно глотать, повторяется рвота</li>
+      <li>Всё началось после 50 лет</li>
+    </ul>
+    <p>Есть хотя бы один пункт? Не откладывайте - <a href="https://forms.gle/igVPeinj4NKTAGSYA" target="_blank" rel="noopener noreferrer" data-ev="stop_form">заполните анкету</a>: помогу составить план обследования и разберу результаты.</p>
+  </details>
   <div class="card quiz mt" aria-live="polite">
     <div id="qrun">
       <div class="qtop"><button class="qback" id="qback" disabled aria-label="Предыдущий вопрос"><svg class="ic"><use href="#i-left"/></svg>Назад</button><span id="qcount">1 из 8</span></div>
@@ -564,8 +602,8 @@ img,video{-webkit-touch-callout:none;-webkit-user-drag:none;user-select:none}
 </section>
 
 <section id="why" class="rv">
-  <div class="kicker">Почему кишечник = энергия</div>
-  <h2>Вы - не то, что съели, <i class="s">а то, что усвоили</i></h2>
+  <div class="kicker">Шаг 2 · почему так</div>
+  <h2>Вы - не то, что съели, а то, что усвоили</h2>
   <div class="mt">
     <div class="card node"><img class="ico3d" src="img/c_plate.png" alt="" width="72" height="72" loading="lazy"><div><h3>Едите правильно</h3><p>мясо, овощи, витамины</p></div></div>
     <div class="link"></div>
@@ -573,26 +611,17 @@ img,video{-webkit-touch-callout:none;-webkit-user-drag:none;user-select:none}
     <div class="link"></div>
     <div class="card node warn"><img class="ico3d" src="img/c_battery.png" alt="" width="72" height="72" loading="lazy"><div><h3>Железо и B12 на нуле</h3><p>усталость, туман, выпадают волосы</p></div></div>
   </div>
-  <div class="quote">Нет сил? <i class="s">Ищите в животе.</i></div>
-</section>
-
-<section id="numbers" class="rv">
-  <div class="kicker">Почему это важно</div>
-  <h2>ЖКТ - это <i class="s">не только живот</i></h2>
-  <div class="stats mt">
-    <div class="card stat"><div class="v"><span class="cnt" data-to="40">0</span><small>%</small></div><p>взрослых - с расстройством ЖКТ</p><em>Rome Foundation · 73 076 человек, 33 страны</em></div>
+  <div class="stats two mt">
+    <div class="card stat"><div class="v"><span class="cnt" data-to="40">0</span><small>%</small></div><p>взрослых - с расстройством ЖКТ</p><em>Rome Foundation, 73 076 человек</em></div>
     <div class="card stat"><div class="v"><span class="cnt" data-to="4.4" data-dec="1">0</span><small> млрд</small></div><p>людей с хеликобактером</p><em>оценка на 2015 год</em></div>
-    <div class="card stat"><div class="v"><span class="cnt" data-to="1.4" data-dec="1">0</span><small>%</small></div><p>людей - целиакия по антителам</p><em>0,7% по биопсии</em></div>
-    <div class="card stat"><div class="v"><span class="cnt" data-to="12">0</span><small>% vs 7,2%</small></div><p>с дефицитом B12 пили омепразол 2+ года</p><em>JAMA, 2013</em></div>
   </div>
-  <p class="lead" style="color:var(--navy);font-weight:500;margin-top:24px">Живот может и не болеть. Это видно только в анализах.</p>
+  <div class="quote">Живот может и не болеть. <i class="s">Это видно только в анализах.</i></div>
 </section>
 
 <section id="map" class="rv">
-  <img class="stk" src="img/s_stomach.png" alt="" width="76" height="76" loading="lazy">
-  <div class="kicker">Карта ЖКТ</div>
-  <h2>Где <i class="s">сбой?</i></h2>
-  <p class="lead">Нажмите на орган - покажу симптомы и нужный анализ.</p>
+  <div class="kicker">Шаг 3 · что проверить</div>
+  <h2>Где сбой - и какой анализ это покажет</h2>
+  <p class="lead">Нажмите на номер органа.</p>
   <div class="mapwrap mt">
     <div class="gimap" role="group" aria-label="3D-модель желудочно-кишечного тракта">
       <img src="img/gi_model.webp" alt="3D-модель ЖКТ: пищевод, желудок, печень, поджелудочная, тонкая и толстая кишка" width="560" height="840" loading="lazy">
@@ -608,99 +637,74 @@ img,video{-webkit-touch-callout:none;-webkit-user-drag:none;user-select:none}
       <button data-z="3"><b>4</b><span>Толстая кишка<small>понос, запор</small></span></button>
     </div>
   </div>
-  
-</section>
-
-<section id="tests" class="rv">
-  <img class="stk" src="img/s_tube.png" alt="" width="76" height="76" loading="lazy">
-  <div class="kicker">Какие анализы сдать</div>
-  <h2>8 анализов <i class="s">для ЖКТ</i></h2>
-  <p class="lead">Нажмите на анализ и добавьте его в свой список.</p>
-  <div class="groupt"><img class="i3" src="img/t_cal.png" alt="" width="30" height="30" loading="lazy">В кале и дыхании</div>
-  <div class="stack" id="tg1"></div>
-  <div class="groupt"><img class="i3" src="img/i_drop.png" alt="" width="30" height="30" loading="lazy">В крови</div>
-  <div class="stack" id="tg2"></div>
-  <div class="when"><img class="i3" src="img/i_clock.png" alt="" width="44" height="44" loading="lazy"><div><b>Когда сдавать:</b> до диет, пробиотиков, ферментов и «чисток». Иначе картина изменится, и причину уже не увидеть.</div></div>
-</section>
-
-<section id="mistakes" class="rv">
-  <div class="kicker">Частые ошибки</div>
-  <h2>4 ошибки, из-за которых <i class="s">живот лечат годами</i></h2>
-  <div class="stack mt">
-    <div class="card m"><img class="i3" src="img/i_x.png" alt="" width="40" height="40" loading="lazy"><div><h3>«Сдам анализ на дисбактериоз»</h3><p>Посев кала не видит, что происходит в тонкой кишке.</p></div></div>
-    <div class="card m"><img class="i3" src="img/i_x.png" alt="" width="40" height="40" loading="lazy"><div><h3>«Уберу глютен и посмотрю»</h3><p>Без глютена анализ на целиакию может стать ложно чистым.</p></div></div>
-    <div class="card m"><img class="i3" src="img/i_x.png" alt="" width="40" height="40" loading="lazy"><div><h3>«Омепразол - безобидная таблетка»</h3><p>При долгом приёме чаще падают B12 и магний.</p></div></div>
-    <div class="card m"><img class="i3" src="img/i_x.png" alt="" width="40" height="40" loading="lazy"><div><h3>«Ферменты и пробиотики на всякий случай»</h3><p>Без анализов это наугад: сначала цифры, потом добавки.</p></div></div>
-  </div>
+  <details class="card mt alltests" id="tests">
+    <summary>Все 8 анализов <small>нормы и как сдавать</small><svg class="ic chev"><use href="#i-down"/></svg></summary>
+    <div class="groupt">В кале и дыхании</div>
+    <div class="stack" id="tg1"></div>
+    <div class="groupt">В крови</div>
+    <div class="stack" id="tg2"></div>
+    <p class="note"><b>Когда сдавать:</b> до диет, пробиотиков, ферментов и «чисток» - иначе причину уже не увидеть.</p>
+  </details>
 </section>
 
 <section id="today" class="rv">
-  <img class="stk" src="img/s_fibre.png" alt="" width="76" height="76" loading="lazy">
-  <div class="kicker">Что делать уже сегодня</div>
-  <h2>С чего начать <i class="s">без вреда</i></h2>
-  <div class="stack mt">
-    <div class="card todo"><div class="n">1</div><div><h3>Клетчатка - по 5 г в неделю</h3><p>Овощи, ягоды, бобовые, цельные крупы. Резкий скачок даёт вздутие.</p></div></div>
-    <div class="card todo"><div class="n">2</div><div><h3>Вода - вместе с клетчаткой</h3><p>Без воды клетчатка может крепить.</p></div></div>
-    <div class="card todo"><div class="n">3</div><div><h3>Еда вместо порошков</h3><p>Сначала тарелка, потом банки с добавками.</p></div></div>
-    <div class="card todo"><div class="n">4</div><div style="flex:1"><h3>Дневник на 14 дней</h3><p>Еда, симптомы и стул. Какой тип по Бристольской шкале у вас чаще?</p>
-      <div class="bristol" id="bristol" role="group" aria-label="Бристольская шкала стула">
-        <button class="a" data-b="1">1</button><button class="a" data-b="2">2</button><button class="g" data-b="3">3</button><button class="g" data-b="4">4</button><button class="r" data-b="5">5</button><button class="r" data-b="6">6</button><button class="r" data-b="7">7</button>
-      </div>
-      <div class="binfo" id="binfo">Нажмите на цифру - подскажу, что это значит.</div></div></div>
+  <div class="kicker">Шаг 4 · с чего начать</div>
+  <h2>Что делать уже сегодня - и чего не делать</h2>
+  <div class="dd mt">
+    <div class="card do">
+      <h3><span class="tag ok">Делать</span></h3>
+      <ul>
+        <li><b>Клетчатка - по 5 г в неделю.</b> Резкий скачок даёт вздутие.</li>
+        <li><b>Вода вместе с клетчаткой.</b> Без воды она может крепить.</li>
+        <li><b>Дневник 14 дней:</b> еда, симптомы, стул. Какой тип стула у вас чаще?
+          <div class="bristol" id="bristol" role="group" aria-label="Бристольская шкала стула">
+            <button class="am" data-b="1">1</button><button class="am" data-b="2">2</button><button class="g" data-b="3">3</button><button class="g" data-b="4">4</button><button class="r" data-b="5">5</button><button class="r" data-b="6">6</button><button class="r" data-b="7">7</button>
+          </div>
+          <div class="binfo" id="binfo">Нажмите на цифру - подскажу, что это значит.</div>
+        </li>
+      </ul>
+    </div>
+    <div class="card dont">
+      <h3><span class="tag no">Не делать</span></h3>
+      <ul>
+        <li><b>Анализ «на дисбактериоз».</b> Посев кала не видит тонкую кишку.</li>
+        <li><b>Убирать глютен до анализа.</b> Тест на целиакию станет ложно чистым.</li>
+        <li><b>Ферменты и пробиотики «на всякий случай».</b> Сначала цифры, потом добавки.</li>
+      </ul>
+    </div>
   </div>
-  <img class="fibre" src="img/fibre.jpg" alt="Чечевица, семена и цельнозерновой хлеб" width="1100" height="330" loading="lazy">
-  <div class="cap2">Фото: formulatehealth · Wikimedia Commons · CC BY 2.0</div>
 </section>
 
-<section id="next" class="rv">
-  <div class="kicker">Анализы сданы. Что дальше?</div>
-  <h2>Одна и та же цифра <i class="s">значит разное</i></h2>
-  <p class="lead">Ферритин 25 у человека с хеликобактером и у вегетарианца - две разные истории и два разных решения.</p>
+<section id="invite" class="rv">
+  <img class="stk" src="img/s_diary.png" alt="" width="76" height="76" loading="lazy">
+  <div class="kicker">Шаг 5 · личный разбор</div>
+  <h2>Разберём ваш ЖКТ <i class="s">и вашу усталость</i></h2>
+  <p class="lead">Одна и та же цифра значит разное: ферритин 25 у человека с хеликобактером и у вегетарианца - два разных решения.</p>
   <div class="card case mt">
     <div class="lbl">Случай из практики</div>
     <h3>Аружан, 33 года</h3>
     <ul class="tl"><li><b>Было</b>разбитость с утра, усталость к середине дня, выпадение волос</li><li><b>Нашли</b>скрытый железодефицит - низкий ферритин при нормальном гемоглобине</li><li><b>Стало</b>больше энергии, дефицит железа восполнен</li></ul>
     <em>Результат индивидуален и зависит от исходных данных.</em>
   </div>
-  <div class="fit mt">
-    <h3>Разбор подойдёт, если:</h3>
-    <ul>
-      <li><img class="i3 sm" src="img/i_ok.png" alt="" width="24" height="24" loading="lazy">устаёте, хотя спите достаточно</li>
-      <li><img class="i3 sm" src="img/i_ok.png" alt="" width="24" height="24" loading="lazy">ферритин или B12 не растут</li>
-      <li><img class="i3 sm" src="img/i_ok.png" alt="" width="24" height="24" loading="lazy">живот беспокоит дольше месяца</li>
-      <li><img class="i3 sm" src="img/i_ok.png" alt="" width="24" height="24" loading="lazy">анализы «в норме», а сил нет</li>
-      <li><img class="i3 sm" src="img/i_ok.png" alt="" width="24" height="24" loading="lazy">совпало 3+ пункта в самопроверке</li>
-    </ul>
-    <p><b>Не знаете, с чего начать?</b> С этого разбор и начинается.</p>
+  <div class="gets mt">
+    <div class="card"><img class="i3" src="img/i_list.png" alt="" width="44" height="44" loading="lazy"><b>Свой список анализов</b></div>
+    <div class="card"><img class="i3" src="img/i_drop.png" alt="" width="44" height="44" loading="lazy"><b>Где теряются железо и B12</b></div>
+    <div class="card"><img class="i3" src="img/i_bowl.png" alt="" width="44" height="44" loading="lazy"><b>Питание под ваш живот</b></div>
+    <div class="card"><img class="i3" src="img/i_supp.png" alt="" width="44" height="44" loading="lazy"><b>Добавки по анализам</b></div>
   </div>
-</section>
-
-<section id="invite" class="rv">
-  <img class="stk" src="img/s_diary.png" alt="" width="76" height="76" loading="lazy">
-  <div class="kicker">Личное приглашение</div>
-  <h2>Разберём ваш ЖКТ <i class="s">и вашу усталость</i></h2>
-  <div class="card mt">
-    <ul class="bul">
-      <li><img class="i3" src="img/i_list.png" alt="" width="52" height="52" loading="lazy"><div><b>Персональный список анализов</b><span>Что сдать именно вам, без лишнего.</span></div></li>
-      <li><img class="i3" src="img/i_drop.png" alt="" width="52" height="52" loading="lazy"><div><b>Где теряются железо и витамины</b><span>По вашим цифрам, а не по среднему референсу.</span></div></li>
-      <li><img class="i3" src="img/i_bowl.png" alt="" width="52" height="52" loading="lazy"><div><b>Питание под ваш живот</b><span>Чтобы не вздувало, без жёстких диет.</span></div></li>
-      <li><img class="i3" src="img/i_supp.png" alt="" width="52" height="52" loading="lazy"><div><b>Добавки по анализам</b><span>Что нужно, а что можно не покупать.</span></div></li>
-    </ul>
-  </div>
-  <div class="facts mt"><div class="card"><b><span class="cnt" data-to="1000">0</span>+</b><span>консультаций с 2023</span></div><div class="card"><b>3 года</b><span>частной практики</span></div><div class="card"><b>1:1</b><span>Zoom, 60-90 мин</span></div></div>
-  <div class="ny mt"><div class="big"><b>~20</b><span>МЕСТ ДО НГ</span></div><div><h3><span class="livedot"></span>До Нового года - около 20 мест</h3><p>Беру до 3 человек в неделю - места быстро заканчиваются. Разберитесь до праздников: застолья - нагрузка на ЖКТ, а анализы готовятся несколько дней.</p></div></div>
-  <details class="card mt how"><summary>Как проходит разбор · 5 шагов <svg class="ic chev"><use href="#i-down"/></svg></summary>
+  <p class="trust mt"><b>1 000+</b> консультаций с 2023 · Zoom 1:1, 60-90 минут</p>
+  <div class="ny mt"><div class="big"><b>~20</b><span>МЕСТ ДО НГ</span></div><div><h3><span class="livedot"></span>До Нового года - около 20 мест</h3><p>Беру до 3 человек в неделю. Разберитесь до праздников: застолья - нагрузка на ЖКТ, а анализы готовятся несколько дней.</p></div></div>
+  <a class="btn mt pulse" href="https://forms.gle/igVPeinj4NKTAGSYA" target="_blank" rel="noopener noreferrer" data-ev="invite_form">Заполнить анкету <svg class="ic"><use href="#i-arrow"/></svg></a>
+  <p class="small">Пара минут. Менеджер ответит в WhatsApp - ни к чему не обязывает. Консультация платная, стоимость зависит от формата.</p>
+  <details class="how mt"><summary>Как проходит разбор · 5 шагов <svg class="ic chev"><use href="#i-down"/></svg></summary>
     <ul class="steps">
-      <li><span class="num">1</span><div><b>Анкета</b><span>Короткая анкета - менеджер пишет в WhatsApp, отвечает на вопросы и подбирает формат.</span></div></li>
+      <li><span class="num">1</span><div><b>Анкета</b><span>Менеджер пишет в WhatsApp, отвечает на вопросы и подбирает формат.</span></div></li>
       <li><span class="num">2</span><div><b>Подробнее о вас</b><span>Симптомы, стул, питание, лекарства, что уже пробовали.</span></div></li>
       <li><span class="num">3</span><div><b>Анализы</b><span>Составляю персональный список. Есть свежие - смотрю, чего не хватает.</span></div></li>
       <li><span class="num">4</span><div><b>Консультация со мной</b><span>Zoom, 60-90 минут, один на один.</span></div></li>
       <li><span class="num">5</span><div><b>После консультации</b><span>Карта восстановления, план питания и 3-5 дней обратной связи.</span></div></li>
     </ul>
   </details>
-  <p style="font-size:14px;margin-top:10px;color:var(--ink)">Консультация платная. Стоимость зависит от формата - менеджер подберёт его под вашу ситуацию.</p>
-  <a class="btn mt pulse" href="https://forms.gle/igVPeinj4NKTAGSYA" target="_blank" rel="noopener noreferrer" data-ev="invite_form">Заполнить анкету <svg class="ic"><use href="#i-arrow"/></svg></a>
-  <p class="small">Пара минут. Менеджер ответит в WhatsApp - ни к чему не обязывает.</p>
 </section>
 
 <section id="sources">
@@ -717,7 +721,7 @@ img,video{-webkit-touch-callout:none;-webkit-user-drag:none;user-select:none}
       <li>Rezaie A. и соавт. North American Consensus on breath testing. Am J Gastroenterol 2017;112:775-784 - водород ≥20 ppm за 90 мин, метан ≥10 ppm</li>
       <li>NICE DG11 (сейчас HTG320) - кальпротектин, порог 50 мкг/г. Löhr J.M. и соавт. HaPanEU. UEG J 2017 - эластаза-1, чаще всего 200 мкг/г</li>
       <li>Нормы ферритина, B12, витамина D, магния - Метаболический справочник №1 (WHO 2020, Endocrine Society)</li>
-      <li>Фото: Wikimedia Commons - melvil, Whispyhistory (CC BY-SA 4.0), formulatehealth (CC BY 2.0). Видео: ROCKETMANN TEAM, Pexels. Фото к самопроверке: Pexels (лицензия Pexels)</li>
+      <li>Видео: ROCKETMANN TEAM, Pexels. Фото к самопроверке: Pexels (лицензия Pexels)</li>
     </ol>
   </details>
 </section>
@@ -759,7 +763,7 @@ document.fonts.ready.then(()=>$$('.brand').forEach(b=>{const n=b.querySelector('
 // MOTION (Apple-style): each element animates when it actually enters the screen,
 // and replays every time it comes back. Counters restart from 0 each time.
 function initMotion(){
-const ANIM_SEL='section .kicker,section h2,section .lead,section .stk,.card,.danger,.quote,.fit,.ny,.link,.fibre,.groupt,.when,.bristol,.mapwrap .gimap,.olist button,.stats .stat,.facts .card,.bul li,.steps li,.tl li,.fit li,.danger li,.how';
+const ANIM_SEL='section h2,section .stk,.card,.quote,.ny,.link,.mapwrap .gimap,.alert,.how,.trust,.stats .stat';
 const animEls=$$(ANIM_SEL).filter(el=>!el.closest('.hero,.sheet,.sticky,.topbar')&&!el.parentElement.closest('.a-done'));
 animEls.forEach(el=>{
   // stagger siblings of the same kind inside one parent
@@ -787,7 +791,7 @@ if(reduce){animEls.forEach(el=>el.classList.add('in'));$$('.cnt').forEach(countU
 }}
 
 // top bar & progress: IntersectionObserver for sections, one cheap rAF for the bar
-const secs=['stop','quiz','why','map','tests','today','invite'].map(id=>document.getElementById(id));
+const secs=['quiz','why','map','today','invite'].map(id=>document.getElementById(id));
 const chips=$('#chips'),chipA=$$('#chips a');let cur=null;
 const setChip=id=>{if(id===cur)return;cur=id;chipA.forEach(a=>{const on=a.getAttribute('href')==='#'+id;a.classList.toggle('on',on);if(on)chips.scrollTo({left:a.offsetLeft-chips.clientWidth/2+a.offsetWidth/2})})};
 const sio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)setChip(e.target.id)}),{rootMargin:'-45% 0px -50% 0px'});secs.forEach(x=>sio.observe(x));
@@ -876,7 +880,7 @@ function openZone(i){buzz();const z=Z[i];track('map_zone',{z:i});
  openSheet((i+1)+' · '+z.t, z.s.map(([sym,id])=>'<div class="sym"><svg class="ic" style="width:18px;height:18px"><use href="#i-alert"/></svg>'+sym+'</div><div class="trow"><b>→ '+byId[id].t+'</b>'+addBtn(id)+'</div>').join('')+
  '<a class="btn mt" href="'+FORM+'" target="_blank" rel="noopener noreferrer" data-ev="map_form">Разобрать мой случай <svg class="ic"><use href="#i-arrow"/></svg></a><button class="btn ghost" style="margin-top:8px" data-goto="tests" data-close>Все анализы</button>','zone');syncList()}
 $$('[data-z]').forEach(el=>{el.addEventListener('click',()=>openZone(+el.dataset.z));el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openZone(+el.dataset.z)}})});
-document.addEventListener('click',e=>{const g=e.target.closest('[data-goto]');if(e.target.closest('[data-close]'))closeSheet();if(g){const t=document.getElementById(g.dataset.goto);t&&t.scrollIntoView()}});
+document.addEventListener('click',e=>{const g=e.target.closest('[data-goto]');if(e.target.closest('[data-close]'))closeSheet();if(g){const t=document.getElementById(g.dataset.goto);if(t){if(t.tagName==='DETAILS')t.open=true;t.scrollIntoView()}}});
 
 // MY LIST
 const listText=()=>'Мой список анализов (ЖКТ):\n'+[...list].map((id,i)=>(i+1)+'. '+byId[id].L).join('\n')+'\n\nСдавать до диет, пробиотиков и ферментов. Анализ на целиакию - на обычном питании с глютеном.\nИз справочника Шынгыса Садыка @shynggys_health';
