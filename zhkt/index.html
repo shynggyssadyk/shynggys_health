@@ -830,6 +830,35 @@ section.band::before{content:"";position:absolute;top:0;bottom:0;left:calc(50% -
 .appeal.speak.in .b1 .sp-msg{opacity:0;animation:showQ .4s ease 1.2s forwards}
 .appeal.speak .b1 .typing{position:absolute}
 @media (prefers-reduced-motion:reduce){.appeal.speak .sp-msg{opacity:1!important;animation:none!important}}
+
+/* finale as the 6th step in the same grid, premium treatment */
+.j-steps li.win{padding-bottom:4px}
+.j-steps li.win>i{background:linear-gradient(135deg,#30D158,#0A84FF 60%,#5E5CE6);box-shadow:0 0 0 3px rgba(48,209,88,.25),0 8px 20px rgba(10,132,255,.35)!important}
+.j-steps li.win>.j-final{flex:1;margin-top:-4px;padding:14px 14px 14px;border-radius:16px;box-shadow:0 2px 6px rgba(10,60,140,.15),0 14px 32px rgba(70,80,230,.30)}
+.j-steps li.win .jf-l{font-size:11px;letter-spacing:1.4px}
+.j-steps li.win b.jf-h{display:block;color:#fff;font-size:17px;line-height:1.25;padding-top:2px}
+.j-steps li.win b.jf-h em{font-family:'Source Serif 4',Georgia,serif;font-style:italic;font-weight:560;color:#D8FFE4;font-size:1.08em}
+.j-steps li.win .j-final p{font-size:14.5px;margin-top:6px}
+.j-steps li.win .j-final span{display:inline;margin:0;color:inherit}
+.j-steps li.win .jf-l{display:block!important;color:#C9F7D6!important}
+.j-steps li.win .jf-ticks span{display:inline;font-size:11px;color:#D6E2FF}
+.j-steps li.win .jf-wins li{font-size:13.5px;padding:8px 10px}
+.j-steps li.win .jf-quote{font-size:15.5px;margin-top:10px}
+.j-steps::before{bottom:auto;height:calc(100% - 120px)}
+
+/* isolate finale internals from generic .j-steps rules */
+.j-steps .j-final .jf-bar i{all:unset;display:block;height:100%;width:0;border-radius:8px;background:linear-gradient(90deg,#9FD3FF,#7CF0A6);transition:width 1.6s cubic-bezier(.16,1,.3,1) .3s}
+.journey.in .j-steps .j-final .jf-bar i{width:100%}
+.j-steps .j-final b{display:inline!important;color:#fff!important;font-size:inherit!important;padding:0!important;font-weight:700}
+.j-steps .j-final b.jf-h{display:block!important;font-size:17px!important;padding-top:2px!important}
+.j-steps .j-final .jf-wins li{display:flex!important;padding:8px 10px!important;color:#E6EEFF!important;position:static}
+.j-steps .j-final .jf-ticks span{display:inline!important;color:#D6E2FF!important;margin:0!important;font-size:11px!important}
+.j-steps .j-final p{color:#E6EEFF!important}
+.j-steps .j-final .jf-quote{color:#fff!important}
+@media (prefers-reduced-motion:reduce){.j-steps .j-final .jf-bar i{width:100%;transition:none}}
+
+.j-steps .j-final .jf-wins li{display:block!important;position:relative!important;padding:8px 10px 8px 36px!important}
+.j-steps .j-final .jf-wins li::before{position:absolute;left:10px;top:9px;margin:0}
 </style>
 </head>
 <body>
@@ -1016,7 +1045,7 @@ section.band::before{content:"";position:absolute;top:0;bottom:0;left:calc(50% -
   <div class="journey mt">
     <div class="j-head">
       <div class="kicker">Как проходит разбор</div>
-      <h3>От анкеты до личного плана <span>за 5 шагов</span></h3>
+      <h3>От анкеты до <span>определённости</span></h3>
       <div class="j-chips"><span><b>1 000+</b> консультаций</span><span>Zoom 1:1</span><span>60-90 минут</span></div>
     </div>
     <ol class="j-steps">
@@ -1025,9 +1054,7 @@ section.band::before{content:"";position:absolute;top:0;bottom:0;left:calc(50% -
       <li><i>3</i><div><b>Анализы</b><span>Составлю персональный список. Есть свежие - посмотрю, чего не хватает.</span></div></li>
       <li class="me"><i>4</i><div><b>Консультация со мной <img src="img/avatar.jpg" alt="" width="26" height="26" loading="lazy"></b><span>Один на один в Zoom: разбираем цифры и находим, где теряется энергия.</span></div></li>
       <li class="fin"><i>5</i><div><b>Ваш план</b><span>Персональный протокол восстановления, питание под ваш живот и 3-5 дней обратной связи.</span><figure class="shot pages"><img src="img/proto1.webp?v=2" alt="Обложка протокола: план ведения на 8 недель" width="450" height="637" loading="lazy"><img src="img/proto2.webp?v=2" alt="Письмо с главными выводами по анализам" width="450" height="637" loading="lazy"><figcaption>Так выглядит протокол: план ведения и письмо с выводами по вашим анализам. Данные клиента скрыты.</figcaption></figure></div></li>
-    </ol>
-    <div class="j-final">
-      <div class="jf-top"><img src="img/i_ok.png" alt="" width="56" height="56" loading="lazy"><div><span class="jf-l">Итог</span><h4>У вас появляется <em>определённость</em></h4></div></div>
+      <li class="win"><i aria-label="Итог"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i><div class="j-final"><span class="jf-l">Итог</span><b class="jf-h">У вас появляется <em>определённость</em></b>
       <p>Больше никаких догадок. Вы знаете, <b>что происходит с вашим телом</b>, почему уходят силы и что делать каждый день.</p>
       <div class="jf-track" aria-label="8-12 недель по плану">
         <div class="jf-bar"><i></i></div>
@@ -1038,8 +1065,8 @@ section.band::before{content:"";position:absolute;top:0;bottom:0;left:calc(50% -
         <li><b>Чёткий план на 8-12 недель</b> - день за днём</li>
         <li><b>Вы идёте к своей цели</b> по курсу, а не наугад</li>
       </ul>
-      <p class="jf-quote">Это и есть главное, ради чего приходят на разбор.</p>
-    </div>
+      <p class="jf-quote">Это и есть главное, ради чего приходят на разбор.</p></div></li>
+    </ol>
   </div>
   <div class="ny mt" id="ny">
     <div class="ny-top"><div class="big"><b id="seats">~20</b><span>МЕСТ ДО НГ</span></div><div><h3><span class="livedot"></span>Беру до 3 человек в неделю</h3><p>Разберитесь до праздников: застолья - нагрузка на ЖКТ, а анализы готовятся несколько дней.</p></div></div>
