@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <!-- security -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-TmTiXWvT1M0zk1tkXXjid+ubm4BcXSRtzvIhTA6BlHM='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-cTT40VCSQyNTh0aKp1QeJukfYYurRpv6XLwYiev+Dso='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
 <meta name="format-detection" content="telephone=no">
@@ -723,6 +723,63 @@ h2{font-size:clamp(26px,7vw,36px)}
 .trust b .cnt{color:transparent;-webkit-text-fill-color:transparent}
 .how{border-top:1px solid var(--line);padding-top:4px}
 .how summary{font-size:15px}
+
+/* ===== v6: organ colors, "all tests" CTA, page-wide step progression ===== */
+:root{--z0:#FF6B57;--z1:#F2A20C;--z2:#0A84FF;--z3:#7A5AF8}
+.gpin[data-z="0"] b,.olist button[data-z="0"] b{background:var(--z0)}
+.gpin[data-z="1"] b,.olist button[data-z="1"] b{background:var(--z1)}
+.gpin[data-z="2"] b,.olist button[data-z="2"] b{background:var(--z2)}
+.gpin[data-z="3"] b,.olist button[data-z="3"] b{background:var(--z3)}
+.gpin[data-z="0"] i{background:color-mix(in srgb,var(--z0) 50%,transparent)}
+.gpin[data-z="1"] i{background:color-mix(in srgb,var(--z1) 50%,transparent)}
+.gpin[data-z="2"] i{background:color-mix(in srgb,var(--z2) 50%,transparent)}
+.gpin[data-z="3"] i{background:color-mix(in srgb,var(--z3) 50%,transparent)}
+.olist button{border-left:4px solid transparent}
+.olist button[data-z="0"]{border-left-color:var(--z0)}.olist button[data-z="1"]{border-left-color:var(--z1)}
+.olist button[data-z="2"]{border-left-color:var(--z2)}.olist button[data-z="3"]{border-left-color:var(--z3)}
+.sheet[data-z="0"] #shTitle{color:var(--z0)}.sheet[data-z="1"] #shTitle{color:#b87500}
+.sheet[data-z="2"] #shTitle{color:var(--z2)}.sheet[data-z="3"] #shTitle{color:var(--z3)}
+/* all-tests summary as an inviting button */
+.alltests{border:1.5px solid transparent;background:linear-gradient(#fff,#fff) padding-box,linear-gradient(135deg,#0A84FF,#5E5CE6) border-box;box-shadow:0 12px 30px rgba(10,132,255,.16)}
+.alltests summary{gap:12px;min-height:72px}
+.at-ico{display:flex;flex:none}.at-ico img{width:34px;height:34px;object-fit:contain;margin-right:-10px;filter:drop-shadow(0 2px 4px rgba(0,0,0,.15))}
+.at-txt{flex:1;font-size:16.5px;color:var(--navy);font-weight:700;padding-left:8px;line-height:1.25}
+.at-txt small{display:block;font-weight:500;font-size:12.5px;color:var(--apple);margin-top:2px}
+.at-btn{flex:none;width:38px;height:38px;border-radius:50%;background:var(--grad);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 16px rgba(10,132,255,.35)}
+.at-btn .chev{color:#fff;width:20px;height:20px}
+.alltests:not([open]) .at-btn{animation:nudge 1.8s ease-in-out infinite}
+@keyframes nudge{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(4px)}}
+.alltests[open] .at-btn{transform:rotate(180deg)}
+.alltests summary small:not(.at-txt small){display:none}
+@media (prefers-reduced-motion:reduce){.alltests .at-btn{animation:none}}
+/* page progression: full-bleed bands that deepen step by step, final step on dark */
+body{overflow-x:clip}
+section.band{position:relative;isolation:isolate;content-visibility:visible;padding-bottom:40px}
+section.band::before{content:"";position:absolute;top:0;bottom:0;left:calc(50% - 50vw);right:calc(50% - 50vw);z-index:-1}
+.band.b1::before{background:linear-gradient(180deg,#F2F5FA,#EEF3FA)}
+.band.b2::before{background:linear-gradient(180deg,#EEF3FA,#E6EFFA)}
+.band.b3::before{background:linear-gradient(180deg,#E6EFFA,#DCE8F8)}
+.band.b4::before{background:linear-gradient(180deg,#DCE8F8,#D2E1F6)}
+.band.b5::before{background:radial-gradient(70% 40% at 100% 0%,rgba(10,132,255,.28),transparent 70%),radial-gradient(70% 40% at 0% 60%,rgba(94,92,230,.22),transparent 70%),linear-gradient(180deg,#0e1424 0%,#0b0f1a 100%);border-radius:36px 36px 0 0}
+/* step badges: color/contrast grows 1 -> 5 */
+.kicker.step{display:flex;align-items:center;gap:10px;letter-spacing:1.2px}
+.kicker.step b{flex:none;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;letter-spacing:0}
+.kicker.s1 b{background:#D6E8FA;color:#1F5FA8}.kicker.s1{color:#4F79AE}
+.kicker.s2 b{background:#A9CDF2;color:#0D4C93}.kicker.s2{color:#2F6DB0}
+.kicker.s3 b{background:#3E8EE6;color:#fff}.kicker.s3{color:#1F6DC4}
+.kicker.s4 b{background:linear-gradient(135deg,#0A84FF,#5E5CE6);color:#fff}.kicker.s4{color:#4A47D0}
+.kicker.s5 b{background:#fff;color:#0b0f1a;box-shadow:0 0 0 3px rgba(255,255,255,.18)}.kicker.s5{color:#C7B8FF}
+/* step 5 on dark: readable text */
+.band.b5 h2{color:#fff}
+.band.b5 h2 i.s{background:linear-gradient(90deg,#9FD3FF,#C7B8FF);-webkit-background-clip:text;background-clip:text;color:transparent}
+.band.b5>.lead{color:#C9D8EA}
+.band.b5 .sp-head b{color:#fff}.band.b5 .sp-head span{color:#9fb1cc}.band.b5 .sp-head span:first-of-type{color:#E3EAF6}
+.band.b5 .small{color:#9fb1cc}
+.band.b5 .ny{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);box-shadow:none}
+.band.b5 .gets .card,.band.b5 .case{box-shadow:0 14px 34px rgba(0,0,0,.25)}
+#sources{padding-top:28px}
+.band.b5 .card,.band.b5 .journey{background-color:#fff}
+.band.b5 .gets .card{background:#fff}
 </style>
 </head>
 <body>
@@ -755,7 +812,7 @@ h2{font-size:clamp(26px,7vw,36px)}
 <nav class="topbar" id="topbar" aria-label="Разделы">
   <div class="progress" id="progress"></div>
   <div class="chips" id="chips">
-    <a href="#quiz">Тест</a><a href="#why">Почему</a><a href="#map">Анализы</a><a href="#today">Что делать</a><a href="#invite">Разбор</a>
+    <a href="#quiz">1 Тест</a><a href="#why">2 Почему</a><a href="#map">3 Анализы</a><a href="#today">4 Что делать</a><a href="#invite">5 Разбор</a>
   </div>
 </nav>
 
@@ -774,9 +831,9 @@ h2{font-size:clamp(26px,7vw,36px)}
 
 <main class="wrap" id="main">
 
-<section id="quiz" class="rv">
+<section id="quiz" class="rv band b1">
   <img class="stk" src="img/s_checklist.png" alt="" width="76" height="76" loading="lazy">
-  <div class="kicker">Шаг 1 · самопроверка за 30 секунд</div>
+  <div class="kicker step s1"><b>1</b><span>Шаг 1 из 5 · самопроверка за 30 секунд</span></div>
   <h2>8 сигналов, что кишечник крадёт энергию</h2>
   <details class="alert mt" id="stop">
     <summary><span class="dot">!</span><span>Есть тревожные признаки?<small>5 стоп-сигналов - проверьте сначала</small></span><svg class="ic chev"><use href="#i-down"/></svg></summary>
@@ -815,8 +872,8 @@ h2{font-size:clamp(26px,7vw,36px)}
   </div>
 </section>
 
-<section id="why" class="rv">
-  <div class="kicker">Шаг 2 · почему так</div>
+<section id="why" class="rv band b2">
+  <div class="kicker step s2"><b>2</b><span>Шаг 2 из 5 · почему так</span></div>
   <h2>Вы - не то, что съели, а то, что усвоили</h2>
   <div class="mt">
     <div class="card node"><img class="ico3d" src="img/c_plate.png" alt="" width="72" height="72" loading="lazy"><div><h3>Едите правильно</h3><p>мясо, овощи, витамины</p></div></div>
@@ -832,8 +889,8 @@ h2{font-size:clamp(26px,7vw,36px)}
   <div class="quote">Живот может и не болеть. <i class="s">Это видно только в анализах.</i></div>
 </section>
 
-<section id="map" class="rv">
-  <div class="kicker">Шаг 3 · что проверить</div>
+<section id="map" class="rv band b3">
+  <div class="kicker step s3"><b>3</b><span>Шаг 3 из 5 · что проверить</span></div>
   <h2>Где сбой - и какой анализ это покажет</h2>
   <p class="lead">Нажмите на номер органа.</p>
   <div class="mapwrap mt">
@@ -852,7 +909,7 @@ h2{font-size:clamp(26px,7vw,36px)}
     </div>
   </div>
   <details class="card mt alltests" id="tests">
-    <summary>Все 8 анализов <small>нормы и как сдавать</small><svg class="ic chev"><use href="#i-down"/></svg></summary>
+    <summary><span class="at-ico"><img src="img/t_hp.png" alt="" width="34" height="34"><img src="img/t_fer.png" alt="" width="34" height="34"><img src="img/t_b12.png" alt="" width="34" height="34"></span><span class="at-txt">Открыть все 8 анализов<small>нормы, как сдавать и + в ваш список</small></span><span class="at-btn"><svg class="ic chev"><use href="#i-down"/></svg></span></summary>
     <div class="groupt">В кале и дыхании</div>
     <div class="stack" id="tg1"></div>
     <div class="groupt">В крови</div>
@@ -861,8 +918,8 @@ h2{font-size:clamp(26px,7vw,36px)}
   </details>
 </section>
 
-<section id="today" class="rv">
-  <div class="kicker">Шаг 4 · с чего начать</div>
+<section id="today" class="rv band b4">
+  <div class="kicker step s4"><b>4</b><span>Шаг 4 из 5 · с чего начать</span></div>
   <h2>Что делать уже сегодня - и чего не делать</h2>
   <div class="dd mt">
     <div class="card do">
@@ -889,9 +946,9 @@ h2{font-size:clamp(26px,7vw,36px)}
   </div>
 </section>
 
-<section id="invite" class="rv">
+<section id="invite" class="rv band b5">
   <img class="stk" src="img/s_diary.png" alt="" width="76" height="76" loading="lazy">
-  <div class="kicker">Шаг 5 · личный разбор</div>
+  <div class="kicker step s5"><b>5</b><span>Шаг 5 из 5 · личный разбор</span></div>
   <h2>Разберём ваш ЖКТ <i class="s">и вашу усталость</i></h2>
   <p class="lead">Одна и та же цифра значит разное: ферритин 25 у человека с хеликобактером и у вегетарианца - два разных решения.</p>
   <div class="card case mt">
@@ -1118,7 +1175,7 @@ $('#scrim').onclick=closeSheet;$('#shClose').onclick=closeSheet;addEventListener
 
 // MAP
 const Z=[{t:'Желудок',s:[['Изжога, тяжесть, отрыжка','hp']]},{t:'Поджелудочная',s:[['Жирный, «плавающий» стул, вздутие','el']]},{t:'Тонкая кишка',s:[['Вздутие через 30-90 минут после еды','sibo'],['Железо не поднимается','ttg']]},{t:'Толстая кишка',s:[['Понос, запор, слизь','cal']]}];
-function openZone(i){buzz();const z=Z[i];track('map_zone',{z:i});
+function openZone(i){buzz();const z=Z[i];track('map_zone',{z:i});document.getElementById('sheet').dataset.z=i;
  openSheet((i+1)+' · '+z.t, z.s.map(([sym,id])=>'<div class="sym"><svg class="ic" style="width:18px;height:18px"><use href="#i-alert"/></svg>'+sym+'</div><div class="trow"><b>→ '+byId[id].t+'</b>'+addBtn(id)+'</div>').join('')+
  '<a class="btn mt" href="'+FORM+'" target="_blank" rel="noopener noreferrer" data-ev="map_form">Разобрать мой случай <svg class="ic"><use href="#i-arrow"/></svg></a><button class="btn ghost" style="margin-top:8px" data-goto="tests" data-close>Все анализы</button>','zone');syncList()}
 $$('[data-z]').forEach(el=>{el.addEventListener('click',()=>openZone(+el.dataset.z));el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openZone(+el.dataset.z)}})});
