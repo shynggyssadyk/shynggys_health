@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <!-- security -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-gykSYEfpaPxPXtd0BZMy3nXD7IooTYm0dEzZBcWhxPI='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-utWdKm2WfgmziMj2fMJml4pnOCzLFy8lUN9qeh94KMM='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
 <meta name="format-detection" content="telephone=no">
@@ -419,9 +419,10 @@ h2 i.s{background:var(--grad);-webkit-background-clip:text;background-clip:text;
 .stats .stat.a,.facts .card.a{transform:translate3d(0,28px,0) scale(.9)}
 /* quiz illustrations */
 .qslide{text-align:center;min-height:0;padding-top:8px}
-.q-ill{display:block;width:132px;height:132px;object-fit:contain;margin:0 auto 6px;animation:qpop .6s cubic-bezier(.34,1.56,.64,1) both}
-@keyframes qpop{from{opacity:0;transform:scale(.6) rotate(-8deg)}to{opacity:1;transform:none}}
-@media (max-height:640px){.q-ill{width:96px;height:96px}}
+.q-ill{display:block;width:100%;aspect-ratio:16/9;height:auto;object-fit:cover;border-radius:18px;margin:0 0 12px;background:#e9eef6;box-shadow:0 10px 24px rgba(20,40,90,.12);animation:qpop .55s cubic-bezier(.16,1,.3,1) both}
+@keyframes qpop{from{opacity:0;transform:scale(1.04)}to{opacity:1;transform:none}}
+@media (max-height:700px){.q-ill{aspect-ratio:2/1}}
+@media (max-height:600px){.q-ill{aspect-ratio:5/2}}
 @media (prefers-reduced-motion:reduce){.q-ill{animation:none}}
 /* final state must win over every "from" rule above (same or higher specificity) */
 .stats .stat.a.in,.facts .card.a.in,section h2.a.in,.a.a-side.in,.a.a-grow.in{transform:none}
@@ -716,7 +717,7 @@ img,video{-webkit-touch-callout:none;-webkit-user-drag:none;user-select:none}
       <li>Rezaie A. и соавт. North American Consensus on breath testing. Am J Gastroenterol 2017;112:775-784 - водород ≥20 ppm за 90 мин, метан ≥10 ppm</li>
       <li>NICE DG11 (сейчас HTG320) - кальпротектин, порог 50 мкг/г. Löhr J.M. и соавт. HaPanEU. UEG J 2017 - эластаза-1, чаще всего 200 мкг/г</li>
       <li>Нормы ферритина, B12, витамина D, магния - Метаболический справочник №1 (WHO 2020, Endocrine Society)</li>
-      <li>Фото: Wikimedia Commons - melvil, Whispyhistory (CC BY-SA 4.0), formulatehealth (CC BY 2.0). Видео: ROCKETMANN TEAM, Pexels</li>
+      <li>Фото: Wikimedia Commons - melvil, Whispyhistory (CC BY-SA 4.0), formulatehealth (CC BY 2.0). Видео: ROCKETMANN TEAM, Pexels. Фото к самопроверке: Pexels (лицензия Pexels)</li>
     </ol>
   </details>
 </section>
@@ -807,8 +808,8 @@ let factShown={};
 function renderQ(){ if(qi>=Q.length)return analyzing();
   if(FACT[qi]&&!factShown[qi]){factShown[qi]=1;return renderFact(qi)}
   slide.classList.remove('anim');void slide.offsetWidth;if(!reduce)slide.classList.add('anim');
-  slide.innerHTML='<img class="q-ill" src="img/q'+(qi+1)+'.webp" alt="" width="132" height="132" decoding="async"><div class="qn">Вопрос '+(qi+1)+'</div><h3>'+Q[qi][0]+'?</h3><p>'+Q[qi][1]+'</p>';
-  if(!renderQ._pre){renderQ._pre=1;setTimeout(()=>{for(let i=1;i<=8;i++){const im=new Image();im.src='img/q'+i+'.webp'}},300)}
+  slide.innerHTML='<img class="q-ill" src="img/q'+(qi+1)+'.webp?v=2" alt="" width="720" height="405" decoding="async"><div class="qn">Вопрос '+(qi+1)+'</div><h3>'+Q[qi][0]+'?</h3><p>'+Q[qi][1]+'</p>';
+  if(!renderQ._pre){renderQ._pre=1;setTimeout(()=>{for(let i=1;i<=8;i++){const im=new Image();im.src='img/q'+i+'.webp?v=2'}},300)}
   $('#qcount').textContent=(qi+1)+' из '+Q.length;$('#qbar').style.width=(qi/Q.length*100)+'%';$('#qback').disabled=qi===0;
   $('#qrun').style.display='';$('#qres').classList.remove('on'); }
 function renderFact(i){const f=FACT[i];slide.classList.remove('anim');void slide.offsetWidth;if(!reduce)slide.classList.add('anim');
