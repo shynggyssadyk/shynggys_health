@@ -1,5 +1,5 @@
-# shynggys_health
+# Шынгыс Садык · Метаболическое здоровье
 
 Лид-магниты Шынгыса Садыка · Метаболическое здоровье · @shynggys_health
 
-- [Кишечник, энергия и ваши анализы](https://shynggyssadyk.github.io/shynggys_health/zhkt/)
+- [Кишечник, энергия и ваши анализы](https://shynggyssadyk.github.io/zhkt/)
