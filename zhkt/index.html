@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <!-- security -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-OWJzV/taLf0J8QYcrSRa/64rbfDMj4y5kbhjSl0dZw0='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-maKTsWDJmq8aUH2mtY3+7ay1y/I5U3gpLORjpQiJ2U4='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
 <meta name="format-detection" content="telephone=no">
@@ -540,6 +540,18 @@ h2 i.s{background:var(--grad);-webkit-background-clip:text;background-clip:text;
 .j-steps li:nth-child(5)>div{background:radial-gradient(120% 140% at 100% 0%,rgba(10,132,255,.45),transparent 55%),radial-gradient(120% 140% at 0% 100%,rgba(94,92,230,.4),transparent 55%),#0b0f1a;box-shadow:0 12px 30px rgba(11,15,26,.3)}
 .j-steps li:nth-child(5) b{color:#fff;font-size:17px}
 .j-steps li:nth-child(5) span{color:#C9D8EA}
+/* seats + New Year countdown */
+.ny{display:block!important;padding:18px}
+.ny-top{display:flex;gap:14px;align-items:center}
+.cd{margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,.1)}
+.cd-l{font-size:11.5px;letter-spacing:1.4px;text-transform:uppercase;color:#9fb1cc;font-weight:600}
+.cd-t{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:8px}
+.cd-t>div{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:14px;text-align:center;padding:8px 0}
+.cd-t b{display:block;font-size:24px;font-weight:700;color:#fff;font-variant-numeric:tabular-nums;line-height:1.1}
+.cd-t small{font-size:11px;color:#9fb1cc}
+.cap-bar{height:6px;border-radius:6px;background:rgba(255,255,255,.1);margin-top:14px;overflow:hidden}
+.cap-bar i{display:block;height:100%;width:0;border-radius:6px;background:linear-gradient(90deg,#9FD3FF,#C7B8FF);transition:width 1.2s cubic-bezier(.16,1,.3,1)}
+.cap-note{font-size:12px!important;color:#9fb1cc!important;margin-top:8px!important}
 /* quiz illustrations */
 .qslide{text-align:center;min-height:0;padding-top:8px}
 .q-ill{display:block;width:100%;aspect-ratio:16/9;height:auto;object-fit:cover;border-radius:18px;margin:0 0 12px;background:#e9eef6;box-shadow:0 10px 24px rgba(20,40,90,.12);animation:qpop .55s cubic-bezier(.16,1,.3,1) both}
@@ -829,7 +841,11 @@ h2{font-size:clamp(26px,7vw,36px)}
       <li class="fin"><i>5</i><div><b>Ваш план</b><span>Карта восстановления, питание под ваш живот и 3-5 дней обратной связи.</span></div></li>
     </ol>
   </div>
-  <div class="ny mt"><div class="big"><b>~20</b><span>МЕСТ ДО НГ</span></div><div><h3><span class="livedot"></span>До Нового года - около 20 мест</h3><p>Беру до 3 человек в неделю. Разберитесь до праздников: застолья - нагрузка на ЖКТ, а анализы готовятся несколько дней.</p></div></div>
+  <div class="ny mt" id="ny">
+    <div class="ny-top"><div class="big"><b id="seats">~20</b><span>МЕСТ ДО НГ</span></div><div><h3><span class="livedot"></span>Беру до 3 человек в неделю</h3><p>Разберитесь до праздников: застолья - нагрузка на ЖКТ, а анализы готовятся несколько дней.</p></div></div>
+    <div class="cd" aria-label="Время до Нового года"><span class="cd-l">До Нового года</span><div class="cd-t"><div><b id="cdD">--</b><small>дней</small></div><div><b id="cdH">--</b><small>часов</small></div><div><b id="cdM">--</b><small>минут</small></div><div><b id="cdS">--</b><small>секунд</small></div></div></div>
+    <div class="cap-bar"><i id="capFill"></i></div><p class="cap-note">Свободные места считаю по реальному графику: 3 консультации в неделю до 31 декабря.</p>
+  </div>
   <a class="btn mt pulse" href="https://forms.gle/igVPeinj4NKTAGSYA" target="_blank" rel="noopener noreferrer" data-ev="invite_form">Заполнить анкету <svg class="ic"><use href="#i-arrow"/></svg></a>
   <p class="small">Пара минут. Менеджер ответит в WhatsApp - ни к чему не обязывает. Консультация платная, стоимость зависит от формата.</p>
 </section>
@@ -969,7 +985,7 @@ function showRes(){ const n=ans.filter(Boolean).length;$('#qbar').style.width='1
   const aa=$('#addAll');aa&&(aa.onclick=()=>{buzz();rec.forEach(id=>list.add(id));store.set('list',[...list]);syncList();toast('Добавлено: '+rec.length+' ✓');track('list_add_all',{n:rec.length})});
   const cta=$('#rcta');cta.className='btn'+(hi?'':' ghost');cta.innerHTML=(hi?'Разобрать мой случай':'Задать вопрос через анкету')+' <svg class="ic"><use href="#i-arrow"/></svg>';
   track(hi?'quiz_3plus':'quiz_low',{n});updSticky(n); }
-function updSticky(n){ $('#stickyT').innerHTML= n==null?'<b>Разберём ваш ЖКТ</b><span class="livedot"></span>До Нового года ~20 мест': n>=3?'<b>У вас '+n+' из 8 - разберём?</b><span class="livedot"></span>До Нового года ~20 мест':'<b>Остались вопросы?</b>Ответим в WhatsApp'; }
+function updSticky(n){ $('#stickyT').innerHTML= n==null?'<b>Разберём ваш ЖКТ</b><span class="livedot"></span>До Нового года '+seatsTxt()+'': n>=3?'<b>У вас '+n+' из 8 - разберём?</b><span class="livedot"></span>До Нового года '+seatsTxt()+'':'<b>Остались вопросы?</b>Ответим в WhatsApp'; }
 const initQuiz=()=>{if(ans.length>=Q.length){qi=Q.length;showRes()}else{qi=Math.min(ans.length,Q.length-1);factShown=Object.fromEntries(Object.keys(FACT).filter(k=>k<=qi).map(k=>[k,1]));renderQ()}};
 
 // TESTS data
@@ -1029,6 +1045,18 @@ $$('#bristol button').forEach(b=>b.onclick=()=>{buzz();$$('#bristol button').for
  const go=()=>{const pr=v.play();pr&&pr.then(()=>v.classList.add('on')).catch(()=>{})};v.addEventListener('canplay',go,{once:true});
  new IntersectionObserver(([e])=>{if(e.isIntersecting){v.paused&&go()}else v.pause()}).observe(v);})();
 document.addEventListener('contextmenu',e=>{if(e.target.closest('img,video'))e.preventDefault()});document.addEventListener('dragstart',e=>{if(e.target.closest('img,video'))e.preventDefault()});
+// seats + countdown to New Year (Almaty, UTC+5). Seats = real capacity: 3 per week until 31 Dec.
+function nyLeftMs(){return Date.UTC(2026,11,31,19,0,0)-Date.now()}
+function seatsLeft(){return Math.max(0,Math.round(3*nyLeftMs()/864e5/7))}
+function seatsTxt(){return '~'+seatsLeft()+' мест'}
+(()=>{const ny=$('#ny');if(!ny)return;if(nyLeftMs()<=0){ny.style.display='none';return}
+ $('#seats').textContent='~'+seatsLeft();updSticky(null);
+ const pad=n=>String(n).padStart(2,'0');
+ const tick=()=>{const ms=Math.max(0,nyLeftMs());const d=Math.floor(ms/864e5),h=Math.floor(ms/36e5)%24,m=Math.floor(ms/6e4)%60,sec=Math.floor(ms/1e3)%60;
+  $('#cdD').textContent=d;$('#cdH').textContent=pad(h);$('#cdM').textContent=pad(m);$('#cdS').textContent=pad(sec)};
+ tick();setInterval(tick,1000);
+ new IntersectionObserver(([e])=>{if(e.isIntersecting)$('#capFill').style.width=Math.min(100,seatsLeft()/21*100)+'%'}).observe(ny);
+})();
 track('page_view');
 })();
 </script>
