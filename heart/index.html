@@ -1154,6 +1154,14 @@ footer{color:var(--ink-2)}
 .tip{position:absolute;z-index:60;background:var(--ink);color:#fff;font-size:14.5px;line-height:1.45;font-weight:350;padding:10px 12px;border-radius:14px;box-shadow:0 18px 40px -18px rgba(11,27,51,.6);opacity:0;pointer-events:none;transform:translateY(-4px);transition:opacity .15s,transform .15s}
 .tip.on{opacity:1;transform:none;pointer-events:auto}
 .journey .kicker,.j-head .kicker{color:var(--accent)!important}.j-chips b{color:var(--accent)!important}
+
+/* ===== v5: spine on the right ===== */
+main>section.band{padding-left:0!important;padding-right:32px}
+.kicker.step b{order:3;margin-left:0!important;margin-right:-32px}
+.kicker.step .mini{order:2;margin-left:auto;margin-right:6px}
+.kicker.step span{order:1}
+.st-row{padding:6px 0 22px 0;margin-right:-16px;margin-left:0}
+@media (min-width:760px){main>section.band{padding-right:44px}.kicker.step b{margin-right:-44px}}
 </style>
 </head>
 <body>
