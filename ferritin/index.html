@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <!-- security -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-lvbRLynM8WR86eQKYnHwYaqzETMghGO1sKdcZcSPHPQ='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-gLsWqIDLUNqR8UhvRsxToBH2eJ+ksD2hoYapdQqHHTI='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
 <meta name="format-detection" content="telephone=no">
@@ -1486,7 +1486,7 @@ $('#blTry')&&($('#blTry').onclick=()=>{buzz();[['#bkFer','<8'],['#bkCrp',''],['#
 
 // hero background video: plays muted inline, no controls; skipped on Save-Data / reduced motion
 (()=>{const v=$('#heroVid');if(!v)return;const c=navigator.connection;if(reduce||(c&&(c.saveData||/2g/.test(c.effectiveType||''))))return;
- v.src='img/hero.mp4?v=2';v.muted=true;v.load();
+ v.src='img/hero.mp4?v=3';v.muted=true;v.load();
  const go=()=>{const pr=v.play();pr&&pr.then(()=>v.classList.add('on')).catch(()=>{})};v.addEventListener('canplay',go,{once:true});
  new IntersectionObserver(([e])=>{if(e.isIntersecting){v.paused&&go()}else v.pause()}).observe(v);})();
 document.addEventListener('contextmenu',e=>{if(e.target.closest('img,video'))e.preventDefault()});document.addEventListener('dragstart',e=>{if(e.target.closest('img,video'))e.preventDefault()});
