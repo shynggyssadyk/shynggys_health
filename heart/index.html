@@ -3,16 +3,16 @@
 <head>
 <meta charset="utf-8">
 <!-- security -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-cZXhIdQFCmE/6Ys8UFLMfCiPc/v3SWoOXwl3qh77kfs='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-df+fho8ZFrxaDadmdwb0E4k4+YszXsSOn5H5UP1xz/I='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
 <meta name="format-detection" content="telephone=no">
 <!-- /security -->
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Сердце, сосуды и ваши анализы · интерактивный гид</title>
-<meta name="description" content="Самопроверка за 3 минуты: 8 сигналов, что сосудам нужна проверка, и какие анализы покажут риск раньше симптомов. Шынгыс Садык · Метаболическое здоровье">
+<meta name="description" content="Бляшка растёт молча. 8 сигналов и какие анализы покажут риск раньше симптомов. Шынгыс Садык · Метаболическое здоровье">
 <meta property="og:title" content="Сердце, сосуды и ваши анализы">
-<meta property="og:description" content="8 сигналов, что сосудам нужна проверка, и какие анализы это покажут">
+<meta property="og:description" content="8 сигналов и какие анализы покажут риск раньше симптомов">
 <meta property="og:image" content="https://shynggyssadyk.github.io/heart/img/hero_poster.jpg">
 <meta name="theme-color" content="#111827">
 <link rel="preload" href="fonts/Geologica-cyrillic-189ca8.woff2" as="font" type="font/woff2" crossorigin>
@@ -965,6 +965,22 @@ section.band::before{content:"";position:absolute;top:0;bottom:0;left:calc(50% -
 /* heart guide: zone colours = scheme colours */
 :root{--z0:#E5484D;--z1:#F2A20C;--z2:#7A5AF8;--z3:#30B88A;--z4:#0A84FF}
 .sheet[data-z="0"] #shTitle{color:#d33a3f}.sheet[data-z="1"] #shTitle{color:#b87500}.sheet[data-z="2"] #shTitle{color:var(--z2)}.sheet[data-z="3"] #shTitle{color:#1f8f69}.sheet[data-z="4"] #shTitle{color:var(--z4)}
+
+/* step 2 artery, flat like the reel slide */
+.artery{background:#fff;border-radius:20px;padding:12px 0 10px;box-shadow:var(--e1);overflow:hidden}
+.artery svg{display:block;width:100%;height:auto}
+.ar-l{fill:none;stroke:#00306C;stroke-width:1.6}
+.ar-c ellipse{fill:#F6DCD8;stroke:#00306C;stroke-width:1.5}
+.ar-flow{animation:arFlow 9s linear infinite}
+@keyframes arFlow{from{transform:translateX(-60px)}to{transform:translateX(60px)}}
+.ar-plq{transform-origin:230px 119px;animation:arGrow 6s ease-in-out infinite alternate}
+@keyframes arGrow{from{transform:scale(.55)}to{transform:scale(1)}}
+.artery figcaption{display:flex;flex-wrap:wrap;gap:6px 14px;justify-content:center;font-size:12.5px;color:var(--muted);padding:8px 12px 0}
+.artery figcaption span{display:flex;align-items:center;gap:6px}
+.artery figcaption i{width:10px;height:10px;border-radius:50%;display:inline-block}
+.lg-c{background:#F6DCD8;box-shadow:inset 0 0 0 1.5px #00306C}.lg-l{background:#F2A20C}.lg-p{background:#F6C66E;box-shadow:inset 0 0 0 1.5px #00306C;border-radius:6px 6px 2px 2px!important}
+#why h2 i.s{background:none;color:#D98A00;-webkit-text-fill-color:#D98A00}
+@media (prefers-reduced-motion:reduce){.ar-flow,.ar-plq{animation:none}.ar-plq{transform:none}}
 </style>
 </head>
 <body>
@@ -1008,7 +1024,7 @@ section.band::before{content:"";position:absolute;top:0;bottom:0;left:calc(50% -
     <div class="brand"><img src="img/avatar.jpg" alt="Шынгыс Садык" width="46" height="46"><div><div class="n">ШЫНГЫС САДЫК</div><div class="s">МЕТАБОЛИЧЕСКОЕ ЗДОРОВЬЕ</div></div></div>
     <span class="pill f">ИНТЕРАКТИВНЫЙ ГИД · СЕРДЦЕ</span>
     <h1>Сердце, сосуды <i class="s">и&nbsp;ваши анализы</i></h1>
-    <p class="lead">8 сигналов, что сосудам нужна проверка, и какие анализы покажут риск раньше симптомов.</p>
+    <p class="lead">Бляшка растёт молча. 8 сигналов и какие анализы покажут риск раньше симптомов.</p>
     <div class="meta"><span><svg class="ic" style="width:16px;height:16px"><use href="#i-clock"/></svg>3 минуты</span><span><svg class="ic" style="width:16px;height:16px"><use href="#i-check"/></svg>8 вопросов</span></div>
     <a class="btn pulse" href="#quiz" data-ev="hero_quiz">Пройти самопроверку <svg class="ic"><use href="#i-down"/></svg></a>
   </div>
@@ -1019,7 +1035,7 @@ section.band::before{content:"";position:absolute;top:0;bottom:0;left:calc(50% -
 <section id="quiz" class="rv band b1">
   <img class="stk" src="img/ic_check.svg" alt="" width="76" height="76" loading="lazy">
   <div class="kicker step s1"><b>1</b><span>Шаг 1 из 5 · самопроверка за 30 секунд</span></div>
-  <h2>8 сигналов, что сосудам нужна проверка</h2>
+  <h2>8 сигналов, что бляшке есть из чего расти</h2>
   <details class="alert mt" id="stop">
     <summary><span class="dot">!</span><span>Есть тревожные признаки?<small>5 стоп-сигналов - проверьте сначала</small></span><svg class="ic chev"><use href="#i-down"/></svg></summary>
     <ul>
@@ -1059,9 +1075,27 @@ section.band::before{content:"";position:absolute;top:0;bottom:0;left:calc(50% -
 
 <section id="why" class="rv band b2">
   <div class="kicker step s2"><b>2</b><span>Шаг 2 из 5 · почему так</span></div>
-  <h2>Холестерин «в норме», а&nbsp;сосуды стареют</h2>
+  <h2>Бляшка растёт <i class="s">молча</i></h2>
+  <p class="lead">Ускоряют: высокий ЛПНП, курение, давление, диабет.</p>
+  <figure class="artery mt" aria-label="Схема: артерия, в стенке которой растёт бляшка">
+    <svg viewBox="0 0 360 160" role="img">
+      <rect x="0" y="14" width="360" height="132" fill="#E8B8AE"/>
+      <rect x="0" y="30" width="360" height="100" fill="#F3D5CF"/>
+      <path d="M0 42 q15 -4 30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 V118 q-15 4 -30 0 t-30 0 t-30 0 t-30 0 t-30 0 t-30 0 t-30 0 t-30 0 t-30 0 t-30 0 t-30 0 t-30 0z" fill="#F8F7F6"/>
+      <path class="ar-l" d="M0 42 q15 -4 30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0M0 118 q15 4 30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0"/>
+      <path class="ar-l" d="M0 14H360M0 146H360"/>
+      <g class="ar-plq"><path d="M196 119c4-22 18-34 34-34s30 12 34 34z" fill="#F6C66E" stroke="#00306C" stroke-width="1.6"/><circle cx="222" cy="106" r="3" fill="#F2A20C"/><circle cx="236" cy="100" r="3" fill="#F2A20C"/><circle cx="246" cy="110" r="3" fill="#F2A20C"/></g>
+      <g class="ar-flow">
+        <g class="ar-c"><ellipse cx="40" cy="66" rx="13" ry="10"/><ellipse cx="40" cy="66" rx="5" ry="3.6"/></g>
+        <g class="ar-c"><ellipse cx="130" cy="92" rx="13" ry="10"/><ellipse cx="130" cy="92" rx="5" ry="3.6"/></g>
+        <g class="ar-c"><ellipse cx="300" cy="60" rx="13" ry="10"/><ellipse cx="300" cy="60" rx="5" ry="3.6"/></g>
+        <circle cx="86" cy="80" r="4.5" fill="#F2A20C"/><circle cx="176" cy="64" r="4.5" fill="#F2A20C"/><circle cx="330" cy="88" r="4.5" fill="#F2A20C"/>
+      </g>
+    </svg>
+    <figcaption><span><i class="lg-c"></i>эритроциты</span><span><i class="lg-l"></i>частицы ЛПНП</span><span><i class="lg-p"></i>бляшка в стенке</span></figcaption>
+  </figure>
   <div class="mt">
-    <div class="card node"><img class="ico3d" src="img/ic_plate.svg" alt="" width="72" height="72" loading="lazy"><div><h3>Сахар, лишний вес, курение, гены</h3><p>сначала - никаких симптомов</p></div></div>
+    <div class="card node"><img class="ico3d" src="img/ic_gauge.svg" alt="" width="72" height="72" loading="lazy"><div><h3>Высокий ЛПНП, курение, давление, диабет</h3><p>годами - никаких симптомов</p></div></div>
     <div class="link"></div>
     <div class="card node bad"><img class="ico3d" src="img/ic_vessel.svg" alt="" width="72" height="72" loading="lazy"><div><h3>Частицы ЛПНП оседают в стенке сосуда</h3><p>годами растёт бляшка, сосуд теряет гибкость</p></div></div>
     <div class="link"></div>
@@ -1071,7 +1105,7 @@ section.band::before{content:"";position:absolute;top:0;bottom:0;left:calc(50% -
     <div class="card stat"><div class="v"><span class="cnt" data-to="32" data-dec="0">0</span><small>%</small></div><p>всех смертей в мире - от болезней сердца и сосудов</p><em>ВОЗ: 17,9 млн человек за 2019 год</em></div>
     <div class="card stat"><div class="v"><span class="cnt" data-to="20" data-dec="0">0</span><small>%</small></div><p>людей с повышенным липопротеином(а) - обычная липидограмма его не видит</p><em>Европейское общество атеросклероза, 2022</em></div>
   </div>
-  <div class="quote">Бляшки растут молча. <i class="s">Анализы показывают риск раньше, чем его почувствуете вы.</i></div>
+  <div class="quote">Бляшка растёт молча. <i class="s">Анализы показывают риск раньше, чем его почувствуете вы.</i></div>
 </section>
 
 <section id="map" class="rv band b3">
@@ -1329,11 +1363,11 @@ addEventListener('scroll',()=>{if(ticking)return;ticking=true;requestAnimationFr
 })},{passive:true});
 
 // QUIZ (gender picker first: 6 common questions + 2 gender-specific)
-const QC=[['Задыхаетесь на лестнице быстрее, чем раньше','Пара пролётов - и нужно остановиться, хотя раньше было легко',['bnp','lip','tsh']],['У родителей, братьев или сестёр был инфаркт или инсульт','Особенно если рано: у мужчин до 55 лет, у женщин до 65',['lpa','apob','lip']],['Давление бывает 130/85 и выше - или вы его не знаете','Даже если оно «рабочее» и ничего не беспокоит',['lip','hba1c','homa']],['Живот растёт, а вес почти не меняется','Талия больше 80 см у женщин или 94 см у мужчин',['homa','hba1c','hscrp']],['После еды клонит в сон и тянет на сладкое','Особенно после хлеба, риса или десерта',['homa','hba1c']],['Холестерин не проверяли больше 5 лет','Или сдавали только общий холестерин, без ЛПНП и ЛПВП',['lip','apob','lpa']]];
+const QC=[['Задыхаетесь на лестнице быстрее, чем раньше','Пара пролётов - и нужно остановиться, хотя раньше было легко',['bnp','lip','tsh']],['У родителей, братьев или сестёр был инфаркт или инсульт','Особенно если рано: у мужчин до 55 лет, у женщин до 65',['lpa','apob','lip']],['Давление бывает 130/85 и выше - или вы его не знаете','Даже если оно «рабочее» и ничего не беспокоит',['lip','hba1c','homa']],['Сахар бывал повышен - или тянет на сладкое и клонит в сон после еды','Даже если диагноза «диабет» нет',['hba1c','homa']],['Курите сигареты, айкос или вейп','Сейчас или бросили меньше 5 лет назад',['hscrp','lip','apob']],['ЛПНП бывал высоким - или холестерин не проверяли больше 5 лет','Или сдавали только общий холестерин, без ЛПНП и ЛПВП',['lip','apob','lpa']]];
 const QG={w:[['Менопауза или перименопауза','Приливы, цикл сбился или месячных уже нет',['lip','apob','hba1c'],'hw7'],['Во время беременности было высокое давление или сахар','Преэклампсия или диабет беременных - даже если после родов всё прошло',['hba1c','homa','lip'],'hw8']],
-          m:[['Курите сигареты, айкос или вейп','Сейчас или бросили меньше 5 лет назад',['hscrp','lip','apob'],'hm7'],['Эрекция стала слабее','Это бывает ранним сигналом от сосудов',['lip','hba1c','homa'],'hm8']]};
+          m:[['Живот растёт, а вес почти не меняется','Талия больше 94 см',['homa','hba1c','hscrp'],'h4'],['Эрекция стала слабее','Это бывает ранним сигналом от сосудов',['lip','hba1c','homa'],'hm8']]};
 let G=null,Q=[];
-const setG=g=>{G=g;const im=['h1','h2','h3','h4','h5','h6'];Q=QC.map((q,i)=>[q[0],q[1],q[2],im[i]]).concat(QG[g])};
+const setG=g=>{G=g;const im=['h1','h2','h3','h5','hm7','h6'];Q=QC.map((q,i)=>[q[0],q[1],q[2],im[i]]).concat(QG[g])};
 let qi=0,ans=store.get('ans',[]);
 const slide=$('#qslide');
 const FACT={2:()=>['Знали ли вы?','Липопротеин(а) почти целиком задаётся генами, и в обычной липидограмме его не видно. Повышен он примерно у каждого пятого, а сдать его достаточно один раз в жизни.','ic_dna'],
@@ -1370,7 +1404,7 @@ function showRes(){ const n=ans.filter(Boolean).length;$('#qbar').style.width='1
   requestAnimationFrame(()=>$('#ringArc').style.strokeDashoffset=402-402*n/8);
   const hi=n>=3;
   $('#rtitle').textContent=hi?'Совпало '+n+' - стоит проверить сосуды':(n===0?'Сигналов нет - отлично 🙌':'Совпало немного - уже хорошо');
-  $('#rtext').textContent=hi?'И не только холестерин: ApoB, липопротеин(а) и сахар вместе покажут реальный риск. Ниже - анализы под ваши ответы, а в шаге 4 - как прочитать липидограмму.':'Но если вы устаёте, а анализы «в норме», причина может быть не на виду. Посмотрите схему и анализы ниже.';
+  $('#rtext').textContent=hi?'Бляшка растёт молча, но анализы видят риск раньше симптомов - и не только холестерин: ApoB, липопротеин(а) и сахар вместе. Ниже - анализы под ваши ответы, а в шаге 4 - как прочитать липидограмму.':'Но если вы устаёте, а анализы «в норме», причина может быть не на виду. Посмотрите схему и анализы ниже.';
   $('#rmatched').innerHTML=Q.filter((q,i)=>ans[i]).map(q=>'<span>'+q[0]+'</span>').join('');
   const rec=[...new Set(Q.flatMap((q,i)=>ans[i]?q[2]:[]))];
   $('#rrec').innerHTML=rec.length?'<div class="rec"><b>Анализы под ваши ответы:</b><ul>'+rec.map(id=>'<li><svg class="ic" style="width:16px;height:16px"><use href="#i-flask"/></svg>'+byId[id].t+'</li>').join('')+'</ul><button class="btn ghost" id="addAll"><svg class="ic" style="width:18px;height:18px"><use href="#i-plus"/></svg>Добавить все в мой список</button></div>':'';
