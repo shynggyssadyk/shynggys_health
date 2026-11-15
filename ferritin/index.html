@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <!-- security -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-ksALmtRTDCTuiySNHFnDiGrLTWgWWLnH/FjNSEKqiPI='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-lvbRLynM8WR86eQKYnHwYaqzETMghGO1sKdcZcSPHPQ='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
 <meta name="format-detection" content="telephone=no">
@@ -998,7 +998,7 @@ section.band::before{content:"";position:absolute;top:0;bottom:0;left:calc(50% -
 </nav>
 
 <header class="hero">
-  <video class="hero-bg" id="heroVid" muted loop playsinline preload="none" poster="img/hero_poster.jpg?v=1" aria-hidden="true" disablepictureinpicture disableremoteplayback></video>
+  <video class="hero-bg" id="heroVid" muted loop playsinline preload="none" poster="img/hero_poster.jpg?v=2" aria-hidden="true" disablepictureinpicture disableremoteplayback></video>
   <div class="hero-shade" aria-hidden="true"></div>
   <div class="wrap">
     <div class="brand"><img src="img/avatar.jpg" alt="Шынгыс Садык" width="46" height="46"><div><div class="n">ШЫНГЫС САДЫК</div><div class="s">МЕТАБОЛИЧЕСКОЕ ЗДОРОВЬЕ</div></div></div>
@@ -1260,7 +1260,7 @@ section.band::before{content:"";position:absolute;top:0;bottom:0;left:calc(50% -
       <li>Hutchinson C. и соавт. Proton pump inhibitors suppress absorption of dietary non-haem iron in hereditary haemochromatosis. Gut 2007;56:1291-1295 - на омепразоле железо из еды всасывалось примерно вдвое хуже</li>
       <li>ВОЗ. Haemoglobin concentrations for the diagnosis of anaemia, 2011 - анемия: гемоглобин &lt; 120 г/л у женщин, &lt; 130 г/л у мужчин</li>
       <li>EASL Clinical Practice Guidelines on haemochromatosis. J Hepatol 2022;77:479-502 - насыщение трансферрина &gt; 45% и ферритин &gt; 200 (женщины) / &gt; 300 мкг/л (мужчины) - повод проверить избыток железа</li>
-      <li>Lam J.R. и соавт. Proton pump inhibitor and histamine 2 receptor antagonist use and vitamin B12 deficiency. JAMA 2013;310:2435-2442. Видео и фото к самопроверке: Pexels (лицензия Pexels). Иконки и схема нарисованы для гида</li>
+      <li>Lam J.R. и соавт. Proton pump inhibitor and histamine 2 receptor antagonist use and vitamin B12 deficiency. JAMA 2013;310:2435-2442. Видео: Pixabay (лицензия Pixabay). Фото к самопроверке: Pexels (лицензия Pexels). Иконки и схема нарисованы для гида</li>
     </ol>
   </details>
 </section>
@@ -1486,7 +1486,7 @@ $('#blTry')&&($('#blTry').onclick=()=>{buzz();[['#bkFer','<8'],['#bkCrp',''],['#
 
 // hero background video: plays muted inline, no controls; skipped on Save-Data / reduced motion
 (()=>{const v=$('#heroVid');if(!v)return;const c=navigator.connection;if(reduce||(c&&(c.saveData||/2g/.test(c.effectiveType||''))))return;
- v.src='img/hero.mp4?v=1';v.muted=true;v.load();
+ v.src='img/hero.mp4?v=2';v.muted=true;v.load();
  const go=()=>{const pr=v.play();pr&&pr.then(()=>v.classList.add('on')).catch(()=>{})};v.addEventListener('canplay',go,{once:true});
  new IntersectionObserver(([e])=>{if(e.isIntersecting){v.paused&&go()}else v.pause()}).observe(v);})();
 document.addEventListener('contextmenu',e=>{if(e.target.closest('img,video'))e.preventDefault()});document.addEventListener('dragstart',e=>{if(e.target.closest('img,video'))e.preventDefault()});
