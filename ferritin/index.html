@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <!-- security -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-IuSPwBvXoAjjBR32UXpviwT/QzDTZY/VqiNavXc0SXw='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-5xf0Pn/zfeIAwNxdvHQExCIF+X7eXCLKPqNjOYbtZyA='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
 <meta name="format-detection" content="telephone=no">
@@ -948,7 +948,18 @@ section.band::before{content:"";position:absolute;top:0;bottom:0;left:calc(50% -
 .tsat input{min-height:44px;border-radius:12px;border:1.5px solid #D6E6F7;background:#F4F9FF;padding:0 12px;font:inherit;font-size:16px;font-weight:600;color:var(--navy);width:100%}
 .tsat input:focus{outline:none;border-color:var(--apple);background:#fff;box-shadow:0 0 0 3px rgba(10,132,255,.15)}
 .tsat small{font-weight:500;color:var(--muted);font-size:11.5px}
-#tsOut b{font-size:16px}#tsOut{line-height:1.5}
+#tsOut b{font-size:16px}
+.blank{padding:16px 14px}
+.bl-top{display:flex;align-items:baseline;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.bl-l{font-size:12px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--acc)}
+.bl-top small{font-size:12px;color:var(--muted)}
+.paper{margin:12px 0 14px;padding:12px 10px;background:#fff;border:1px solid #E3E8EF;border-radius:6px;box-shadow:0 1px 2px rgba(16,30,60,.06),0 10px 24px rgba(16,30,60,.08);transform:rotate(-.6deg)}
+.paper img{display:block;width:100%;height:auto;border-radius:2px}
+.bl-n{font-size:14px;line-height:1.45;margin:6px 0 14px;padding:8px 10px 8px 12px;border-left:3px solid;border-radius:0 10px 10px 0;transform:rotate(.6deg)}
+.bl-n:last-child{margin-bottom:0}
+.bl-n.bad{border-color:#E5484D;background:#FFF1EF;color:#7a1f16}.bl-n.warn{border-color:#F2A20C;background:#FFF7E6;color:#6b4a00}
+.bl-n b{color:inherit}
+#blTry{width:100%}#tsOut{line-height:1.5}
 #tsOut.low{background:#FFF1EE;color:#9a2a1b}#tsOut.ok{background:#E9F8F0;color:#156b48}
 </style>
 </head>
@@ -1095,6 +1106,18 @@ section.band::before{content:"";position:absolute;top:0;bottom:0;left:calc(50% -
 <section id="today" class="rv band b4">
   <div class="kicker step s4"><b>4</b><span>Шаг 4 из 5 · как прочитать бланк</span></div>
   <h2>Как прочитать бланк - и чего не делать</h2>
+  <div class="card blank mt">
+    <div class="bl-top"><span class="bl-l">Настоящий бланк клиентки</span><small>личные данные скрыты</small></div>
+    <figure class="paper">
+      <img src="img/bl_fer.webp" alt="Ферритин: меньше 8 мкг/л при норме лаборатории 10-120" width="960" height="210" loading="lazy">
+      <p class="bl-n bad"><b>Склад пуст.</b> Ферритин ниже 8 - и так уже второй анализ подряд.</p>
+      <img src="img/bl_fe.webp" alt="Железо в сыворотке: 9,4 мкмоль/л при норме 6,6-26" width="960" height="210" loading="lazy">
+      <p class="bl-n warn"><b>А железо «в норме».</b> Поэтому по одному сывороточному железу дефицит легко пропустить.</p>
+      <img src="img/bl_tibc.webp" alt="Железосвязывающая способность: 83,1 мкмоль/л, выше нормы 45,3-77,1" width="960" height="210" loading="lazy">
+      <p class="bl-n bad"><b>Насыщение: 9,4 ÷ 83,1 = 11%.</b> Ниже 20% - железа на доставку не хватает. Высокая ОЖСС - тело ищет железо.</p>
+    </figure>
+    <button class="btn ghost" id="blTry" type="button">Прочитать этот бланк в расшифровщике <svg class="ic"><use href="#i-down"/></svg></button>
+  </div>
   <div class="dd mt">
     <div class="card do">
       <h3><span class="tag ok">Делать</span></h3>
@@ -1417,13 +1440,14 @@ function openList(){const html=list.size?'<ol class="mlist">'+[...list].map(id=>
 $('#fab').onclick=()=>{buzz();openList();track('list_open')};
 syncList();initQuiz();initMotion();
 
+$('#blTry')&&($('#blTry').onclick=()=>{buzz();[['#bkFer','8'],['#bkCrp',''],['#tsFe','9.4'],['#tsTi','83.1']].forEach(([id,v])=>{const e=$(id);e.value=v;e.dispatchEvent(new Event('input'))});$('#tsat').scrollIntoView({block:'center'});track('blank_try')});
 // BLANK DECODER: ferritin + CRP (+ iron & TIBC -> transferrin saturation). Thresholds: WHO 2020, BSG 2021, Mei 2021, Verdon 2003
 (()=>{const o=$('#tsOut');if(!o)return;const base=o.textContent;const F=['#bkFer','#bkCrp','#tsFe','#tsTi'].map($);
  const num=el=>{const v=parseFloat(String(el.value).replace(',','.'));return v>0?v:null};const fmt=v=>String(Math.round(v*10)/10).replace('.',',');
  const upd=()=>{const [fer,crp,fe,ti]=F.map(num);o.classList.remove('low','ok');const L=[];let bad=false;
   if(fe&&ti){if(fe>=ti)L.push('Проверьте железо и ОЖСС: железо должно быть меньше ОЖСС.');else{const t=fe/ti*100;if(t<20){bad=true;L.push('Насыщение трансферрина <b>'+fmt(t)+'%</b> - ниже 20%: железа на доставку не хватает.')}else L.push('Насыщение трансферрина <b>'+fmt(t)+'%</b> - не ниже 20%: на доставку железа хватает.')}}
   if(fer){const infl=crp!=null&&crp>5;
-   if(crp==null)L.push('Ферритин <b>'+fmt(fer)+'</b>. Добавьте СРБ: при воспалении ферритин бывает высоким и прячет дефицит.');
+   if(crp==null){if(fer<15){bad=true;L.push('Ферритин <b>'+fmt(fer)+'</b> - ниже 15: по ВОЗ это нехватка железа. Воспаление ферритин только завышает, так что такой результат оно не прячет.')}else L.push('Ферритин <b>'+fmt(fer)+'</b>. Добавьте СРБ: при воспалении ферритин бывает высоким и прячет дефицит.')}
    if(infl){if(fer<70){bad=true;L.push('СРБ выше 5 - есть воспаление. В этом случае ВОЗ считает нехваткой железа ферритин ниже 70, а у вас <b>'+fmt(fer)+'</b>.')}else L.push('СРБ выше 5 - есть воспаление, и ферритин может быть им завышен. По одному ферритину запас не оценить: пересдайте вместе с СРБ после выздоровления.')}
    else if(crp!=null){if(fer<15){bad=true;L.push('Ферритин <b>'+fmt(fer)+'</b> - ниже 15: по ВОЗ это нехватка железа.')}else if(fer<=50){bad=true;L.push('Ферритин <b>'+fmt(fer)+'</b> - «в норме» по бланку, но в исследованиях кровь начинала недополучать железо уже около 25, а усталость от железа уменьшалась у женщин с ферритином до 50.')}else L.push('Ферритин <b>'+fmt(fer)+'</b>, воспаления нет. В исследованиях при ферритине выше 50 таблетки железа усталость не уменьшали - если сил нет, причину стоит искать шире.')}}
   if(!L.length){o.textContent=base;return}
