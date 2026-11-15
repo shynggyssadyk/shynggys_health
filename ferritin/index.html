@@ -3,16 +3,16 @@
 <head>
 <meta charset="utf-8">
 <!-- security -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-JLyP92JPF0qYVV+qc1esyqMA3Dv/7s2JkFEz2EiUNso='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-IuSPwBvXoAjjBR32UXpviwT/QzDTZY/VqiNavXc0SXw='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
 <meta name="format-detection" content="telephone=no">
 <!-- /security -->
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Ферритин, энергия и ваши анализы · интерактивный гид</title>
-<meta name="description" content="Самопроверка за 3 минуты: 8 сигналов, что железа не хватает, и какие анализы это покажут. Шынгыс Садык · Метаболическое здоровье">
-<meta property="og:title" content="Ферритин, энергия и ваши анализы">
-<meta property="og:description" content="8 сигналов, что железа не хватает, и какие анализы это покажут">
+<title>Ферритин-чек · интерактивный гид</title>
+<meta name="description" content="Ферритин-чек: тест из 10 вопросов, какие анализы сдать вместе с ферритином и как прочитать бланк. Шынгыс Садык · Метаболическое здоровье">
+<meta property="og:title" content="Ферритин-чек">
+<meta property="og:description" content="Тест из 10 вопросов, анализы и как прочитать бланк">
 <meta property="og:image" content="https://shynggyssadyk.github.io/ferritin/img/hero_poster.jpg">
 <meta name="theme-color" content="#111827">
 <link rel="preload" href="fonts/Geologica-cyrillic-189ca8.woff2" as="font" type="font/woff2" crossorigin>
@@ -948,7 +948,7 @@ section.band::before{content:"";position:absolute;top:0;bottom:0;left:calc(50% -
 .tsat input{min-height:44px;border-radius:12px;border:1.5px solid #D6E6F7;background:#F4F9FF;padding:0 12px;font:inherit;font-size:16px;font-weight:600;color:var(--navy);width:100%}
 .tsat input:focus{outline:none;border-color:var(--apple);background:#fff;box-shadow:0 0 0 3px rgba(10,132,255,.15)}
 .tsat small{font-weight:500;color:var(--muted);font-size:11.5px}
-#tsOut b{font-size:18px}
+#tsOut b{font-size:16px}#tsOut{line-height:1.5}
 #tsOut.low{background:#FFF1EE;color:#9a2a1b}#tsOut.ok{background:#E9F8F0;color:#156b48}
 </style>
 </head>
@@ -982,7 +982,7 @@ section.band::before{content:"";position:absolute;top:0;bottom:0;left:calc(50% -
 <nav class="topbar" id="topbar" aria-label="Разделы">
   <div class="progress" id="progress"></div>
   <div class="chips" id="chips">
-    <a href="#quiz">Тест</a><a href="#why">Почему</a><a href="#map">Анализы</a><a href="#today">Что делать</a><a href="#invite">Разбор</a>
+    <a href="#quiz">Тест</a><a href="#why">Почему</a><a href="#map">Анализы</a><a href="#today">Бланк</a><a href="#invite">Разбор</a>
   </div>
 </nav>
 
@@ -991,10 +991,10 @@ section.band::before{content:"";position:absolute;top:0;bottom:0;left:calc(50% -
   <div class="hero-shade" aria-hidden="true"></div>
   <div class="wrap">
     <div class="brand"><img src="img/avatar.jpg" alt="Шынгыс Садык" width="46" height="46"><div><div class="n">ШЫНГЫС САДЫК</div><div class="s">МЕТАБОЛИЧЕСКОЕ ЗДОРОВЬЕ</div></div></div>
-    <span class="pill f">ИНТЕРАКТИВНЫЙ ГИД · ФЕРРИТИН</span>
-    <h1>Ферритин, энергия <i class="s">и&nbsp;ваши анализы</i></h1>
-    <p class="lead">8 сигналов, что железа не хватает, даже когда гемоглобин «в норме».</p>
-    <div class="meta"><span><svg class="ic" style="width:16px;height:16px"><use href="#i-clock"/></svg>3 минуты</span><span><svg class="ic" style="width:16px;height:16px"><use href="#i-check"/></svg>8 вопросов</span></div>
+    <span class="pill f">ИНТЕРАКТИВНЫЙ ГИД · ФЕРРИТИН-ЧЕК</span>
+    <h1>Ферритин-чек: <i class="s">хватает ли вам железа</i></h1>
+    <p class="lead">Тест из 10 вопросов, какие анализы сдать вместе с ферритином и как прочитать бланк.</p>
+    <div class="meta"><span><svg class="ic" style="width:16px;height:16px"><use href="#i-clock"/></svg>3 минуты</span><span><svg class="ic" style="width:16px;height:16px"><use href="#i-check"/></svg>10 вопросов</span></div>
     <a class="btn pulse" href="#quiz" data-ev="hero_quiz">Пройти самопроверку <svg class="ic"><use href="#i-down"/></svg></a>
   </div>
 </header>
@@ -1003,8 +1003,8 @@ section.band::before{content:"";position:absolute;top:0;bottom:0;left:calc(50% -
 
 <section id="quiz" class="rv band b1">
   <img class="stk" src="img/ic_check.svg" alt="" width="76" height="76" loading="lazy">
-  <div class="kicker step s1"><b>1</b><span>Шаг 1 из 5 · самопроверка за 30 секунд</span></div>
-  <h2>8 сигналов, что железа не хватает</h2>
+  <div class="kicker step s1"><b>1</b><span>Шаг 1 из 5 · самопроверка за минуту</span></div>
+  <h2>10 вопросов: хватает ли вам железа</h2>
   <details class="alert mt" id="stop">
     <summary><span class="dot">!</span><span>Есть тревожные признаки?<small>5 стоп-сигналов - проверьте сначала</small></span><svg class="ic chev"><use href="#i-down"/></svg></summary>
     <ul>
@@ -1029,7 +1029,7 @@ section.band::before{content:"";position:absolute;top:0;bottom:0;left:calc(50% -
     <div class="result" id="qres">
       <div class="ring" role="img" id="ringLabel">
         <svg viewBox="0 0 150 150" width="150" height="150"><circle cx="75" cy="75" r="64" stroke="#EAF3FC" stroke-width="12" fill="none"/><circle id="ringArc" cx="75" cy="75" r="64" stroke="url(#rg)" stroke-width="12" fill="none" stroke-linecap="round" stroke-dasharray="402" stroke-dashoffset="402" style="transition:stroke-dashoffset 1s cubic-bezier(.2,.8,.2,1)"/><defs><linearGradient id="rg" x1="0" x2="1"><stop offset="0" stop-color="#2E8BD8"/><stop offset="1" stop-color="#00306C"/></linearGradient></defs></svg>
-        <div class="v"><b id="rnum">0</b><span>из 8</span></div>
+        <div class="v"><b id="rnum">0</b><span>из 10</span></div>
       </div>
       <h3 id="rtitle"></h3>
       <p id="rtext"></p>
@@ -1093,21 +1093,22 @@ section.band::before{content:"";position:absolute;top:0;bottom:0;left:calc(50% -
 </section>
 
 <section id="today" class="rv band b4">
-  <div class="kicker step s4"><b>4</b><span>Шаг 4 из 5 · с чего начать</span></div>
-  <h2>Что делать уже сегодня - и чего не делать</h2>
+  <div class="kicker step s4"><b>4</b><span>Шаг 4 из 5 · как прочитать бланк</span></div>
+  <h2>Как прочитать бланк - и чего не делать</h2>
   <div class="dd mt">
     <div class="card do">
       <h3><span class="tag ok">Делать</span></h3>
       <ul>
-        <li><b>Смотреть три цифры вместе:</b> ферритин, насыщение трансферрина и С-реактивный белок. По одной цифре запас железа не оценить.</li>
-        <li><b>Чай и кофе - через час после еды.</b> Чай вместе с едой снижал всасывание железа на 37%, через час - на 18%.</li>
-        <li><b>Посчитайте насыщение трансферрина.</b> Если в бланке его нет - введите две цифры из анализа:
+        <li><b>Смотреть три цифры вместе:</b> ферритин, насыщение трансферрина и С-реактивный белок. По одной цифре запас железа не оценить.
           <div class="tsat" id="tsat">
+            <label>Ферритин<input id="bkFer" type="number" inputmode="decimal" step="any" min="0" placeholder="напр. 18"><small>нг/мл = мкг/л</small></label>
+            <label>СРБ<input id="bkCrp" type="number" inputmode="decimal" step="any" min="0" placeholder="напр. 2"><small>мг/л</small></label>
             <label>Железо сывороточное<input id="tsFe" type="number" inputmode="decimal" step="any" min="0" placeholder="напр. 12"><small>мкмоль/л</small></label>
             <label>ОЖСС<input id="tsTi" type="number" inputmode="decimal" step="any" min="0" placeholder="напр. 70"><small>мкмоль/л</small></label>
           </div>
-          <div class="binfo" id="tsOut">Насыщение = железо ÷ ОЖСС × 100. Ниже 20% - железа на доставку не хватает.</div>
+          <div class="binfo" id="tsOut">Введите цифры из своего бланка - подскажу, как их прочитать. Железо и ОЖСС нужны, чтобы посчитать насыщение трансферрина.</div>
         </li>
+        <li><b>Чай и кофе - через час после еды.</b> Чай вместе с едой снижал всасывание железа на 37%, через час - на 18%.</li>
       </ul>
     </div>
     <div class="card dont">
@@ -1318,19 +1319,20 @@ addEventListener('scroll',()=>{if(ticking)return;ticking=true;requestAnimationFr
 })},{passive:true});
 
 // QUIZ (gender picker first: 6 common questions + 2 gender-specific)
-const QC=[['Тяжело просыпаться, даже после 7-8 часов сна','Сил нет с утра, к обеду - ещё меньше',['fer','tsat','tsh']],['Одышка или сердцебиение на лестнице','Пара пролётов - и нужно отдышаться',['cbc','fer']],['Волосы выпадают, ногти ломаются','Больше волос на расчёске, ногти слоятся',['fer','tsh']],['Мёрзнут руки и ноги','Холодно, когда другим нормально',['fer','tsh']],['Красное мясо - редко или никогда','Вегетарианство, диеты, «мясо не люблю»',['fer','b12']],['Пили железо, а сил почти не прибавилось','Или ферритин после курса почти не вырос',['crp','cel','hp']]];
+const QC=[['Просыпаетесь уставшими даже после 8 часов сна','Сил нет с утра, к обеду - ещё меньше',['fer','tsat','tsh']],['Волос на расчёске стало заметно больше','Выпадают сильнее, чем раньше',['fer','tsh']],['Ногти ломаются и слоятся','Даже без гель-лака и бытовой химии',['fer','tsh']],['Задыхаетесь, пока поднимаетесь на третий этаж','Пара пролётов - и нужно отдышаться',['cbc','fer']],['Тянет грызть лёд','Или хочется мела, сырой крупы, запаха краски',['fer','cbc']],['Мёрзнут руки и ноги','Холодно, когда другим нормально',['fer','tsh']],['Красное мясо - редко или никогда','Вегетарианство, диеты, «мясо не люблю»',['fer','b12']],['Пили железо, а сил почти не прибавилось','Или ферритин после курса почти не вырос',['crp','cel','hp']]];
 const QG={w:[['Обильные или долгие месячные','Больше 7 дней, прокладку меняете каждые 1-2 часа',['fer','cbc'],'fw7'],['Беременность, роды или кормление за последние 2 года','Ребёнок забирает часть вашего запаса железа',['fer','cbc'],'fw8']],
           m:[['Изжога или постоянно пьёте омепразол','Или похожие таблетки «от желудка»',['hp','b12'],'fm7'],['Много бегаете или сдаёте кровь как донор','Тренировки на выносливость, донорство',['fer','cbc'],'fm8']]};
 let G=null,Q=[];
-const setG=g=>{G=g;const im=['f1'+g,'f2','f3','f4','f5','f6'];Q=QC.map((q,i)=>[q[0],q[1],q[2],im[i]]).concat(QG[g])};
+const setG=g=>{G=g;const im=['f1'+g,'f3','fn','f2','fi','f4','f5','f6'];Q=QC.map((q,i)=>[q[0],q[1],q[2],im[i]]).concat(QG[g])};
 let qi=0,ans=store.get('ans',[]);
 const slide=$('#qslide');
-const FACT={2:()=>['Знали ли вы?','Ферритин - это склад железа. Он пустеет первым, а гемоглобин падает уже потом. Поэтому «гемоглобин в норме» ещё не значит, что железа хватает.','ic_store'],
-            5:()=>G==='w'?['Вы не одни','Анемия есть у 30% женщин 15-49 лет (ВОЗ), а пустой склад железа бывает и при нормальном гемоглобине. С 2023 года я провёл 1000+ консультаций - похожие истории встречаются постоянно.','ic_female']
+const FACT={6:()=>['Знали ли вы?','Ферритин - это склад железа. Он пустеет первым, а гемоглобин падает уже потом. Поэтому «гемоглобин в норме» ещё не значит, что железа хватает.','ic_store'],
+            5:()=>['Половина пути','Круги под глазами и бледность бывают и от недосыпа, и от стресса - по лицу железо не определить. Следующие 5 вопросов покажут, куда может уходить ваше железо.','ic_drop'],
+            8:()=>G==='w'?['Вы не одни','Анемия есть у 30% женщин 15-49 лет (ВОЗ), а пустой склад железа бывает и при нормальном гемоглобине. С 2023 года я провёл 1000+ консультаций - похожие истории встречаются постоянно.','ic_female']
                          :['Знали ли вы?','У мужчин нет ежемесячных потерь крови, поэтому низкий ферритин - повод искать причину: чаще всего в желудке и кишечнике. Например, на омепразоле железо из еды всасывалось примерно вдвое хуже.','ic_male']};
 let factShown={};
 function renderG(){slide.classList.remove('anim');void slide.offsetWidth;if(!reduce)slide.classList.add('anim');
-  slide.innerHTML='<div class="gsel"><div class="qn">Сначала</div><h3>Для кого проверка?</h3><p>2 вопроса из 8 отличаются для женщин и мужчин</p><div class="gbtns"><button data-g="w"><img src="img/ic_female.svg" alt="" width="72" height="72">Я женщина</button><button data-g="m"><img src="img/ic_male.svg" alt="" width="72" height="72">Я мужчина</button></div></div>';
+  slide.innerHTML='<div class="gsel"><div class="qn">Сначала</div><h3>Для кого проверка?</h3><p>2 вопроса из 10 отличаются для женщин и мужчин</p><div class="gbtns"><button data-g="w"><img src="img/ic_female.svg" alt="" width="72" height="72">Я женщина</button><button data-g="m"><img src="img/ic_male.svg" alt="" width="72" height="72">Я мужчина</button></div></div>';
   $('.qans').style.display='none';$('#qback').disabled=true;$('#qcount').textContent='Старт';$('#qbar').style.width='0%';$('#qrun').style.display='';$('#qres').classList.remove('on');
   slide.querySelectorAll('[data-g]').forEach(b=>b.onclick=()=>{buzz();setG(b.dataset.g);track('quiz_gender',{g:G});$('.qans').style.display='';qi=0;renderQ()});}
 function renderQ(){ if(!G)return renderG(); if(qi>=Q.length)return analyzing();
@@ -1354,18 +1356,18 @@ $('#qyes').onclick=()=>answer(1);$('#qno').onclick=()=>answer(0);
 $('#qback').onclick=()=>{if(qi>0){qi--;renderQ()}else if(G){G=null;$('.qans').style.display='';renderG()}};
 $('#qagain').onclick=()=>{ans=[];store.set('ans',ans);qi=0;G=null;factShown={};renderG();updSticky(null)};
 function showRes(){ const n=ans.filter(Boolean).length;$('#qbar').style.width='100%';$('#qrun').style.display='none';const r=$('#qres');r.classList.add('on');
-  $('#rnum').textContent=n;$('#ringLabel').setAttribute('aria-label','Совпало '+n+' из 8');
-  requestAnimationFrame(()=>$('#ringArc').style.strokeDashoffset=402-402*n/8);
+  $('#rnum').textContent=n;$('#ringLabel').setAttribute('aria-label','Совпало '+n+' из 10');
+  requestAnimationFrame(()=>$('#ringArc').style.strokeDashoffset=402-402*n/10);
   const hi=n>=3;
-  $('#rtitle').textContent=hi?'Совпало '+n+' - это повод проверить железо':(n===0?'Сигналов нет - отлично 🙌':'Совпало немного - уже хорошо');
-  $('#rtext').textContent=hi?'И не одной цифрой. Ферритин, насыщение трансферрина и воспаление вместе покажут, есть ли запас и куда уходит железо.':'Но если вы устаёте, а анализы «в норме», причина может быть не на виду. Посмотрите схему и анализы ниже.';
+  $('#rtitle').textContent=hi?'Совпало '+n+' - это повод сдать ферритин':(n===0?'Сигналов нет - отлично 🙌':'Совпало немного - уже хорошо');
+  $('#rtext').textContent=hi?'Но не только его: при воспалении ферритин бывает высоким и прячет дефицит. Ниже - анализы под ваши ответы, а в шаге 4 - как прочитать бланк.':'Но если вы устаёте, а анализы «в норме», причина может быть не на виду. Посмотрите схему и анализы ниже.';
   $('#rmatched').innerHTML=Q.filter((q,i)=>ans[i]).map(q=>'<span>'+q[0]+'</span>').join('');
   const rec=[...new Set(Q.flatMap((q,i)=>ans[i]?q[2]:[]))];
   $('#rrec').innerHTML=rec.length?'<div class="rec"><b>Анализы под ваши ответы:</b><ul>'+rec.map(id=>'<li><svg class="ic" style="width:16px;height:16px"><use href="#i-flask"/></svg>'+byId[id].t+'</li>').join('')+'</ul><button class="btn ghost" id="addAll"><svg class="ic" style="width:18px;height:18px"><use href="#i-plus"/></svg>Добавить все в мой список</button></div>':'';
   const aa=$('#addAll');aa&&(aa.onclick=()=>{buzz();rec.forEach(id=>list.add(id));store.set('list',[...list]);syncList();toast('Добавлено: '+rec.length+' ✓');track('list_add_all',{n:rec.length})});
   const cta=$('#rcta');cta.className='btn'+(hi?'':' ghost');cta.innerHTML=(hi?'Разобрать мой случай':'Задать вопрос через анкету')+' <svg class="ic"><use href="#i-arrow"/></svg>';
   track(hi?'quiz_3plus':'quiz_low',{n,g:G});updSticky(n); }
-function updSticky(n){ $('#stickyT').innerHTML= n==null?'<b>Разберём ваш ферритин</b><span class="livedot"></span>До Нового года '+seatsTxt()+'': n>=3?'<b>У вас '+n+' из 8 - разберём?</b><span class="livedot"></span>До Нового года '+seatsTxt()+'':'<b>Остались вопросы?</b>Ответим в WhatsApp'; }
+function updSticky(n){ $('#stickyT').innerHTML= n==null?'<b>Разберём ваш ферритин</b><span class="livedot"></span>До Нового года '+seatsTxt()+'': n>=3?'<b>У вас '+n+' из 10 - разберём?</b><span class="livedot"></span>До Нового года '+seatsTxt()+'':'<b>Остались вопросы?</b>Ответим в WhatsApp'; }
 const initQuiz=()=>{renderG()};
 
 // TESTS data
@@ -1415,16 +1417,18 @@ function openList(){const html=list.size?'<ol class="mlist">'+[...list].map(id=>
 $('#fab').onclick=()=>{buzz();openList();track('list_open')};
 syncList();initQuiz();initMotion();
 
-// TRANSFERRIN SATURATION calculator (same units in both fields)
-(()=>{const fe=$('#tsFe'),ti=$('#tsTi'),o=$('#tsOut');if(!fe)return;const base=o.textContent;
- const num=el=>parseFloat(String(el.value).replace(',','.'));
- const upd=()=>{const a=num(fe),b=num(ti);o.classList.remove('low','ok');
-  if(!(a>0)||!(b>0)){o.textContent=base;return}
-  if(a>=b){o.textContent='Проверьте цифры: железо должно быть меньше ОЖСС.';return}
-  const v=Math.round(a/b*1000)/10,low=v<20;o.classList.add(low?'low':'ok');
-  o.innerHTML='Насыщение: <b>'+String(v).replace('.',',')+'%</b> - '+(low?'ниже 20%: железа на доставку не хватает.':'не ниже 20%: на доставку железа хватает. Смотрите вместе с ферритином и СРБ.');
-  track('tsat_calc',{low})};
- fe.addEventListener('input',upd);ti.addEventListener('input',upd);})();
+// BLANK DECODER: ferritin + CRP (+ iron & TIBC -> transferrin saturation). Thresholds: WHO 2020, BSG 2021, Mei 2021, Verdon 2003
+(()=>{const o=$('#tsOut');if(!o)return;const base=o.textContent;const F=['#bkFer','#bkCrp','#tsFe','#tsTi'].map($);
+ const num=el=>{const v=parseFloat(String(el.value).replace(',','.'));return v>0?v:null};const fmt=v=>String(Math.round(v*10)/10).replace('.',',');
+ const upd=()=>{const [fer,crp,fe,ti]=F.map(num);o.classList.remove('low','ok');const L=[];let bad=false;
+  if(fe&&ti){if(fe>=ti)L.push('Проверьте железо и ОЖСС: железо должно быть меньше ОЖСС.');else{const t=fe/ti*100;if(t<20){bad=true;L.push('Насыщение трансферрина <b>'+fmt(t)+'%</b> - ниже 20%: железа на доставку не хватает.')}else L.push('Насыщение трансферрина <b>'+fmt(t)+'%</b> - не ниже 20%: на доставку железа хватает.')}}
+  if(fer){const infl=crp!=null&&crp>5;
+   if(crp==null)L.push('Ферритин <b>'+fmt(fer)+'</b>. Добавьте СРБ: при воспалении ферритин бывает высоким и прячет дефицит.');
+   if(infl){if(fer<70){bad=true;L.push('СРБ выше 5 - есть воспаление. В этом случае ВОЗ считает нехваткой железа ферритин ниже 70, а у вас <b>'+fmt(fer)+'</b>.')}else L.push('СРБ выше 5 - есть воспаление, и ферритин может быть им завышен. По одному ферритину запас не оценить: пересдайте вместе с СРБ после выздоровления.')}
+   else if(crp!=null){if(fer<15){bad=true;L.push('Ферритин <b>'+fmt(fer)+'</b> - ниже 15: по ВОЗ это нехватка железа.')}else if(fer<=50){bad=true;L.push('Ферритин <b>'+fmt(fer)+'</b> - «в норме» по бланку, но в исследованиях кровь начинала недополучать железо уже около 25, а усталость от железа уменьшалась у женщин с ферритином до 50.')}else L.push('Ферритин <b>'+fmt(fer)+'</b>, воспаления нет. В исследованиях при ферритине выше 50 таблетки железа усталость не уменьшали - если сил нет, причину стоит искать шире.')}}
+  if(!L.length){o.textContent=base;return}
+  o.classList.add(bad?'low':'ok');o.innerHTML=L.join('<br>');track('blank_decode',{bad})};
+ F.forEach(el=>el.addEventListener('input',upd));})();
 
 // hero background video: plays muted inline, no controls; skipped on Save-Data / reduced motion
 (()=>{const v=$('#heroVid');if(!v)return;const c=navigator.connection;if(reduce||(c&&(c.saveData||/2g/.test(c.effectiveType||''))))return;
