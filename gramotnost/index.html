@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <!-- security -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-wTfFqUcxQ8O+RRP4gBwOnGVQjuXhiin0gaeuIVlW7BI='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-AnXWJryGmq8Q6hDL/ZA+ISCWWkjFlbN8rA1BPsTAWsI='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
 <meta name="format-detection" content="telephone=no">
@@ -35,10 +35,10 @@ em.s{font-family:var(--serif);font-style:italic;font-weight:480;letter-spacing:-
 section{position:relative;padding:72px 0;isolation:isolate}
 .light{background:radial-gradient(55% 38% at 100% 0%,rgba(255,181,71,.13),transparent 70%),radial-gradient(60% 42% at 0% 100%,rgba(46,139,216,.12),transparent 72%),linear-gradient(180deg,#fff,var(--bg))}
 .light.alt{background:radial-gradient(55% 38% at 0% 0%,rgba(46,139,216,.12),transparent 70%),radial-gradient(60% 42% at 100% 100%,rgba(255,181,71,.12),transparent 72%),linear-gradient(180deg,var(--bg),#fff)}
-.light::before,.dark::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none}
-.light::before{background:url(img/hex_light.svg);-webkit-mask:radial-gradient(120% 80% at 50% 50%,transparent 35%,#000 100%);mask:radial-gradient(120% 80% at 50% 50%,transparent 35%,#000 100%)}
+.light::before,.dark::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background-position:0 var(--hy,0)!important}
+.light::before{background-image:url(img/hex_light.svg);-webkit-mask:radial-gradient(120% 80% at 50% 50%,transparent 35%,#000 100%);mask:radial-gradient(120% 80% at 50% 50%,transparent 35%,#000 100%)}
 .dark{background:linear-gradient(160deg,var(--deep) 0%,var(--deep2) 100%);color:#fff}
-.dark::before{background:url(img/hex_dark.svg);opacity:.6;-webkit-mask:radial-gradient(110% 80% at 30% 40%,transparent 30%,#000 100%);mask:radial-gradient(110% 80% at 30% 40%,transparent 30%,#000 100%)}
+.dark::before{background-image:url(img/hex_dark.svg);opacity:.6;-webkit-mask:radial-gradient(110% 80% at 30% 40%,transparent 30%,#000 100%);mask:radial-gradient(110% 80% at 30% 40%,transparent 30%,#000 100%)}
 .kick{font-size:12.5px;font-weight:550;letter-spacing:.14em;text-transform:uppercase;color:var(--saf-d)}
 .dark .kick{color:var(--saf)}
 h2{font-size:clamp(28px,6.6vw,44px);line-height:1.14;font-weight:580;letter-spacing:-.025em;margin-top:10px}
@@ -510,6 +510,14 @@ p{hyphens:manual}
 .chap img{width:118px;height:auto;border-radius:10px;box-shadow:0 8px 18px -10px rgba(0,48,108,.5)}
 .chap small{display:block;font-size:11px;letter-spacing:.13em;text-transform:uppercase;font-weight:600;color:var(--teal-d)}
 .chap b{display:block;margin-top:3px;font-size:16px;font-weight:500;line-height:1.38;text-wrap:balance}
+
+/* glowing gradient honeycomb, continuous across sections */
+.light::before,.dark::before,.light::after,.dark::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none}
+.light::before,.light::after,.dark::before,.dark::after{background-image:linear-gradient(100deg,#FFB547 0%,#E5703A 30%,#22BEC8 66%,#2E8BD8 100%)!important;background-position:0 0!important;background-size:100% 100%!important}
+.light::before{-webkit-mask:url(img/hex_m.svg) 0 var(--hy,0)/58.89px 102px repeat,radial-gradient(120% 80% at 50% 50%,transparent 32%,#000 100%);-webkit-mask-composite:source-in;mask:url(img/hex_m.svg) 0 var(--hy,0)/58.89px 102px repeat,radial-gradient(120% 80% at 50% 50%,transparent 32%,#000 100%);mask-composite:intersect;opacity:.34}
+.light::after{-webkit-mask:url(img/hex_g.svg) 0 var(--hy,0)/58.89px 102px repeat,radial-gradient(120% 80% at 50% 50%,transparent 32%,#000 100%);-webkit-mask-composite:source-in;mask:url(img/hex_g.svg) 0 var(--hy,0)/58.89px 102px repeat,radial-gradient(120% 80% at 50% 50%,transparent 32%,#000 100%);mask-composite:intersect;opacity:.22}
+.dark::before{-webkit-mask:url(img/hex_m.svg) 0 var(--hy,0)/58.89px 102px repeat,radial-gradient(110% 80% at 30% 40%,transparent 28%,#000 100%);-webkit-mask-composite:source-in;mask:url(img/hex_m.svg) 0 var(--hy,0)/58.89px 102px repeat,radial-gradient(110% 80% at 30% 40%,transparent 28%,#000 100%);mask-composite:intersect;opacity:.42}
+.dark::after{-webkit-mask:url(img/hex_g.svg) 0 var(--hy,0)/58.89px 102px repeat,radial-gradient(110% 80% at 30% 40%,transparent 28%,#000 100%);-webkit-mask-composite:source-in;mask:url(img/hex_g.svg) 0 var(--hy,0)/58.89px 102px repeat,radial-gradient(110% 80% at 30% 40%,transparent 28%,#000 100%);mask-composite:intersect;opacity:.38}
 </style>
 </head>
 <body>
@@ -955,6 +963,8 @@ let x0=null,y0=0;ring.addEventListener('pointerdown',e=>{x0=e.clientX;y0=e.clien
 ring.addEventListener('pointerup',e=>{if(x0===null)return;const dx=e.clientX-x0,dy=e.clientY-y0;x0=null;if(Math.abs(dx)>40&&Math.abs(dx)>Math.abs(dy))go(i+(dx<0?1:-1))});
 ring.addEventListener('pointercancel',()=>{x0=null});
 window.addEventListener('resize',fit);lay();fit()})();
+
+(()=>{const ss=[...document.querySelectorAll('section')];const hx=()=>ss.forEach(s=>s.style.setProperty('--hy',(-s.offsetTop)+'px'));hx();window.addEventListener('load',hx);window.addEventListener('resize',hx);if(window.ResizeObserver)new ResizeObserver(hx).observe(document.body)})();
 </script>
 </body>
 </html>
