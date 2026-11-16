@@ -96,19 +96,20 @@ h2 em.s{color:var(--saf-d)}
 @media (max-height:740px) and (max-width:859px){.hero h1{font-size:40px}.hero p.sub{font-size:16px;margin-top:12px}.facts{margin-top:14px}}
 
 /* pains */
-.pains{list-style:none;margin:26px -20px 0;counter-reset:pn;border-top:1px solid rgba(11,27,51,.08)}
-@media (min-width:700px){.pains{margin:28px 0 0}}
-.pain{position:relative;display:grid;grid-template-columns:56px 1fr;gap:16px;align-items:center;padding:14px 20px;border-bottom:1px solid rgba(11,27,51,.08);background:linear-gradient(90deg,var(--t) 0%,transparent 85%)}
-.pain .ic{width:56px;height:56px;border-radius:16px;box-shadow:0 6px 16px -8px var(--b);display:flex;align-items:center;justify-content:center;color:#fff;background:linear-gradient(145deg,var(--a),var(--b))}
-.pain .ic svg{width:30px;height:30px}
-.pain small{display:block;font-size:12px;font-weight:600;letter-spacing:.12em;font-variant-numeric:tabular-nums;color:var(--b);margin-bottom:2px}
-.pain p{font-size:17.5px;font-weight:420;line-height:1.42;letter-spacing:-.005em;color:var(--ink)}
-.pain:nth-child(1){--a:#FFC56B;--b:#F2A33A;--t:rgba(255,181,71,.13)}
-.pain:nth-child(2){--a:#F2A33A;--b:#E5703A;--t:rgba(242,163,58,.13)}
-.pain:nth-child(3){--a:#E5703A;--b:#E5483A;--t:rgba(229,72,58,.13)}
-.pain:nth-child(4){--a:#3FB6A8;--b:#0E8F9B;--t:rgba(14,143,155,.13)}
-.pain:nth-child(5){--a:#0E8F9B;--b:#1F5FA8;--t:rgba(31,95,168,.13)}
-.pain:nth-child(6){--a:#1F5FA8;--b:#00306C;--t:rgba(0,48,108,.13)}
+.pains{list-style:none;margin:34px auto 0;max-width:420px;text-align:center}
+.pain{display:flex;flex-direction:column;align-items:center}
+.pain .ph{position:relative;width:116px;height:116px;border-radius:50%;padding:4px;background:linear-gradient(145deg,var(--a),var(--b));box-shadow:0 14px 30px -18px var(--b)}
+.pain .ph img{display:block;width:100%;height:100%;border-radius:50%;object-fit:cover;border:3px solid #fff}
+.pain .ph small{position:absolute;left:50%;bottom:-11px;transform:translateX(-50%);min-width:38px;padding:3px 9px;border-radius:20px;background:linear-gradient(145deg,var(--a),var(--b));color:#fff;font-size:12px;font-weight:600;letter-spacing:.08em;line-height:1.35;border:2px solid #fff;font-variant-numeric:tabular-nums}
+.pain p{margin-top:20px;max-width:17em;font-size:17.5px;font-weight:420;line-height:1.42;letter-spacing:-.005em;color:var(--ink);text-wrap:balance}
+.pain:not(:last-child)::after{content:"";display:block;width:2px;height:34px;margin:14px 0 6px;border-radius:2px;background:linear-gradient(var(--b),var(--n))}
+.pain:nth-child(1){--a:#FFC56B;--b:#F2A33A;--n:#F2A33A}
+.pain:nth-child(2){--a:#F2A33A;--b:#E5703A;--n:#E5703A}
+.pain:nth-child(3){--a:#E5703A;--b:#E5483A;--n:#3FB6A8}
+.pain:nth-child(4){--a:#3FB6A8;--b:#0E8F9B;--n:#0E8F9B}
+.pain:nth-child(5){--a:#0E8F9B;--b:#1F5FA8;--n:#1F5FA8}
+.pain:nth-child(6){--a:#1F5FA8;--b:#00306C;--n:#00306C}
+@media (min-width:900px){.pains{max-width:none;display:grid;grid-template-columns:repeat(3,1fr);gap:36px 24px}.pain::after{display:none!important}}
 .bridge{margin-top:26px;padding:4px 0 4px 18px;border-left:3px solid var(--saf-d);font-size:17px;line-height:1.55}
 .bridge b{font-weight:550}
 
@@ -469,12 +470,12 @@ p{hyphens:manual}
     <div class="kick rv">Узнаёте себя?</div>
     <h2 class="rv">Анализы «в норме», а <em class="s">сил нет</em></h2>
     <ol class="pains">
-      <li class="pain rv"><span class="ic"><svg><use href="#i-sun"/></svg></span><div><small>01</small><p>Просыпаетесь уже разбитыми, энергии хватает на полдня</p></div></li>
-      <li class="pain rv"><span class="ic"><svg><use href="#i-flask"/></svg></span><div><small>02</small><p>Сдаёте анализы, слышите «всё в норме» - а лучше не становится</p></div></li>
-      <li class="pain rv"><span class="ic"><svg><use href="#i-belly"/></svg></span><div><small>03</small><p>Вздутие, тяжесть после еды, непонятные реакции на продукты</p></div></li>
-      <li class="pain rv"><span class="ic"><svg><use href="#i-scale"/></svg></span><div><small>04</small><p>Вес не уходит даже на диетах, тянет на сладкое</p></div></li>
-      <li class="pain rv"><span class="ic"><svg><use href="#i-hair"/></svg></span><div><small>05</small><p>Выпадают волосы, ломаются ногти, кожа сухая или жирная</p></div></li>
-      <li class="pain rv"><span class="ic"><svg><use href="#i-moon"/></svg></span><div><small>06</small><p>Спите достаточно часов - и всё равно не высыпаетесь</p></div></li>
+      <li class="pain rv"><span class="ph"><img src="img/pn1.webp" alt="Женщина утром тянется к будильнику" width="108" height="108" loading="lazy"><small>01</small></span><p>Просыпаетесь уже разбитыми, энергии хватает на полдня</p></li>
+      <li class="pain rv"><span class="ph"><img src="img/pn2.webp" alt="Пробирки с кровью для анализов" width="108" height="108" loading="lazy"><small>02</small></span><p>Сдаёте анализы, слышите «всё в норме» - а лучше не становится</p></li>
+      <li class="pain rv"><span class="ph"><img src="img/pn3.webp" alt="Руки на животе при вздутии" width="108" height="108" loading="lazy"><small>03</small></span><p>Вздутие, тяжесть после еды, непонятные реакции на продукты</p></li>
+      <li class="pain rv"><span class="ph"><img src="img/pn4.webp" alt="Женщина с пончиком" width="108" height="108" loading="lazy"><small>04</small></span><p>Вес не уходит даже на диетах, тянет на сладкое</p></li>
+      <li class="pain rv"><span class="ph"><img src="img/pn5.webp" alt="Выпавшие волосы на расчёске" width="108" height="108" loading="lazy"><small>05</small></span><p>Выпадают волосы, ломаются ногти, кожа сухая или жирная</p></li>
+      <li class="pain rv"><span class="ph"><img src="img/pn6.webp" alt="Женщина не может уснуть ночью" width="108" height="108" loading="lazy"><small>06</small></span><p>Спите достаточно часов - и всё равно не высыпаетесь</p></li>
     </ol>
     </div>
     <div class="opq rv">
