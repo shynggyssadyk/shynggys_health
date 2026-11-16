@@ -483,6 +483,33 @@ p{hyphens:manual}
 /* featured tariff: gold living border */
 .plan.top{border:2px solid transparent;background:linear-gradient(#fff,#fff) padding-box,conic-gradient(from var(--ang),#FFB547,#FFE7B5,#E08600,#FFD68F,#FFB547) border-box;animation:ang 6s linear infinite;box-shadow:0 0 46px -8px rgba(255,181,71,.55),0 18px 40px rgba(0,0,0,.4)}
 @media (prefers-reduced-motion:reduce){#stack .stack,.plan.top{animation:none}}
+/* about: crossed notes -> checklist */
+.vs2{max-width:560px;margin:30px auto 0}
+.nts{display:flex;flex-direction:column}
+.nt{position:relative;background:#fff;border-radius:14px;padding:14px 16px;font-size:15px;line-height:1.45;color:var(--ink2);box-shadow:0 12px 26px -16px rgba(0,48,108,.35);width:82%}
+.nt s{text-decoration:none;background:linear-gradient(transparent 50%,rgba(229,72,58,.85) 50%,rgba(229,72,58,.85) 60%,transparent 60%);color:#8FA6C4}
+.nt-k{display:block;font-size:11px;letter-spacing:.13em;text-transform:uppercase;font-weight:600;color:var(--coral-d);margin-bottom:4px}
+.nt.n1,.rv.in.n1{transform:rotate(-3deg)}.nt.n2,.rv.in.n2{transform:rotate(2.5deg)}.n2{margin:-4px 0 0 auto;width:68%}
+.vs-ar{display:flex;justify-content:center;color:var(--teal-d);margin:12px 0}
+.ck{position:relative;border-radius:24px;padding:22px 20px 8px;border:1.5px solid transparent;background:linear-gradient(#fff,#fff) padding-box,linear-gradient(135deg,#22BEC8,#0E8F9B 45%,#1F5FA8) border-box;box-shadow:0 26px 54px -30px rgba(14,143,155,.55)}
+.ck-k{position:absolute;top:-12px;left:20px;font-size:11px;letter-spacing:.13em;text-transform:uppercase;font-weight:600;color:#fff;background:linear-gradient(135deg,#22BEC8,#0E8F9B);border-radius:20px;padding:4px 11px}
+.ck div{display:flex;gap:12px;padding:13px 0;border-bottom:1px solid var(--line);font-size:16.5px;line-height:1.42;font-weight:450}
+.ck div:last-child{border-bottom:0}
+.ck i{flex:none;width:26px;height:26px;border-radius:50%;background:linear-gradient(145deg,#3FB6A8,#0E8F9B);color:#fff;font-style:normal;font-size:13px;display:flex;align-items:center;justify-content:center;margin-top:-1px;box-shadow:0 4px 10px -4px rgba(14,143,155,.6)}
+/* lecture structure: video + chapters */
+.lstr{margin-top:20px}
+@media (min-width:860px){.lstr{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}}
+.lecw{border-radius:22px;overflow:hidden;background:var(--deep);box-shadow:0 26px 50px -28px rgba(0,48,108,.6)}
+.lecw .lfv{margin:0}
+.dur{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 12px;padding:14px 18px 16px;color:#fff}
+.dur b{font-size:34px;font-weight:560;letter-spacing:-.03em;line-height:1}
+.dur span{flex:1 1 180px;font-size:14px;line-height:1.45;color:var(--soft)}
+.chap{list-style:none;margin-top:18px;border-top:1px solid var(--line)}
+@media (min-width:860px){.chap{margin-top:0}}
+.chap li{display:grid;grid-template-columns:118px 1fr;gap:14px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
+.chap img{width:118px;height:auto;border-radius:10px;box-shadow:0 8px 18px -10px rgba(0,48,108,.5)}
+.chap small{display:block;font-size:11px;letter-spacing:.13em;text-transform:uppercase;font-weight:600;color:var(--teal-d)}
+.chap b{display:block;margin-top:3px;font-size:16px;font-weight:500;line-height:1.38;text-wrap:balance}
 </style>
 </head>
 <body>
@@ -552,19 +579,16 @@ p{hyphens:manual}
   <div class="wrap">
     <div class="kick rv">Что это за программа</div>
     <h2 class="rv">Системные знания, а не <em class="s">советы из интернета</em></h2>
-    <div class="vs">
-      <div class="card no rv"><h3>Это не</h3><ul><li>Сборник информации из интернета без доказательной базы</li><li>Общие советы и очевидные вещи</li></ul></div>
-      <div class="card yes rv"><h3>Это</h3><ul><li>Системные знания, основанные на научном подходе</li><li>Инструменты самодиагностики на базовом уровне</li><li>Первый шаг к осознанным решениям о своём здоровье</li></ul></div>
+    <div class="vs2">
+      <div class="nts"><div class="nt n1 rv"><span class="nt-k">Это не</span><s>Сборник информации из интернета без доказательной базы</s></div><div class="nt n2 rv"><s>Общие советы и очевидные вещи</s></div></div>
+      <div class="vs-ar" aria-hidden="true"><svg width="28" height="36" viewBox="0 0 28 36" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2v30M5 23l9 9 9-9"/></svg></div>
+      <div class="ck rv"><span class="ck-k">Это</span><div><i>✓</i>Системные знания, основанные на научном подходе</div><div><i>✓</i>Инструменты самодиагностики на базовом уровне</div><div><i>✓</i>Первый шаг к осознанным решениям о своём здоровье</div></div>
     </div>
 
     <div class="kick rv" style="margin-top:48px">Как построена каждая лекция</div>
-    <div class="formula">
-      <div class="card fx meta rv"><div class="lfv"><video id="lecFast" src="img/lec_fast.mp4" poster="img/lec_fast.jpg" muted loop playsinline preload="metadata" disablepictureinpicture width="720" height="374"></video><span class="lfb"><i></i>Лекция целиком · ускорено</span></div><span class="big">1,5<small>часа</small></span><span>в среднем длится лекция в Zoom - смотрите в записи в своём темпе</span></div>
-      <div class="card fx rv"><b>01</b><p>Механика темы: как это устроено</p></div>
-      <div class="card fx rv"><b>02</b><p>Разбор причинно-следственных связей</p></div>
-      <div class="card fx rv"><b>03</b><p>Разбор разных ситуаций на примерах</p></div>
-      <div class="card fx rv"><b>04</b><p>Развенчание популярных мифов вокруг темы</p></div>
-      <div class="card fx rv"><b>05</b><p>Как предотвратить проблему, если её ещё нет, и как работать с ней, если она уже есть</p></div>
+    <div class="lstr">
+      <div class="lecw rv"><div class="lfv"><video id="lecFast" src="img/lec_fast.mp4" poster="img/lec_fast.jpg" muted loop playsinline preload="metadata" disablepictureinpicture width="720" height="374"></video><span class="lfb"><i></i>Лекция целиком · ускорено</span></div><div class="dur"><b>1,5 часа</b><span>в среднем длится лекция в Zoom - смотрите в записи в своём темпе</span></div></div>
+      <ol class="chap"><li class="rv"><img src="img/lc1.webp" alt="Слайд лекции «Сон»: ночь - это 4-6 циклов по 90 минут" width="480" height="249" loading="lazy"><div><small>Глава 1</small><b>Механика темы: как это устроено</b></div></li><li class="rv"><img src="img/lc2.webp" alt="Слайд лекции «Сон»: недосып - это лишняя еда" width="480" height="249" loading="lazy"><div><small>Глава 2</small><b>Разбор причинно-следственных связей</b></div></li><li class="rv"><img src="img/lc3.webp" alt="Слайд лекции «Сон»: женский сон меняется вместе с гормонами" width="480" height="249" loading="lazy"><div><small>Глава 3</small><b>Разбор разных ситуаций на примерах</b></div></li><li class="rv"><img src="img/lc4.webp" alt="Слайд лекции «Сон»: мелатонин - стрелки часов, а не снотворное" width="480" height="249" loading="lazy"><div><small>Глава 4</small><b>Развенчание популярных мифов вокруг темы</b></div></li><li class="rv"><img src="img/lc5.webp" alt="Слайд лекции «Сон»: что работает для восстановления" width="480" height="249" loading="lazy"><div><small>Глава 5</small><b>Как предотвратить проблему, если её ещё нет, и как работать с ней, если она уже есть</b></div></li></ol>
     </div>
     <p class="note rv">Только проверенная информация на научной базе - без общих слов.</p>
   </div>
@@ -664,9 +688,9 @@ p{hyphens:manual}
       <div class="book b3"><div class="cv"><img src="img/cv_treker.webp" alt="Титульный лист трекера «Дневник самонаблюдения»" width="660" height="932" loading="lazy"></div></div>
     </div>
     <ol class="mats">
-      <li class="rv"><span class="mn">01</span><div><b>Конспекты всех лекций</b><span>И полезные дополнительные приложения к ним.</span></div></li>
-      <li class="rv"><span class="mn">02</span><div><b>Гайд «Как правильно читать свои анализы»</b><span>На что смотреть, кроме пометки «в норме».</span></div></li>
-      <li class="rv"><span class="mn">03</span><div><b>Трекер самонаблюдения</b><span>И другие бонусные материалы.</span></div></li>
+      <li class="rv"><span class="mn">01</span><div><b>Конспекты всех лекций</b><span>И полезные дополнительные приложения к ним.</span></div></li>
+      <li class="rv"><span class="mn">02</span><div><b>Гайд «Как правильно читать свои анализы»</b><span>На что смотреть, кроме пометки «в норме».</span></div></li>
+      <li class="rv"><span class="mn">03</span><div><b>Трекер самонаблюдения</b><span>И другие бонусные материалы.</span></div></li>
     </ol>
     <div class="blank rv">
       <div class="bl-h"><span class="kick">Пример из гайда</span><b>Железо «в норме» - а запасов почти нет</b><p>Реальный бланк анализов (личные данные скрыты). Если смотреть только на пометку «в норме», дефицит легко пропустить.</p></div>
