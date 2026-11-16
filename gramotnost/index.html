@@ -686,6 +686,19 @@ h2 em.s,.quote p em.s{color:var(--acc)}.dark h2 em.s{color:var(--acc-l)}
 .light::before,.light::after,#pains::before,#pains::after{-webkit-mask:url(img/hex_m.svg) 0 var(--hy,0)/58.89px 102px repeat,url(img/hex_spots2.png) calc(var(--sx,0px)) var(--hy,0)/1400px 1400px repeat;-webkit-mask-composite:source-in;mask:url(img/hex_m.svg) 0 var(--hy,0)/58.89px 102px repeat,url(img/hex_spots2.png) calc(var(--sx,0px)) var(--hy,0)/1400px 1400px repeat;mask-composite:intersect}
 .light::before{opacity:.45}.light::after{opacity:.25}
 .light.alt{--sx:-610px}
+
+/* hero: crisper light-on-dark text */
+.hero p.sub{color:#E8EEF7;font-weight:400;text-shadow:0 1px 2px rgba(0,0,0,.45),0 0 18px rgba(11,27,51,.6);-webkit-font-smoothing:antialiased}
+.hero h1{text-shadow:0 2px 14px rgba(11,27,51,.55)}
+.lock .sub{color:#DCE5F1;font-weight:450}
+.fact span{color:#DCE5F1;font-weight:400}
+/* fact boxes coloured by meaning (restrained): lectures = teal, length = blue, bonus = gold */
+.fact:nth-child(1){background:linear-gradient(180deg,rgba(255,255,255,.12),rgba(255,255,255,.02) 46%,rgba(255,255,255,0) 60%),rgba(14,143,155,.26);border-color:rgba(127,227,234,.38)}
+.fact:nth-child(1) b{color:#BFF3F6}
+.fact:nth-child(2){background:linear-gradient(180deg,rgba(255,255,255,.12),rgba(255,255,255,.02) 46%,rgba(255,255,255,0) 60%),rgba(46,139,216,.22);border-color:rgba(159,211,255,.36)}
+.fact:nth-child(2) b{color:#D6ECFF}.fact:nth-child(2) b small{color:#9FD3FF!important}
+.fact:nth-child(3){background:linear-gradient(180deg,rgba(255,255,255,.12),rgba(255,255,255,.02) 46%,rgba(255,255,255,0) 60%),rgba(224,134,0,.22);border-color:rgba(255,207,125,.45)}
+.fact:nth-child(3) b{color:#FFD9A0}
 </style>
 </head>
 <body>
