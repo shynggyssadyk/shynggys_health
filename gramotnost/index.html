@@ -588,6 +588,12 @@ mark.hl{background:rgba(34,190,200,.16);color:#0B5F69;border-radius:6px;padding:
 #tariffs.ofon .plan{box-shadow:0 0 0 1.5px rgba(255,207,125,calc(.45 + .45*var(--gl))),0 0 calc(16px + 30px*var(--gl)) calc(-6px + 4px*var(--gl)) rgba(255,181,71,calc(.25 + .4*var(--gl))),0 18px 40px rgba(0,0,0,.35)}
 #tariffs.ofon .offer{box-shadow:0 0 calc(12px + 22px*var(--gl)) rgba(255,181,71,calc(.35 + .4*var(--gl))),inset 0 0 calc(10px + 14px*var(--gl)) rgba(255,181,71,calc(.06 + .1*var(--gl)))}
 @media (prefers-reduced-motion:reduce){#tariffs.ofon{animation:none}}
+
+/* calmer background: blurred honeycomb + fine film grain (anti-shimmer) */
+.light::before,.dark::before{filter:blur(1.8px)}
+.light::after,.dark::after{filter:blur(3px)}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;background:url(img/noise.png) 0 0/256px 256px;mix-blend-mode:overlay;opacity:.28}
+@media (prefers-reduced-transparency:reduce){body::after{display:none}}
 </style>
 </head>
 <body>
