@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <!-- security -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-UhOWa7dLGEj1d5OrLQAbAs7gF156EfoQipBCkJMB0xU='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-lv8v1gIYgVTxazNDkKS2dVkW7sOx3HRuq6eFX2eTFO0='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
 <meta name="format-detection" content="telephone=no">
@@ -560,6 +560,26 @@ mark.hl{background:rgba(34,190,200,.16);color:#0B5F69;border-radius:6px;padding:
 .fm-n p{margin-top:4px;font-size:13.5px;line-height:1.5;color:#C9D6E8}
 .fm-seat{display:flex;flex-wrap:wrap;gap:3px;margin-top:8px}.fm-seat i{width:8px;height:8px;border-radius:50%;background:#22BEC8;opacity:.85}
 @media (min-width:760px){.fmt li{grid-template-columns:96px 1fr;gap:28px}.fmt::before{left:110px}.fm-d{left:105px}.fm-t{font-size:12.5px}}
+
+/* format: travelling light wave bottom -> top, cards light up as it passes */
+.fmt::after{content:"";position:absolute;left:59px;top:12px;bottom:40px;width:6px;border-radius:3px;pointer-events:none;
+ background:linear-gradient(180deg,transparent,rgba(255,236,190,.95) 45%,#fff 50%,rgba(255,236,190,.95) 55%,transparent) no-repeat;background-size:100% 130px;
+ background-position:0 calc(100% + 130px);filter:drop-shadow(0 0 6px rgba(255,181,71,.9)) drop-shadow(0 0 14px rgba(255,181,71,.5))}
+.fmt.go::after{animation:fmw var(--fmT,5s) linear infinite}
+@keyframes fmw{0%{background-position:0 calc(100% + 130px)}70%,100%{background-position:0 -130px}}
+@media (min-width:760px){.fmt::after{left:108px}}
+.fm-n{transition:none}
+.fmt.go .fm-n{animation:fmg var(--fmT,5s) ease-out infinite;animation-delay:var(--dl,0s)}
+.fmt.go .fm-d{animation:fmd var(--fmT,5s) ease-out infinite;animation-delay:var(--dl,0s)}
+@keyframes fmg{0%{border-color:rgba(201,214,232,.16);box-shadow:none;background:rgba(255,255,255,.07)}
+ 6%{border-color:rgba(255,207,125,.65);box-shadow:0 0 0 1px rgba(255,207,125,.25),0 0 26px -2px rgba(255,181,71,.35);background:rgba(255,255,255,.11)}
+ 22%,100%{border-color:rgba(201,214,232,.16);box-shadow:none;background:rgba(255,255,255,.07)}}
+@keyframes fmd{0%{box-shadow:none}6%{box-shadow:0 0 0 6px rgba(255,181,71,.28),0 0 14px rgba(255,181,71,.8)}22%,100%{box-shadow:none}}
+@media (prefers-reduced-motion:reduce){.fmt::after{display:none}.fmt.go .fm-n,.fmt.go .fm-d{animation:none}}
+/* offer banner pops in, then settles */
+.offer.rv.in{animation:ofpop .9s cubic-bezier(.2,.9,.25,1) .15s both}
+@keyframes ofpop{0%{opacity:0;transform:scale(.9)}45%{opacity:1;transform:scale(1.06);box-shadow:0 0 0 6px rgba(255,181,71,.18),0 0 46px rgba(255,181,71,.75)}100%{opacity:1;transform:scale(1)}}
+@media (prefers-reduced-motion:reduce){.offer.rv.in{animation:none}}
 </style>
 </head>
 <body>
@@ -1004,6 +1024,10 @@ ring.addEventListener('pointercancel',()=>{x0=null});
 window.addEventListener('resize',fit);lay();fit()})();
 
 (()=>{const ss=[...document.querySelectorAll('section')];const hx=()=>ss.forEach(s=>s.style.setProperty('--hy',(-s.offsetTop)+'px'));hx();window.addEventListener('load',hx);window.addEventListener('resize',hx);if(window.ResizeObserver)new ResizeObserver(hx).observe(document.body)})();
+
+(()=>{const f=document.querySelector('.fmt');if(!f)return;const T=5,TR=.7*T,W=130;
+const sync=()=>{const H=f.offsetHeight-52;f.querySelectorAll('li').forEach(li=>{const c=li.offsetTop+20;const t=TR*(H+W-c)/(H+2*W);li.style.setProperty('--dl',(t-0.25).toFixed(2)+'s')});f.classList.add('go')};
+sync();window.addEventListener('load',sync);window.addEventListener('resize',sync)})();
 </script>
 </body>
 </html>
