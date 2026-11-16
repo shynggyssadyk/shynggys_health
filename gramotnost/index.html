@@ -33,8 +33,8 @@ a{color:inherit}
 em.s{font-family:var(--serif);font-style:italic;font-weight:480;letter-spacing:-.005em;font-optical-sizing:auto}
 .wrap{max-width:1040px;margin:0 auto;padding:0 20px}
 section{position:relative;padding:72px 0;isolation:isolate}
-.light{background:radial-gradient(55% 38% at 100% 0%,rgba(255,181,71,.13),transparent 70%),radial-gradient(60% 42% at 0% 100%,rgba(46,139,216,.12),transparent 72%),linear-gradient(180deg,#fff,var(--bg))}
-.light.alt{background:radial-gradient(55% 38% at 0% 0%,rgba(46,139,216,.12),transparent 70%),radial-gradient(60% 42% at 100% 100%,rgba(255,181,71,.12),transparent 72%),linear-gradient(180deg,var(--bg),#fff)}
+.light{background:radial-gradient(44% 24% at 96% 30%,rgba(255,181,71,.13),transparent 70%),radial-gradient(48% 26% at 4% 70%,rgba(46,139,216,.12),transparent 72%),linear-gradient(180deg,#F4F7FB,#fff 22%,#fff 78%,#F4F7FB)}
+.light.alt{background:radial-gradient(48% 26% at 4% 30%,rgba(46,139,216,.12),transparent 70%),radial-gradient(44% 24% at 96% 70%,rgba(255,181,71,.12),transparent 72%),linear-gradient(180deg,#F4F7FB,#fff 22%,#fff 78%,#F4F7FB)}
 .light::before,.dark::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background-position:0 var(--hy,0)!important}
 .light::before{background-image:url(img/hex_light.svg);-webkit-mask:radial-gradient(120% 80% at 50% 50%,transparent 35%,#000 100%);mask:radial-gradient(120% 80% at 50% 50%,transparent 35%,#000 100%)}
 .dark{background:linear-gradient(160deg,var(--deep) 0%,var(--deep2) 100%);color:#fff}
@@ -477,7 +477,7 @@ p{hyphens:manual}
 #stack .st.plus{background:linear-gradient(90deg,rgba(255,181,71,.14),transparent);margin:0 -22px;padding-left:22px;padding-right:22px;border-bottom:0}
 #stack .st.plus i{background:var(--deep);color:var(--saf)}
 #stack .st-sum{position:relative;margin:6px -22px 0;padding:24px 22px 16px;border-top:2px dashed #D9E3F0}
-#stack .st-sum::before,#stack .st-sum::after{content:"";position:absolute;top:-12px;width:22px;height:22px;border-radius:50%;background:var(--bg);box-shadow:inset 0 0 0 1.5px rgba(0,48,108,.12)}
+#stack .st-sum::before,#stack .st-sum::after{content:"";position:absolute;top:-12px;width:22px;height:22px;border-radius:50%;background:#fff;box-shadow:inset 0 0 0 1.5px rgba(0,48,108,.12)}
 #stack .st-sum::before{left:-12px}#stack .st-sum::after{right:-12px}
 #stack .st-sum b{font-size:40px}
 /* featured tariff: gold living border */
@@ -526,7 +526,7 @@ mark.hl{background:rgba(34,190,200,.16);color:#0B5F69;border-radius:6px;padding:
 
 /* hero -> next block: short eased fade to white */
 .hero{padding-bottom:30px}
-.hfade{position:absolute;left:0;right:0;bottom:0;height:84px;z-index:2;pointer-events:none;background:linear-gradient(180deg,rgba(255,255,255,0) 0%,rgba(255,255,255,0.013) 8%,rgba(255,255,255,0.049) 16%,rgba(255,255,255,0.104) 24%,rgba(255,255,255,0.175) 32%,rgba(255,255,255,0.259) 40%,rgba(255,255,255,0.352) 48%,rgba(255,255,255,0.45) 56%,rgba(255,255,255,0.55) 64%,rgba(255,255,255,0.648) 72%,rgba(255,255,255,0.741) 80%,rgba(255,255,255,0.825) 86%,rgba(255,255,255,0.896) 91%,rgba(255,255,255,0.951) 95%,rgba(255,255,255,0.987) 98%,rgba(255,255,255,1) 100%)}
+.hfade{position:absolute;left:0;right:0;bottom:0;height:84px;z-index:2;pointer-events:none;background:linear-gradient(180deg,rgba(244,247,251,0) 0%,rgba(244,247,251,0.013) 8%,rgba(244,247,251,0.049) 16%,rgba(244,247,251,0.104) 24%,rgba(244,247,251,0.175) 32%,rgba(244,247,251,0.259) 40%,rgba(244,247,251,0.352) 48%,rgba(244,247,251,0.45) 56%,rgba(244,247,251,0.55) 64%,rgba(244,247,251,0.648) 72%,rgba(244,247,251,0.741) 80%,rgba(244,247,251,0.825) 86%,rgba(244,247,251,0.896) 91%,rgba(244,247,251,0.951) 95%,rgba(244,247,251,0.987) 98%,rgba(244,247,251,1) 100%)}
 
 #pains::before{-webkit-mask:url(img/hex_m.svg) 0 var(--hy,0)/58.89px 102px repeat,radial-gradient(120% 80% at 50% 50%,transparent 32%,#000 100%),linear-gradient(180deg,transparent 0,#000 110px);-webkit-mask-composite:source-in,source-in;mask:url(img/hex_m.svg) 0 var(--hy,0)/58.89px 102px repeat,radial-gradient(120% 80% at 50% 50%,transparent 32%,#000 100%),linear-gradient(180deg,transparent 0,#000 110px);mask-composite:intersect}
 #pains::after{-webkit-mask:url(img/hex_g.svg) 0 var(--hy,0)/58.89px 102px repeat,radial-gradient(120% 80% at 50% 50%,transparent 32%,#000 100%),linear-gradient(180deg,transparent 0,#000 110px);-webkit-mask-composite:source-in,source-in;mask:url(img/hex_g.svg) 0 var(--hy,0)/58.89px 102px repeat,radial-gradient(120% 80% at 50% 50%,transparent 32%,#000 100%),linear-gradient(180deg,transparent 0,#000 110px);mask-composite:intersect}
