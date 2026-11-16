@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <!-- security -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-N0OLiX1SYEPBNgQ9IZyKKbeuRIlpZyT6aUYsMI1+SBA='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-zv+3PsxMTnFekwv97hhbKq0KG/0iAjZYG47SsK8yxhk='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
 <meta name="format-detection" content="telephone=no">
@@ -580,6 +580,14 @@ mark.hl{background:rgba(34,190,200,.16);color:#0B5F69;border-radius:6px;padding:
 .offer.rv.in{animation:ofpop .9s cubic-bezier(.2,.9,.25,1) .15s both}
 @keyframes ofpop{0%{opacity:0;transform:scale(.9)}45%{opacity:1;transform:scale(1.06);box-shadow:0 0 0 6px rgba(255,181,71,.18),0 0 46px rgba(255,181,71,.75)}100%{opacity:1;transform:scale(1)}}
 @media (prefers-reduced-motion:reduce){.offer.rv.in{animation:none}}
+
+/* offer <-> tariffs: one shared golden breath while the offer is active */
+@property --gl{syntax:'<number>';inherits:true;initial-value:0}
+#tariffs.ofon{animation:glp 2.8s ease-in-out infinite}
+@keyframes glp{0%,100%{--gl:0}50%{--gl:1}}
+#tariffs.ofon .plan{box-shadow:0 0 0 1.5px rgba(255,207,125,calc(.45 + .45*var(--gl))),0 0 calc(16px + 30px*var(--gl)) calc(-6px + 4px*var(--gl)) rgba(255,181,71,calc(.25 + .4*var(--gl))),0 18px 40px rgba(0,0,0,.35)}
+#tariffs.ofon .offer{box-shadow:0 0 calc(12px + 22px*var(--gl)) rgba(255,181,71,calc(.35 + .4*var(--gl))),inset 0 0 calc(10px + 14px*var(--gl)) rgba(255,181,71,calc(.06 + .1*var(--gl)))}
+@media (prefers-reduced-motion:reduce){#tariffs.ofon{animation:none}}
 </style>
 </head>
 <body>
@@ -963,7 +971,7 @@ const fmt=d=>new Intl.DateTimeFormat('ru-RU',{timeZone:'Asia/Almaty',hour:'2-dig
 const setLinks=on=>{const tail=on?' Спецпредложение со страницы: -3 000 ₸ при полной оплате, действует до '+fmt(new Date(deadline))+' (Алматы).':'';
   document.querySelectorAll('.js-buy').forEach(a=>{a.href=BUY[a.dataset.plan]+encodeURIComponent(tail)})};
 const setOffer=on=>{document.querySelectorAll('.js-off').forEach(e=>e.hidden=!on);document.querySelectorAll('.js-on').forEach(e=>e.hidden=on);
-  const of=document.getElementById('offer');if(of)of.hidden=!on;
+  const of=document.getElementById('offer');if(of)of.hidden=!on;const tr=document.getElementById('tariffs');if(tr)tr.classList.toggle('ofon',on);
   document.querySelectorAll('.js-p').forEach(e=>e.textContent=on?e.dataset.off:e.dataset.full);
   document.querySelectorAll('.js-minprice').forEach(e=>e.textContent=on?'25 000':'28 000');setLinks(on)};
 const pad2=n=>String(n).padStart(2,'0');
