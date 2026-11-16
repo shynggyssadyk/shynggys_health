@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <!-- security -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-lv8v1gIYgVTxazNDkKS2dVkW7sOx3HRuq6eFX2eTFO0='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-Gsk5QxILhixS5S79KygjvXTjL/xigqvXBgagguMKUFg='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
 <meta name="format-detection" content="telephone=no">
@@ -561,12 +561,12 @@ mark.hl{background:rgba(34,190,200,.16);color:#0B5F69;border-radius:6px;padding:
 .fm-seat{display:flex;flex-wrap:wrap;gap:3px;margin-top:8px}.fm-seat i{width:8px;height:8px;border-radius:50%;background:#22BEC8;opacity:.85}
 @media (min-width:760px){.fmt li{grid-template-columns:96px 1fr;gap:28px}.fmt::before{left:110px}.fm-d{left:105px}.fm-t{font-size:12.5px}}
 
-/* format: travelling light wave bottom -> top, cards light up as it passes */
+/* format: travelling light wave top -> bottom, cards light up as it passes */
 .fmt::after{content:"";position:absolute;left:59px;top:12px;bottom:40px;width:6px;border-radius:3px;pointer-events:none;
  background:linear-gradient(180deg,transparent,rgba(255,236,190,.95) 45%,#fff 50%,rgba(255,236,190,.95) 55%,transparent) no-repeat;background-size:100% 130px;
- background-position:0 calc(100% + 130px);filter:drop-shadow(0 0 6px rgba(255,181,71,.9)) drop-shadow(0 0 14px rgba(255,181,71,.5))}
+ background-position:0 -130px;filter:drop-shadow(0 0 6px rgba(255,181,71,.9)) drop-shadow(0 0 14px rgba(255,181,71,.5))}
 .fmt.go::after{animation:fmw var(--fmT,5s) linear infinite}
-@keyframes fmw{0%{background-position:0 calc(100% + 130px)}70%,100%{background-position:0 -130px}}
+@keyframes fmw{0%{background-position:0 -130px}70%,100%{background-position:0 calc(100% + 130px)}}
 @media (min-width:760px){.fmt::after{left:108px}}
 .fm-n{transition:none}
 .fmt.go .fm-n{animation:fmg var(--fmT,5s) ease-out infinite;animation-delay:var(--dl,0s)}
@@ -1026,7 +1026,7 @@ window.addEventListener('resize',fit);lay();fit()})();
 (()=>{const ss=[...document.querySelectorAll('section')];const hx=()=>ss.forEach(s=>s.style.setProperty('--hy',(-s.offsetTop)+'px'));hx();window.addEventListener('load',hx);window.addEventListener('resize',hx);if(window.ResizeObserver)new ResizeObserver(hx).observe(document.body)})();
 
 (()=>{const f=document.querySelector('.fmt');if(!f)return;const T=5,TR=.7*T,W=130;
-const sync=()=>{const H=f.offsetHeight-52;f.querySelectorAll('li').forEach(li=>{const c=li.offsetTop+20;const t=TR*(H+W-c)/(H+2*W);li.style.setProperty('--dl',(t-0.25).toFixed(2)+'s')});f.classList.add('go')};
+const sync=()=>{const H=f.offsetHeight-52;f.querySelectorAll('li').forEach(li=>{const c=li.offsetTop+20;const t=TR*(c-12+W/2)/(H+W);li.style.setProperty('--dl',(t-0.25).toFixed(2)+'s')});f.classList.add('go')};
 sync();window.addEventListener('load',sync);window.addEventListener('resize',sync)})();
 </script>
 </body>
