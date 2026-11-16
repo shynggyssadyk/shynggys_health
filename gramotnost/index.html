@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <!-- security -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-FjK9AFoYCOTQpW/pWx4jqM/GZeoLlc//+doM9rv4EPY='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-QZ8R5vDzaU4pbvwkBDTwSrUmfRPKcTztjnSBrPR+5ww='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
 <meta name="format-detection" content="telephone=no">
@@ -360,6 +360,19 @@ img,video{-webkit-touch-callout:none;-webkit-user-drag:none;user-select:none}
 @media (min-width:760px){.zrow{grid-template-columns:repeat(3,1fr)}}
 .zshot{border-radius:16px;overflow:hidden;background:#232323;box-shadow:0 10px 30px -14px rgba(0,0,0,.45)}
 .zshot img{width:100%;height:auto}
+
+.opc{padding:0;overflow:hidden}
+.opc-h{display:flex;align-items:center;gap:10px;padding:12px 14px;border-bottom:1px solid #E8EAED;background:#fff}
+.opc-av{flex:none;width:32px;height:32px;border-radius:50%;color:#fff;font:600 14px/32px Roboto,'Geologica',sans-serif;text-align:center}
+.opc-h b{display:block;font-size:14.5px;font-weight:600;color:#202124;line-height:1.2}
+.opc-h small{display:block;font-size:12px;color:#5F6368;margin-top:1px}
+.opc img{padding:14px}
+.fx.meta{overflow:hidden}
+.lfv{position:relative;margin:-22px -22px 10px;aspect-ratio:720/374;background:#000}
+.lfv video{width:100%;height:100%;object-fit:cover;display:block}
+.lfb{position:absolute;left:10px;bottom:10px;display:inline-flex;align-items:center;gap:6px;font-size:10.5px;font-weight:700;letter-spacing:.3px;padding:4px 9px;border-radius:20px;background:rgba(11,27,51,.75);color:#FFD08A;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.lfb i{width:0;height:0;border-left:7px solid #FFB547;border-top:5px solid transparent;border-bottom:5px solid transparent}
+@media (min-width:760px){.fx.meta{grid-row:span 2}}
 </style>
 </head>
 <body>
@@ -416,8 +429,8 @@ img,video{-webkit-touch-callout:none;-webkit-user-drag:none;user-select:none}
       <div class="card pain rv"><span class="ic"><svg><use href="#i-moon"/></svg></span><p>Спите достаточно часов - и всё равно не высыпаетесь</p></div>
     </div>
     <div class="opq rv">
-      <div class="opq-h"><span class="gf"><i></i>Google Forms</span><b>Так клиенты описывают своё состояние</b><small>Скриншоты ответов из опросника перед консультацией. Имена не показаны.</small></div>
-      <div class="opq-row"><figure class="opc"><img src="img/op1.webp" alt="Ответ клиента в опроснике перед консультацией" loading="lazy"></figure><figure class="opc"><img src="img/op2.webp" alt="Ответ клиента в опроснике перед консультацией" loading="lazy"></figure><figure class="opc"><img src="img/op3.webp" alt="Ответ клиента в опроснике перед консультацией" loading="lazy"></figure><figure class="opc"><img src="img/op4.webp" alt="Ответ клиента в опроснике перед консультацией" loading="lazy"></figure><figure class="opc"><img src="img/op5.webp" alt="Ответ клиента в опроснике перед консультацией" loading="lazy"></figure><figure class="opc"><img src="img/op7.webp" alt="Ответ клиента в опроснике перед консультацией" loading="lazy"></figure><figure class="opc"><img src="img/op6.webp" alt="Ответ клиента в опроснике перед консультацией" loading="lazy"></figure></div>
+      <div class="opq-h"><span class="gf"><i></i>Google Forms</span><b>Так клиенты описывают своё состояние</b><small>Скриншоты ответов из опросника перед консультацией. Фамилии сокращены.</small></div>
+      <div class="opq-row"><figure class="opc"><figcaption class="opc-h"><span class="opc-av" style="background:#7248B9">О</span><span><b>Ольга К.</b><small>38 лет · ответ в опроснике</small></span></figcaption><img src="img/op1.webp" alt="Ольга К., 38 лет: ответ в опроснике перед консультацией" loading="lazy"></figure><figure class="opc"><figcaption class="opc-h"><span class="opc-av" style="background:#1A73E8">Л</span><span><b>Людмила П.</b><small>24 года · ответ в опроснике</small></span></figcaption><img src="img/op2.webp" alt="Людмила П., 24 года: ответ в опроснике перед консультацией" loading="lazy"></figure><figure class="opc"><figcaption class="opc-h"><span class="opc-av" style="background:#0E8F9B">А</span><span><b>Айдос Д.</b><small>33 года · ответ в опроснике</small></span></figcaption><img src="img/op3.webp" alt="Айдос Д., 33 года: ответ в опроснике перед консультацией" loading="lazy"></figure><figure class="opc"><figcaption class="opc-h"><span class="opc-av" style="background:#E08600">А</span><span><b>Айгуль Б.</b><small>39 лет · ответ в опроснике</small></span></figcaption><img src="img/op4.webp" alt="Айгуль Б., 39 лет: ответ в опроснике перед консультацией" loading="lazy"></figure><figure class="opc"><figcaption class="opc-h"><span class="opc-av" style="background:#C2185B">С</span><span><b>Салтанат А.</b><small>39 лет · ответ в опроснике</small></span></figcaption><img src="img/op5.webp" alt="Салтанат А., 39 лет: ответ в опроснике перед консультацией" loading="lazy"></figure><figure class="opc"><figcaption class="opc-h"><span class="opc-av" style="background:#5F6368">А</span><span><b>Асемгуль М.</b><small>42 года · ответ в опроснике</small></span></figcaption><img src="img/op7.webp" alt="Асемгуль М., 42 года: ответ в опроснике перед консультацией" loading="lazy"></figure><figure class="opc"><figcaption class="opc-h"><span class="opc-av" style="background:#2E7D32">К</span><span><b>Кристина С.</b><small>30 лет · ответ в опроснике</small></span></figcaption><img src="img/op6.webp" alt="Кристина С., 30 лет: ответ в опроснике перед консультацией" loading="lazy"></figure></div>
     </div>
     <p class="bridge rv">За каждым из этих состояний стоят причинно-следственные связи внутри организма. Программа объясняет их простым языком - чтобы вы <b>перестали действовать вслепую</b> и пробовать советы наугад.</p>
   </div>
@@ -435,7 +448,7 @@ img,video{-webkit-touch-callout:none;-webkit-user-drag:none;user-select:none}
 
     <div class="kick rv" style="margin-top:48px">Как построена каждая лекция</div>
     <div class="formula">
-      <div class="card fx meta rv"><span class="big">1,5<small>часа</small></span><span>в среднем длится лекция в Zoom - смотрите в записи в своём темпе</span></div>
+      <div class="card fx meta rv"><div class="lfv"><video id="lecFast" src="img/lec_fast.mp4" poster="img/lec_fast.jpg" muted loop playsinline preload="metadata" disablepictureinpicture width="720" height="374"></video><span class="lfb"><i></i>Лекция целиком · ускорено</span></div><span class="big">1,5<small>часа</small></span><span>в среднем длится лекция в Zoom - смотрите в записи в своём темпе</span></div>
       <div class="card fx rv"><b>01</b><p>Механика темы: как это устроено</p></div>
       <div class="card fx rv"><b>02</b><p>Разбор причинно-следственных связей</p></div>
       <div class="card fx rv"><b>03</b><p>Разбор разных ситуаций на примерах</p></div>
@@ -732,6 +745,9 @@ if('IntersectionObserver' in window){
 const hv=document.getElementById('heroV');
 if(hv){const saver=navigator.connection&&navigator.connection.saveData;const rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
   if(!saver&&!rm){hv.muted=true;const p=hv.play();if(p&&p.catch)p.catch(()=>{})}}
+// fast lecture loop: play only while visible
+const lf=document.getElementById('lecFast');
+if(lf&&'IntersectionObserver' in window&&!matchMedia('(prefers-reduced-motion: reduce)').matches){lf.muted=true;new IntersectionObserver(([e])=>{if(e.isIntersecting){const p=lf.play();if(p&&p.catch)p.catch(()=>{})}else lf.pause()},{threshold:.3}).observe(lf)}
 // lecture videos: one at a time, overlay play button
 document.querySelectorAll('.vid').forEach(f=>{const v=f.querySelector('video'),b=f.querySelector('.vplay');
   b.addEventListener('click',()=>{document.querySelectorAll('.vid video').forEach(o=>{if(o!==v)o.pause()});f.classList.add('on');v.play()});
