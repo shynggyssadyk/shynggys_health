@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <!-- security -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-AnXWJryGmq8Q6hDL/ZA+ISCWWkjFlbN8rA1BPsTAWsI='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-RhBgj+87Fi736X2OM/GOpuvLFGD0TmOCXFk7zuOo3Zg='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
 <meta name="format-detection" content="telephone=no">
@@ -530,6 +530,18 @@ mark.hl{background:rgba(34,190,200,.16);color:#0B5F69;border-radius:6px;padding:
 
 #pains::before{-webkit-mask:url(img/hex_m.svg) 0 var(--hy,0)/58.89px 102px repeat,radial-gradient(120% 80% at 50% 50%,transparent 32%,#000 100%),linear-gradient(180deg,transparent 0,#000 110px);-webkit-mask-composite:source-in,source-in;mask:url(img/hex_m.svg) 0 var(--hy,0)/58.89px 102px repeat,radial-gradient(120% 80% at 50% 50%,transparent 32%,#000 100%),linear-gradient(180deg,transparent 0,#000 110px);mask-composite:intersect}
 #pains::after{-webkit-mask:url(img/hex_g.svg) 0 var(--hy,0)/58.89px 102px repeat,radial-gradient(120% 80% at 50% 50%,transparent 32%,#000 100%),linear-gradient(180deg,transparent 0,#000 110px);-webkit-mask-composite:source-in,source-in;mask:url(img/hex_g.svg) 0 var(--hy,0)/58.89px 102px repeat,radial-gradient(120% 80% at 50% 50%,transparent 32%,#000 100%),linear-gradient(180deg,transparent 0,#000 110px);mask-composite:intersect}
+
+/* in-card exclusive price reminder */
+.price .main .ofr{display:flex;align-items:center;gap:8px;width:100%}
+.price .main .ofr[hidden]{display:none}
+.price .main .ofr s{font-size:15px;color:var(--ink2)}
+.price .main .ofr .chip{font-size:12.5px;font-weight:600;color:#fff;background:var(--coral-d);border-radius:20px;padding:3px 9px;letter-spacing:0}
+.tmr{display:flex;align-items:center;gap:8px;margin-top:10px;font-size:13.5px;color:#9A5B00;background:#FFF4E0;border-radius:12px;padding:8px 12px}
+.tmr[hidden]{display:none}
+.tmr i{flex:none;width:8px;height:8px;border-radius:50%;background:#E08600;animation:tp 1.6s ease-in-out infinite}
+.tmr b{margin-left:auto;font-weight:600;font-variant-numeric:tabular-nums}
+@keyframes tp{0%,100%{box-shadow:0 0 0 0 rgba(224,134,0,.45)}50%{box-shadow:0 0 0 6px rgba(224,134,0,0)}}
+@media (prefers-reduced-motion:reduce){.tmr i{animation:none}}
 </style>
 </head>
 <body>
@@ -830,7 +842,8 @@ mark.hl{background:rgba(34,190,200,.16);color:#0B5F69;border-radius:6px;padding:
           <li class="x">Живые лекции и эфиры в течение года</li>
         </ul>
         <div class="price"><div class="row">
-          <div class="main"><s class="old js-off" hidden>28 000 ₸</s><b><span class="js-p" data-full="28 000" data-off="25 000">28 000</span> <small>₸</small></b><span>при полной оплате</span></div>
+          <div class="main"><span class="ofr js-off" hidden><s>28 000 ₸</s><span class="chip">−3 000 ₸</span></span><b><span class="js-p" data-full="28 000" data-off="25 000">28 000</span> <small>₸</small></b><span>при полной оплате</span></div>
+          <div class="tmr js-off" hidden><i></i>Эксклюзивная цена ещё <b class="js-t">20:00</b></div>
           <div class="alt"><span class="kaspi"><i></i>Kaspi 0‑0‑12</span><span><b>35 000 ₸</b> в рассрочку</span></div>
           <div class="cur">Из других стран: 5 500 ₽ · 65 $</div>
           <a class="btn ink w js-buy" data-plan="self" href="#" target="_blank" rel="noopener noreferrer">Выбрать «Самостоятельный» <span class="ar">→</span></a>
@@ -849,7 +862,8 @@ mark.hl{background:rgba(34,190,200,.16);color:#0B5F69;border-radius:6px;padding:
           <li class="plus">Доступ на год к живым лекциям и эфирам - в среднем раз в 1‑2 месяца</li>
         </ul>
         <div class="price"><div class="row">
-          <div class="main"><s class="old js-off" hidden>38 000 ₸</s><b><span class="js-p" data-full="38 000" data-off="35 000">38 000</span> <small>₸</small></b><span>при полной оплате</span></div>
+          <div class="main"><span class="ofr js-off" hidden><s>38 000 ₸</s><span class="chip">−3 000 ₸</span></span><b><span class="js-p" data-full="38 000" data-off="35 000">38 000</span> <small>₸</small></b><span>при полной оплате</span></div>
+          <div class="tmr js-off" hidden><i></i>Эксклюзивная цена ещё <b class="js-t">20:00</b></div>
           <div class="alt"><span class="kaspi"><i></i>Kaspi 0‑0‑12</span><span><b>45 000 ₸</b> в рассрочку</span></div>
           <div class="cur">Из других стран: 7 500 ₽ · 85 $</div>
           <a class="btn saf w js-buy" data-plan="review" href="#" target="_blank" rel="noopener noreferrer">Выбрать «С разбором» <span class="ar">→</span></a>
@@ -922,7 +936,7 @@ const setOffer=on=>{document.querySelectorAll('.js-off').forEach(e=>e.hidden=!on
   document.querySelectorAll('.js-minprice').forEach(e=>e.textContent=on?'25 000':'28 000');setLinks(on)};
 const pad2=n=>String(n).padStart(2,'0');
 const tickO=()=>{const left=deadline-Date.now();if(left<=0){setOffer(false);clearInterval(oi);return}
-  const t=pad2(Math.floor(left/60000))+':'+pad2(Math.floor(left/1000)%60);['ofT','barT'].forEach(id=>{const e=document.getElementById(id);if(e)e.textContent=t})};
+  const t=pad2(Math.floor(left/60000))+':'+pad2(Math.floor(left/1000)%60);['ofT','barT'].forEach(id=>{const e=document.getElementById(id);if(e)e.textContent=t});document.querySelectorAll('.js-t').forEach(e=>e.textContent=t)};
 let oi=null;if(deadline>Date.now()){setOffer(true);tickO();oi=setInterval(tickO,1000)}else setOffer(false);
 // lockup: name line exactly as wide as the subtitle line
 const fit=()=>{const n=document.getElementById('lkName'),s=document.getElementById('lkSub');if(!n||!s)return;
