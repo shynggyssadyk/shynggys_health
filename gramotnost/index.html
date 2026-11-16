@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <!-- security -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-N+eYT2pGlyF4MPniYDv2a9CN+L0DHkMsyk/Dhuss4K8='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-wTfFqUcxQ8O+RRP4gBwOnGVQjuXhiin0gaeuIVlW7BI='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
 <meta name="format-detection" content="telephone=no">
@@ -424,8 +424,9 @@ p{hyphens:manual}
 
 /* 3D ring of questionnaire answers */
 .opq-h small{max-width:26em;margin-left:auto;margin-right:auto}
-.opq-ring{position:relative;margin:22px -20px 0;height:420px;perspective:1100px;perspective-origin:50% 40%;touch-action:pan-y;-webkit-user-select:none;user-select:none;outline:none;overflow:hidden;padding-top:6px;transition:height .45s ease}
-.opq-ring .opc{position:absolute;top:6px;left:50%;width:min(76vw,360px);margin:0;transform-origin:50% 50%;transition:transform .6s cubic-bezier(.22,.8,.24,1),opacity .6s ease,filter .6s ease;will-change:transform;cursor:pointer;backface-visibility:hidden}
+.opq-ring{position:relative;margin:22px -20px 0;height:420px;perspective:1200px;perspective-origin:50% 50%;touch-action:pan-y;-webkit-user-select:none;user-select:none;outline:none;overflow:hidden}
+.opq-ring .opc{position:absolute;top:50%;left:50%;width:min(76vw,360px);margin:0;transform-origin:50% 50%;transition:transform .95s cubic-bezier(.33,.9,.3,1),opacity .95s cubic-bezier(.33,.9,.3,1);will-change:transform,opacity;cursor:pointer;-webkit-backface-visibility:hidden;backface-visibility:hidden}
+.opq-ring .opc::after{content:"";position:absolute;inset:0;border-radius:inherit;background:#0B1B33;opacity:var(--dim,0);transition:opacity .95s cubic-bezier(.33,.9,.3,1);pointer-events:none}
 .opq-ring .opc.on{cursor:default;box-shadow:0 22px 50px -24px rgba(11,27,51,.45)}
 .opq-nav{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:6px}
 .opq-b{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:#fff;color:var(--ink);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:transform .15s}
@@ -862,18 +863,19 @@ track('page_view');
 
 (()=>{const ring=document.getElementById('opqRing');if(!ring)return;const cs=[...ring.querySelectorAll('.opc')],N=cs.length,cnt=document.getElementById('opqCnt');let i=0;
 const lay=()=>{cs.forEach((c,k)=>{let d=((k-i)%N+N)%N;if(d>N/2)d-=N;const a=Math.abs(d);
-c.style.transform='translateX(-50%) translateX('+(d*46)+'%) translateZ('+(-a*190)+'px) rotateY('+(-d*30)+'deg)';
-c.style.opacity=a>2?'0':a===2?'.5':a===1?'.85':'1';c.style.zIndex=String(10-a);c.style.filter=a?'brightness('+(1-a*.1)+') saturate(.85)':'none';
+c.style.transform='translate3d(-50%,-50%,0) translateX('+(d*46)+'%) translateZ('+(-a*190)+'px) rotateY('+(-d*30)+'deg)';
+c.style.opacity=a>2?'0':a===2?'.7':'1';c.style.zIndex=String(10-a);c.style.setProperty('--dim',a?String(a*.06):'0');
 c.style.pointerEvents=a>2?'none':'auto';c.classList.toggle('on',a===0);c.setAttribute('aria-hidden',a?'true':'false')});
-ring.style.height=(Math.max(cs[i].offsetHeight,cs[(i+1)%N].offsetHeight*.88,cs[(i-1+N)%N].offsetHeight*.88)+20)+'px';if(cnt)cnt.textContent=(i+1)+' / '+N};
-const go=n=>{i=((n%N)+N)%N;lay()};
-cs.forEach((c,k)=>{c.addEventListener('click',()=>{if(k!==i)go(k)});const im=c.querySelector('img');if(im){im.loading='eager';im.addEventListener('load',lay)}});
+if(cnt)cnt.textContent=(i+1)+' / '+N};
+const fit=()=>{ring.style.height=(Math.max(...cs.map(c=>c.offsetHeight))+28)+'px'};let busy=0;
+const go=n=>{const t=Date.now();if(t-busy<450)return;busy=t;i=((n%N)+N)%N;lay()};
+cs.forEach((c,k)=>{c.addEventListener('click',()=>{if(k!==i)go(k)});const im=c.querySelector('img');if(im){im.loading='eager';im.addEventListener('load',fit)}});
 document.getElementById('opqPrev').addEventListener('click',()=>go(i-1));document.getElementById('opqNext').addEventListener('click',()=>go(i+1));
 ring.addEventListener('keydown',e=>{if(e.key==='ArrowLeft')go(i-1);if(e.key==='ArrowRight')go(i+1)});
 let x0=null,y0=0;ring.addEventListener('pointerdown',e=>{x0=e.clientX;y0=e.clientY});
 ring.addEventListener('pointerup',e=>{if(x0===null)return;const dx=e.clientX-x0,dy=e.clientY-y0;x0=null;if(Math.abs(dx)>40&&Math.abs(dx)>Math.abs(dy))go(i+(dx<0?1:-1))});
 ring.addEventListener('pointercancel',()=>{x0=null});
-window.addEventListener('resize',lay);lay()})();
+window.addEventListener('resize',fit);lay();fit()})();
 </script>
 </body>
 </html>
