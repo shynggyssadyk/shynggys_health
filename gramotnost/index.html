@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <!-- security -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-y2is7Jh/FJuKBPQV7b6zn28YPBSoQeI2f/d19N5nG3g='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-SM5nz2XLOvzE65ydmiSgL46Q4CGrrByQDrtLXF5yFSk='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
 <meta name="format-detection" content="telephone=no">
@@ -195,7 +195,7 @@ h2 em.s{color:var(--saf-d)}
 @media (min-width:860px){.author{grid-template-columns:.8fr 1.2fr;align-items:center}}
 .au-ph{position:relative;border-radius:28px;overflow:hidden;background:linear-gradient(160deg,var(--deep),var(--deep2));aspect-ratio:4/5;max-width:420px}
 .au-ph::before{content:"";position:absolute;inset:0;background:url(img/hex_dark.svg);opacity:.5}
-.au-ph img{position:relative;width:100%;height:100%;object-fit:cover;object-position:50% 0%}
+.au-ph img,.au-ph video{display:block;position:relative;width:100%;height:100%;object-fit:cover;object-position:50% 0%}
 .au-ph .tag{position:absolute;left:14px;bottom:14px;right:14px;padding:12px 14px;border-radius:16px;background:rgba(11,27,51,.6);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border:1px solid rgba(201,214,232,.22);color:#fff}
 .au-ph .tag b{display:block;font-size:17px;font-weight:550}
 .au-ph .tag span{font-size:13px;color:var(--soft)}
@@ -964,7 +964,7 @@ body.sheet-open{overflow:hidden}
     <div class="kick rv">Автор программы</div>
     <h2 class="rv">Шынгыс <em class="s">Садык</em></h2>
     <div class="author">
-      <div class="au-ph rv"><img src="img/author2.webp" alt="Шынгыс Садык" width="800" height="1000" loading="lazy"><div class="tag"><b>Шынгыс Садык</b><span>Метаболическое здоровье</span></div></div>
+      <div class="au-ph rv"><video id="auV" muted loop playsinline preload="none" poster="img/author_v.webp" width="720" height="900" aria-label="Шынгыс Садык рассказывает"><source src="img/author_v.mp4" type="video/mp4"></video><div class="tag"><b>Шынгыс Садык</b><span>Метаболическое здоровье</span></div></div>
       <div>
         <div class="creds">
           <div class="card cred wide rv"><span class="ic"><svg><use href="#i-cap"/></svg></span><div><b>Дипломированный химик</b><span>Назарбаев Университет</span></div></div>
@@ -1213,6 +1213,10 @@ sc.addEventListener('wheel',e=>{if(Math.abs(e.deltaX)>Math.abs(e.deltaY)){pos+=e
 const sh=document.getElementById('epsSheet'),T=document.getElementById('epsT'),C=document.getElementById('epsC'),N=document.getElementById('epsN');
 sc.addEventListener('click',e=>{const b=e.target.closest('button.ep');if(!b||moved>8)return;N.textContent='Лекция '+b.querySelector('em').textContent+' · 1,5 часа';T.textContent=b.dataset.t;const sm=b.querySelector(':scope>small');document.getElementById('epsS').textContent=sm?sm.textContent:'';document.getElementById('epsH').style.backgroundImage='url('+b.querySelector('img').getAttribute('src')+')';C.innerHTML=b.querySelector('.ep-body').innerHTML;C.querySelectorAll('.tags').forEach(t=>{const ul=document.createElement('ul');ul.className='eps-ck';t.querySelectorAll('span').forEach(sp=>{const li=document.createElement('li');li.innerHTML='<i aria-hidden="true">✓</i>';li.appendChild(document.createTextNode(sp.textContent));ul.appendChild(li)});t.replaceWith(ul)});sh.hidden=false;document.body.classList.add('sheet-open');hold=Infinity;document.getElementById('epsX').focus()});
 const close=()=>{sh.hidden=true;document.body.classList.remove('sheet-open');hold=Date.now()+1500};document.getElementById('epsX').addEventListener('click',close);sh.addEventListener('click',e=>{if(e.target===sh)close()});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!sh.hidden)close()})})();
+
+(()=>{const v=document.getElementById('auV');if(!v)return;if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+if(!('IntersectionObserver' in window)){v.play().catch(()=>{});return}
+new IntersectionObserver(([e])=>{if(e.isIntersecting){v.play().catch(()=>{})}else v.pause()},{threshold:.25}).observe(v)})();
 </script>
 </body>
 </html>
