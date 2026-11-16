@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <!-- security -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-QZ8R5vDzaU4pbvwkBDTwSrUmfRPKcTztjnSBrPR+5ww='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-qRYjsbrIDA2EUV+JSi+BpPMM0YINKF/tmeIY++Znmxc='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
 <meta name="format-detection" content="telephone=no">
@@ -33,7 +33,8 @@ a{color:inherit}
 em.s{font-family:var(--serif);font-style:italic;font-weight:560;letter-spacing:-.01em}
 .wrap{max-width:1040px;margin:0 auto;padding:0 20px}
 section{position:relative;padding:72px 0;isolation:isolate}
-.light{background:linear-gradient(180deg,#fff,var(--bg))}
+.light{background:radial-gradient(55% 38% at 100% 0%,rgba(255,181,71,.13),transparent 70%),radial-gradient(60% 42% at 0% 100%,rgba(46,139,216,.12),transparent 72%),linear-gradient(180deg,#fff,var(--bg))}
+.light.alt{background:radial-gradient(55% 38% at 0% 0%,rgba(46,139,216,.12),transparent 70%),radial-gradient(60% 42% at 100% 100%,rgba(255,181,71,.12),transparent 72%),linear-gradient(180deg,var(--bg),#fff)}
 .light::before,.dark::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none}
 .light::before{background:url(img/hex_light.svg);-webkit-mask:radial-gradient(120% 80% at 50% 50%,transparent 35%,#000 100%);mask:radial-gradient(120% 80% at 50% 50%,transparent 35%,#000 100%)}
 .dark{background:linear-gradient(160deg,var(--deep) 0%,var(--deep2) 100%);color:#fff}
@@ -373,6 +374,36 @@ img,video{-webkit-touch-callout:none;-webkit-user-drag:none;user-select:none}
 .lfb{position:absolute;left:10px;bottom:10px;display:inline-flex;align-items:center;gap:6px;font-size:10.5px;font-weight:700;letter-spacing:.3px;padding:4px 9px;border-radius:20px;background:rgba(11,27,51,.75);color:#FFD08A;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
 .lfb i{width:0;height:0;border-left:7px solid #FFB547;border-top:5px solid transparent;border-bottom:5px solid transparent}
 @media (min-width:760px){.fx.meta{grid-row:span 2}}
+
+/* stack */
+.stack{margin-top:24px;padding:8px 20px 22px}
+.st{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-bottom:1px solid var(--line)}
+.st i{flex:none;width:26px;height:26px;border-radius:50%;background:#E3F4F5;color:var(--teal-d);font-style:normal;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.st.plus i{background:var(--saf);color:var(--deep)}
+.st b{display:block;font-size:16.5px;line-height:1.3}
+.st small{display:block;font-size:14px;color:var(--ink2);margin-top:3px;line-height:1.35}
+.st-sum{padding:18px 0 16px;text-align:center}
+.st-sum span{font-size:13px;letter-spacing:1.2px;text-transform:uppercase;color:var(--ink2);font-weight:600}
+.st-sum b{display:block;font-size:34px;font-weight:850;letter-spacing:-.02em;margin-top:4px}
+.st-sum small{display:block;font-size:13.5px;color:var(--ink2);margin-top:2px}
+/* one-time offer */
+.offer{margin-top:24px;display:flex;gap:14px;align-items:center;padding:16px 18px;border-radius:22px;background:linear-gradient(135deg,rgba(255,181,71,.18),rgba(255,181,71,.06));border:1.5px solid #FFB547;box-shadow:0 0 14px rgba(255,181,71,.45),0 0 34px rgba(255,181,71,.2);color:#fff}
+.offer[hidden]{display:none}
+.of-l{flex:1}
+.of-tag{display:inline-block;font-size:11px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;color:var(--deep);background:var(--saf);border-radius:20px;padding:4px 9px}
+.of-l b{display:block;font-size:19px;margin-top:8px;color:#FFD08A;text-shadow:0 0 10px rgba(255,181,71,.6)}
+.of-l small{display:block;font-size:13px;color:var(--soft);margin-top:4px;line-height:1.4}
+.of-t{flex:none;text-align:center;min-width:86px}
+.of-t small{display:block;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--soft)}
+.of-t b{display:block;font-size:30px;font-weight:800;font-variant-numeric:tabular-nums;color:#FFD08A;text-shadow:0 0 12px rgba(255,181,71,.7)}
+.price .old{display:block;font-size:15px;color:var(--ink2);margin-bottom:2px}
+.price .old[hidden]{display:none}
+.bar-o{color:#FFD08A!important}.bar-o b{font-size:12px!important;font-variant-numeric:tabular-nums}
+.bar-o[hidden],.js-on[hidden]{display:none!important}
+.price .main .js-p,.st-sum .js-minprice{font:inherit;color:inherit;letter-spacing:inherit;text-transform:none}
+.price .main .old{width:100%;font-size:15px;color:var(--ink2);text-decoration:line-through}
+.ps2{margin-top:22px;font-size:15.5px;color:var(--soft);line-height:1.55;max-width:720px}
+.ps2 b{color:var(--saf)}
 </style>
 </head>
 <body>
@@ -437,7 +468,7 @@ img,video{-webkit-touch-callout:none;-webkit-user-drag:none;user-select:none}
 </section>
 
 <!-- WHAT IT IS -->
-<section class="light" id="about" style="background:var(--bg)">
+<section class="light alt" id="about">
   <div class="wrap">
     <div class="kick rv">Что это за программа</div>
     <h2 class="rv">Системные знания, а не <em class="s">советы из интернета</em></h2>
@@ -513,7 +544,7 @@ img,video{-webkit-touch-callout:none;-webkit-user-drag:none;user-select:none}
 </section>
 
 <!-- PEEK -->
-<section class="light" id="peek" style="background:var(--bg)">
+<section class="light alt" id="peek">
   <div class="wrap">
     <div class="kick rv">Загляните в лекцию</div>
     <h2 class="rv">Отрывки из <em class="s">настоящих лекций</em></h2>
@@ -543,7 +574,7 @@ img,video{-webkit-touch-callout:none;-webkit-user-drag:none;user-select:none}
 </section>
 
 <!-- BONUSES -->
-<section class="light" id="bonus" style="background:var(--bg)">
+<section class="light alt" id="bonus">
   <div class="wrap">
     <div class="kick rv">Бонусы к программе</div>
     <h2 class="rv">Материалы, к которым <em class="s">можно вернуться</em></h2>
@@ -614,7 +645,7 @@ img,video{-webkit-touch-callout:none;-webkit-user-drag:none;user-select:none}
 </section>
 
 <!-- PROCESS -->
-<section class="light" id="format" style="background:var(--bg)">
+<section class="light alt" id="format">
   <div class="wrap">
     <div class="kick rv">Формат</div>
     <h2 class="rv">Как проходит <em class="s">обучение</em></h2>
@@ -628,11 +659,34 @@ img,video{-webkit-touch-callout:none;-webkit-user-drag:none;user-select:none}
   </div>
 </section>
 
+<!-- STACK -->
+<section class="light" id="stack">
+  <div class="wrap">
+    <div class="kick rv">Всё, что вы получаете</div>
+    <h2 class="rv">Программа <em class="s">целиком</em></h2>
+    <div class="stack card rv">
+      <div class="st"><i>✓</i><div><b>10 Zoom-лекций в записи</b><small>около 15 часов: от устройства организма до вашего плана</small></div></div>
+      <div class="st"><i>✓</i><div><b>2 бонусных видеоурока</b><small>«Как подбирать нутрицевтики» и «Перименопауза для женщин 40+»</small></div></div>
+      <div class="st"><i>✓</i><div><b>Конспекты всех лекций</b><small>и дополнительные приложения к ним</small></div></div>
+      <div class="st"><i>✓</i><div><b>Гайд «Как правильно читать свои анализы»</b><small>на что смотреть, кроме пометки «в норме»</small></div></div>
+      <div class="st"><i>✓</i><div><b>Трекер самонаблюдения и чек-листы</b></div></div>
+      <div class="st"><i>✓</i><div><b>Персональная карта восстановления</b><small>что делать самостоятельно и какие анализы сдать в первую очередь</small></div></div>
+      <div class="st plus"><i>+</i><div><b>На тарифе «С разбором»</b><small>групповой Zoom-созвон с Шынгысом, доступ на год, живые лекции и эфиры</small></div></div>
+      <div class="st-sum"><span>Всё это</span><b>от <span class="js-minprice">28 000</span> ₸</b><small>при полной оплате · или в рассрочку Kaspi 0-0-12</small></div>
+      <a class="btn saf w" href="#tariffs">Выбрать тариф <span class="ar">→</span></a>
+    </div>
+  </div>
+</section>
+
 <!-- TARIFFS -->
 <section class="dark" id="tariffs">
   <div class="wrap">
     <div class="kick rv">Стоимость и варианты участия</div>
     <h2 class="rv">Выберите <em class="s">свой формат</em></h2>
+    <div class="offer rv" id="offer" hidden>
+      <div class="of-l"><span class="of-tag">Только для вас</span><b>−3 000 ₸ при полной оплате</b><small>Предложение открывается один раз, при первом посещении страницы. Нажмите «Выбрать» - код с временем уже будет в сообщении менеджеру.</small></div>
+      <div class="of-t"><small>осталось</small><b id="ofT">20:00</b></div>
+    </div>
     <div class="tar">
       <div class="plan rv">
         <div class="ph"><div><small>Тариф</small><h3>Самостоятельный</h3></div><span class="seats">Мест: без ограничений</span></div>
@@ -646,7 +700,7 @@ img,video{-webkit-touch-callout:none;-webkit-user-drag:none;user-select:none}
           <li class="x">Живые лекции и эфиры в течение года</li>
         </ul>
         <div class="price"><div class="row">
-          <div class="main"><b>28 000 <small>₸</small></b><span>при полной оплате</span></div>
+          <div class="main"><s class="old js-off" hidden>28 000 ₸</s><b><span class="js-p" data-full="28 000" data-off="25 000">28 000</span> <small>₸</small></b><span>при полной оплате</span></div>
           <div class="alt"><span class="kaspi"><i></i>Kaspi 0-0-12</span><span><b>35 000 ₸</b> в рассрочку</span></div>
           <div class="cur">Из других стран: 5 500 ₽ · 65 $</div>
           <a class="btn ink w js-buy" data-plan="self" href="#" target="_blank" rel="noopener noreferrer">Выбрать «Самостоятельный» <span class="ar">→</span></a>
@@ -665,7 +719,7 @@ img,video{-webkit-touch-callout:none;-webkit-user-drag:none;user-select:none}
           <li class="plus">Доступ на год к живым лекциям и эфирам - в среднем раз в 1-2 месяца</li>
         </ul>
         <div class="price"><div class="row">
-          <div class="main"><b>38 000 <small>₸</small></b><span>при полной оплате</span></div>
+          <div class="main"><s class="old js-off" hidden>38 000 ₸</s><b><span class="js-p" data-full="38 000" data-off="35 000">38 000</span> <small>₸</small></b><span>при полной оплате</span></div>
           <div class="alt"><span class="kaspi"><i></i>Kaspi 0-0-12</span><span><b>45 000 ₸</b> в рассрочку</span></div>
           <div class="cur">Из других стран: 7 500 ₽ · 85 $</div>
           <a class="btn saf w js-buy" data-plan="review" href="#" target="_blank" rel="noopener noreferrer">Выбрать «С разбором» <span class="ar">→</span></a>
@@ -705,13 +759,14 @@ img,video{-webkit-touch-callout:none;-webkit-user-drag:none;user-select:none}
     <div class="ctas rv">
       <a class="btn saf" href="#tariffs">Выбрать тариф <span class="ar">→</span></a>
     </div>
+    <p class="ps2 rv"><b>P.S.</b> Если вы дочитали до сюда, вы уже знаете главное: усталость, вес и волосы - это не «характер» и не «возраст», а причинно-следственные связи, которые можно понять. Программа даёт эту базу за 14 дней и в своём темпе. <span class="js-off" hidden>И пока на странице идёт таймер, полная оплата - на 3 000 ₸ дешевле.</span></p>
   </div>
 </section>
 
 <footer>Шынгыс Садык · Метаболическое здоровье · @shynggys_health<br>© 2026 Шынгыс Садык. Копирование и распространение материалов без письменного разрешения автора запрещено.</footer>
 
 <div class="bar" id="bar" aria-hidden="true">
-  <div class="bt"><small>Онлайн-программа · 14 дней</small><b>Метаболическая грамотность</b></div>
+  <div class="bt"><small class="js-on">Онлайн-программа · 14 дней</small><small class="bar-o js-off" hidden>Спецпредложение · <b id="barT">20:00</b></small><b>Метаболическая грамотность</b></div>
   <a class="btn saf" href="#tariffs" tabindex="-1">Выбрать тариф</a>
 </div>
 
@@ -724,7 +779,21 @@ const BUY={
   self:WA+encodeURIComponent('Здравствуйте! Хочу на программу «Метаболическая грамотность», тариф «Самостоятельный».'),
   review:WA+encodeURIComponent('Здравствуйте! Хочу на программу «Метаболическая грамотность», тариф «С разбором».')
 };
-document.querySelectorAll('.js-buy').forEach(a=>{a.href=BUY[a.dataset.plan]});
+// one-time offer: -3000 KZT on full payment for 20 min after the FIRST visit (stored per browser)
+const OFFER_MS=20*60*1000;let start=Date.now();
+try{const v=+localStorage.getItem('gr_offer_start');if(v)start=v;else localStorage.setItem('gr_offer_start',String(start))}catch(e){}
+const deadline=start+OFFER_MS;
+const fmt=d=>new Intl.DateTimeFormat('ru-RU',{timeZone:'Asia/Almaty',hour:'2-digit',minute:'2-digit',day:'2-digit',month:'2-digit'}).format(d);
+const setLinks=on=>{const tail=on?' Спецпредложение со страницы: -3 000 ₸ при полной оплате, действует до '+fmt(new Date(deadline))+' (Алматы).':'';
+  document.querySelectorAll('.js-buy').forEach(a=>{a.href=BUY[a.dataset.plan]+encodeURIComponent(tail)})};
+const setOffer=on=>{document.querySelectorAll('.js-off').forEach(e=>e.hidden=!on);document.querySelectorAll('.js-on').forEach(e=>e.hidden=on);
+  const of=document.getElementById('offer');if(of)of.hidden=!on;
+  document.querySelectorAll('.js-p').forEach(e=>e.textContent=on?e.dataset.off:e.dataset.full);
+  document.querySelectorAll('.js-minprice').forEach(e=>e.textContent=on?'25 000':'28 000');setLinks(on)};
+const pad2=n=>String(n).padStart(2,'0');
+const tickO=()=>{const left=deadline-Date.now();if(left<=0){setOffer(false);clearInterval(oi);return}
+  const t=pad2(Math.floor(left/60000))+':'+pad2(Math.floor(left/1000)%60);['ofT','barT'].forEach(id=>{const e=document.getElementById(id);if(e)e.textContent=t})};
+let oi=null;if(deadline>Date.now()){setOffer(true);tickO();oi=setInterval(tickO,1000)}else setOffer(false);
 // lockup: name line exactly as wide as the subtitle line
 const fit=()=>{const n=document.getElementById('lkName'),s=document.getElementById('lkSub');if(!n||!s)return;
   const r=document.createRange();r.selectNodeContents(s);const ls=parseFloat(getComputedStyle(s).letterSpacing)||0;const target=r.getBoundingClientRect().width-ls;
