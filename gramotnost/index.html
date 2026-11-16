@@ -661,9 +661,22 @@ h2 em.s,.quote p em.s{color:var(--acc)}.dark h2 em.s{color:var(--acc-l)}
 .xf.d.t{top:0;height:170px;background:linear-gradient(0deg,rgba(143,163,191,0) 0%,rgba(143,163,191,0.013) 10%,rgba(143,163,191,0.049) 20%,rgba(143,163,191,0.104) 30%,rgba(143,163,191,0.175) 40%,rgba(143,163,191,0.259) 50%,rgba(143,163,191,0.352) 60%,rgba(143,163,191,0.45) 70%,rgba(143,163,191,0.55) 78%,rgba(143,163,191,0.648) 85%,rgba(143,163,191,0.741) 90%,rgba(143,163,191,0.825) 94%,rgba(143,163,191,0.896) 97%,rgba(143,163,191,0.951) 99%,rgba(143,163,191,1) 100%)}
 .xf.d.f{bottom:0;height:120px;background:linear-gradient(180deg,rgba(11,27,51,0) 0%,rgba(11,27,51,0.013) 10%,rgba(11,27,51,0.049) 20%,rgba(11,27,51,0.104) 30%,rgba(11,27,51,0.175) 40%,rgba(11,27,51,0.259) 50%,rgba(11,27,51,0.352) 60%,rgba(11,27,51,0.45) 70%,rgba(11,27,51,0.55) 78%,rgba(11,27,51,0.648) 85%,rgba(11,27,51,0.741) 90%,rgba(11,27,51,0.825) 94%,rgba(11,27,51,0.896) 97%,rgba(11,27,51,0.951) 99%,rgba(11,27,51,1) 100%)}
 #bonus,#format,#tariffs{padding-top:150px;padding-bottom:150px}#final{padding-top:150px}
-.hero{padding-bottom:110px}
+.hero{padding-bottom:92px}
 
 .hero .xf{z-index:1}.hero>.wrap{z-index:2}
+
+/* hero: keep copy on the dark part of the video */
+.hero-media::after{background:linear-gradient(180deg,rgba(11,27,51,.5) 0%,rgba(11,27,51,.12) 16%,rgba(11,27,51,.55) 30%,rgba(11,27,51,.9) 44%,#0B1B33 60%)!important}
+@media (min-width:860px){.hero-media::after{background:linear-gradient(90deg,#0B1B33 0%,rgba(11,27,51,.92) 35%,rgba(11,27,51,.45) 62%,rgba(11,27,51,.15) 100%),linear-gradient(180deg,rgba(11,27,51,.45),transparent 30%,transparent 70%,rgba(11,27,51,.7))!important}}
+/* fact boxes: glossy glass, gentle float, soft reflection */
+.fact{position:relative;background:linear-gradient(180deg,rgba(255,255,255,.13),rgba(255,255,255,.03) 46%,rgba(255,255,255,0) 60%),rgba(16,34,64,.62);border:1px solid rgba(201,214,232,.22);box-shadow:inset 0 1px 0 rgba(255,255,255,.28),inset 0 -1px 0 rgba(0,0,0,.25),0 14px 30px -14px rgba(0,0,0,.65);-webkit-box-reflect:below 6px linear-gradient(transparent 55%,rgba(255,255,255,.14));animation:ffloat 5s ease-in-out infinite;overflow:hidden}
+.fact::after{content:"";position:absolute;top:-60%;left:-40%;width:55%;height:220%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.16),transparent);transform:rotate(18deg);pointer-events:none}
+.fact:nth-child(2){animation-delay:-1.6s}.fact:nth-child(3){animation-delay:-3.2s}
+@keyframes ffloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+@media (prefers-reduced-motion:reduce){.fact{animation:none}}
+/* hollow primary button in hero */
+.btn.saf.hol{background:rgba(255,181,71,.06);color:#FFCF7D;border:1.5px solid #FFB547;box-shadow:0 0 18px -4px rgba(255,181,71,.55),inset 0 0 14px -6px rgba(255,181,71,.5)}
+.btn.saf.hol:hover{background:rgba(255,181,71,.14)}
 </style>
 </head>
 <body>
@@ -698,7 +711,7 @@ h2 em.s,.quote p em.s{color:var(--acc)}.dark h2 em.s{color:var(--acc-l)}
           <div class="fact"><b>+2</b><span>бонусных урока</span></div>
         </div>
         <div class="ctas">
-          <a class="btn saf" href="#tariffs">Выбрать тариф <span class="ar">→</span></a>
+          <a class="btn saf hol" href="#tariffs">Выбрать тариф <span class="ar">→</span></a>
           <a class="btn ghost" href="#program">Смотреть программу</a>
         </div>
       </div>
