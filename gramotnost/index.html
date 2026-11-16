@@ -652,6 +652,18 @@ h2 em.s,.quote p em.s{color:var(--acc)}.dark h2 em.s{color:var(--acc-l)}
 @keyframes fmd{0%{box-shadow:none}6%{box-shadow:0 0 0 6px rgba(34,190,200,.3),0 0 14px rgba(34,190,200,.85)}22%,100%{box-shadow:none}}
 /* money & action keep saffron: #tariffs offer/plans, .btn.saf, .lux materials, #stack certificate, final "А можно" */
 #tariffs .kick{color:var(--acc-k)}#tariffs h2 em.s{color:var(--acc-l)}
+
+/* seams: both sides ease into one shared mid tone, so light never cuts into navy */
+.xf{position:absolute;left:0;right:0;z-index:0;pointer-events:none}
+.xf.l.b{bottom:0;height:130px;background:linear-gradient(180deg,rgba(143,163,191,0) 0%,rgba(143,163,191,0.013) 10%,rgba(143,163,191,0.049) 20%,rgba(143,163,191,0.104) 30%,rgba(143,163,191,0.175) 40%,rgba(143,163,191,0.259) 50%,rgba(143,163,191,0.352) 60%,rgba(143,163,191,0.45) 70%,rgba(143,163,191,0.55) 78%,rgba(143,163,191,0.648) 85%,rgba(143,163,191,0.741) 90%,rgba(143,163,191,0.825) 94%,rgba(143,163,191,0.896) 97%,rgba(143,163,191,0.951) 99%,rgba(143,163,191,1) 100%)}
+.xf.l.t{top:0;height:130px;background:linear-gradient(0deg,rgba(143,163,191,0) 0%,rgba(143,163,191,0.013) 10%,rgba(143,163,191,0.049) 20%,rgba(143,163,191,0.104) 30%,rgba(143,163,191,0.175) 40%,rgba(143,163,191,0.259) 50%,rgba(143,163,191,0.352) 60%,rgba(143,163,191,0.45) 70%,rgba(143,163,191,0.55) 78%,rgba(143,163,191,0.648) 85%,rgba(143,163,191,0.741) 90%,rgba(143,163,191,0.825) 94%,rgba(143,163,191,0.896) 97%,rgba(143,163,191,0.951) 99%,rgba(143,163,191,1) 100%)}
+.xf.d.b{bottom:0;height:170px;background:linear-gradient(180deg,rgba(143,163,191,0) 0%,rgba(143,163,191,0.013) 10%,rgba(143,163,191,0.049) 20%,rgba(143,163,191,0.104) 30%,rgba(143,163,191,0.175) 40%,rgba(143,163,191,0.259) 50%,rgba(143,163,191,0.352) 60%,rgba(143,163,191,0.45) 70%,rgba(143,163,191,0.55) 78%,rgba(143,163,191,0.648) 85%,rgba(143,163,191,0.741) 90%,rgba(143,163,191,0.825) 94%,rgba(143,163,191,0.896) 97%,rgba(143,163,191,0.951) 99%,rgba(143,163,191,1) 100%)}
+.xf.d.t{top:0;height:170px;background:linear-gradient(0deg,rgba(143,163,191,0) 0%,rgba(143,163,191,0.013) 10%,rgba(143,163,191,0.049) 20%,rgba(143,163,191,0.104) 30%,rgba(143,163,191,0.175) 40%,rgba(143,163,191,0.259) 50%,rgba(143,163,191,0.352) 60%,rgba(143,163,191,0.45) 70%,rgba(143,163,191,0.55) 78%,rgba(143,163,191,0.648) 85%,rgba(143,163,191,0.741) 90%,rgba(143,163,191,0.825) 94%,rgba(143,163,191,0.896) 97%,rgba(143,163,191,0.951) 99%,rgba(143,163,191,1) 100%)}
+.xf.d.f{bottom:0;height:120px;background:linear-gradient(180deg,rgba(11,27,51,0) 0%,rgba(11,27,51,0.013) 10%,rgba(11,27,51,0.049) 20%,rgba(11,27,51,0.104) 30%,rgba(11,27,51,0.175) 40%,rgba(11,27,51,0.259) 50%,rgba(11,27,51,0.352) 60%,rgba(11,27,51,0.45) 70%,rgba(11,27,51,0.55) 78%,rgba(11,27,51,0.648) 85%,rgba(11,27,51,0.741) 90%,rgba(11,27,51,0.825) 94%,rgba(11,27,51,0.896) 97%,rgba(11,27,51,0.951) 99%,rgba(11,27,51,1) 100%)}
+#bonus,#format,#tariffs{padding-top:150px;padding-bottom:150px}#final{padding-top:150px}
+.hero{padding-bottom:110px}
+
+.hero .xf{z-index:1}.hero>.wrap{z-index:2}
 </style>
 </head>
 <body>
@@ -671,7 +683,7 @@ h2 em.s,.quote p em.s{color:var(--acc)}.dark h2 em.s{color:var(--acc-l)}
 </svg>
 
 <!-- HERO -->
-<section class="dark hero" id="top">
+<section class="dark hero" id="top"><div class="xf d b" aria-hidden="true"></div>
   <div class="hero-media" aria-hidden="true"><video id="heroV" muted loop playsinline preload="metadata" poster="img/hero_poster.jpg" disablepictureinpicture><source src="img/hero.mp4" type="video/mp4"></video></div>
   <div class="wrap">
     <div class="lock"><img src="img/logo.webp" alt="Шынгыс Садык" width="52" height="52"><span class="t"><span class="n" id="lkName">ШЫНГЫС САДЫК</span><span class="sub" id="lkSub">Метаболическое здоровье</span></span></div>
@@ -692,11 +704,10 @@ h2 em.s,.quote p em.s{color:var(--acc)}.dark h2 em.s{color:var(--acc-l)}
       </div>
     </div>
   </div>
-  <div class="hfade" aria-hidden="true"></div>
 </section>
 
 <!-- PAINS -->
-<section class="light" id="pains">
+<section class="light" id="pains"><div class="xf l t" aria-hidden="true"></div>
   <div class="wrap">
     <div class="kick rv">Узнаёте себя?</div>
     <h2 class="rv">Анализы «в норме», а <em class="s">сил нет</em></h2>
@@ -791,7 +802,7 @@ h2 em.s,.quote p em.s{color:var(--acc)}.dark h2 em.s{color:var(--acc-l)}
 </section>
 
 <!-- PEEK -->
-<section class="light alt" id="peek">
+<section class="light alt" id="peek"><div class="xf l b" aria-hidden="true"></div>
   <div class="wrap">
     <div class="kick rv">Загляните в лекцию</div>
     <h2 class="rv">Отрывки из <em class="s">настоящих лекций</em></h2>
@@ -821,7 +832,7 @@ h2 em.s,.quote p em.s{color:var(--acc)}.dark h2 em.s{color:var(--acc-l)}
 </section>
 
 <!-- BONUSES -->
-<section class="dark lux" id="bonus"><div class="sfade t" aria-hidden="true"></div><div class="sfade b" aria-hidden="true"></div>
+<section class="dark lux" id="bonus"><div class="xf d t" aria-hidden="true"></div><div class="xf d b" aria-hidden="true"></div>
   <div class="wrap">
     <div class="kick rv">Бонусы к программе</div>
     <h2 class="rv">Материалы, к которым <em class="s">можно вернуться</em></h2>
@@ -847,7 +858,7 @@ h2 em.s,.quote p em.s{color:var(--acc)}.dark h2 em.s{color:var(--acc-l)}
 </section>
 
 <!-- RESULTS -->
-<section class="light alt" id="result">
+<section class="light alt" id="result"><div class="xf l t" aria-hidden="true"></div>
   <div class="wrap">
     <div class="kick rv">Результат программы</div>
     <h2 class="rv">После 14 дней у вас появится <em class="s">понимание и план</em></h2>
@@ -875,7 +886,7 @@ h2 em.s,.quote p em.s{color:var(--acc)}.dark h2 em.s{color:var(--acc-l)}
 </section>
 
 <!-- AUTHOR -->
-<section class="light" id="author">
+<section class="light" id="author"><div class="xf l b" aria-hidden="true"></div>
   <div class="wrap">
     <div class="kick rv">Автор программы</div>
     <h2 class="rv">Шынгыс <em class="s">Садык</em></h2>
@@ -897,7 +908,7 @@ h2 em.s,.quote p em.s{color:var(--acc)}.dark h2 em.s{color:var(--acc-l)}
 </section>
 
 <!-- PROCESS -->
-<section class="dark" id="format"><div class="sfade t" aria-hidden="true"></div><div class="sfade b" aria-hidden="true"></div>
+<section class="dark" id="format"><div class="xf d t" aria-hidden="true"></div><div class="xf d b" aria-hidden="true"></div>
   <div class="wrap">
     <div class="kick rv">Формат</div>
     <h2 class="rv">Как проходит <em class="s">обучение</em></h2>
@@ -906,7 +917,7 @@ h2 em.s,.quote p em.s{color:var(--acc)}.dark h2 em.s{color:var(--acc-l)}
 </section>
 
 <!-- STACK -->
-<section class="light" id="stack">
+<section class="light" id="stack"><div class="xf l t" aria-hidden="true"></div><div class="xf l b" aria-hidden="true"></div>
   <div class="wrap">
     <div class="kick rv">Всё, что вы получаете</div>
     <h2 class="rv">Программа <em class="s">целиком</em></h2>
@@ -925,7 +936,7 @@ h2 em.s,.quote p em.s{color:var(--acc)}.dark h2 em.s{color:var(--acc-l)}
 </section>
 
 <!-- TARIFFS -->
-<section class="dark" id="tariffs"><div class="sfade t" aria-hidden="true"></div><div class="sfade b" aria-hidden="true"></div>
+<section class="dark" id="tariffs"><div class="xf d t" aria-hidden="true"></div><div class="xf d b" aria-hidden="true"></div>
   <div class="wrap">
     <div class="kick rv">Стоимость и варианты участия</div>
     <h2 class="rv">Выберите <em class="s">свой формат</em></h2>
@@ -979,7 +990,7 @@ h2 em.s,.quote p em.s{color:var(--acc)}.dark h2 em.s{color:var(--acc-l)}
 </section>
 
 <!-- FAQ -->
-<section class="light" id="faq">
+<section class="light" id="faq"><div class="xf l t" aria-hidden="true"></div><div class="xf l b" aria-hidden="true"></div>
   <div class="wrap">
     <div class="kick rv">Вопросы</div>
     <h2 class="rv">Частые <em class="s">вопросы</em></h2>
@@ -996,7 +1007,7 @@ h2 em.s,.quote p em.s{color:var(--acc)}.dark h2 em.s{color:var(--acc-l)}
 </section>
 
 <!-- FINAL -->
-<section class="dark final" id="final"><div class="sfade t" aria-hidden="true"></div>
+<section class="dark final" id="final"><div class="xf d t" aria-hidden="true"></div><div class="xf d f" aria-hidden="true"></div>
   <div class="wrap">
     <div class="kick rv">Выбор</div>
     <h2 class="rv">Единственное, что действительно не работает&nbsp;- <em class="s">ничего не делать</em></h2>
