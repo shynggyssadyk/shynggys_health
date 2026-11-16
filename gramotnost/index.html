@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <!-- security -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-rVw+efPfewMsCs3lQCYMardvMLvn4k4CsWX03yb4q8s='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-mIy0GsJEiVGBeaNjdbG+CETVN1VJapkm0pz+uHaEIG4='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
 <meta name="format-detection" content="telephone=no">
@@ -726,6 +726,13 @@ h2 em.s,.quote p em.s{color:var(--acc)}.dark h2 em.s{color:var(--acc-l)}
 .eps-in small{font-size:12px;letter-spacing:.13em;text-transform:uppercase;font-weight:600;color:#0E8F9B}
 .eps-in>b{display:block;margin:6px 40px 14px 0;font-size:21px;font-weight:580;line-height:1.25;letter-spacing:-.015em}
 .eps-x{position:absolute;top:14px;right:14px;width:40px;height:40px;border-radius:50%;border:0;background:#EEF4FB;color:var(--ink);font-size:22px;cursor:pointer}
+
+/* carousel: transform-driven (sub-pixel smooth), custom swipe */
+.eps{overflow:hidden;touch-action:pan-y;-webkit-user-select:none;user-select:none;cursor:grab}
+.eps:active{cursor:grabbing}
+.eps-track{will-change:transform;transform:translate3d(0,0,0)}
+.ep img{-webkit-user-drag:none;pointer-events:none}
+.eps-bar i{width:100%!important;transform-origin:0 50%;transform:scaleX(0)}
 </style>
 </head>
 <body>
@@ -1146,16 +1153,21 @@ setTimeout(()=>{sv.classList.add('out');setTimeout(()=>sv.remove(),900);p.queryS
 const io=new IntersectionObserver(es=>{if(es[0].isIntersecting){io.disconnect();pls.forEach((p,i)=>build(p,900+i*420))}},{rootMargin:'0px 0px -20% 0px'});io.observe(sec.querySelector('.tar')||sec)})();
 
 (()=>{const sc=document.getElementById('eps');if(!sc)return;const tr=sc.querySelector('.eps-track'),cl=sc.querySelector('.eps-cl'),bar=document.getElementById('epsBar');
-const half=()=>cl.offsetLeft-tr.firstElementChild.offsetLeft;let pos=0,hold=0,vis=false,last=0;const rm=matchMedia('(prefers-reduced-motion: reduce)').matches;const V=22;
-const upd=()=>{const h=half();if(h>0&&bar)bar.style.width=(((sc.scrollLeft%h)+h)%h/h*100)+'%'};
-const step=t=>{const dt=last?Math.min(64,t-last):16;last=t;if(vis&&!rm&&Date.now()>hold){const h=half();pos+=V*dt/1000;if(h>0&&pos>=h)pos-=h;sc.scrollLeft=pos}upd();requestAnimationFrame(step)};
-const pauseU=()=>{hold=Date.now()+3500};const sync=()=>{pos=sc.scrollLeft;const h=half();if(h>0&&pos>=h){pos-=h;sc.scrollLeft=pos}};
-['pointerdown','touchstart','wheel','keydown'].forEach(ev=>sc.addEventListener(ev,pauseU,{passive:true}));sc.addEventListener('scroll',()=>{if(Date.now()<hold)sync()},{passive:true});
-if('IntersectionObserver' in window)new IntersectionObserver(([e])=>{vis=e.isIntersecting},{threshold:.2}).observe(sc);else vis=true;
+const rm=matchMedia('(prefers-reduced-motion: reduce)').matches;const V=24;let H=0,pos=0,vel=0,hold=0,vis=false,last=0,drag=false,sx=0,sp=0,lx=0,lt=0,moved=0;
+const measure=()=>{H=cl.offsetLeft-tr.firstElementChild.offsetLeft};measure();addEventListener('resize',measure);addEventListener('load',measure);
+const wrap=()=>{if(H>0){pos=((pos%H)+H)%H}};
+const paint=()=>{tr.style.transform='translate3d('+(-pos).toFixed(2)+'px,0,0)';if(bar&&H>0)bar.style.transform='scaleX('+(pos/H).toFixed(4)+')'};
+const step=t=>{const dt=last?Math.min(50,t-last)/1000:0;last=t;
+  if(!drag){if(Math.abs(vel)>4){pos+=vel*dt;vel*=Math.pow(.05,dt)}else{vel=0;if(vis&&!rm&&Date.now()>hold)pos+=V*dt}wrap();}
+  paint();requestAnimationFrame(step)};
+if('IntersectionObserver' in window)new IntersectionObserver(([e])=>{vis=e.isIntersecting},{threshold:.15}).observe(sc);else vis=true;
 requestAnimationFrame(step);
+let dT=0;sc.addEventListener('pointerdown',e=>{if(e.button>0)return;drag=true;moved=0;sx=lx=e.clientX;sp=pos;lt=performance.now();vel=0;hold=Infinity;dT=Date.now();try{sc.setPointerCapture(e.pointerId)}catch(_){}},{passive:true});
+addEventListener('pointermove',e=>{if(!drag)return;const dx=e.clientX-sx;moved=Math.max(moved,Math.abs(dx));pos=sp-dx;wrap();const now=performance.now(),dtm=now-lt;if(dtm>0){vel=-(e.clientX-lx)/dtm*1000;lx=e.clientX;lt=now}},{passive:true});
+const end=()=>{if(!drag)return;drag=false;if(performance.now()-lt>90)vel=0;hold=Date.now()+3000};addEventListener('pointerup',end);addEventListener('pointercancel',end);sc.addEventListener('lostpointercapture',end);addEventListener('blur',end);document.addEventListener('visibilitychange',end);setInterval(()=>{if(drag&&Date.now()-dT>8000)end();if(hold!==Infinity&&hold>Date.now()+5000)hold=Date.now()+3000;if(hold===Infinity&&document.getElementById('epsSheet').hidden&&!drag)hold=Date.now()+1000},1000);
+sc.addEventListener('wheel',e=>{if(Math.abs(e.deltaX)>Math.abs(e.deltaY)){pos+=e.deltaX;wrap();hold=Date.now()+3000}},{passive:true});
 const sh=document.getElementById('epsSheet'),T=document.getElementById('epsT'),C=document.getElementById('epsC'),N=document.getElementById('epsN');
-let sx=0;sc.addEventListener('pointerdown',e=>{sx=e.clientX},{passive:true});
-sc.addEventListener('click',e=>{const b=e.target.closest('button.ep');if(!b||(e.clientX&&Math.abs(e.clientX-sx)>8))return;N.textContent='Лекция '+b.querySelector('em').textContent;T.textContent=b.dataset.t;C.innerHTML=b.querySelector('.ep-body').innerHTML;sh.hidden=false;hold=Infinity;document.getElementById('epsX').focus()});
+sc.addEventListener('click',e=>{const b=e.target.closest('button.ep');if(!b||moved>8)return;N.textContent='Лекция '+b.querySelector('em').textContent;T.textContent=b.dataset.t;C.innerHTML=b.querySelector('.ep-body').innerHTML;sh.hidden=false;hold=Infinity;document.getElementById('epsX').focus()});
 const close=()=>{sh.hidden=true;hold=Date.now()+1500};document.getElementById('epsX').addEventListener('click',close);sh.addEventListener('click',e=>{if(e.target===sh)close()});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!sh.hidden)close()})})();
 </script>
 </body>
