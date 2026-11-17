@@ -838,6 +838,12 @@ section{padding:56px 0}
 .story small{display:block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:#0E8F9B}
 .story p{margin-top:4px;font-size:16px;line-height:1.55;color:var(--ink)}
 .author .story+.quote{margin-top:22px}
+
+/* two-lecture guarantee */
+.grt{margin-top:26px;display:flex;gap:14px;align-items:flex-start;padding:18px;border-radius:22px;background:rgba(95,214,222,.08);border:1px solid rgba(95,214,222,.35);color:#fff}
+.grt-i{flex:none;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:rgba(95,214,222,.16);color:#7FE3EA}
+.grt b{display:block;font-size:17px;font-weight:580;letter-spacing:-.01em}
+.grt p{margin-top:4px;font-size:14.5px;line-height:1.5;color:rgba(255,255,255,.78)}
 </style>
 </head>
 <body>
@@ -1060,7 +1066,7 @@ section{padding:56px 0}
   <div class="wrap">
     <div class="kick rv">Формат</div>
     <h2 class="rv">Как проходит <em class="s">обучение</em></h2>
-    <ol class="fmt"><li class="rv"><div class="fm-t" style="color:#0E8F9B">Сразу<br>после оплаты</div><span class="fm-d" style="border-color:#0E8F9B"></span><div class="fm-n"><span class="fm-ic" style="background:#0E8F9B" aria-hidden="true">✓</span><div><div class="fm-c">Доступ</div><b>Получаете доступ</b><p>Все записи и материалы открываются сразу.</p></div></div></li><li class="rv"><div class="fm-t" style="color:#1F5FA8">Когда<br>удобно</div><span class="fm-d" style="border-color:#1F5FA8"></span><div class="fm-n"><span class="fm-ic" style="background:#1F5FA8" aria-hidden="true">▶</span><div><div class="fm-c">Лекции</div><b>Смотрите в своём темпе</b><p>Изучаете материалы, когда вам удобно.</p></div></div></li><li class="rv"><div class="fm-t" style="color:#5FD6DE">По набору<br>группы</div><span class="fm-d" style="border-color:#5FD6DE"></span><div class="fm-n"><span class="fm-ic" style="background:#1F7FB0" aria-hidden="true">◷</span><div><div class="fm-c">Zoom · до 30 человек</div><b>Групповой созвон</b><p>На тарифе «С разбором». Созвон проходит, когда набирается группа из 30 человек, прошедших лекции, - чтобы каждый получил качественную обратную связь.</p><div class="fm-seat" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div></div></li><li class="rv"><div class="fm-t" style="color:#9FB6D6">Если не<br>успели</div><span class="fm-d" style="border-color:#9FB6D6"></span><div class="fm-n"><span class="fm-ic" style="background:#00306C" aria-hidden="true">↻</span><div><div class="fm-c">Поток</div><b>Переходите в следующую группу</b><p>Не успели к созвону своей группы - попадаете в следующую. Доступ к материалам сохраняется.</p></div></div></li><li class="rv"><div class="fm-t" style="color:#5FD6DE">Весь<br>год</div><span class="fm-d" style="border-color:#5FD6DE"></span><div class="fm-n"><span class="fm-ic" style="background:linear-gradient(135deg,#22BEC8,#1F5FA8)" aria-hidden="true">★</span><div><div class="fm-c">Доступ на 1 год</div><b>Обновления и приглашения</b><p>Обновления программы и приглашения на живые эфиры и лекции - в среднем 5‑6 раз в год.</p></div></div></li></ol>
+    <ol class="fmt"><li class="rv"><div class="fm-t" style="color:#0E8F9B">Сразу<br>после оплаты</div><span class="fm-d" style="border-color:#0E8F9B"></span><div class="fm-n"><span class="fm-ic" style="background:#0E8F9B" aria-hidden="true">✓</span><div><div class="fm-c">Доступ</div><b>Получаете доступ</b><p>Первые две лекции, гайд по анализам и трекер - сразу. Остальные лекции открываются по графику за 14 дней.</p></div></div></li><li class="rv"><div class="fm-t" style="color:#1F5FA8">Когда<br>удобно</div><span class="fm-d" style="border-color:#1F5FA8"></span><div class="fm-n"><span class="fm-ic" style="background:#1F5FA8" aria-hidden="true">▶</span><div><div class="fm-c">Лекции</div><b>Смотрите в своём темпе</b><p>Изучаете материалы, когда вам удобно.</p></div></div></li><li class="rv"><div class="fm-t" style="color:#5FD6DE">По набору<br>группы</div><span class="fm-d" style="border-color:#5FD6DE"></span><div class="fm-n"><span class="fm-ic" style="background:#1F7FB0" aria-hidden="true">◷</span><div><div class="fm-c">Zoom · до 30 человек</div><b>Групповой созвон</b><p>На тарифе «С разбором». Созвон проходит, когда набирается группа из 30 человек, прошедших лекции, - чтобы каждый получил качественную обратную связь.</p><div class="fm-seat" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div></div></li><li class="rv"><div class="fm-t" style="color:#9FB6D6">Если не<br>успели</div><span class="fm-d" style="border-color:#9FB6D6"></span><div class="fm-n"><span class="fm-ic" style="background:#00306C" aria-hidden="true">↻</span><div><div class="fm-c">Поток</div><b>Переходите в следующую группу</b><p>Не успели к созвону своей группы - попадаете в следующую. Доступ к материалам сохраняется.</p></div></div></li><li class="rv"><div class="fm-t" style="color:#5FD6DE">Весь<br>год</div><span class="fm-d" style="border-color:#5FD6DE"></span><div class="fm-n"><span class="fm-ic" style="background:linear-gradient(135deg,#22BEC8,#1F5FA8)" aria-hidden="true">★</span><div><div class="fm-c">Доступ на 1 год</div><b>Обновления и приглашения</b><p>Обновления программы и приглашения на живые эфиры и лекции - в среднем 5‑6 раз в год.</p></div></div></li></ol>
   </div>
 </section>
 
@@ -1134,6 +1140,7 @@ section{padding:56px 0}
         </div></div>
       </div>
     </div>
+    <div class="grt rv"><span class="grt-i" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8.2-7 10-4-1.8-7-5.5-7-10V6l7-3z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg></span><div><b>Гарантия двух лекций</b><p>Посмотрите первые две лекции. Если поймёте, что программа не для вас, - напишите менеджеру в течение 7 дней после оплаты, и мы вернём деньги полностью.</p></div></div>
     <p class="tnote rv">После нажатия откроется чат с менеджером: он пришлёт ссылку на оплату и ответит на вопросы.</p>
   </div>
 </section>
@@ -1144,7 +1151,8 @@ section{padding:56px 0}
     <div class="kick rv">Вопросы</div>
     <h2 class="rv">Частые <em class="s">вопросы</em></h2>
     <div class="faq">
-      <details class="rv"><summary>Когда я получу доступ?</summary><p>Сразу после оплаты: открываются все записи лекций и материалы.</p></details>
+      <details class="rv"><summary>Когда я получу доступ?</summary><p>Сразу после оплаты - лекции 01-02, гайд «Как правильно читать свои анализы» и трекер. Дальше по графику: на 8-й день - лекции 03-06 и бонусный урок про витамины и БАДы, на 11-й - лекции 07-08 и урок про перименопаузу, на 14-й - лекции 09-10, персональная карта и конспекты. Все записи остаются у вас на весь срок доступа.</p></details>
+      <details class="rv"><summary>Можно ли вернуть деньги?</summary><p>Да, действует «Гарантия двух лекций». Посмотрите лекции 01-02. Если поймёте, что программа не для вас, напишите менеджеру в течение 7 дней после оплаты: в паре фраз - что ожидали и чего не нашли. Вернём деньги полностью, доступ к материалам после возврата закроется.</p></details>
       <details class="rv"><summary>Нужна ли подготовка или медицинские знания?</summary><p>Нет. Первая лекция объясняет устройство организма на простом языке, а каждая тема строится от механики к практике.</p></details>
       <details class="rv"><summary>Сколько действует доступ?</summary><p>На тарифе «Самостоятельный» - 3 месяца. На тарифе «С разбором» - 1 год, вместе с обновлениями программы и приглашениями на живые эфиры.</p></details>
       <details class="rv"><summary>Что, если я не успею к групповому созвону?</summary><p>Созвон проходит, когда набирается группа из 30 человек, прошедших лекции. Если не успели к своей группе - попадёте в следующую, доступ к материалам сохраняется.</p></details>
@@ -1168,7 +1176,7 @@ section{padding:56px 0}
     <div class="ctas rv">
       <a class="btn saf" href="#tariffs">Выбрать тариф <span class="ar">→</span></a>
     </div>
-    <p class="ps2 rv"><b>P.S.</b> Если вы дочитали до сюда, вы уже знаете главное: усталость, вес и волосы - это не «характер» и не «возраст», а <mark class="hl">причинно-следственные связи, которые можно понять</mark>. Программа даёт эту базу за 14 дней и в своём темпе. <span class="js-off" hidden>И пока на странице идёт таймер, полная оплата - на 3 000 ₸ дешевле.</span></p>
+    <p class="ps2 rv"><b>P.S.</b> Если вы дочитали до сюда, вы уже знаете главное: усталость, вес и волосы - это не «характер» и не «возраст», а <mark class="hl">причинно-следственные связи, которые можно понять</mark>. Программа даёт эту базу за 14 дней и в своём темпе. <span class="js-off" hidden>И пока на странице идёт таймер, полная оплата - на 3 000 ₸ дешевле.</span> А если после двух лекций поймёте, что это не ваше, - вернём деньги в течение 7 дней.</p>
   </div>
 </section>
 
