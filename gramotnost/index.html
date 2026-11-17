@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <!-- security -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-eDMNZqzo63WcT0PhOmkpr8FF7kw1KfvuJ8xc5XkTfig='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-eYbb2Zr6GxtYo1agE8cRKr+dewyHoUBEbe5GXi6ixv8='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
 <meta name="format-detection" content="telephone=no">
@@ -1385,8 +1385,8 @@ const BUY={
   self:WA+encodeURIComponent('Здравствуйте! Хочу на программу «Метаболическая грамотность», тариф «Самостоятельный».'),
   review:WA+encodeURIComponent('Здравствуйте! Хочу на программу «Метаболическая грамотность», тариф «С разбором».')
 };
-// personal coupon: pops up 1 min after the last tariff card is reached; -3000 KZT on full payment, valid 20 min from that moment (per browser); applied by one tap
-const CPN_MS=20*60*1000,POP_DELAY=60*1000;let start=0;try{start=+localStorage.getItem('gr_cpn3_start')||0}catch(e){}
+// personal coupon: pops up 1 s after the last tariff card is reached; -3000 KZT on full payment, valid 20 min from that moment (per browser); applied by one tap
+const CPN_MS=20*60*1000,POP_DELAY=1000;let start=0;try{start=+localStorage.getItem('gr_cpn3_start')||0}catch(e){}
 const dl=()=>start+CPN_MS;let act=false;try{act=localStorage.getItem('gr_cpn3_on')==='1'}catch(e){}
 const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const fmt=d=>new Intl.DateTimeFormat('ru-RU',{timeZone:'Asia/Almaty',hour:'2-digit',minute:'2-digit',day:'2-digit',month:'2-digit'}).format(d);
