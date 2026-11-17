@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <!-- security -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-zByH27S4BDesHz68R2c0yLhmOc3sa9yQXsuJXkm/Jl4='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-l8v6WYb0byC7bapEeWR+BxM9ChUplfz+UH98V6B44Oo='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
 <meta name="format-detection" content="telephone=no">
@@ -507,7 +507,7 @@ p{hyphens:manual}
 .chap{list-style:none;margin-top:18px;border-top:1px solid var(--line)}
 @media (min-width:860px){.chap{margin-top:0}}
 .chap li{display:grid;grid-template-columns:118px 1fr;gap:14px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
-.chap img{width:118px;height:auto;border-radius:10px;box-shadow:0 8px 18px -10px rgba(0,48,108,.5)}
+.chap img{width:118px;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:10px;box-shadow:0 8px 18px -10px rgba(0,48,108,.5)}
 .chap small{display:block;font-size:11px;letter-spacing:.13em;text-transform:uppercase;font-weight:600;color:var(--teal-d)}
 .chap b{display:block;margin-top:3px;font-size:16px;font-weight:500;line-height:1.38;text-wrap:balance}
 
@@ -610,7 +610,7 @@ section>.wrap{position:relative;z-index:1}
 #tariffs .plan.bld{background:transparent!important;box-shadow:none!important;border-color:transparent!important}
 #tariffs .plan.bld>*,#tariffs .plan.bld li{opacity:0;transform:translateY(12px) scale(.95)}
 .pl-ol{position:absolute;inset:0;pointer-events:none;overflow:visible;z-index:3;transition:opacity .8s ease}
-.pl-ol rect{fill:none;stroke:url(#plg);stroke-width:2;stroke-dasharray:1;stroke-dashoffset:1;filter:drop-shadow(0 0 6px rgba(255,181,71,.85));transition:stroke-dashoffset 1.1s cubic-bezier(.55,.1,.3,1)}
+.pl-ol rect{fill:none;stroke:url(#plg);stroke-width:2;stroke-dasharray:1;stroke-dashoffset:1;filter:drop-shadow(0 0 6px rgba(255,181,71,.85));transition:stroke-dashoffset .65s cubic-bezier(.55,.1,.3,1)}
 .pl-ol.go rect{stroke-dashoffset:0}
 .pl-ol.out{opacity:0}
 
@@ -922,6 +922,25 @@ section{padding:56px 0}
 .grt p{color:rgba(255,255,255,.9)}
 .nxt{padding:16px;border-radius:22px;background:rgba(11,27,51,.6);border:1px solid rgba(255,255,255,.08);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
 .nxt span{color:rgba(255,255,255,.86)}
+
+/* varied, more visible entrance animations (tariffs keep their own) */
+.rv[class*="rv-"]{transition:opacity .75s cubic-bezier(.16,1,.3,1) var(--d,0s),transform .95s cubic-bezier(.16,1,.3,1) var(--d,0s),filter .8s ease var(--d,0s),clip-path 1.05s cubic-bezier(.65,0,.25,1) var(--d,0s)}
+.rv.rv-up{transform:translateY(48px)}
+.rv.rv-l{transform:translateX(-44px)}
+.rv.rv-r{transform:translateX(44px)}
+.rv.rv-zoom{transform:translateY(28px) scale(.9)}
+.rv.rv-blur{transform:translateY(36px);filter:blur(8px)}
+.rv.rv-clip{opacity:1;transform:translateY(24px);clip-path:inset(0 0 100% 0 round 22px)}
+.rv.rv-clip img,.rv.rv-clip video{transform:scale(1.14);transition:transform 1.5s cubic-bezier(.16,1,.3,1) var(--d,0s)}
+.rv.rv-pop{transform:scale(.7);opacity:0}
+.rv.in[class*="rv-"]{opacity:1;transform:none;filter:none}
+.rv.rv-clip.in{clip-path:inset(-80px -80px -80px -80px round 0)}
+.rv.rv-clip.in img,.rv.rv-clip.in video{transform:none}
+.chap li.rv-r img{transform:translateX(30px) scale(.9);opacity:0;transition:transform 1s cubic-bezier(.16,1,.3,1) calc(var(--d,0s) + .12s),opacity .7s ease calc(var(--d,0s) + .12s)}
+.chap li.rv-r.in img{transform:none;opacity:1}
+.ep.rvx{opacity:0;transform:translateX(70px) scale(.94);transition:opacity .7s ease var(--d,0s),transform 1s cubic-bezier(.16,1,.3,1) var(--d,0s)}
+.ep.rvx.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv[class*="rv-"],.rv[class*="rv-"] img,.ep.rvx,.chap li img{opacity:1!important;transform:none!important;filter:none!important;clip-path:none!important;transition:none!important}}
 </style>
 </head>
 <body>
@@ -1017,7 +1036,7 @@ section{padding:56px 0}
     <div class="kick rv" style="margin-top:48px">Как построена каждая лекция</div>
     <div class="lstr">
       <div class="lecw rv"><div class="lfv"><video id="lecFast" src="img/lec_fast.mp4?v=2" poster="img/lec_fast.jpg?v=2" muted loop playsinline preload="metadata" disablepictureinpicture width="720" height="374"></video><span class="lfb"><i></i>Лекция целиком · ускорено</span></div><div class="dur"><b>50 минут</b><span>в среднем длится лекция в Zoom - смотрите в записи в своём темпе</span></div></div>
-      <ol class="chap"><li class="rv"><img src="img/lc1.webp" alt="Слайд лекции «Сон»: ночь - это 4-6 циклов по 90 минут" width="480" height="249" loading="lazy"><div><small>Глава 1</small><b>Механика темы: как это устроено</b></div></li><li class="rv"><img src="img/lc2.webp" alt="Слайд лекции «Сон»: недосып - это лишняя еда" width="480" height="249" loading="lazy"><div><small>Глава 2</small><b>Разбор причинно-следственных связей</b></div></li><li class="rv"><img src="img/lc3.webp" alt="Слайд лекции «Сон»: женский сон меняется вместе с гормонами" width="480" height="249" loading="lazy"><div><small>Глава 3</small><b>Разбор разных ситуаций на примерах</b></div></li><li class="rv"><img src="img/lc4.webp" alt="Слайд лекции «Сон»: мелатонин - стрелки часов, а не снотворное" width="480" height="249" loading="lazy"><div><small>Глава 4</small><b>Развенчание популярных мифов вокруг темы</b></div></li><li class="rv"><img src="img/lc5.webp" alt="Слайд лекции «Сон»: что работает для восстановления" width="480" height="249" loading="lazy"><div><small>Глава 5</small><b>Как предотвратить проблему, если её ещё нет, и как работать с ней, если она уже есть</b></div></li></ol>
+      <ol class="chap"><li class="rv"><img src="img/lc1.webp?v=2" alt="Слайд лекции «Сон»: ночь - это 4-6 циклов по 90 минут" width="442" height="249" loading="lazy"><div><small>Глава 1</small><b>Механика темы: как это устроено</b></div></li><li class="rv"><img src="img/lc2.webp?v=2" alt="Слайд лекции «Сон»: недосып - это лишняя еда" width="442" height="249" loading="lazy"><div><small>Глава 2</small><b>Разбор причинно-следственных связей</b></div></li><li class="rv"><img src="img/lc3.webp?v=2" alt="Слайд лекции «Сон»: женский сон меняется вместе с гормонами" width="442" height="249" loading="lazy"><div><small>Глава 3</small><b>Разбор разных ситуаций на примерах</b></div></li><li class="rv"><img src="img/lc4.webp?v=2" alt="Слайд лекции «Сон»: мелатонин - стрелки часов, а не снотворное" width="442" height="249" loading="lazy"><div><small>Глава 4</small><b>Развенчание популярных мифов вокруг темы</b></div></li><li class="rv"><img src="img/lc5.webp?v=2" alt="Слайд лекции «Сон»: что работает для восстановления" width="442" height="249" loading="lazy"><div><small>Глава 5</small><b>Как предотвратить проблему, если её ещё нет, и как работать с ней, если она уже есть</b></div></li></ol>
     </div>
     <p class="note rv">Только проверенная информация на научной базе - без общих слов.</p>
   </div>
@@ -1358,8 +1377,8 @@ sv.innerHTML='<defs><linearGradient id="plg" x1="0" y1="0" x2="1" y2="1"><stop o
 const r=document.createElementNS(NS,'rect');r.setAttribute('x',1);r.setAttribute('y',1);r.setAttribute('width',w-2);r.setAttribute('height',h-2);r.setAttribute('rx',27);r.setAttribute('pathLength',1);sv.appendChild(r);p.appendChild(sv);
 requestAnimationFrame(()=>requestAnimationFrame(()=>sv.classList.add('go')));
 setTimeout(()=>{const kids=[...p.children].filter(k=>k!==sv);let n=0;kids.forEach(k=>{if(k.tagName==='UL'){k.style.transitionDelay=(n++*70)+'ms';k.querySelectorAll('li').forEach(li=>{li.style.transitionDelay=(n++*70)+'ms'})}else k.style.transitionDelay=(n++*70)+'ms'});p.classList.remove('bld');
-setTimeout(()=>{sv.classList.add('out');setTimeout(()=>sv.remove(),900);p.querySelectorAll('*').forEach(x=>x.style.transitionDelay='')},n*70+900)},950)},d)};
-const io=new IntersectionObserver(es=>{if(es[0].isIntersecting){io.disconnect();pls.forEach((p,i)=>build(p,900+i*420))}},{rootMargin:'0px 0px -20% 0px'});io.observe(sec.querySelector('.tar')||sec)})();
+setTimeout(()=>{sv.classList.add('out');setTimeout(()=>sv.remove(),900);p.querySelectorAll('*').forEach(x=>x.style.transitionDelay='')},n*70+900)},420)},d)};
+const io=new IntersectionObserver(es=>{if(es.some(e=>e.isIntersecting)){io.disconnect();pls.forEach((p,i)=>build(p,120+i*200))}});const of=document.getElementById('offer');if(of)io.observe(of);io.observe(sec.querySelector('.tar')||sec)})();
 
 (()=>{const sc=document.getElementById('eps');if(!sc)return;const tr=sc.querySelector('.eps-track'),cl=sc.querySelector('.eps-cl'),bar=document.getElementById('epsBar');
 const rm=matchMedia('(prefers-reduced-motion: reduce)').matches;const V=24;let H=0,pos=0,vel=0,hold=0,vis=false,last=0,drag=false,sx=0,sp=0,lx=0,lt=0,moved=0;
@@ -1391,6 +1410,18 @@ let k='';try{k=(new URLSearchParams(location.search).get('from')||'').toLowerCas
 const h=document.querySelector('.hero h1');if(h){h.textContent=m[0];const e=document.createElement('em');e.className='s';e.textContent=m[1]+'?';h.append(e)}
 const b=document.querySelectorAll('#eps .eps-track > button.ep')[m[2]],f=document.getElementById('heroFrom');
 if(b&&f){f.textContent='Об этом - лекция '+b.querySelector('em').textContent+' «'+b.dataset.t+'» →';f.hidden=false;f.addEventListener('click',ev=>{ev.preventDefault();document.getElementById('program').scrollIntoView({behavior:'smooth'});setTimeout(()=>b.click(),700)})}})();
+
+(()=>{if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+const pick=el=>{if(el.closest('#tariffs')||el.matches('.nt,.offer,.stack'))return null;const c=el.classList;
+if(c.contains('kick'))return 'rv-l';if(el.tagName==='H2')return 'rv-blur';
+if(el.matches('figure,.vid,.zshot,.au-ph,.lecw,.slides,.shelf,.blank,.zone,.opq'))return 'rv-clip';
+if(c.contains('pain'))return 'rv-zoom';if(c.contains('fit-y'))return 'rv-l';if(c.contains('fit-n'))return 'rv-r';
+if(el.tagName==='LI'){const p=el.parentElement;if(p.matches('.chap'))return 'rv-r';if(p.matches('.myth,.story'))return [...p.children].indexOf(el)%2?'rv-r':'rv-l';return 'rv-up'}
+if(el.matches('.card,.quote,.why,.ck,.path,.ctas'))return 'rv-zoom';return 'rv-up'};
+document.querySelectorAll('.rv').forEach(el=>{const v=pick(el);if(!v)return;el.classList.add(v);
+const sib=[...el.parentElement.children].filter(x=>x.classList.contains('rv'));const k=sib.indexOf(el);if(k>0&&el.tagName!=='H2'&&!el.classList.contains('kick'))el.style.setProperty('--d',Math.min(k,5)*0.09+'s')});
+const eps=document.querySelectorAll('#eps .eps-track>.ep');if(eps.length&&'IntersectionObserver' in window){eps.forEach((e,i)=>{e.classList.add('rvx');e.style.setProperty('--d',Math.min(i,4)*0.11+'s')});
+const o=new IntersectionObserver(es=>{if(es[0].isIntersecting){eps.forEach(e=>e.classList.add('in'));o.disconnect()}},{threshold:.15});o.observe(document.getElementById('eps'))}})();
 </script>
 </body>
 </html>
