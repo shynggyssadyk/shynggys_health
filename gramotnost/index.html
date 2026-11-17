@@ -659,6 +659,21 @@ html.cpo-open{overflow:hidden}
 @media (max-width:460px){.ds-cr{flex-direction:column;align-items:flex-start;gap:8px}.ds-cr img{height:26px}.ds-cr span{padding:8px 0 0;border-left:0;border-top:1px solid #DCCBA6;align-self:stretch}}
 @media (max-width:380px){.ds-hd{grid-template-columns:116px 1fr}.ds-ph{height:150px}.ds-nm{font-size:27px}.ds-st b{font-size:21px}}
 
+/* pains: bigger photos and text for older eyes; each card glows as it comes in */
+.pains{max-width:460px}
+.pain .ph{width:184px;height:184px;padding:5px;isolation:isolate}
+.pain .ph img{border-width:4px}
+.pain .ph small{bottom:-14px;min-width:48px;padding:4px 12px;font-size:15px}
+.pain p{margin-top:26px;max-width:18em;font-size:20.5px;font-weight:430;line-height:1.4}
+.pain:not(:last-child)::after{height:40px;margin:18px 0 8px}
+.pain .ph::before{content:"";position:absolute;inset:-18px;border-radius:50%;background:radial-gradient(circle,var(--a) 0%,transparent 68%);opacity:0;z-index:-1;pointer-events:none}
+.pain.in .ph{animation:pnring 1.5s cubic-bezier(.2,.8,.2,1) .25s both}
+.pain.in .ph::before{animation:pnhalo 1.7s ease .25s both}
+@keyframes pnring{0%{box-shadow:0 0 0 0 var(--a),0 14px 30px -18px var(--b)}35%{box-shadow:0 0 0 10px color-mix(in srgb,var(--a) 45%,transparent),0 0 46px 6px var(--a)}100%{box-shadow:0 0 0 0 transparent,0 14px 30px -18px var(--b)}}
+@keyframes pnhalo{0%{opacity:0;transform:scale(.7)}35%{opacity:.75;transform:scale(1.08)}100%{opacity:.18;transform:scale(1)}}
+@media (min-width:900px){.pains{max-width:none}.pain .ph{width:176px;height:176px}.pain p{font-size:19.5px}}
+@media (prefers-reduced-motion:reduce){.pain.in .ph,.pain.in .ph::before{animation:none}.pain .ph::before{opacity:.18}}
+
 /* offer <-> tariffs: one shared golden breath while the offer is active */
 @property --gl{syntax:'<number>';inherits:true;initial-value:0}
 #tariffs.ofon{animation:glp 2.8s ease-in-out infinite}
@@ -1105,12 +1120,12 @@ section{padding:56px 0}
     <div class="kick rv">Узнаёте себя?</div>
     <h2 class="rv">Знакомо хотя бы <em class="s">одно</em>?</h2>
     <ol class="pains">
-      <li class="pain rv"><span class="ph"><img src="img/pn1.webp" alt="Женщина утром тянется к будильнику" width="108" height="108" loading="lazy"><small>01</small></span><p>Просыпаетесь уже разбитыми, энергии хватает на полдня</p></li>
-      <li class="pain rv"><span class="ph"><img src="img/pn2.webp" alt="Пробирки с кровью для анализов" width="108" height="108" loading="lazy"><small>02</small></span><p>Сдаёте анализы, слышите «всё в норме» - а лучше не становится</p></li>
-      <li class="pain rv"><span class="ph"><img src="img/pn3.webp" alt="Руки на животе при вздутии" width="108" height="108" loading="lazy"><small>03</small></span><p>Вздутие, тяжесть после еды, непонятные реакции на продукты</p></li>
-      <li class="pain rv"><span class="ph"><img src="img/pn4.webp" alt="Женщина с пончиком" width="108" height="108" loading="lazy"><small>04</small></span><p>Вес не уходит даже на диетах, тянет на сладкое</p></li>
-      <li class="pain rv"><span class="ph"><img src="img/pn5.webp" alt="Выпавшие волосы на расчёске" width="108" height="108" loading="lazy"><small>05</small></span><p>Выпадают волосы, ломаются ногти, кожа сухая или жирная</p></li>
-      <li class="pain rv"><span class="ph"><img src="img/pn6.webp" alt="Женщина не может уснуть ночью" width="108" height="108" loading="lazy"><small>06</small></span><p>Спите достаточно часов - и всё равно не высыпаетесь</p></li>
+      <li class="pain rv"><span class="ph"><img src="img/pn1.webp" alt="Женщина утром тянется к будильнику" width="184" height="184" loading="lazy"><small>01</small></span><p>Просыпаетесь уже разбитыми, энергии хватает на полдня</p></li>
+      <li class="pain rv"><span class="ph"><img src="img/pn2.webp" alt="Пробирки с кровью для анализов" width="184" height="184" loading="lazy"><small>02</small></span><p>Сдаёте анализы, слышите «всё в норме» - а лучше не становится</p></li>
+      <li class="pain rv"><span class="ph"><img src="img/pn3.webp" alt="Руки на животе при вздутии" width="184" height="184" loading="lazy"><small>03</small></span><p>Вздутие, тяжесть после еды, непонятные реакции на продукты</p></li>
+      <li class="pain rv"><span class="ph"><img src="img/pn4.webp" alt="Женщина с пончиком" width="184" height="184" loading="lazy"><small>04</small></span><p>Вес не уходит даже на диетах, тянет на сладкое</p></li>
+      <li class="pain rv"><span class="ph"><img src="img/pn5.webp" alt="Выпавшие волосы на расчёске" width="184" height="184" loading="lazy"><small>05</small></span><p>Выпадают волосы, ломаются ногти, кожа сухая или жирная</p></li>
+      <li class="pain rv"><span class="ph"><img src="img/pn6.webp" alt="Женщина не может уснуть ночью" width="184" height="184" loading="lazy"><small>06</small></span><p>Спите достаточно часов - и всё равно не высыпаетесь</p></li>
     </ol>
     <div class="opq rv">
       <div class="opq-h"><span class="gf"><i></i>Google Forms</span><b>Так клиенты описывают своё состояние</b><small>Скриншоты ответов из опросника перед консультацией. Фамилии сокращены.</small></div>
