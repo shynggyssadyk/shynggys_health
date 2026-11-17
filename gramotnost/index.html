@@ -702,6 +702,37 @@ html.cpo-open{overflow:hidden}
 @media (max-width:380px){.bar.cp .bt>b,.bar.cpon .bt>b{font-size:14px}.bar.cp .btn,.bar.cpon .btn{padding:0 14px;font-size:15px}}
 @media (prefers-reduced-motion:reduce){.bar.cp,.bar.cpon{animation:none}}
 
+/* beliefs: dark Apple style */
+#myths.apl{background:#000}
+#myths.apl::before,#myths.apl::after{opacity:.25}
+#myths.apl .kick{color:#5EE0E8}
+#myths.apl h2{color:#F5F5F7}
+#myths.apl h2 em.s{color:#5EE0E8}
+.ap-bel{list-style:none;display:grid;gap:14px;margin-top:30px}
+@media (min-width:860px){.ap-bel{grid-template-columns:repeat(3,1fr);align-items:start}}
+.ap-bel li{background:#1C1C1E;border-radius:26px;padding:24px 22px;display:flex;flex-direction:column;border:1px solid rgba(255,255,255,.06)}
+.ap-bel small{font-size:13px;font-weight:600;letter-spacing:.02em;color:#8E8E93}
+.ap-t{display:block;margin-top:6px;font-size:23px;font-weight:600;letter-spacing:-.02em;line-height:1.22;background:linear-gradient(90deg,#5EE0E8,#FFC56B);-webkit-background-clip:text;background-clip:text;color:transparent;text-wrap:balance}
+.ap-bel p{margin-top:12px;font-size:16px;line-height:1.55;color:#A1A1A6}
+.ap-bel p span{color:#F5F5F7;font-weight:550}
+.ap-bots{display:flex;justify-content:center;align-items:flex-end;gap:2px;height:160px;margin:16px 0 2px}
+.ap-bots img{height:122px;width:auto;filter:drop-shadow(0 12px 18px rgba(94,224,232,.22))}
+.ap-bots img:nth-child(2){height:138px;position:relative;z-index:1}
+#myths.apl .blank{margin-top:22px}
+#myths.apl .bl-h b{color:#F5F5F7}
+#myths.apl .bl-h p{color:#A1A1A6}
+#myths.apl .bl-h .kick{color:#5EE0E8}
+/* pains: Apple-style rounded squares (variant 1) */
+.pain .ph{width:200px;height:200px;padding:0;border-radius:48px;background:none;box-shadow:0 26px 44px -24px rgba(0,30,70,.5)}
+.pain .ph img{border:0;border-radius:48px}
+.pain .ph small{position:absolute;left:0;right:0;top:100%;bottom:auto;transform:none;display:block;margin:16px 0 0;text-align:center;min-width:0;padding:0;border:0;border-radius:0;background:none;color:#86868B;font-size:13px;font-weight:600;letter-spacing:.06em;box-shadow:none}
+.pain{--a:#5EE0E8!important;--b:#0E8F9B!important;--n:#D2D2D7!important}
+.pain .ph::before{inset:-26px;border-radius:70px;background:radial-gradient(closest-side,rgba(34,190,200,.55),transparent)}
+.pain p{margin-top:44px;font-size:20.5px;font-weight:500;color:#1D1D1F}
+.pain:not(:last-child)::after{width:1px;background:#D2D2D7;margin-top:22px}
+@keyframes pnring{0%{box-shadow:0 26px 44px -24px rgba(0,30,70,.5)}35%{box-shadow:0 0 0 6px rgba(94,224,232,.25),0 0 46px 8px rgba(34,190,200,.45),0 26px 44px -24px rgba(0,30,70,.5)}100%{box-shadow:0 26px 44px -24px rgba(0,30,70,.5)}}
+@media (min-width:900px){.pain .ph{width:184px;height:184px;border-radius:44px}.pain .ph img{border-radius:44px}}
+
 /* offer <-> tariffs: one shared golden breath while the offer is active */
 @property --gl{syntax:'<number>';inherits:true;initial-value:0}
 #tariffs.ofon{animation:glp 2.8s ease-in-out infinite}
@@ -1165,11 +1196,11 @@ section{padding:56px 0}
 </section>
 
 <!-- MYTHS -->
-<section class="light" id="myths">
+<section class="dark apl" id="myths">
   <div class="wrap">
     <div class="kick rv">Почему советы наугад не работают</div>
     <h2 class="rv">Три убеждения, которые <em class="s">мешают разобраться</em></h2>
-    <ol class="myth2"><li class="rv"><div class="m2-m"><i aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 3l6 6M9 3l-6 6"/></svg></i><div><small>Убеждение</small><b>«Анализы в норме - значит, всё в порядке»</b></div></div><div class="m2-t"><i aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.3l2.3 2.2 4.7-5"/></svg></i><p><b>На самом деле.</b> Норма в бланке - это широкий диапазон для всех, а не оптимум для вас. Ниже реальный пример: железо «в норме», а запасов почти нет.</p></div></li><li class="rv"><div class="m2-m"><i aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 3l6 6M9 3l-6 6"/></svg></i><div><small>Убеждение</small><b>«Чтобы разобраться, нужно медицинское образование»</b></div></div><div class="m2-t"><i aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.3l2.3 2.2 4.7-5"/></svg></i><p><b>На самом деле.</b> Каждая лекция идёт от механики к практике и объясняет простым языком - с примерами и разбором ситуаций.</p></div></li><li class="rv"><div class="m2-m"><i aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 3l6 6M9 3l-6 6"/></svg></i><div><small>Убеждение</small><b>«Нужно перепробовать всё: БАДы, диеты, режимы»</b></div></div><div class="m2-t"><i aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.3l2.3 2.2 4.7-5"/></svg></i><p><b>На самом деле.</b> Сначала - понять причинно-следственные связи, потом действовать. В конце программы у вас будет личный план: что делать и какие анализы сдать в первую очередь.</p></div></li></ol>
+    <ol class="ap-bel"><li class="rv"><small>Убеждение 01</small><b class="ap-t">«Анализы в норме - значит, всё в порядке»</b><p><span>На самом деле.</span> Норма в бланке - это широкий диапазон для всех, а не оптимум для вас. Ниже реальный пример: железо «в норме», а запасов почти нет.</p></li><li class="rv"><small>Убеждение 02</small><b class="ap-t">«Дело в силе воли»</b><p><span>На самом деле.</span> Тяга к сладкому, срывы, вес, который не уходит, часто связаны с биохимическими причинами, которые можно проверить. Вы перестанете винить себя и начнёте искать причину.</p></li><li class="rv"><small>Убеждение 03</small><b class="ap-t">«Нужно просто подобрать правильные БАДы»</b><div class="ap-bots" aria-hidden="true"><img src="img/sup_iron.webp" alt="" width="213" height="400" loading="lazy"><img src="img/sup_d3.webp" alt="" width="209" height="400" loading="lazy"><img src="img/sup_mg.webp" alt="" width="213" height="400" loading="lazy"></div><p><span>На самом деле.</span> Железо, витамин D, магний по совету из соцсетей могут быть не нужны именно вам. Сначала - понять, чего не хватает и почему. В конце программы у вас будет личный план: что делать и какие анализы сдать в первую очередь.</p></li></ol>
     <div class="blank rv">
       <div class="bl-h"><span class="kick">Пример из гайда</span><b>Железо «в норме» - а запасов почти нет</b><p>Реальный бланк анализов (личные данные скрыты). Если смотреть только на пометку «в норме», дефицит легко пропустить.</p></div>
       <div class="bl-rows bl2">
