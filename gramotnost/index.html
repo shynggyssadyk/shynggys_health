@@ -910,6 +910,18 @@ section{padding:56px 0}
  .hero-media::after{background:linear-gradient(180deg,rgba(11,27,51,.7) 0%,rgba(11,27,51,.3) 16%,rgba(11,27,51,0) 30%,rgba(11,27,51,0) 74%,#0B1B33 100%)!important}
  .hero .fact{-webkit-box-reflect:unset}
 }
+
+/* phone: honeycomb patches balanced left/right (the desktop spot map put them all on the left edge) */
+@media (max-width:859px){
+ .light::before,.light::after,#pains::before,#pains::after{-webkit-mask:url(img/hex_m.svg) 0 var(--hy,0)/58.89px 102px repeat,url(img/hex_spots_m.png) 0 var(--hy,0)/100% 1400px repeat;mask:url(img/hex_m.svg) 0 var(--hy,0)/58.89px 102px repeat,url(img/hex_spots_m.png) 0 var(--hy,0)/100% 1400px repeat;-webkit-mask-composite:source-in;mask-composite:intersect}
+}
+/* dark islands: calmer honeycomb so text stays readable */
+.dark::before{opacity:.42}
+.dark::after{opacity:.34}
+.grt{background:rgba(11,27,51,.6);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.grt p{color:rgba(255,255,255,.9)}
+.nxt{padding:16px;border-radius:22px;background:rgba(11,27,51,.6);border:1px solid rgba(255,255,255,.08);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.nxt span{color:rgba(255,255,255,.86)}
 </style>
 </head>
 <body>
