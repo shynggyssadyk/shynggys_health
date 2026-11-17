@@ -736,6 +736,26 @@ html.cpo-open{overflow:hidden}
 @keyframes pnring{0%{box-shadow:0 26px 44px -24px rgba(0,30,70,.5)}35%{box-shadow:0 0 0 6px rgba(94,224,232,.25),0 0 46px 8px rgba(34,190,200,.45),0 26px 44px -24px rgba(0,30,70,.5)}100%{box-shadow:0 26px 44px -24px rgba(0,30,70,.5)}}
 @media (min-width:900px){.pain .ph{width:184px;height:184px;border-radius:44px}.pain .ph img{border-radius:44px}}
 
+/* hero, minimal: full-bleed matte video with fine grain; headline, one line, one button */
+#top{min-height:100svh!important;padding:0!important;display:flex!important;flex-direction:column;justify-content:flex-end;background:#0B1B33}
+#top .hero-media{position:absolute!important;inset:0!important;height:auto!important;min-height:0!important;flex:none!important;z-index:0}
+#top .hero-media video,#top .hero-media img{position:absolute;inset:0;width:100%;height:100%;object-position:42% 50%!important;filter:blur(2.5px) saturate(.72);transform:scale(1.05)}
+#top .hero-media::before{content:"";position:absolute;inset:0;z-index:1;background:url(img/noise.png);background-size:180px;opacity:.16;mix-blend-mode:overlay;pointer-events:none}
+#top .hero-media::after{z-index:2;background:linear-gradient(180deg,rgba(11,27,51,.6) 0%,rgba(11,27,51,.36) 26%,rgba(11,27,51,.62) 55%,rgba(11,27,51,.92) 100%)!important}
+#top>.wrap{position:static!important;flex:none!important;width:100%}
+#top .lock{position:absolute!important;top:calc(16px + env(safe-area-inset-top))!important;left:20px;right:20px;z-index:3}
+#top .hero-grid{position:relative;z-index:3;margin-top:0!important;flex:none!important;display:block}
+#top .hero-txt{max-width:600px;padding:0 0 calc(40px + env(safe-area-inset-bottom))!important}
+#top h1{font-size:clamp(38px,10.6vw,68px)!important;line-height:1.04!important;margin-top:0!important;text-wrap:balance}
+#top h1 em.s{display:inline!important;font-size:1.04em;margin:0}
+#top p.sub{font-size:17px!important;line-height:1.5!important;margin-top:14px!important;max-width:30em;color:#EEF3FA}
+#top .from{margin-top:12px;font-size:14.5px}
+#top .ctas{margin-top:22px!important;display:block}
+#top .ctas .btn.hw{display:flex;width:100%;max-width:420px;min-height:56px;background:#fff;color:#0B1B33;font-size:17px;box-shadow:0 14px 34px -14px rgba(0,0,0,.55)}
+.hmeta{margin-top:14px;font-size:14px;color:#D5DFEC;letter-spacing:.01em}
+@media (min-width:860px){#top .lock{left:max(20px,calc((100vw - 1000px)/2))}#top .hero-txt{padding-bottom:72px!important}#top .hero-media video{object-position:50% 45%!important}}
+@media (prefers-reduced-motion:reduce){#top .hero-media video{transform:none}}
+
 /* offer <-> tariffs: one shared golden breath while the offer is active */
 @property --gl{syntax:'<number>';inherits:true;initial-value:0}
 #tariffs.ofon{animation:glp 2.8s ease-in-out infinite}
@@ -1159,18 +1179,13 @@ section{padding:56px 0}
     <div class="lock"><img src="img/logo.webp" alt="Шынгыс Садык" width="52" height="52"><span class="t"><span class="n" id="lkName">ШЫНГЫС САДЫК</span><span class="sub" id="lkSub">Метаболическое здоровье</span></span></div>
     <div class="hero-grid">
       <div class="hero-txt">
-        <span class="pill"><i></i>Метаболическая грамотность</span>
+        <h1>Анализы «в норме», <em class="s">а сил нет?</em></h1>
         <a class="from" id="heroFrom" href="#program" hidden></a>
-        <h1>Анализы «в норме», а <em class="s">сил нет?</em></h1>
-        <p class="sub">За 14 дней разберётесь, откуда берётся усталость, и <mark class="hl">уйдёте с личным планом</mark>: что делать самостоятельно и какие анализы сдать в первую очередь.</p>
-        <div class="facts">
-          <div class="fact"><b>10</b><span>Zoom-лекций</span></div>
-          <div class="fact"><b>50<small>мин</small></b><span>в среднем</span></div>
-          <div class="fact"><b>+2</b><span>бонуса</span></div>
-        </div>
+        <p class="sub">За 14 дней разберётесь, откуда берётся усталость, и уйдёте с личным планом.</p>
         <div class="ctas">
-          <a class="btn ghost" href="#program">Смотреть программу</a>
+          <a class="btn hw" href="#program">Смотреть программу</a>
         </div>
+        <p class="hmeta">10 лекций · по 50 минут · 2 бонуса</p>
       </div>
     </div>
   </div>
