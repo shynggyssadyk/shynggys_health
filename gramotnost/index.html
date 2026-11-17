@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <!-- security -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-53P3LNuOayhKVaQAjfNtt7XYQoRmvxXPqka4TZpA17M='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-xxB9qu/PUp7Wz8tci8W2KtS7uovYsOcagMf/E55PGA4='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
 <meta name="format-detection" content="telephone=no">
@@ -687,6 +687,16 @@ html.cpo-open{overflow:hidden}
 #author .story small{font-size:19px;letter-spacing:-.01em;text-transform:none;font-weight:600;color:var(--ink);line-height:1.2;padding-top:3px}
 #author .story p{margin-top:6px}
 @media (max-width:460px){#author .story li{grid-template-columns:44px 1fr;column-gap:10px}#author .story li::before{font-size:40px}}
+
+/* bottom bar turns into a golden coupon once the coupon has popped up */
+.bar-av{display:none;width:40px;height:40px;border-radius:50%;flex:none;background:url(img/logo.webp) center/cover;box-shadow:0 0 0 2px #fff,0 4px 10px -4px rgba(0,0,0,.4)}
+.bar.cp,.bar.cpon{background:linear-gradient(120deg,#FFD58A,#FFB547 55%,#E89A1A);color:#3B2300;border-color:rgba(255,236,190,.8);padding-left:10px;box-shadow:0 14px 34px -12px rgba(224,134,0,.6)}
+.bar.cp .bar-av,.bar.cpon .bar-av{display:block}
+.bar.cp .bt small,.bar.cpon .bt small{color:rgba(59,35,0,.78)}
+.bar.cp .bt small b,.bar.cpon .bt small b{font-size:12px;font-weight:650;font-variant-numeric:tabular-nums;color:#3B2300}
+.bar.cp .bt>b,.bar.cpon .bt>b{color:#2A1800}
+.bar.cp .btn,.bar.cpon .btn{background:#0B1B33;color:#FFD08A;box-shadow:none}
+@media (max-width:380px){.bar.cp .bt>b,.bar.cpon .bt>b{font-size:14px}.bar.cp .btn,.bar.cpon .btn{padding:0 14px;font-size:15px}}
 
 /* offer <-> tariffs: one shared golden breath while the offer is active */
 @property --gl{syntax:'<number>';inherits:true;initial-value:0}
@@ -1433,8 +1443,9 @@ section{padding:56px 0}
 <div class="cpo" id="cpo" role="dialog" aria-modal="true" aria-labelledby="cpoT" hidden><div class="cpo-in"><button class="cpo-x" type="button" id="cpoX" aria-label="Закрыть">✕</button><p class="cpo-k">Пока вы выбираете</p><p class="cpo-t" id="cpoT">Подарок от Шынгыса</p></div></div>
 
 <div class="bar" id="bar" aria-hidden="true">
-  <div class="bt"><small class="js-on">Онлайн-программа · 14 дней</small><small class="bar-o js-off" hidden>Ваш купон · <b id="barT">20:00</b></small><b>Метаболическая грамотность</b></div>
-  <a class="btn saf" href="#tariffs" tabindex="-1">Выбрать тариф</a>
+  <span class="bar-av" aria-hidden="true"></span>
+  <div class="bt"><small class="bar-s">Онлайн-программа · 14 дней</small><b class="bar-b">Метаболическая грамотность</b></div>
+  <a class="btn saf" href="#tariffs" tabindex="-1">Смотреть тарифы</a>
 </div>
 
 <div class="zv" id="lb" hidden><button class="zv-x" type="button" aria-label="Закрыть">✕</button><img id="lbImg" alt=""></div>
@@ -1470,7 +1481,12 @@ const setOffer=(on,anim)=>{const lazy=on&&anim&&'IntersectionObserver' in window
   if(lazy){document.querySelectorAll('#tariffs .plan').forEach(pl=>{const pr=pl.querySelector('.price .main')||pl;const o=new IntersectionObserver(es=>{if(es.some(e=>e.isIntersecting)){o.disconnect();setTimeout(()=>dropPlan(pl),200)}},{threshold:.9});o.observe(pr)})}
   else document.querySelectorAll('.js-p').forEach(e=>{const full=+e.dataset.full.replace(/\D/g,''),off=+e.dataset.off.replace(/\D/g,'');if(on&&anim)dropPlan(e.closest('.plan')||document);else e.textContent=nf(on?off:full)});
   ofOn=on;setMin();setLinks(on)};
-let ofOn=false,trSeen=false;const setMin=()=>{const bo=document.querySelector('#bar .bar-o'),bn=document.querySelector('#bar .bt .js-on'),ba=document.querySelector('#bar a');if(bo&&bn&&ba){const sh=ofOn&&trSeen;bo.hidden=!sh;bn.hidden=sh;ba.textContent=trSeen?'Выбрать тариф':'Смотреть тарифы'}};
+let ofOn=false,trSeen=false;const setMin=()=>{const br=document.getElementById('bar');if(!br)return;const sm=br.querySelector('.bar-s'),bb=br.querySelector('.bar-b'),ba=br.querySelector('a');if(!sm||!bb||!ba)return;
+  const live=start&&dl()>Date.now(),mode=live?(act?'cpon':'cp'):'';br.classList.toggle('cp',mode==='cp');br.classList.toggle('cpon',mode==='cpon');
+  if(mode==='cp'){sm.innerHTML='Ваш купон −3 000 ₸ · <b id="barT"></b>';bb.textContent='Подарок от Шынгыса';ba.textContent='Применить'}
+  else if(mode==='cpon'){sm.innerHTML='✓ Купон применён · <b id="barT"></b>';bb.textContent='от 25 000 ₸ вместо 28 000';ba.textContent='Выбрать тариф'}
+  else{sm.textContent='Онлайн-программа · 14 дней';bb.textContent='Метаболическая грамотность';ba.textContent=trSeen?'Выбрать тариф':'Смотреть тарифы'}
+  if(mode){try{tickO()}catch(e){}}};
 {const tr0=document.getElementById('tariffs');if(tr0&&'IntersectionObserver' in window){const o=new IntersectionObserver(es=>{if(es.some(e=>e.isIntersecting)){trSeen=true;setMin();o.disconnect()}});o.observe(tr0)}}
 const pad2=n=>String(n).padStart(2,'0');
 const cp=document.getElementById('offer'),go=document.getElementById('cpGo'),slot=document.getElementById('cpSlot'),ov=document.getElementById('cpo');
@@ -1488,6 +1504,7 @@ else{setOffer(false);if(cp)cp.hidden=true;
   if(!start&&cp&&ov&&'IntersectionObserver' in window){const pl=document.querySelectorAll('#tariffs .plan'),last=pl[pl.length-1];
     const o=new IntersectionObserver(es=>{if(es.some(e=>e.isIntersecting)){o.disconnect();setTimeout(pop,POP_DELAY)}},{rootMargin:'0px 0px -25% 0px'});if(last)o.observe(last)}}
 if(ov){document.getElementById('cpoX').addEventListener('click',inline);ov.addEventListener('click',e=>{if(e.target===ov)inline()});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!ov.hidden)inline()})}
+{const ba=document.querySelector('#bar a');if(ba)ba.addEventListener('click',e=>{const br=document.getElementById('bar');if(br&&br.classList.contains('cp')&&go){e.preventDefault();go.click()}})}
 if(go)go.addEventListener('click',()=>{if(act||!start)return;act=true;try{localStorage.setItem('gr_cpn3_on','1')}catch(e){}
   markOn();burst(cp,16,120);const inOv=ov&&!ov.hidden;
   setTimeout(()=>{if(inOv)inline();setOffer(true,true);
