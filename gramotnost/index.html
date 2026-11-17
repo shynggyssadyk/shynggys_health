@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <!-- security -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-tuX1FscpeXZ9E7GDxUJaXXTz5Sq2pigX9/slzwReGDc='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-8xJ2OP+EuT5nOy6ku06GAq1H1RISi0X8t7Y/2TF9UnM=' https://mc.yandex.ru https://mc.yandex.com https://yastatic.net; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob: https://mc.yandex.ru https://mc.yandex.com; media-src 'self'; connect-src 'self' https://mc.yandex.ru https://mc.yandex.com wss://mc.yandex.ru wss://mc.yandex.com; frame-src blob: https://mc.yandex.ru https://mc.yandex.com; child-src blob: https://mc.yandex.ru https://mc.yandex.com; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
 <meta name="format-detection" content="telephone=no">
@@ -1780,6 +1780,9 @@ section{padding:56px 0}
 <div class="zv" id="lb" hidden><button class="zv-x" type="button" aria-label="Закрыть">✕</button><img id="lbImg" alt=""></div>
 <script>
 (()=>{if(window.top!==window.self){try{window.top.location.replace(window.self.location.href)}catch(e){document.documentElement.style.display='none'}}})();
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();k=e.createElement(t);a=e.getElementsByTagName(t)[0];k.async=1;k.src=r;a.parentNode.insertBefore(k,a)})(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=114310964','ym');
+ym(114310964,'init',{webvisor:true,clickmap:true,referrer:document.referrer,url:location.href,accurateTrackBounce:true,trackLinks:true});
+window.gT=g=>{try{ym(114310964,'reachGoal',g)}catch(e){}};
 (()=>{
 const WA='https://wa.me/77073006756?text=';
 const BUY={
@@ -1791,8 +1794,10 @@ const CPN_MS=20*60*1000,POP_DELAY=1000;let start=0;try{start=+localStorage.getIt
 const dl=()=>start+CPN_MS;let act=false;try{act=localStorage.getItem('gr_cpn3_on')==='1'}catch(e){}
 const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const fmt=d=>new Intl.DateTimeFormat('ru-RU',{timeZone:'Asia/Almaty',hour:'2-digit',minute:'2-digit',day:'2-digit',month:'2-digit'}).format(d);
+const SRC=(()=>{let v='';try{const q=new URLSearchParams(location.search);v=(q.get('utm_campaign')||q.get('from')||'').replace(/[^\wа-яё-]/gi,'').slice(0,20);if(v)localStorage.setItem('gr_src',v);else v=localStorage.getItem('gr_src')||''}catch(e){}return v})();
+const SRCTAG=' (с сайта'+(SRC?', '+SRC.toUpperCase():'')+')';
 const setLinks=on=>{const tail=on?' Купон SHYNGYS3000: -3 000 ₸ при полной оплате, действует до '+fmt(new Date(dl()))+' (Алматы).':'';
-  document.querySelectorAll('.js-buy').forEach(a=>{a.href=BUY[a.dataset.plan]+encodeURIComponent(tail)})};
+  document.querySelectorAll('.js-buy').forEach(a=>{a.href=BUY[a.dataset.plan]+encodeURIComponent(tail+SRCTAG)})};
 const nf=n=>String(n).replace(/\B(?=(\d{3})+$)/g,' ');
 const countTo=(e,a,b)=>{if(RM){e.textContent=nf(b);return}const t0=performance.now(),D=1100;const f=t=>{const k=Math.min(1,(t-t0)/D),q=1-Math.pow(1-k,3);e.textContent=nf(Math.round((a+(b-a)*q)/100)*100);if(k<1)requestAnimationFrame(f);else e.textContent=nf(b)};requestAnimationFrame(f);setTimeout(()=>{if(ofOn)e.textContent=nf(b)},D+200)};
 const SV={s:'<svg viewBox="0 0 24 24"><path d="M12 0l2.6 9.4L24 12l-9.4 2.6L12 24l-2.6-9.4L0 12l9.4-2.6z"/></svg>',b:'<svg viewBox="0 0 24 24"><path d="M14 1L3 14h7.5L9 23l11-13.5h-7.5z"/></svg>'};
@@ -1825,7 +1830,7 @@ const markOn=()=>{if(!cp)return;cp.classList.add('on');if(go){go.textContent='�
 let oi=null;
 const begin=()=>{document.querySelectorAll('.js-dl').forEach(e=>e.textContent=fmt(new Date(dl())));tickO();if(!oi)oi=setInterval(tickO,1000)};
 const inline=()=>{if(!cp||!slot)return;cp.classList.add('calm','in');slot.appendChild(cp);cp.hidden=false;if(ov)ov.hidden=true;document.documentElement.classList.remove('cpo-open')};
-const pop=()=>{try{const v=+localStorage.getItem('gr_cpn3_start');if(v)start=v}catch(e){}if(!cp||!ov||start)return;start=Date.now();try{localStorage.setItem('gr_cpn3_start',String(start))}catch(e){}
+const pop=()=>{try{const v=+localStorage.getItem('gr_cpn3_start');if(v)start=v}catch(e){}if(!cp||!ov||start)return;start=Date.now();gT('coupon_shown');try{localStorage.setItem('gr_cpn3_start',String(start))}catch(e){}
   begin();setOffer(false);ov.querySelector('.cpo-in').appendChild(cp);cp.classList.remove('in','calm');cp.hidden=false;ov.hidden=false;document.documentElement.classList.add('cpo-open');
   requestAnimationFrame(()=>requestAnimationFrame(()=>cp.classList.add('in')));setTimeout(()=>burst(cp,18,130),1050);if(go)go.focus({preventScroll:true})};
 if(cp&&start&&dl()>Date.now()){begin();inline();if(act){markOn();setOffer(true)}else setOffer(false)}
@@ -1834,7 +1839,7 @@ else{setOffer(false);if(cp)cp.hidden=true;
     const o=new IntersectionObserver(es=>{if(es.some(e=>e.isIntersecting)){o.disconnect();setTimeout(pop,POP_DELAY)}},{rootMargin:'0px 0px -25% 0px'});if(last)o.observe(last)}}
 if(ov){document.getElementById('cpoX').addEventListener('click',inline);ov.addEventListener('click',e=>{if(e.target===ov)inline()});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!ov.hidden)inline()})}
 {const ba=document.querySelector('#bar a');if(ba)ba.addEventListener('click',e=>{const br=document.getElementById('bar');if(br&&br.classList.contains('cp')&&go){e.preventDefault();go.click()}})}
-if(go)go.addEventListener('click',()=>{if(act||!start||dl()<=Date.now())return;act=true;try{localStorage.setItem('gr_cpn3_on','1')}catch(e){}
+if(go)go.addEventListener('click',()=>{if(act||!start||dl()<=Date.now())return;act=true;gT('coupon_on');try{localStorage.setItem('gr_cpn3_on','1')}catch(e){}
   markOn();burst(cp,16,120);const inOv=ov&&!ov.hidden;
   setTimeout(()=>{if(dl()<=Date.now())return;if(inOv)inline();setOffer(true,true);
     const ps=[...document.querySelectorAll('#tariffs .plan .price .main')],H=innerHeight,seen=ps.some(p=>{const r=p.getBoundingClientRect();return r.top>=0&&r.bottom<=H});
@@ -1874,6 +1879,9 @@ lb.addEventListener('click',closeLb);document.addEventListener('keydown',e=>{if(
 function track(){}
 document.addEventListener('contextmenu',e=>{if(e.target.closest('img,video'))e.preventDefault()});document.addEventListener('dragstart',e=>{if(e.target.closest('img,video'))e.preventDefault()});
 track('page_view');
+document.addEventListener('click',e=>{const a=e.target.closest&&e.target.closest('.js-buy');if(a){gT('buy');gT('buy_'+a.dataset.plan)}});
+{const tf=document.getElementById('tariffs');if(tf&&'IntersectionObserver' in window){const o=new IntersectionObserver(es=>{if(es.some(x=>x.isIntersecting)){o.disconnect();gT('tariffs_view')}},{threshold:.15});o.observe(tf)}}
+{let vp=false;document.querySelectorAll('.vid video').forEach(v=>v.addEventListener('play',()=>{if(!vp){vp=true;gT('video_play')}}))}
 })();
 
 (()=>{const ring=document.getElementById('opqRing');if(!ring)return;const cs=[...ring.querySelectorAll('.opc')],N=cs.length,cnt=document.getElementById('opqCnt');let i=0;
