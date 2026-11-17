@@ -768,13 +768,13 @@ html.cpo-open{overflow:hidden}
 /* calm pass: every block follows the minimal matte hero - neutral dark, fine grain, lighter headings, no neon; readable small text */
 #top::before,#top::after{display:none!important}
 #top .hero-media video,#top .hero-media img{filter:none;transform:none}
-#top .hero-media::before{background:url(img/noise_a.png) 0 0/220px;opacity:.7;mix-blend-mode:normal}
+#top .hero-media::before{background:url(img/noise_s.png) 0 0/220px;opacity:.8;mix-blend-mode:normal}
 #top h1{font-weight:520}
 h2{font-weight:520;letter-spacing:-.028em}
 .kick{font-size:13.5px;letter-spacing:.12em}
 .light .kick{color:#0B7480}
-.dark:not(#top):not(#myths){background:url(img/noise_a.png) 0 0/220px,linear-gradient(172deg,#0F2241 0%,#0A1830 100%)!important}
-#myths.apl{background:url(img/noise_a.png) 0 0/220px,#050608}
+.dark:not(#top):not(#myths){background:url(img/noise_s.png) 0 0/220px,linear-gradient(172deg,#0F2241 0%,#0A1830 100%)!important}
+#myths.apl{background:url(img/noise_s.png) 0 0/220px,#050608}
 .dark:not(#top)::before,.dark:not(#top)::after{opacity:.16!important}
 .light::before,.light::after{opacity:.28!important}
 .lux .kick,.dark .kick{color:#9FE6EB}
@@ -799,6 +799,56 @@ h2{font-weight:520;letter-spacing:-.028em}
 .cpo-x{width:44px;height:44px;top:-42px}
 .eps-hint{font-size:14.5px}
 .bar .bar-s{white-space:nowrap}
+
+/* cinema pass: every block is a full-bleed matte frame like the hero - no boxes, text on the picture, hairlines */
+body{background:#0A1628}
+section:not(#top):not(#_a):not(#_b){margin:0!important;border-radius:0!important;padding:76px 0 80px!important;color:#F2F6FB;--ink:#F2F6FB;--ink2:#B9C7DA;--line:rgba(255,255,255,.16);--acc-k:#9FE6EB;--acc:#8EE6EC;
+  background:url(img/noise_s.png) 0 0/220px,linear-gradient(180deg,rgba(10,22,40,.58) 0,rgba(10,22,40,.7) 260px,#0A1628 600px),var(--bgi) top center/max(100%,540px) auto no-repeat,#0A1628!important}
+section:not(#top)::before,section:not(#top)::after{display:none!important}
+section:not(#top)>.wrap{padding-left:22px!important;padding-right:22px!important}
+section:not(#top)+section:not(#top){border-top:1px solid rgba(255,255,255,.08)}
+#top{border-radius:0!important}
+#pains{--bgi:url(img/bg_pains.jpg)}#myths{--bgi:url(img/bg_myths.jpg)}#about{--bgi:url(img/bg_about.jpg)}#program{--bgi:url(img/bg_program.jpg)}#peek{--bgi:url(img/bg_peek.jpg)}#bonus{--bgi:url(img/bg_myths.jpg)}#result{--bgi:url(img/bg_result.jpg)}#reviews{--bgi:url(img/bg_reviews.jpg)}#author{--bgi:url(img/bg_author.jpg)}#format{--bgi:url(img/bg_format.jpg)}#stack{--bgi:url(img/bg_stack.jpg)}#tariffs{--bgi:url(img/bg_program.jpg)}#faq{--bgi:url(img/bg_reviews.jpg)}#final{--bgi:url(img/bg_stack.jpg)}
+section:not(#top) .kick{color:#9FE6EB!important}
+section:not(#top) h2{color:#fff;font-weight:480;font-size:clamp(32px,8.6vw,48px);line-height:1.08}
+section:not(#top) h2 em.s{color:#8EE6EC!important;background:none!important}
+/* content objects that stay light keep dark ink */
+.plan,.cp-t,.opc,.rl,.eps-in,.zshot,.bl-rows,.sl,.cv,.ep.bon,.alt,.ds-lg{--ink:#00306C;--ink2:#5B7397;--line:#E1E9F3;--acc-k:#0B7480;--acc:#0E8F9B}
+.plan,.cp-t,.opc,.eps-in{color:#00306C}
+/* boxes removed: rows on hairlines */
+.ck,.ps,.fit-y,.fit-n,.dos,.ds-cr,.ds-rk,#author .quote,.fm-n,.stack.card,.why,#faq details,.path,.grt,.nxt,.ap-bel li,.st.plus,.bridge{background:none!important;box-shadow:none!important;border:0!important;border-radius:0!important;padding-left:0!important;padding-right:0!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+.ck,.fit-y,.fit-n,#author .quote,.fm-n,.why,#faq details,.path,.grt,.ap-bel li,.bridge{border-top:1px solid rgba(255,255,255,.16)!important}
+.dos{max-width:none}
+.ds-cr,.ds-rk{padding:14px 0!important;border-top:1px solid rgba(255,255,255,.16)!important;margin-top:0}
+.ds-hd{padding-bottom:18px}
+.ds-cr img,.ds-rk img{background:#fff;border-radius:10px;padding:7px 10px;height:44px;box-sizing:border-box}
+.ds-cr span{border-color:rgba(255,255,255,.2)!important}
+.ds-st{border-color:rgba(255,255,255,.16)}
+#author .quote::before{display:none}
+#author .quote p{font-family:var(--serif);font-style:italic;font-size:22px;line-height:1.4;color:#fff}
+#author .quote .vals span{background:none!important;border:1px solid rgba(255,255,255,.22)!important;color:#D7E6F5}
+.pain p{color:#F2F6FB!important}
+.pain .ph small{color:#9FB2CC!important}
+.pain:not(:last-child)::after{background:rgba(255,255,255,.22)!important}
+.ap-bel{gap:0}.ap-bel li{padding:26px 0!important}
+#myths.apl{padding:76px 0 80px!important}
+.path.go{border-top:1px solid #8EE6EC!important}
+.dark .path.go mark.hl,.path.go mark.hl{background:rgba(34,190,200,.22)!important;color:#BFF3F6!important}
+.path.go,.path.go *{color:#F2F6FB}
+.bridge mark.hl,section:not(#top) p mark.hl{background:rgba(34,190,200,.22)!important;color:#BFF3F6!important}
+.sl span{color:#00306C}
+.fit-n .fit-k{color:#FF9B8E!important}.fit-y .fit-k{color:#9FE6EB!important}
+.fm-t{color:#C2D5EE!important}
+#faq summary{padding:20px 46px 20px 0;font-size:18px}
+#faq summary::after{right:0;background:none;border:1px solid rgba(255,255,255,.35);color:#fff}
+#faq details[open] summary::after{background:#fff;color:#0A1628}
+#faq details p{padding:0 0 20px;font-size:16px}
+#faq details p a{color:#8EE6EC}
+.st.plus{margin:0!important}.st.plus .sv{color:#FFD08A!important}
+.st-sum{margin:6px 0 0!important;padding:24px 0 16px!important;border-top:1px solid rgba(255,255,255,.22)!important}
+.st-sum::before,#stack .st-sum::after{display:none!important}
+.st-sum b{font-weight:480;font-size:44px}
+.st-badge{color:#FFD08A!important;background:rgba(255,181,71,.16)!important}
 
 /* offer <-> tariffs: one shared golden breath while the offer is active */
 @property --gl{syntax:'<number>';inherits:true;initial-value:0}
@@ -1218,7 +1268,7 @@ section{padding:56px 0}
 
 <!-- HERO -->
 <section class="dark hero" id="top"><div class="xf d b" aria-hidden="true"></div>
-  <div class="hero-media" aria-hidden="true"><video id="heroV" muted loop playsinline preload="metadata" poster="img/hero4_poster.jpg" disablepictureinpicture><source src="img/hero4.mp4" type="video/mp4"></video></div>
+  <div class="hero-media" aria-hidden="true"><video id="heroV" muted loop playsinline preload="metadata" poster="img/hero5_poster.jpg" disablepictureinpicture><source src="img/hero5.mp4" type="video/mp4"></video></div>
   <div class="wrap">
     <div class="lock"><img src="img/logo.webp" alt="Шынгыс Садык" width="52" height="52"><span class="t"><span class="n" id="lkName">ШЫНГЫС САДЫК</span><span class="sub" id="lkSub">Метаболическое здоровье</span></span></div>
     <div class="hero-grid">
