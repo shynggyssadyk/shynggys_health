@@ -633,6 +633,32 @@ html.cpo-open{overflow:hidden}
 @keyframes pdrop{0%{color:var(--ink)}15%{transform:translateY(3px)}70%{color:#E08600;text-shadow:0 0 18px rgba(255,181,71,.7)}100%{color:var(--ink);text-shadow:none}}
 @media (prefers-reduced-motion:reduce){#offer.rv.in,#offer.in .cp-w,.cp-t::after,.ofr.go s,.ofr.go .chip,.price .main b.drop{animation:none}.fx{display:none}.cpn.on .cp-stamp{transition:none}}
 
+/* author: expert dossier card */
+#author .author{align-items:start}
+.dos{background:#fff;border-radius:28px;padding:22px;box-shadow:0 30px 60px -34px rgba(0,48,108,.45),0 1px 2px rgba(0,48,108,.06);max-width:520px}
+.ds-hd{display:grid;grid-template-columns:136px 1fr;gap:16px;align-items:end}
+.ds-ph{height:176px;border-radius:22px;overflow:hidden;background:linear-gradient(160deg,#22BEC8,#0E8F9B);box-shadow:0 18px 30px -16px rgba(14,143,155,.7)}
+.ds-ph video{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 12%}
+.ds-nm{display:block;font-size:32px;font-weight:600;line-height:1.02;letter-spacing:-.025em;color:var(--ink)}
+.ds-rl{display:block;margin-top:8px;font-size:14.5px;line-height:1.4;color:var(--ink2)}
+.ds-cr{display:flex;align-items:center;gap:14px;margin-top:18px;padding:12px 14px;border-radius:18px;background:linear-gradient(135deg,#FBF6EC,#F6EEDD);border:1px solid #EBDDBF}
+.ds-cr img{height:30px;width:auto;flex:none}
+.ds-cr span{padding-left:14px;border-left:1px solid #DCCBA6;font-size:15px;font-weight:550;line-height:1.3;color:var(--ink)}
+.ds-st{display:grid;grid-template-columns:repeat(3,1fr);margin-top:18px;border-top:1px solid var(--line)}
+.ds-st>div{padding:16px 6px 2px;text-align:center}
+.ds-st>div+div{border-left:1px solid var(--line)}
+.ds-st b{display:block;font-size:24px;font-weight:580;letter-spacing:-.025em;line-height:1;color:var(--ink);white-space:nowrap}
+.ds-st b small{font-size:.6em;font-weight:500;color:var(--teal-d);letter-spacing:0}
+.ds-st span{display:block;margin-top:6px;font-size:12.5px;line-height:1.35;color:var(--ink2)}
+#author .quote{background:linear-gradient(150deg,#0B1B33,#00306C);color:#fff;box-shadow:0 30px 60px -30px rgba(0,30,70,.65);overflow:hidden}
+#author .quote::before{content:"“";position:absolute;right:16px;top:-26px;font-family:var(--serif);font-size:140px;line-height:1;color:rgba(34,190,200,.3)}
+#author .quote p{position:relative;color:#EAF1FA}
+#author .quote p em.s{color:#8EE6EC}
+#author .quote .vals span{background:rgba(255,255,255,.1);color:#D7E6F5;border:1px solid rgba(255,255,255,.14)}
+@media (min-width:860px){.dos{position:sticky;top:90px}}
+@media (max-width:460px){.ds-cr{flex-direction:column;align-items:flex-start;gap:8px}.ds-cr img{height:26px}.ds-cr span{padding:8px 0 0;border-left:0;border-top:1px solid #DCCBA6;align-self:stretch}}
+@media (max-width:380px){.ds-hd{grid-template-columns:116px 1fr}.ds-ph{height:150px}.ds-nm{font-size:27px}.ds-st b{font-size:21px}}
+
 /* offer <-> tariffs: one shared golden breath while the offer is active */
 @property --gl{syntax:'<number>';inherits:true;initial-value:0}
 #tariffs.ofon{animation:glp 2.8s ease-in-out infinite}
@@ -1227,15 +1253,17 @@ section{padding:56px 0}
 <section class="light" id="author"><div class="xf l b" aria-hidden="true"></div>
   <div class="wrap">
     <div class="kick rv">Автор программы</div>
-    <h2 class="rv">Шынгыс <em class="s">Садык</em></h2>
+    <h2 class="rv">Кто ведёт <em class="s">программу</em></h2>
     <div class="author">
-      <div class="au-ph rv"><video id="auV" muted loop playsinline preload="none" poster="img/author_v.webp" width="720" height="900" aria-label="Шынгыс Садык рассказывает"><source src="img/author_v.mp4" type="video/mp4"></video><div class="tag"><b>Шынгыс Садык</b><span>Метаболическое здоровье</span></div></div>
-      <div>
-        <div class="creds">
-          <div class="card cred wide rv"><span class="ic"><svg><use href="#i-cap"/></svg></span><div><b>Дипломированный химик</b><span>Назарбаев Университет</span></div></div>
-          <div class="card cred rv"><b>3 <small>года</small></b><span>частной практики</span></div>
-          <div class="card cred rv"><b>1 000<small>+</small></b><span>проведённых консультаций</span></div>
+      <div class="dos rv">
+        <div class="ds-hd">
+          <div class="ds-ph"><video id="auV" muted loop playsinline preload="none" poster="img/author_v.webp" width="720" height="900" aria-label="Шынгыс Садык рассказывает"><source src="img/author_v.mp4" type="video/mp4"></video></div>
+          <div class="ds-id"><b class="ds-nm">Шынгыс<br>Садык</b><span class="ds-rl">Специалист по метаболическому здоровью</span></div>
         </div>
+        <div class="ds-cr"><img src="img/nu_logo.svg" alt="Nazarbayev University" width="180" height="41"><span>Дипломированный химик</span></div>
+        <div class="ds-st"><div><b>Топ-400</b><span>университет в мировом рейтинге THE</span></div><div><b>3 <small>года</small></b><span>частной практики</span></div><div><b>1 000<small>+</small></b><span>проведённых консультаций</span></div></div>
+      </div>
+      <div>
         <ol class="story"><li class="rv"><small>Откуда я</small><p>Я вырос в среде здравоохранения. Разговоры о здоровье, самочувствии и анализах были обычной частью жизни - поэтому я всегда был чуть более осведомлён, чем окружающие.</p></li><li class="rv"><small>Химия</small><p>Химическое образование в Назарбаев Университете дало главное: понимание молекулярных и биохимических процессов - того, что на самом деле происходит в организме за цифрами анализов.</p></li><li class="rv"><small>Поворот</small><p>После учёбы я работал в корпоративном секторе - и разочаровался. Хотелось заниматься тем, что реально меняет жизнь людей.</p></li><li class="rv"><small>Вызов</small><p>Вокруг я видел тотальную неосведомлённость. Люди с усталостью при анализах «в норме» пробуют советы наугад, а советы им дают «специалисты» после трёхмесячных курсов. Я решил с этим бороться.</p></li><li class="rv"><small>Миссия</small><p>Просвещать: давать людям качественные знания на научной базе и объяснять сложное простым языком - чтобы вы понимали свой организм сами и могли отличить доказательный совет от случайного.</p></li></ol>
         <div class="quote rv">
           <p>«Моя цель - чтобы как можно больше людей начали <em class="s">принимать осознанные решения</em> о своём здоровье, а не действовали вслепую. Так улучшается качество жизни - и вашей, и ваших близких. «Метаболическая грамотность» - первый шаг к этому, доступный каждому, независимо от бюджета».</p>
