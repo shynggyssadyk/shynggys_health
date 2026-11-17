@@ -828,6 +828,16 @@ section{padding:56px 0}
 .why p{margin-top:6px;font-size:15px;line-height:1.5;color:var(--ink2)}
 .why small{display:block;margin-top:8px;font-size:13.5px;color:#0E8F9B;font-family:var(--serif);font-style:italic}
 .faq details p a{color:#0E8F9B}
+
+/* author story timeline */
+.story{list-style:none;margin:22px 0 0;padding:0 0 0 22px;position:relative;display:grid;gap:18px}
+.story::before{content:"";position:absolute;left:5px;top:8px;bottom:8px;width:2px;border-radius:2px;background:linear-gradient(180deg,#22BEC8,#0E8F9B 70%,rgba(14,143,155,.15))}
+.story li{position:relative}
+.story li::before{content:"";position:absolute;left:-22px;top:5px;width:12px;height:12px;border-radius:50%;background:#fff;border:2px solid #0E8F9B}
+.story li:last-child::before{background:#0E8F9B;box-shadow:0 0 0 4px rgba(14,143,155,.15)}
+.story small{display:block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:#0E8F9B}
+.story p{margin-top:4px;font-size:16px;line-height:1.55;color:var(--ink)}
+.author .story+.quote{margin-top:22px}
 </style>
 </head>
 <body>
@@ -1035,6 +1045,7 @@ section{padding:56px 0}
           <div class="card cred rv"><b>3 <small>года</small></b><span>частной практики</span></div>
           <div class="card cred rv"><b>1 000<small>+</small></b><span>проведённых консультаций</span></div>
         </div>
+        <ol class="story"><li class="rv"><small>Откуда я</small><p>Я вырос в среде здравоохранения. Разговоры о здоровье, самочувствии и анализах были обычной частью жизни - поэтому я всегда был чуть более осведомлён, чем окружающие.</p></li><li class="rv"><small>Химия</small><p>Химическое образование в Назарбаев Университете дало главное: понимание молекулярных и биохимических процессов - того, что на самом деле происходит в организме за цифрами анализов.</p></li><li class="rv"><small>Поворот</small><p>После учёбы я работал в корпоративном секторе - и разочаровался. Хотелось заниматься тем, что реально меняет жизнь людей.</p></li><li class="rv"><small>Миссия</small><p>Я видел, сколько людей живут с усталостью при анализах «в норме» и пробуют советы наугад - просто потому, что никто не объяснил им причины. Моя миссия - просвещать: объяснять сложное простым языком, чтобы вы понимали свой организм сами.</p></li></ol>
         <div class="quote rv">
           <p>«Моя цель - чтобы как можно больше людей начали <em class="s">принимать осознанные решения</em> о своём здоровье, а не действовали вслепую. Так улучшается качество жизни - и вашей, и ваших близких. «Метаболическая грамотность» - первый шаг к этому, доступный каждому, независимо от бюджета».</p>
           <div class="vals"><span>Осознанные решения</span><span>Здоровье близких</span><span>Доступно каждому</span></div>
