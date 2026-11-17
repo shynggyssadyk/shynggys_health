@@ -688,16 +688,17 @@ html.cpo-open{overflow:hidden}
 #author .story p{margin-top:6px}
 @media (max-width:460px){#author .story li{grid-template-columns:44px 1fr;column-gap:10px}#author .story li::before{font-size:40px}}
 
-/* bottom bar turns into a golden coupon once the coupon has popped up */
-.bar-av{display:none;width:40px;height:40px;border-radius:50%;flex:none;background:url(img/logo.webp) center/cover;box-shadow:0 0 0 2px #fff,0 4px 10px -4px rgba(0,0,0,.4)}
-.bar.cp,.bar.cpon{background:linear-gradient(120deg,#FFD58A,#FFB547 55%,#E89A1A);color:#3B2300;border-color:rgba(255,236,190,.8);padding-left:10px;box-shadow:0 14px 34px -12px rgba(224,134,0,.6)}
+/* bottom bar turns into a dark coupon with a golden glow once the coupon has popped up */
+.bar-av{display:none;width:40px;height:40px;border-radius:50%;flex:none;background:url(img/logo.webp) center/cover;box-shadow:0 0 0 2px #FFB547,0 0 12px rgba(255,181,71,.6)}
+.bar.cp,.bar.cpon{background:rgba(11,27,51,.94);color:#fff;border:1.5px solid #FFB547;padding-left:10px;box-shadow:0 0 18px rgba(255,181,71,.45),0 0 40px rgba(255,181,71,.18),0 14px 30px -14px rgba(0,0,0,.6);animation:barglow 2.8s ease-in-out infinite}
+@keyframes barglow{0%,100%{box-shadow:0 0 14px rgba(255,181,71,.35),0 0 32px rgba(255,181,71,.12),0 14px 30px -14px rgba(0,0,0,.6)}50%{box-shadow:0 0 24px rgba(255,181,71,.6),0 0 50px rgba(255,181,71,.25),0 14px 30px -14px rgba(0,0,0,.6)}}
 .bar.cp .bar-av,.bar.cpon .bar-av{display:block}
-.bar.cp .bt small,.bar.cpon .bt small{color:rgba(59,35,0,.78)}
-.bar.cp .bt small b,.bar.cpon .bt small b{font-size:12px;font-weight:650;font-variant-numeric:tabular-nums;color:#3B2300}
-.bar.cp .bt>b,.bar.cpon .bt>b{color:#2A1800}
-.bar.cp .btn,.bar.cpon .btn{background:#0B1B33;color:#FFD08A;box-shadow:none}
+.bar.cp .bt small,.bar.cpon .bt small{color:#FFD08A}
+.bar.cp .bt small b,.bar.cpon .bt small b{font-size:12px;font-weight:650;font-variant-numeric:tabular-nums;color:#FFD08A}
+.bar.cp .bt>b,.bar.cpon .bt>b{color:#fff}
+.bar.cp .btn,.bar.cpon .btn{background:var(--saf);color:var(--deep);box-shadow:0 8px 20px -8px rgba(255,181,71,.7)}
 @media (max-width:380px){.bar.cp .bt>b,.bar.cpon .bt>b{font-size:14px}.bar.cp .btn,.bar.cpon .btn{padding:0 14px;font-size:15px}}
-
+@media (prefers-reduced-motion:reduce){.bar.cp,.bar.cpon{animation:none}}
 /* offer <-> tariffs: one shared golden breath while the offer is active */
 @property --gl{syntax:'<number>';inherits:true;initial-value:0}
 #tariffs.ofon{animation:glp 2.8s ease-in-out infinite}
