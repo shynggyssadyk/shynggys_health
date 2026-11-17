@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <!-- security -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-Rpp4d5iLVsyjMfn9mm6ExQo1w7qQyFCx/P77ClBc5zM='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-Bvxc5it1lzeQxANoqeDC9tytSju561aUjB+I4MWASA8='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
 <meta name="format-detection" content="telephone=no">
@@ -1386,8 +1386,8 @@ const BUY={
   review:WA+encodeURIComponent('Здравствуйте! Хочу на программу «Метаболическая грамотность», тариф «С разбором».')
 };
 // personal coupon: pops up after 1 s on the tariff cards; -3000 KZT on full payment, valid 24 h from that moment (per browser); applied by one tap
-const CPN_MS=24*3600*1000;let start=0;try{start=+localStorage.getItem('gr_cpn_start')||0}catch(e){}
-const dl=()=>start+CPN_MS;let act=false;try{act=localStorage.getItem('gr_cpn_on')==='1'}catch(e){}
+const CPN_MS=24*3600*1000;let start=0;try{start=+localStorage.getItem('gr_cpn2_start')||0}catch(e){}
+const dl=()=>start+CPN_MS;let act=false;try{act=localStorage.getItem('gr_cpn2_on')==='1'}catch(e){}
 const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const fmt=d=>new Intl.DateTimeFormat('ru-RU',{timeZone:'Asia/Almaty',hour:'2-digit',minute:'2-digit',day:'2-digit',month:'2-digit'}).format(d);
 const setLinks=on=>{const tail=on?' Купон SHYNGYS3000: -3 000 ₸ при полной оплате, действует до '+fmt(new Date(dl()))+' (Алматы).':'';
@@ -1417,7 +1417,7 @@ const markOn=()=>{if(!cp)return;cp.classList.add('on');if(go){go.textContent='�
 let oi=null;
 const begin=()=>{document.querySelectorAll('.js-dl').forEach(e=>e.textContent=fmt(new Date(dl())));tickO();if(!oi)oi=setInterval(tickO,1000)};
 const inline=()=>{if(!cp||!slot)return;cp.classList.add('calm','in');slot.appendChild(cp);cp.hidden=false;if(ov)ov.hidden=true;document.documentElement.classList.remove('cpo-open')};
-const pop=()=>{if(!cp||!ov||start)return;start=Date.now();try{localStorage.setItem('gr_cpn_start',String(start))}catch(e){}
+const pop=()=>{if(!cp||!ov||start)return;start=Date.now();try{localStorage.setItem('gr_cpn2_start',String(start))}catch(e){}
   begin();setOffer(false);ov.querySelector('.cpo-in').appendChild(cp);cp.classList.remove('in','calm');cp.hidden=false;ov.hidden=false;document.documentElement.classList.add('cpo-open');
   requestAnimationFrame(()=>requestAnimationFrame(()=>cp.classList.add('in')));setTimeout(()=>burst(cp,18,130),1050);if(go)go.focus({preventScroll:true})};
 if(cp&&start&&dl()>Date.now()){begin();inline();if(act){markOn();setOffer(true)}else setOffer(false)}
@@ -1425,7 +1425,7 @@ else{setOffer(false);if(cp)cp.hidden=true;
   if(!start&&cp&&ov&&'IntersectionObserver' in window){const tarEl=document.querySelector('#tariffs .tar');let tm=null;
     const o=new IntersectionObserver(es=>{const vis=es.some(e=>e.isIntersecting);if(vis&&!tm)tm=setTimeout(()=>{o.disconnect();pop()},1000);else if(!vis&&tm){clearTimeout(tm);tm=null}},{rootMargin:'0px 0px -35% 0px'});if(tarEl)o.observe(tarEl)}}
 if(ov){document.getElementById('cpoX').addEventListener('click',inline);ov.addEventListener('click',e=>{if(e.target===ov)inline()});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!ov.hidden)inline()})}
-if(go)go.addEventListener('click',()=>{if(act||!start)return;act=true;try{localStorage.setItem('gr_cpn_on','1')}catch(e){}
+if(go)go.addEventListener('click',()=>{if(act||!start)return;act=true;try{localStorage.setItem('gr_cpn2_on','1')}catch(e){}
   markOn();burst(cp,16,120);const inOv=ov&&!ov.hidden;
   const p=document.querySelector('#tariffs .plan .price');let fired=false;const fire=()=>{if(fired)return;fired=true;setOffer(true,true)};
   setTimeout(()=>{if(inOv)inline();if(p){p.scrollIntoView({behavior:RM?'auto':'smooth',block:'center'});if('IntersectionObserver' in window){const o2=new IntersectionObserver(es=>{if(es.some(e=>e.isIntersecting)){o2.disconnect();setTimeout(fire,250)}},{threshold:.9});o2.observe(p)}}setTimeout(fire,1800)},inOv?1100:650)});
