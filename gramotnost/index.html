@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <!-- security -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-bQrlENtUNhl0OdcsEynNfB7KhGlkGBsrXcGJMmb7k78='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-Y1DqDz8VkyWHP2PKzQ89Lef3bUAx+tmDPmWgbbSxgBI='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
 <meta name="format-detection" content="telephone=no">
@@ -1136,7 +1136,9 @@ const setLinks=on=>{const tail=on?' Спецпредложение со стра
 const setOffer=on=>{document.querySelectorAll('.js-off').forEach(e=>e.hidden=!on);document.querySelectorAll('.js-on').forEach(e=>e.hidden=on);
   const of=document.getElementById('offer');if(of)of.hidden=!on;const tr=document.getElementById('tariffs');if(tr)tr.classList.toggle('ofon',on);
   document.querySelectorAll('.js-p').forEach(e=>e.textContent=on?e.dataset.off:e.dataset.full);
-  document.querySelectorAll('.js-minprice').forEach(e=>e.textContent=on?'25 000':'28 000');setLinks(on)};
+  ofOn=on;setMin();setLinks(on)};
+let ofOn=false,trSeen=false;const setMin=()=>document.querySelectorAll('.js-minprice').forEach(e=>e.textContent=ofOn&&trSeen?'25 000':'28 000');
+{const tr0=document.getElementById('tariffs');if(tr0&&'IntersectionObserver' in window){const o=new IntersectionObserver(es=>{if(es.some(e=>e.isIntersecting)){trSeen=true;setMin();o.disconnect()}});o.observe(tr0)}}
 const pad2=n=>String(n).padStart(2,'0');
 const tickO=()=>{const left=deadline-Date.now();if(left<=0){setOffer(false);clearInterval(oi);return}
   const t=pad2(Math.floor(left/60000))+':'+pad2(Math.floor(left/1000)%60);['ofT','barT'].forEach(id=>{const e=document.getElementById(id);if(e)e.textContent=t});document.querySelectorAll('.js-t').forEach(e=>e.textContent=t);const pc=Math.max(0,Math.min(100,left/OFFER_MS*100));document.querySelectorAll('.js-bar').forEach(e=>e.style.width=pc+'%')};
