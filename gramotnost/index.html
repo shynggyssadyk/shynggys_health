@@ -678,16 +678,18 @@ html.cpo-open{overflow:hidden}
 @media (min-width:900px){.pains{max-width:none}.pain .ph{width:176px;height:176px}.pain p{font-size:19.5px}}
 @media (prefers-reduced-motion:reduce){.pain.in .ph,.pain.in .ph::before{animation:none}.pain .ph::before{opacity:.18}}
 
-/* author story: big serif numbers + bold titles (variant B) */
-#author .story{padding:0;gap:22px;counter-reset:st}
+/* author story: icon per step (variant В) */
+#author .story{padding:0;gap:22px}
 #author .story::before{display:none}
-#author .story li{display:grid;grid-template-columns:56px 1fr;column-gap:12px;counter-increment:st}
-#author .story li::before{content:counter(st,decimal-leading-zero);position:static;grid-row:span 2;width:auto;height:auto;border:0;border-radius:0;background:none;box-shadow:none;font-family:var(--serif);font-style:italic;font-weight:400;font-size:46px;line-height:.9;color:var(--teal);letter-spacing:-.02em}
-#author .story li:last-child::before{background:none;box-shadow:none}
+#author .story li{display:grid;grid-template-columns:46px 1fr;column-gap:14px;position:relative}
+#author .story li::before{display:none}
+#author .story li:not(:last-child)::after{content:"";position:absolute;left:22px;top:52px;bottom:-18px;width:2px;border-radius:2px;background:linear-gradient(#BFEAEE,rgba(191,234,238,.2))}
+#author .story .si{grid-row:span 2;width:46px;height:46px;border-radius:15px;background:linear-gradient(150deg,#22BEC8,#0E8F9B);display:flex;align-items:center;justify-content:center;box-shadow:0 10px 20px -10px rgba(14,143,155,.8)}
+#author .story li:last-child .si{background:linear-gradient(150deg,#FFC56B,#E08600);box-shadow:0 10px 20px -10px rgba(224,134,0,.8)}
+#author .story .si svg{width:23px;height:23px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 #author .story small{font-size:19px;letter-spacing:-.01em;text-transform:none;font-weight:600;color:var(--ink);line-height:1.2;padding-top:3px}
-#author .story p{margin-top:6px}
-@media (max-width:460px){#author .story li{grid-template-columns:44px 1fr;column-gap:10px}#author .story li::before{font-size:40px}}
-
+#author .story p{margin-top:5px}
+@media (max-width:460px){#author .story li{grid-template-columns:42px 1fr;column-gap:12px}#author .story .si{width:42px;height:42px;border-radius:14px}#author .story li:not(:last-child)::after{left:20px;top:48px}}
 /* bottom bar turns into a dark coupon with a golden glow once the coupon has popped up */
 .bar-av{display:none;width:40px;height:40px;border-radius:50%;flex:none;background:url(img/logo.webp) center/cover;box-shadow:0 0 0 2px #FFB547,0 0 12px rgba(255,181,71,.6)}
 .bar.cp,.bar.cpon{background:rgba(11,27,51,.94);color:#fff;border:1.5px solid #FFB547;padding-left:10px;box-shadow:0 0 18px rgba(255,181,71,.45),0 0 40px rgba(255,181,71,.18),0 14px 30px -14px rgba(0,0,0,.6);animation:barglow 2.8s ease-in-out infinite}
@@ -699,9 +701,6 @@ html.cpo-open{overflow:hidden}
 .bar.cp .btn,.bar.cpon .btn{background:var(--saf);color:var(--deep);box-shadow:0 8px 20px -8px rgba(255,181,71,.7)}
 @media (max-width:380px){.bar.cp .bt>b,.bar.cpon .bt>b{font-size:14px}.bar.cp .btn,.bar.cpon .btn{padding:0 14px;font-size:15px}}
 @media (prefers-reduced-motion:reduce){.bar.cp,.bar.cpon{animation:none}}
-.pain p b{display:block;font-size:21px;font-weight:600;line-height:1.25;letter-spacing:-.01em;color:var(--ink);margin-bottom:8px;text-wrap:balance}
-.pain p{font-size:17.5px;font-weight:380;line-height:1.5;color:#33507A;max-width:20em}
-.pain:nth-child(n+7){--a:#00306C;--b:#0B1B33;--n:#0B1B33}
 
 /* offer <-> tariffs: one shared golden breath while the offer is active */
 @property --gl{syntax:'<number>';inherits:true;initial-value:0}
@@ -1147,21 +1146,21 @@ section{padding:56px 0}
 <section class="light" id="pains"><div class="xf l t" aria-hidden="true"></div>
   <div class="wrap">
     <div class="kick rv">Узнаёте себя?</div>
-    <h2 class="rv">Почему заняться здоровьем <em class="s">так сложно</em>, даже когда вы очень хотите</h2>
+    <h2 class="rv">Знакомо хотя бы <em class="s">одно</em>?</h2>
     <ol class="pains">
-      <li class="pain rv"><span class="ph"><img src="img/pn7.webp" alt="Женщина в растерянности перед ноутбуком" width="184" height="184" loading="lazy"><small>01</small></span><p><b>Не понимаете, с чего начать</b>Информации много, и она противоречит друг другу. Один специалист говорит одно, блогер - другое, знакомые - третье. В итоге вы откладываете.</p></li>
-      <li class="pain rv"><span class="ph"><img src="img/pn1.webp" alt="Женщина утром тянется к будильнику" width="184" height="184" loading="lazy"><small>02</small></span><p><b>Анализы «в норме», а самочувствие нет</b>Усталость, туман в голове, после обеда хочется лечь. Вы сдали анализы, но вам сказали, что всё хорошо.</p></li>
-      <li class="pain rv"><span class="ph"><img src="img/pn2.webp" alt="Пробирки с кровью для анализов" width="184" height="184" loading="lazy"><small>03</small></span><p><b>Не знаете, какие анализы сдавать и как читать бланк</b>Сдаёте наугад или по чужому списку. Получаете результаты и не понимаете, что значат эти цифры и что с ними делать.</p></li>
-      <li class="pain rv"><span class="ph"><img src="img/pn8.webp" alt="Горсть разноцветных капсул и таблеток" width="184" height="184" loading="lazy"><small>04</small></span><p><b>Пьёте добавки наугад</b>Железо, витамин D, магний - по совету из соцсетей или от знакомых. Не знаете, нужно ли это именно вам, в какой форме и с чем сочетается.</p></li>
-      <li class="pain rv"><span class="ph"><img src="img/pn4.webp" alt="Женщина с пончиком" width="184" height="184" loading="lazy"><small>05</small></span><p><b>Считаете, что дело в силе воли</b>Тяга к сладкому, срывы, вес не уходит. Вы вините себя, хотя за этим часто стоят биохимические причины, которые можно проверить.</p></li>
-      <li class="pain rv"><span class="ph"><img src="img/pn9.webp" alt="Женщина ночью смотрит в телефон" width="184" height="184" loading="lazy"><small>06</small></span><p><b>Тревожитесь и гуглите симптомы</b>Без понятного объяснения в голову приходит худшее. Хочется понимать, что происходит в организме, а не бояться.</p></li>
+      <li class="pain rv"><span class="ph"><img src="img/pn1.webp" alt="Женщина утром тянется к будильнику" width="184" height="184" loading="lazy"><small>01</small></span><p>Просыпаетесь уже разбитыми, энергии хватает на полдня</p></li>
+      <li class="pain rv"><span class="ph"><img src="img/pn2.webp" alt="Пробирки с кровью для анализов" width="184" height="184" loading="lazy"><small>02</small></span><p>Сдаёте анализы, слышите «всё в норме» - а лучше не становится</p></li>
+      <li class="pain rv"><span class="ph"><img src="img/pn3.webp" alt="Руки на животе при вздутии" width="184" height="184" loading="lazy"><small>03</small></span><p>Вздутие, тяжесть после еды, непонятные реакции на продукты</p></li>
+      <li class="pain rv"><span class="ph"><img src="img/pn4.webp" alt="Женщина с пончиком" width="184" height="184" loading="lazy"><small>04</small></span><p>Вес не уходит даже на диетах, тянет на сладкое</p></li>
+      <li class="pain rv"><span class="ph"><img src="img/pn5.webp" alt="Выпавшие волосы на расчёске" width="184" height="184" loading="lazy"><small>05</small></span><p>Выпадают волосы, ломаются ногти, кожа сухая или жирная</p></li>
+      <li class="pain rv"><span class="ph"><img src="img/pn6.webp" alt="Женщина не может уснуть ночью" width="184" height="184" loading="lazy"><small>06</small></span><p>Спите достаточно часов - и всё равно не высыпаетесь</p></li>
     </ol>
     <div class="opq rv">
       <div class="opq-h"><span class="gf"><i></i>Google Forms</span><b>Так клиенты описывают своё состояние</b><small>Скриншоты ответов из опросника перед консультацией. Фамилии сокращены.</small></div>
       <div class="opq-ring" id="opqRing" tabindex="0" aria-roledescription="карусель" aria-label="Ответы из опросника"><figure class="opc"><figcaption class="opc-h"><span class="opc-av" style="background:#7248B9">О</span><span><b>Ольга К.</b><small>38 лет · ответ в опроснике</small></span></figcaption><img src="img/op1.webp" alt="Ольга К., 38 лет: ответ в опроснике перед консультацией" loading="lazy"></figure><figure class="opc"><figcaption class="opc-h"><span class="opc-av" style="background:#1A73E8">Л</span><span><b>Людмила П.</b><small>24 года · ответ в опроснике</small></span></figcaption><img src="img/op2.webp" alt="Людмила П., 24 года: ответ в опроснике перед консультацией" loading="lazy"></figure><figure class="opc"><figcaption class="opc-h"><span class="opc-av" style="background:#0E8F9B">А</span><span><b>Айдос Д.</b><small>33 года · ответ в опроснике</small></span></figcaption><img src="img/op3.webp" alt="Айдос Д., 33 года: ответ в опроснике перед консультацией" loading="lazy"></figure><figure class="opc"><figcaption class="opc-h"><span class="opc-av" style="background:#E08600">А</span><span><b>Айгуль Б.</b><small>39 лет · ответ в опроснике</small></span></figcaption><img src="img/op4.webp" alt="Айгуль Б., 39 лет: ответ в опроснике перед консультацией" loading="lazy"></figure><figure class="opc"><figcaption class="opc-h"><span class="opc-av" style="background:#C2185B">С</span><span><b>Салтанат А.</b><small>39 лет · ответ в опроснике</small></span></figcaption><img src="img/op5.webp" alt="Салтанат А., 39 лет: ответ в опроснике перед консультацией" loading="lazy"></figure><figure class="opc"><figcaption class="opc-h"><span class="opc-av" style="background:#5F6368">А</span><span><b>Асемгуль М.</b><small>42 года · ответ в опроснике</small></span></figcaption><img src="img/op7.webp" alt="Асемгуль М., 42 года: ответ в опроснике перед консультацией" loading="lazy"></figure><figure class="opc"><figcaption class="opc-h"><span class="opc-av" style="background:#2E7D32">К</span><span><b>Кристина С.</b><small>30 лет · ответ в опроснике</small></span></figcaption><img src="img/op6.webp" alt="Кристина С., 30 лет: ответ в опроснике перед консультацией" loading="lazy"></figure></div>
       <div class="opq-nav"><button type="button" class="opq-b" id="opqPrev" aria-label="Предыдущий ответ"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button><span class="opq-c" id="opqCnt" aria-live="polite">1 / 7</span><button type="button" class="opq-b" id="opqNext" aria-label="Следующий ответ"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button></div>
     </div>
-    <p class="bridge rv">Всё это решается не новой диетой, а пониманием того, <mark class="hl">как работает ваш метаболизм</mark>. С этого и начинается программа.</p>
+    <p class="bridge rv">За каждым из этих состояний стоят причинно-следственные связи внутри организма. Программа объясняет их простым языком - чтобы вы <mark class="hl">перестали действовать вслепую</mark> и пробовать советы наугад.</p>
   </div>
 </section>
 
@@ -1309,7 +1308,7 @@ section{padding:56px 0}
         <div class="ds-st"><div><b>3 <small>года</small></b><span>частной практики</span></div><div><b>1 000<small>+</small></b><span>проведённых консультаций</span></div></div>
       </div>
       <div>
-        <ol class="story"><li class="rv"><small>Откуда я</small><p>Я вырос в среде здравоохранения. Разговоры о здоровье, самочувствии и анализах были обычной частью жизни - поэтому я всегда был чуть более осведомлён, чем окружающие.</p></li><li class="rv"><small>Метаболическое здоровье</small><p>Химическое образование в Назарбаев Университете дало главное: понимание молекулярных и биохимических процессов - того, что на самом деле происходит в организме за цифрами анализов.</p></li><li class="rv"><small>Поворот</small><p>После учёбы я работал в корпоративном секторе - и разочаровался. Хотелось заниматься тем, что реально меняет жизнь людей.</p></li><li class="rv"><small>Вызов</small><p>Вокруг я видел тотальную неосведомлённость. Люди с усталостью при анализах «в норме» пробуют советы наугад, а советы им дают «специалисты» после трёхмесячных курсов. Я решил с этим бороться.</p></li><li class="rv"><small>Миссия</small><p>Просвещать: давать людям качественные знания на научной базе и объяснять сложное простым языком - чтобы вы понимали свой организм сами и могли отличить доказательный совет от случайного.</p></li></ol>
+        <ol class="story"><li class="rv"><span class="si" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg></span><small>Откуда я</small><p>Я вырос в среде здравоохранения. Разговоры о здоровье, самочувствии и анализах были обычной частью жизни - поэтому я всегда был чуть более осведомлён, чем окружающие.</p></li><li class="rv"><span class="si" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 1.7 3h10.6a2 2 0 0 0 1.7-3l-5-9V3"/><path d="M7.5 14h9"/></svg></span><small>Метаболическое здоровье</small><p>Химическое образование в Назарбаев Университете дало главное: понимание молекулярных и биохимических процессов - того, что на самом деле происходит в организме за цифрами анализов.</p></li><li class="rv"><span class="si" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg></span><small>Поворот</small><p>После учёбы я работал в корпоративном секторе - и разочаровался. Хотелось заниматься тем, что реально меняет жизнь людей.</p></li><li class="rv"><span class="si" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg></span><small>Вызов</small><p>Вокруг я видел тотальную неосведомлённость. Люди с усталостью при анализах «в норме» пробуют советы наугад, а советы им дают «специалисты» после трёхмесячных курсов. Я решил с этим бороться.</p></li><li class="rv"><span class="si" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 11v2a1 1 0 0 0 1 1h3l6 4V6L7 10H4a1 1 0 0 0-1 1z"/><path d="M17 9a4 4 0 0 1 0 6M19.5 6.5a8 8 0 0 1 0 11"/></svg></span><small>Миссия</small><p>Просвещать: давать людям качественные знания на научной базе и объяснять сложное простым языком - чтобы вы понимали свой организм сами и могли отличить доказательный совет от случайного.</p></li></ol>
         <div class="quote rv">
           <p>«Моя цель - чтобы как можно больше людей начали <em class="s">принимать осознанные решения</em> о своём здоровье, а не действовали вслепую. Так улучшается качество жизни - и вашей, и ваших близких. «Метаболическая грамотность» - первый шаг к этому, доступный каждому, независимо от бюджета».</p>
           <div class="vals"><span>Осознанные решения</span><span>Здоровье близких</span><span>Доступно каждому</span></div>
