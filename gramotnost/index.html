@@ -793,6 +793,15 @@ body.sheet-open{overflow:hidden}
 .vid figcaption b em{font-family:var(--serif);font-style:italic;font-weight:480;color:#5FD6DE}
 
 .fmt::before,.fmt::after{bottom:var(--fe,40px)}
+
+/* layout E: tighter rhythm, dark sections as rounded islands on one light ribbon (no haze between sections) */
+body{background:#F4F7FB}
+section{padding:56px 0}
+.xf,.sfade{display:none!important}
+#top{border-radius:0 0 30px 30px;overflow:hidden}
+#bonus,#format,#tariffs,#final{margin:10px;border-radius:30px;overflow:hidden;padding:56px 0 64px!important}
+#bonus>.wrap,#tariffs>.wrap,#final>.wrap{padding-left:14px;padding-right:14px}
+@media (min-width:700px){section{padding:80px 0}#bonus,#format,#tariffs,#final{margin:16px;padding:80px 0 88px!important}#bonus>.wrap,#format>.wrap,#tariffs>.wrap,#final>.wrap{padding-left:20px;padding-right:20px}}
 </style>
 </head>
 <body>
