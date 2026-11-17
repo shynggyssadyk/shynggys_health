@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <!-- security -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-l8v6WYb0byC7bapEeWR+BxM9ChUplfz+UH98V6B44Oo='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-wPiBon31dArGOy8yIFG8qkdHryyODZuVa7IFl84L6JY='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
 <meta name="format-detection" content="telephone=no">
@@ -941,6 +941,45 @@ section{padding:56px 0}
 .ep.rvx{opacity:0;transform:translateX(70px) scale(.94);transition:opacity .7s ease var(--d,0s),transform 1s cubic-bezier(.16,1,.3,1) var(--d,0s)}
 .ep.rvx.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.rv[class*="rv-"],.rv[class*="rv-"] img,.ep.rvx,.chap li img{opacity:1!important;transform:none!important;filter:none!important;clip-path:none!important;transition:none!important}}
+
+/* myths: myth -> truth pairs */
+.myth2{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:14px}
+@media (min-width:860px){.myth2{grid-template-columns:repeat(3,1fr)}}
+.myth2 li{background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 18px 36px -24px rgba(0,48,108,.5);display:flex;flex-direction:column}
+.m2-m{background:linear-gradient(160deg,#FFF3F0,#FFE6E1);padding:15px 16px;display:flex;gap:11px;align-items:flex-start}
+.m2-m i,.m2-t i{flex:none;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;color:#fff;margin-top:1px}
+.m2-m i{background:var(--coral)}.m2-t i{background:#0E8F9B}
+.m2-m small{display:block;font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;font-weight:600;color:#D0574A;margin-bottom:2px}
+.m2-m b{font-size:16px;line-height:1.35;font-weight:550;color:#7E2A20}
+.m2-t{padding:15px 16px 17px;display:flex;gap:11px}
+.m2-t p{font-size:15px;line-height:1.5;color:var(--ink)}
+.m2-t p b{color:#0E8F9B;font-weight:580}
+/* lab form: teal backing, numbered notes */
+#myths .blank{background:transparent;box-shadow:none;padding:0}
+.bl2{background:linear-gradient(160deg,#DDF3F4,#E9F1FA);border-radius:24px;padding:12px;gap:12px}
+.bl2 .bl-r{background:#fff;border:0!important;border-radius:16px;padding:10px 10px 4px;box-shadow:0 14px 28px -20px rgba(0,48,108,.55)}
+.bl2 .bl-r img{border-radius:8px}
+.bl2 .bl-r i{background:none!important;display:flex;align-items:center;gap:9px;padding:10px 2px 8px;font-size:14.5px;color:var(--ink)!important}
+.bl2 .bl-r i em{flex:none;width:24px;height:24px;border-radius:8px;font:600 12.5px/24px Geologica,sans-serif;text-align:center;font-style:normal;color:#fff;background:var(--coral)}
+.bl2 .bl-r.ok i em{background:#FFB547;color:#5A3500}
+/* "это не": two reels with stamps */
+.nts2 .nt-k{margin-bottom:10px}
+.rls{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.rl{position:relative;border-radius:18px;overflow:hidden;aspect-ratio:9/13;background:#111;color:#fff;box-shadow:0 18px 34px -22px rgba(0,0,0,.6)}
+.rl-v{position:absolute;inset:0}
+.rl-v.g1{background:linear-gradient(160deg,#6b5a4e,#b89a80 45%,#e8d4bd)}
+.rl-v.g2{background:linear-gradient(160deg,#3b4a5e,#8aa0b8 50%,#dfe6ee)}
+.rl-c{position:absolute;left:10px;right:10px;top:42%;text-align:center;font-weight:650;font-size:14.5px;line-height:1.45}
+.rl-c span{background:#fff;color:#111;padding:2px 6px;border-radius:5px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.rl-u{position:absolute;left:10px;bottom:10px;display:flex;align-items:center;gap:6px;font-size:11.5px;font-weight:550}
+.rl-u i{width:22px;height:22px;border-radius:50%;background:#ddd;filter:blur(2px)}
+.rl-u em{font-style:normal;filter:blur(3.5px)}
+.rl-s{position:absolute;right:8px;bottom:12px;display:grid;gap:8px;font-size:10px;text-align:center;line-height:1.2}
+.stmp{position:absolute;left:10px;top:14px;font-size:13px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--coral-d);border:2.5px solid var(--coral-d);border-radius:8px;padding:3px 8px;background:rgba(255,255,255,.92);transform:rotate(-10deg)}
+.nts2-p{margin-top:12px;font-size:14px;line-height:1.5;color:#8FA6C4}
+.nts2-p s{text-decoration-color:rgba(229,72,58,.85);text-decoration-thickness:1.5px}
+.nts2-n{margin-top:4px;font-size:11.5px;color:#9AACC4}
+@media (min-width:700px){.nts2{max-width:440px;margin:0 auto}}
 </style>
 </head>
 <body>
@@ -1010,13 +1049,13 @@ section{padding:56px 0}
   <div class="wrap">
     <div class="kick rv">Почему советы наугад не работают</div>
     <h2 class="rv">Три убеждения, которые <em class="s">мешают разобраться</em></h2>
-    <ol class="myth"><li class="rv"><span class="mn">1</span><div><s>«Анализы в норме - значит, всё в порядке»</s><p><b>На самом деле.</b> Норма в бланке - это широкий диапазон для всех, а не оптимум для вас. Ниже реальный пример: железо «в норме», а запасов почти нет.</p></div></li><li class="rv"><span class="mn">2</span><div><s>«Чтобы разобраться, нужно медицинское образование»</s><p><b>На самом деле.</b> Каждая лекция идёт от механики к практике и объясняет простым языком - с примерами и разбором ситуаций.</p></div></li><li class="rv"><span class="mn">3</span><div><s>«Нужно перепробовать всё: БАДы, диеты, режимы»</s><p><b>На самом деле.</b> Сначала - понять причинно-следственные связи, потом действовать. В конце программы у вас будет личный план: что делать и какие анализы сдать в первую очередь.</p></div></li></ol>
+    <ol class="myth2"><li class="rv"><div class="m2-m"><i aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 3l6 6M9 3l-6 6"/></svg></i><div><small>Убеждение</small><b>«Анализы в норме - значит, всё в порядке»</b></div></div><div class="m2-t"><i aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.3l2.3 2.2 4.7-5"/></svg></i><p><b>На самом деле.</b> Норма в бланке - это широкий диапазон для всех, а не оптимум для вас. Ниже реальный пример: железо «в норме», а запасов почти нет.</p></div></li><li class="rv"><div class="m2-m"><i aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 3l6 6M9 3l-6 6"/></svg></i><div><small>Убеждение</small><b>«Чтобы разобраться, нужно медицинское образование»</b></div></div><div class="m2-t"><i aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.3l2.3 2.2 4.7-5"/></svg></i><p><b>На самом деле.</b> Каждая лекция идёт от механики к практике и объясняет простым языком - с примерами и разбором ситуаций.</p></div></li><li class="rv"><div class="m2-m"><i aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 3l6 6M9 3l-6 6"/></svg></i><div><small>Убеждение</small><b>«Нужно перепробовать всё: БАДы, диеты, режимы»</b></div></div><div class="m2-t"><i aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.3l2.3 2.2 4.7-5"/></svg></i><p><b>На самом деле.</b> Сначала - понять причинно-следственные связи, потом действовать. В конце программы у вас будет личный план: что делать и какие анализы сдать в первую очередь.</p></div></li></ol>
     <div class="blank rv">
       <div class="bl-h"><span class="kick">Пример из гайда</span><b>Железо «в норме» - а запасов почти нет</b><p>Реальный бланк анализов (личные данные скрыты). Если смотреть только на пометку «в норме», дефицит легко пропустить.</p></div>
-      <div class="bl-rows">
-        <div class="bl-r bad"><img src="img/bl_fer.webp" alt="Ферритин меньше 8 мкг/л при норме 10-120" width="960" height="210" loading="lazy"><i>Запасов железа почти нет</i></div>
-        <div class="bl-r ok"><img src="img/bl_fe.webp" alt="Железо в сыворотке 9,4 мкмоль/л в пределах нормы" width="960" height="210" loading="lazy"><i>«В норме» - и это вводит в заблуждение</i></div>
-        <div class="bl-r bad"><img src="img/bl_tibc.webp" alt="ОЖСС 83,1 мкмоль/л выше нормы" width="960" height="210" loading="lazy"><i>Организм ищет железо</i></div>
+      <div class="bl-rows bl2">
+        <div class="bl-r bad"><img src="img/bl_fer.webp" alt="Ферритин меньше 8 мкг/л при норме 10-120" width="960" height="210" loading="lazy"><i><em>1</em>Запасов железа почти нет</i></div>
+        <div class="bl-r ok"><img src="img/bl_fe.webp" alt="Железо в сыворотке 9,4 мкмоль/л в пределах нормы" width="960" height="210" loading="lazy"><i><em>2</em>«В норме» - и это вводит в заблуждение</i></div>
+        <div class="bl-r bad"><img src="img/bl_tibc.webp" alt="ОЖСС 83,1 мкмоль/л выше нормы" width="960" height="210" loading="lazy"><i><em>3</em>Организм ищет железо</i></div>
       </div>
     </div>
   </div>
@@ -1028,8 +1067,7 @@ section{padding:56px 0}
     <div class="kick rv">Что это за программа</div>
     <h2 class="rv">Системные знания, а не <em class="s">советы из интернета</em></h2>
     <div class="vs2">
-      <div class="nts"><div class="nt n1 rv"><span class="nt-k">Это не</span><s>Сборник информации из интернета без доказательной базы</s></div><div class="nt n2 rv"><s>Общие советы и очевидные вещи</s></div></div>
-      <div class="vs-ar" aria-hidden="true"><svg width="28" height="36" viewBox="0 0 28 36" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2v30M5 23l9 9 9-9"/></svg></div>
+      <div class="nts2 rv"><span class="nt-k">Это не</span><div class="rls"><div class="rl"><div class="rl-v g1"></div><div class="rl-c"><span>Сельдерейный сок натощак лечит щитовидку</span></div><div class="rl-u"><i></i><em>nutri_coach</em></div><div class="rl-s"><span>♥<br>48K</span><span>✎<br>1,2K</span></div><span class="stmp">Не доказано</span></div><div class="rl"><div class="rl-v g2"></div><div class="rl-c"><span>Убрали глютен - усталость ушла за неделю</span></div><div class="rl-u"><i></i><em>health.guru</em></div><div class="rl-s"><span>♥<br>48K</span><span>✎<br>1,2K</span></div><span class="stmp">Общий совет</span></div></div><p class="nts2-p"><s>Сборник информации из интернета без доказательной базы</s> · <s>общие советы и очевидные вещи</s></p><p class="nts2-n">Примеры собирательные, имена скрыты</p></div><div class="vs-ar" aria-hidden="true"><svg width="28" height="36" viewBox="0 0 28 36" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2v30M5 23l9 9 9-9"/></svg></div>
       <div class="ck rv"><span class="ck-k">Это</span><div><i>✓</i>Системные знания, основанные на научном подходе</div><div><i>✓</i>Инструменты самодиагностики на базовом уровне</div><div><i>✓</i>Первый шаг к осознанным решениям о своём здоровье</div></div>
     </div>
 
@@ -1415,8 +1453,8 @@ if(b&&f){f.textContent='Об этом - лекция '+b.querySelector('em').tex
 const pick=el=>{if(el.closest('#tariffs')||el.matches('.nt,.offer,.stack'))return null;const c=el.classList;
 if(c.contains('kick'))return 'rv-l';if(el.tagName==='H2')return 'rv-blur';
 if(el.matches('figure,.vid,.zshot,.au-ph,.lecw,.slides,.shelf,.blank,.zone,.opq'))return 'rv-clip';
-if(c.contains('pain'))return 'rv-zoom';if(c.contains('fit-y'))return 'rv-l';if(c.contains('fit-n'))return 'rv-r';
-if(el.tagName==='LI'){const p=el.parentElement;if(p.matches('.chap'))return 'rv-r';if(p.matches('.myth,.story'))return [...p.children].indexOf(el)%2?'rv-r':'rv-l';return 'rv-up'}
+if(c.contains('pain'))return 'rv-zoom';if(c.contains('nts2'))return 'rv-zoom';if(c.contains('fit-y'))return 'rv-l';if(c.contains('fit-n'))return 'rv-r';
+if(el.tagName==='LI'){const p=el.parentElement;if(p.matches('.chap'))return 'rv-r';if(p.matches('.myth,.myth2,.story'))return [...p.children].indexOf(el)%2?'rv-r':'rv-l';return 'rv-up'}
 if(el.matches('.card,.quote,.why,.ck,.path,.ctas'))return 'rv-zoom';return 'rv-up'};
 document.querySelectorAll('.rv').forEach(el=>{const v=pick(el);if(!v)return;el.classList.add(v);
 const sib=[...el.parentElement.children].filter(x=>x.classList.contains('rv'));const k=sib.indexOf(el);if(k>0&&el.tagName!=='H2'&&!el.classList.contains('kick'))el.style.setProperty('--d',Math.min(k,5)*0.09+'s')});
