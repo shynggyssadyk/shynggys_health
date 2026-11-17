@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <!-- security -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-eYbb2Zr6GxtYo1agE8cRKr+dewyHoUBEbe5GXi6ixv8='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-53P3LNuOayhKVaQAjfNtt7XYQoRmvxXPqka4TZpA17M='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
 <meta name="format-detection" content="telephone=no">
@@ -1400,12 +1400,14 @@ const burst=(host,n,spread)=>{if(RM||!host)return;const fx=document.createElemen
     p.style.setProperty('--x',(Math.cos(a)*d*1.35).toFixed(0)+'px');p.style.setProperty('--y',(Math.sin(a)*d).toFixed(0)+'px');p.style.setProperty('--r',((Math.random()-.5)*300).toFixed(0)+'deg');
     p.style.setProperty('--s',(bolt?18+Math.random()*8:9+Math.random()*10).toFixed(0)+'px');p.style.setProperty('--c',bolt?'#FFD08A':(k%2?'#FFB547':'#fff'));p.style.setProperty('--t',(.7+Math.random()*.5).toFixed(2)+'s');p.style.setProperty('--dl',(Math.random()*.12).toFixed(2)+'s');fx.appendChild(p)}
   host.appendChild(fx);setTimeout(()=>fx.remove(),1600)};
-const setOffer=(on,anim)=>{document.querySelectorAll('.js-off').forEach(e=>e.hidden=!on);document.querySelectorAll('.js-on').forEach(e=>e.hidden=on);
+const dropPlan=pl=>{pl.querySelectorAll('.js-off').forEach(e=>e.hidden=false);pl.querySelectorAll('.js-p').forEach(e=>{const full=+e.dataset.full.replace(/\D/g,''),off=+e.dataset.off.replace(/\D/g,'');
+    const m=e.closest('.main'),b=e.closest('b'),o=m&&m.querySelector('.ofr');if(o){o.classList.remove('go');void o.offsetWidth;o.classList.add('go')}
+    setTimeout(()=>{countTo(e,full,off);if(b){b.classList.remove('drop');void b.offsetWidth;b.classList.add('drop')}},450);setTimeout(()=>burst(m,12,70),1450)})};
+const setOffer=(on,anim)=>{const lazy=on&&anim&&'IntersectionObserver' in window;
+  document.querySelectorAll('.js-off').forEach(e=>{e.hidden=!on||(lazy&&!!e.closest('.plan'))});document.querySelectorAll('.js-on').forEach(e=>e.hidden=on);
   const tr=document.getElementById('tariffs');if(tr)tr.classList.toggle('ofon',on);
-  document.querySelectorAll('.js-p').forEach(e=>{const full=+e.dataset.full.replace(/\D/g,''),off=+e.dataset.off.replace(/\D/g,'');
-    if(on&&anim){const m=e.closest('.main'),b=e.closest('b'),o=m&&m.querySelector('.ofr');if(o){o.classList.remove('go');void o.offsetWidth;o.classList.add('go')}
-      setTimeout(()=>{countTo(e,full,off);if(b){b.classList.remove('drop');void b.offsetWidth;b.classList.add('drop')}},450);setTimeout(()=>burst(m,12,70),1450)}
-    else e.textContent=nf(on?off:full)});
+  if(lazy){document.querySelectorAll('#tariffs .plan').forEach(pl=>{const pr=pl.querySelector('.price .main')||pl;const o=new IntersectionObserver(es=>{if(es.some(e=>e.isIntersecting)){o.disconnect();setTimeout(()=>dropPlan(pl),200)}},{threshold:.9});o.observe(pr)})}
+  else document.querySelectorAll('.js-p').forEach(e=>{const full=+e.dataset.full.replace(/\D/g,''),off=+e.dataset.off.replace(/\D/g,'');if(on&&anim)dropPlan(e.closest('.plan')||document);else e.textContent=nf(on?off:full)});
   ofOn=on;setMin();setLinks(on)};
 let ofOn=false,trSeen=false;const setMin=()=>{const bo=document.querySelector('#bar .bar-o'),bn=document.querySelector('#bar .bt .js-on'),ba=document.querySelector('#bar a');if(bo&&bn&&ba){const sh=ofOn&&trSeen;bo.hidden=!sh;bn.hidden=sh;ba.textContent=trSeen?'Выбрать тариф':'Смотреть тарифы'}};
 {const tr0=document.getElementById('tariffs');if(tr0&&'IntersectionObserver' in window){const o=new IntersectionObserver(es=>{if(es.some(e=>e.isIntersecting)){trSeen=true;setMin();o.disconnect()}});o.observe(tr0)}}
@@ -1427,8 +1429,9 @@ else{setOffer(false);if(cp)cp.hidden=true;
 if(ov){document.getElementById('cpoX').addEventListener('click',inline);ov.addEventListener('click',e=>{if(e.target===ov)inline()});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!ov.hidden)inline()})}
 if(go)go.addEventListener('click',()=>{if(act||!start)return;act=true;try{localStorage.setItem('gr_cpn3_on','1')}catch(e){}
   markOn();burst(cp,16,120);const inOv=ov&&!ov.hidden;
-  const p=document.querySelector('#tariffs .plan .price');let fired=false;const fire=()=>{if(fired)return;fired=true;setOffer(true,true)};
-  setTimeout(()=>{if(inOv)inline();if(p){p.scrollIntoView({behavior:RM?'auto':'smooth',block:'center'});if('IntersectionObserver' in window){const o2=new IntersectionObserver(es=>{if(es.some(e=>e.isIntersecting)){o2.disconnect();setTimeout(fire,250)}},{threshold:.9});o2.observe(p)}}setTimeout(fire,1800)},inOv?1100:650)});
+  setTimeout(()=>{if(inOv)inline();setOffer(true,true);
+    const ps=[...document.querySelectorAll('#tariffs .plan .price .main')],H=innerHeight,seen=ps.some(p=>{const r=p.getBoundingClientRect();return r.top>=0&&r.bottom<=H});
+    if(!seen&&ps.length){const near=ps.reduce((a,p)=>Math.abs(p.getBoundingClientRect().top-H/2)<Math.abs(a.getBoundingClientRect().top-H/2)?p:a);near.scrollIntoView({behavior:RM?'auto':'smooth',block:'center'})}},inOv?1100:650)});
 // lockup: name line exactly as wide as the subtitle line
 const fit=()=>{const n=document.getElementById('lkName'),s=document.getElementById('lkSub');if(!n||!s)return;
   const r=document.createRange();r.selectNodeContents(s);const ls=parseFloat(getComputedStyle(s).letterSpacing)||0;const target=r.getBoundingClientRect().width-ls;
