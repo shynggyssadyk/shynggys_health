@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <!-- security -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-xxB9qu/PUp7Wz8tci8W2KtS7uovYsOcagMf/E55PGA4='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-quHyn5Hzc3kboS9oy4alN/R9W6Y6FJf326FP/XkeN5s='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
 <meta name="format-detection" content="telephone=no">
@@ -12,7 +12,16 @@
 <title>Метаболическая грамотность · Шынгыс Садык</title>
 <meta name="description" content="Онлайн-программа: 10 Zoom-лекций о работе организма на доказательном подходе. Разберитесь за 14 дней.">
 <meta name="theme-color" content="#0B1B33">
-<meta name="format-detection" content="telephone=no">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://shynggyssadyk.github.io/gramotnost/">
+<meta property="og:title" content="Анализы «в норме», а сил нет? · Метаболическая грамотность">
+<meta property="og:description" content="Онлайн-программа Шынгыса Садыка: за 14 дней разберётесь, откуда берётся усталость, и уйдёте с личным планом.">
+<meta property="og:image" content="https://shynggyssadyk.github.io/gramotnost/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="img/icon.png">
+<link rel="apple-touch-icon" href="img/icon.png">
 <style>
 @font-face{font-family:'Geologica';font-style:normal;font-weight:100 900;font-display:swap;src:url(fonts/Geologica-cyrillic-189ca8.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
 @font-face{font-family:'Geologica';font-style:normal;font-weight:100 900;font-display:swap;src:url(fonts/Geologica-latin-d17690.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+20B8,U+20BD,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
@@ -756,6 +765,41 @@ html.cpo-open{overflow:hidden}
 @media (min-width:860px){#top .lock{left:max(20px,calc((100vw - 1000px)/2))}#top .hero-txt{padding-bottom:72px!important}#top .hero-media video{object-position:50% 45%!important}}
 @media (prefers-reduced-motion:reduce){#top .hero-media video{transform:none}}
 
+/* calm pass: every block follows the minimal matte hero - neutral dark, fine grain, lighter headings, no neon; readable small text */
+#top::before,#top::after{display:none!important}
+#top .hero-media video,#top .hero-media img{filter:none;transform:none}
+#top .hero-media::before{background:url(img/noise_a.png) 0 0/220px;opacity:.7;mix-blend-mode:normal}
+#top h1{font-weight:520}
+h2{font-weight:520;letter-spacing:-.028em}
+.kick{font-size:13.5px;letter-spacing:.12em}
+.light .kick{color:#0B7480}
+.dark:not(#top):not(#myths){background:url(img/noise_a.png) 0 0/220px,linear-gradient(172deg,#0F2241 0%,#0A1830 100%)!important}
+#myths.apl{background:url(img/noise_a.png) 0 0/220px,#050608}
+.dark:not(#top)::before,.dark:not(#top)::after{opacity:.16!important}
+.light::before,.light::after{opacity:.28!important}
+.lux .kick,.dark .kick{color:#9FE6EB}
+.lux h2 em.s{background:none;-webkit-background-clip:border-box;background-clip:border-box;color:#8EE6EC}
+.dark h2 em.s{color:#8EE6EC}
+#tariffs.ofon .plan{box-shadow:0 0 0 1.5px rgba(255,207,125,calc(.35 + .3*var(--gl))),0 0 calc(10px + 16px*var(--gl)) calc(-6px + 2px*var(--gl)) rgba(255,181,71,calc(.18 + .22*var(--gl))),0 18px 40px rgba(0,0,0,.35)}
+/* readability for 30-60 audience (audit) */
+.lock .sub{font-size:11px!important}
+.plan li.x{color:#6F829F}
+.plan li.x::before{color:#8496B0}
+.seats{white-space:nowrap}
+.fm-c{font-size:12.5px;color:#B4C8E4}
+.fm-t{font-size:13.5px;color:#C2D5EE}
+.nt-k,.ck-k{font-size:12.5px}
+.nts2-n{font-size:13px;color:#5B7397}
+.nts2-p s{color:#5B7397}
+.tm-h{font-size:14px}.tm-h b{color:#A86400}
+.cp-st b{font-size:12px}
+.cp-bd small{font-size:12.5px}
+.cp-code i{font-size:11.5px}
+.cp-stamp{font-size:11.5px}
+.cpo-x{width:44px;height:44px;top:-42px}
+.eps-hint{font-size:14.5px}
+.bar .bar-s{white-space:nowrap}
+
 /* offer <-> tariffs: one shared golden breath while the offer is active */
 @property --gl{syntax:'<number>';inherits:true;initial-value:0}
 #tariffs.ofon{animation:glp 2.8s ease-in-out infinite}
@@ -1174,7 +1218,7 @@ section{padding:56px 0}
 
 <!-- HERO -->
 <section class="dark hero" id="top"><div class="xf d b" aria-hidden="true"></div>
-  <div class="hero-media" aria-hidden="true"><video id="heroV" muted loop playsinline preload="metadata" poster="img/hero3_poster.jpg" disablepictureinpicture><source src="img/hero3.mp4" type="video/mp4"></video></div>
+  <div class="hero-media" aria-hidden="true"><video id="heroV" muted loop playsinline preload="metadata" poster="img/hero4_poster.jpg" disablepictureinpicture><source src="img/hero4.mp4" type="video/mp4"></video></div>
   <div class="wrap">
     <div class="lock"><img src="img/logo.webp" alt="Шынгыс Садык" width="52" height="52"><span class="t"><span class="n" id="lkName">ШЫНГЫС САДЫК</span><span class="sub" id="lkSub">Метаболическое здоровье</span></span></div>
     <div class="hero-grid">
@@ -1243,7 +1287,7 @@ section{padding:56px 0}
     <div class="kick rv" style="margin-top:48px">Как построена каждая лекция</div>
     <div class="lstr">
       <div class="lecw rv"><div class="lfv"><video id="lecFast" src="img/lec_fast.mp4?v=3" poster="img/lec_fast.jpg?v=3" muted loop playsinline preload="metadata" disablepictureinpicture width="690" height="374"></video><span class="lfb"><i></i>Лекция целиком · ускорено</span></div><div class="dur"><b>50 минут</b><span>в среднем длится лекция в Zoom - смотрите в записи в своём темпе</span></div></div>
-      <ol class="chap"><li class="rv"><img src="img/lc1.webp?v=2" alt="Слайд лекции «Сон»: ночь - это 4-6 циклов по 90 минут" width="442" height="249" loading="lazy"><div><small>Глава 1</small><b>Механика темы: как это устроено</b></div></li><li class="rv"><img src="img/lc2.webp?v=2" alt="Слайд лекции «Сон»: недосып - это лишняя еда" width="442" height="249" loading="lazy"><div><small>Глава 2</small><b>Разбор причинно-следственных связей</b></div></li><li class="rv"><img src="img/lc3.webp?v=2" alt="Слайд лекции «Сон»: женский сон меняется вместе с гормонами" width="442" height="249" loading="lazy"><div><small>Глава 3</small><b>Разбор разных ситуаций на примерах</b></div></li><li class="rv"><img src="img/lc4.webp?v=2" alt="Слайд лекции «Сон»: мелатонин - стрелки часов, а не снотворное" width="442" height="249" loading="lazy"><div><small>Глава 4</small><b>Развенчание популярных мифов вокруг темы</b></div></li><li class="rv"><img src="img/lc5.webp?v=2" alt="Слайд лекции «Сон»: что работает для восстановления" width="442" height="249" loading="lazy"><div><small>Глава 5</small><b>Как предотвратить проблему, если её ещё нет, и как работать с ней, если она уже есть</b></div></li></ol>
+      <ol class="chap"><li class="rv"><img src="img/lc1.webp?v=2" alt="Слайд лекции «Сон»: ночь - это 4-6 циклов по 90 минут" width="442" height="249" loading="lazy"><div><small>Глава 1</small><b>Механика темы: как это устроено</b></div></li><li class="rv"><img src="img/lc2.webp?v=2" alt="Слайд лекции «Сон»: недосып - это лишняя еда" width="442" height="249" loading="lazy"><div><small>Глава 2</small><b>Разбор причинно-следственных связей</b></div></li><li class="rv"><img src="img/lc3.webp?v=2" alt="Слайд лекции «Сон»: женский сон меняется вместе с гормонами" width="442" height="249" loading="lazy"><div><small>Глава 3</small><b>Разбор разных ситуаций на примерах</b></div></li><li class="rv"><img src="img/lc4.webp?v=2" alt="Слайд лекции «Сон»: мелатонин сдвигает ритм сна, а не усыпляет" width="442" height="249" loading="lazy"><div><small>Глава 4</small><b>Развенчание популярных мифов вокруг темы</b></div></li><li class="rv"><img src="img/lc5.webp?v=2" alt="Слайд лекции «Сон»: что работает для восстановления" width="442" height="249" loading="lazy"><div><small>Глава 5</small><b>Как предотвратить проблему, если её ещё нет, и как работать с ней, если она уже есть</b></div></li></ol>
     </div>
     <p class="note rv">Только проверенная информация на научной базе - без общих слов.</p>
   </div>
@@ -1271,11 +1315,11 @@ section{padding:56px 0}
     <div class="vids">
       <figure class="vid rv">
         <div class="vbox"><video src="img/lec_sleep.mp4" poster="img/lec_sleep.jpg" preload="none" playsinline controlslist="nodownload noplaybackrate" disablepictureinpicture width="1180" height="666"></video><button class="vplay" type="button" aria-label="Смотреть отрывок про недосып"><span></span></button><i class="vdur" aria-hidden="true">0:42</i></div>
-        <figcaption><small>Лекция «Сон и восстановление»</small><b>Недосып - это <em>лишняя еда</em>, а не «медленный обмен»</b><span>После короткой ночи человек в среднем съедает на 385 ккал больше - и дело не в силе воли.</span></figcaption>
+        <figcaption><small>Лекция «Сон и восстановление»</small><b>После недосыпа человек <em>съедает больше</em>, и дело не в «медленном обмене»</b><span>После короткой ночи человек в среднем съедает на 385 ккал больше - и дело не в силе воли.</span></figcaption>
       </figure>
       <figure class="vid rv">
         <div class="vbox"><video src="img/lec_coffee.mp4" poster="img/lec_coffee.jpg" preload="none" playsinline controlslist="nodownload noplaybackrate" disablepictureinpicture width="1180" height="666"></video><button class="vplay" type="button" aria-label="Смотреть отрывок про кофе и сон"><span></span></button><i class="vdur" aria-hidden="true">0:46</i></div>
-        <figcaption><small>Лекция «Сон и восстановление»</small><b>Почему вечерний кофе <em>крадёт сон</em>, даже если вы засыпаете</b><span>Кофе в 16:00 к полуночи ещё в крови - сон становится поверхностнее, даже если вы уснули.</span></figcaption>
+        <figcaption><small>Лекция «Сон и восстановление»</small><b>Почему вечерний кофе <em>ухудшает сон</em>, даже если вы засыпаете</b><span>Кофе в 16:00 к полуночи ещё в крови - сон становится поверхностнее, даже если вы уснули.</span></figcaption>
       </figure>
     </div>
     <div class="kick rv" style="margin-top:40px">Слайды из лекций</div>
@@ -1323,7 +1367,7 @@ section{padding:56px 0}
     </div>
     <div class="fit">
       <div class="fit-y rv"><span class="fit-k">Подойдёт, если</span><ul><li>анализы «в норме», а самочувствие - нет</li><li>хотите понимать причину, а не пить БАДы наугад</li><li>готовы смотреть лекции в своём темпе</li></ul></div>
-      <div class="fit-n rv"><span class="fit-k">Не подойдёт, если</span><ul><li>ищете таблетку от усталости или готовый протокол лечения</li><li>нужен разбор именно ваших анализов - это отдельный формат</li></ul></div>
+      <div class="fit-n rv"><span class="fit-k">Не подойдёт, если</span><ul><li>ищете быстрое средство от усталости или готовый протокол лечения</li><li>нужен разбор именно ваших анализов - это отдельный формат</li></ul></div>
     </div>
   </div>
 </section>
@@ -1412,7 +1456,7 @@ section{padding:56px 0}
     </div></div>
     <div class="tar">
       <div class="plan">
-        <div class="ph"><div><small>Тариф</small><h3>Самостоятельный</h3></div><span class="seats">Мест: без ограничений</span></div>
+        <div class="ph"><div><small>Тариф</small><h3>Самостоятельный</h3></div></div>
         <ul>
           <li class="y">10 Zoom-лекций в записи + 2 бонусных видеоурока</li>
           <li class="y">Конспекты всех лекций</li>
@@ -1431,8 +1475,8 @@ section{padding:56px 0}
         </div></div>
       </div>
       <div class="plan top">
-        <span class="badge">Больше пользы</span>
-        <div class="ph"><div><small>Тариф</small><h3>С разбором</h3></div><span class="seats">Мест: до 30</span></div>
+        <span class="badge">Рекомендую</span>
+        <div class="ph"><div><small>Тариф</small><h3>С разбором</h3></div><span class="seats">Группа созвона: до 30 человек</span></div>
         <ul>
           <li class="y">10 Zoom-лекций в записи + 2 бонусных видеоурока</li>
           <li class="y">Конспекты всех лекций</li>
@@ -1440,7 +1484,7 @@ section{padding:56px 0}
           <li class="sep">Дополнительно</li>
           <li class="plus">Доступ к материалам и обновлениям программы на 1 год</li>
           <li class="plus">Групповой Zoom-созвон с Шынгысом: ответы на ваши вопросы, до 30 человек</li>
-          <li class="plus">Доступ на год к живым лекциям и эфирам - в среднем раз в 1‑2 месяца</li>
+          <li class="plus">Доступ на год к живым лекциям и эфирам - в среднем 5‑6 раз в год</li>
         </ul>
         <div class="price"><div class="row">
           <div class="main"><span class="ofr js-off" hidden><s>38 000 ₸</s><span class="chip">−3 000 ₸</span></span><b><span class="js-p" data-full="38 000" data-off="35 000">38 000</span> <small>₸</small></b><span>при полной оплате</span></div>
@@ -1487,7 +1531,7 @@ section{padding:56px 0}
     <div class="ctas rv">
       <a class="btn saf" href="#tariffs">Выбрать тариф <span class="ar">→</span></a>
     </div>
-    <p class="ps2 rv"><b>P.S.</b> Если вы дочитали до сюда, вы уже знаете главное: усталость, вес и волосы - это не «характер» и не «возраст», а <mark class="hl">причинно-следственные связи, которые можно понять</mark>. Программа даёт эту базу за 14 дней и в своём темпе. <span class="js-off" hidden>И пока действует ваш купон, полная оплата - на 3 000 ₸ дешевле.</span> А если после двух лекций поймёте, что это не ваше, - вернём деньги в течение 7 дней.</p>
+    <p class="ps2 rv"><b>P.S.</b> Если вы дочитали до сюда, вы уже знаете главное: усталость, вес и волосы - это не «характер» и не «возраст», а <mark class="hl">причинно-следственные связи, которые можно понять</mark>. Программа даёт эту базу за 14 дней и в своём темпе. <span class="js-off" hidden>И пока действует ваш купон, полная оплата - на 3 000 ₸ дешевле.</span> А если после двух лекций поймёте, что это не ваше, - напишите в течение 7 дней после оплаты, и мы вернём деньги полностью.</p>
   </div>
 </section>
 
@@ -1497,7 +1541,7 @@ section{padding:56px 0}
 
 <div class="bar" id="bar" aria-hidden="true">
   <span class="bar-av" aria-hidden="true"></span>
-  <div class="bt"><small class="bar-s">Онлайн-программа · 14 дней</small><b class="bar-b">Метаболическая грамотность</b></div>
+  <div class="bt"><small class="bar-s">Онлайн · 14 дней</small><b class="bar-b">Метаболическая грамотность</b></div>
   <a class="btn saf" href="#tariffs" tabindex="-1">Смотреть тарифы</a>
 </div>
 
@@ -1518,7 +1562,7 @@ const fmt=d=>new Intl.DateTimeFormat('ru-RU',{timeZone:'Asia/Almaty',hour:'2-dig
 const setLinks=on=>{const tail=on?' Купон SHYNGYS3000: -3 000 ₸ при полной оплате, действует до '+fmt(new Date(dl()))+' (Алматы).':'';
   document.querySelectorAll('.js-buy').forEach(a=>{a.href=BUY[a.dataset.plan]+encodeURIComponent(tail)})};
 const nf=n=>String(n).replace(/\B(?=(\d{3})+$)/g,' ');
-const countTo=(e,a,b)=>{if(RM){e.textContent=nf(b);return}const t0=performance.now(),D=1100;const f=t=>{const k=Math.min(1,(t-t0)/D),q=1-Math.pow(1-k,3);e.textContent=nf(Math.round((a+(b-a)*q)/100)*100);if(k<1)requestAnimationFrame(f);else e.textContent=nf(b)};requestAnimationFrame(f);setTimeout(()=>{e.textContent=nf(b)},D+200)};
+const countTo=(e,a,b)=>{if(RM){e.textContent=nf(b);return}const t0=performance.now(),D=1100;const f=t=>{const k=Math.min(1,(t-t0)/D),q=1-Math.pow(1-k,3);e.textContent=nf(Math.round((a+(b-a)*q)/100)*100);if(k<1)requestAnimationFrame(f);else e.textContent=nf(b)};requestAnimationFrame(f);setTimeout(()=>{if(ofOn)e.textContent=nf(b)},D+200)};
 const SV={s:'<svg viewBox="0 0 24 24"><path d="M12 0l2.6 9.4L24 12l-9.4 2.6L12 24l-2.6-9.4L0 12l9.4-2.6z"/></svg>',b:'<svg viewBox="0 0 24 24"><path d="M14 1L3 14h7.5L9 23l11-13.5h-7.5z"/></svg>'};
 const burst=(host,n,spread)=>{if(RM||!host)return;const fx=document.createElement('div');fx.className='fx';fx.setAttribute('aria-hidden','true');const r=document.createElement('i');r.className='fx-r';fx.appendChild(r);
   for(let k=0;k<n;k++){const p=document.createElement('i'),bolt=k%3===0,a=(k/n)*Math.PI*2+Math.random()*.5,d=spread*(.55+Math.random()*.6);p.className='fx-p';p.innerHTML=bolt?SV.b:SV.s;
@@ -1527,29 +1571,29 @@ const burst=(host,n,spread)=>{if(RM||!host)return;const fx=document.createElemen
   host.appendChild(fx);setTimeout(()=>fx.remove(),1600)};
 const dropPlan=pl=>{pl.querySelectorAll('.js-off').forEach(e=>e.hidden=false);pl.querySelectorAll('.js-p').forEach(e=>{const full=+e.dataset.full.replace(/\D/g,''),off=+e.dataset.off.replace(/\D/g,'');
     const m=e.closest('.main'),b=e.closest('b'),o=m&&m.querySelector('.ofr');if(o){o.classList.remove('go');void o.offsetWidth;o.classList.add('go')}
-    setTimeout(()=>{countTo(e,full,off);if(b){b.classList.remove('drop');void b.offsetWidth;b.classList.add('drop')}},450);setTimeout(()=>burst(m,12,70),1450)})};
-const setOffer=(on,anim)=>{const lazy=on&&anim&&'IntersectionObserver' in window;
+    setTimeout(()=>{if(!ofOn)return;countTo(e,full,off);if(b){b.classList.remove('drop');void b.offsetWidth;b.classList.add('drop')}},450);setTimeout(()=>{if(ofOn)burst(m,12,70)},1450)})};
+let lz=[];const setOffer=(on,anim)=>{lz.forEach(o=>o.disconnect());lz=[];const lazy=on&&anim&&'IntersectionObserver' in window;
   document.querySelectorAll('.js-off').forEach(e=>{e.hidden=!on||(lazy&&!!e.closest('.plan'))});document.querySelectorAll('.js-on').forEach(e=>e.hidden=on);
   const tr=document.getElementById('tariffs');if(tr)tr.classList.toggle('ofon',on);
-  if(lazy){document.querySelectorAll('#tariffs .plan').forEach(pl=>{const pr=pl.querySelector('.price .main')||pl;const o=new IntersectionObserver(es=>{if(es.some(e=>e.isIntersecting)){o.disconnect();setTimeout(()=>dropPlan(pl),200)}},{threshold:.9});o.observe(pr)})}
+  if(lazy){document.querySelectorAll('#tariffs .plan').forEach(pl=>{const pr=pl.querySelector('.price .main')||pl;const o=new IntersectionObserver(es=>{if(es.some(e=>e.isIntersecting)){o.disconnect();setTimeout(()=>{if(ofOn)dropPlan(pl)},200)}},{threshold:.9});lz.push(o);o.observe(pr)})}
   else document.querySelectorAll('.js-p').forEach(e=>{const full=+e.dataset.full.replace(/\D/g,''),off=+e.dataset.off.replace(/\D/g,'');if(on&&anim)dropPlan(e.closest('.plan')||document);else e.textContent=nf(on?off:full)});
   ofOn=on;setMin();setLinks(on)};
 let ofOn=false,trSeen=false;const setMin=()=>{const br=document.getElementById('bar');if(!br)return;const sm=br.querySelector('.bar-s'),bb=br.querySelector('.bar-b'),ba=br.querySelector('a');if(!sm||!bb||!ba)return;
   const live=start&&dl()>Date.now(),mode=live?(act?'cpon':'cp'):'';br.classList.toggle('cp',mode==='cp');br.classList.toggle('cpon',mode==='cpon');
   if(mode==='cp'){sm.innerHTML='Ваш купон −3 000 ₸ · <b id="barT"></b>';bb.textContent='Подарок от Шынгыса';ba.textContent='Применить'}
   else if(mode==='cpon'){sm.innerHTML='✓ Купон применён · <b id="barT"></b>';bb.textContent='от 25 000 ₸ вместо 28 000';ba.textContent='Выбрать тариф'}
-  else{sm.textContent='Онлайн-программа · 14 дней';bb.textContent='Метаболическая грамотность';ba.textContent=trSeen?'Выбрать тариф':'Смотреть тарифы'}
+  else{sm.textContent='Онлайн · 14 дней';bb.textContent='Метаболическая грамотность';ba.textContent=trSeen?'Выбрать тариф':'Смотреть тарифы'}
   if(mode){try{tickO()}catch(e){}}};
 {const tr0=document.getElementById('tariffs');if(tr0&&'IntersectionObserver' in window){const o=new IntersectionObserver(es=>{if(es.some(e=>e.isIntersecting)){trSeen=true;setMin();o.disconnect()}});o.observe(tr0)}}
 const pad2=n=>String(n).padStart(2,'0');
 const cp=document.getElementById('offer'),go=document.getElementById('cpGo'),slot=document.getElementById('cpSlot'),ov=document.getElementById('cpo');
-const tickO=()=>{if(!start)return;const left=dl()-Date.now();if(left<=0){setOffer(false);if(cp)cp.hidden=true;if(ov&&!ov.hidden)inline();clearInterval(oi);return}
+const tickO=()=>{if(!start)return;const left=dl()-Date.now();if(left<=0){setOffer(false);if(ov&&!ov.hidden)inline();if(cp)cp.hidden=true;clearInterval(oi);return}
   const t=pad2(Math.floor(left/60000))+':'+pad2(Math.floor(left/1000)%60);['ofT','barT'].forEach(id=>{const e=document.getElementById(id);if(e)e.textContent=t});document.querySelectorAll('.js-t').forEach(e=>e.textContent=t);const pc=Math.max(0,Math.min(100,left/CPN_MS*100));document.querySelectorAll('.js-bar').forEach(e=>e.style.width=pc+'%')};
 const markOn=()=>{if(!cp)return;cp.classList.add('on');if(go){go.textContent='✓ Купон применён';go.setAttribute('aria-disabled','true')}};
 let oi=null;
 const begin=()=>{document.querySelectorAll('.js-dl').forEach(e=>e.textContent=fmt(new Date(dl())));tickO();if(!oi)oi=setInterval(tickO,1000)};
 const inline=()=>{if(!cp||!slot)return;cp.classList.add('calm','in');slot.appendChild(cp);cp.hidden=false;if(ov)ov.hidden=true;document.documentElement.classList.remove('cpo-open')};
-const pop=()=>{if(!cp||!ov||start)return;start=Date.now();try{localStorage.setItem('gr_cpn3_start',String(start))}catch(e){}
+const pop=()=>{try{const v=+localStorage.getItem('gr_cpn3_start');if(v)start=v}catch(e){}if(!cp||!ov||start)return;start=Date.now();try{localStorage.setItem('gr_cpn3_start',String(start))}catch(e){}
   begin();setOffer(false);ov.querySelector('.cpo-in').appendChild(cp);cp.classList.remove('in','calm');cp.hidden=false;ov.hidden=false;document.documentElement.classList.add('cpo-open');
   requestAnimationFrame(()=>requestAnimationFrame(()=>cp.classList.add('in')));setTimeout(()=>burst(cp,18,130),1050);if(go)go.focus({preventScroll:true})};
 if(cp&&start&&dl()>Date.now()){begin();inline();if(act){markOn();setOffer(true)}else setOffer(false)}
@@ -1558,9 +1602,9 @@ else{setOffer(false);if(cp)cp.hidden=true;
     const o=new IntersectionObserver(es=>{if(es.some(e=>e.isIntersecting)){o.disconnect();setTimeout(pop,POP_DELAY)}},{rootMargin:'0px 0px -25% 0px'});if(last)o.observe(last)}}
 if(ov){document.getElementById('cpoX').addEventListener('click',inline);ov.addEventListener('click',e=>{if(e.target===ov)inline()});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!ov.hidden)inline()})}
 {const ba=document.querySelector('#bar a');if(ba)ba.addEventListener('click',e=>{const br=document.getElementById('bar');if(br&&br.classList.contains('cp')&&go){e.preventDefault();go.click()}})}
-if(go)go.addEventListener('click',()=>{if(act||!start)return;act=true;try{localStorage.setItem('gr_cpn3_on','1')}catch(e){}
+if(go)go.addEventListener('click',()=>{if(act||!start||dl()<=Date.now())return;act=true;try{localStorage.setItem('gr_cpn3_on','1')}catch(e){}
   markOn();burst(cp,16,120);const inOv=ov&&!ov.hidden;
-  setTimeout(()=>{if(inOv)inline();setOffer(true,true);
+  setTimeout(()=>{if(dl()<=Date.now())return;if(inOv)inline();setOffer(true,true);
     const ps=[...document.querySelectorAll('#tariffs .plan .price .main')],H=innerHeight,seen=ps.some(p=>{const r=p.getBoundingClientRect();return r.top>=0&&r.bottom<=H});
     if(!seen&&ps.length){const near=ps.reduce((a,p)=>Math.abs(p.getBoundingClientRect().top-H/2)<Math.abs(a.getBoundingClientRect().top-H/2)?p:a);near.scrollIntoView({behavior:RM?'auto':'smooth',block:'center'})}},inOv?1100:650)});
 // lockup: name line exactly as wide as the subtitle line
