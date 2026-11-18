@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Проверка сертификата · Школа метаболического здоровья</title>
+<meta name="robots" content="noindex">
+<link href="https://fonts.googleapis.com/css2?family=Geologica:wght@350;600&family=Lora:ital@1&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#13285b;--teal:#14808a;--gray:#4a587a}
+*{box-sizing:border-box;margin:0}
+body{font-family:Geologica,system-ui,sans-serif;font-weight:350;color:var(--navy);background:#f6fafb;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px 16px}
+.card{background:#fff;max-width:520px;width:100%;border-radius:20px;padding:36px 30px 0;overflow:hidden;box-shadow:0 10px 40px rgba(19,40,91,.08);position:relative}
+.school{display:flex;align-items:center;gap:12px}.school img{height:40px}
+.t1{font-size:12px;font-weight:600;letter-spacing:.12em;color:var(--teal)}.t2{font-size:15px;font-weight:600;letter-spacing:.03em}
+.kick{margin-top:34px;font-size:14px;font-weight:600;color:var(--teal);display:flex;align-items:center;gap:10px}
+.kick:before{content:"";width:26px;height:3px;border-radius:2px;background:linear-gradient(90deg,#38c6d4,#a9d3f2)}
+.ok{display:inline-flex;align-items:center;gap:8px;margin-top:14px;font-size:15px;color:var(--teal);background:#e3f3f5;padding:7px 14px;border-radius:20px}
+h1{font-size:38px;font-weight:600;letter-spacing:-.5px;margin-top:18px;line-height:1.15}
+p{font-size:16px;color:var(--gray);line-height:1.5;margin-top:12px}
+em{font-family:Lora,serif;color:var(--teal)}
+.row{display:flex;justify-content:space-between;border-top:1px solid #e6ebf2;padding:12px 0;font-size:15px}.row span{color:var(--gray)}
+.rows{margin-top:24px}
+.bar{height:6px;margin:30px -30px 0;background:linear-gradient(90deg,#14808a,#38c6d4 60%,#a9d3f2)}
+</style></head><body>
+<div class="card">
+ <div class="school"><img src="logo.png" alt=""><div><div class="t1">ШКОЛА</div><div class="t2">МЕТАБОЛИЧЕСКОГО ЗДОРОВЬЯ</div></div></div>
+ <div id="out"><p style="margin-top:34px">Проверяем…</p></div>
+ <div class="bar"></div>
+</div>
+<script>
+var n=(new URLSearchParams(location.search).get('n')||'').toUpperCase().trim(),o=document.getElementById('out');
+fetch('certs.json',{cache:'no-store'}).then(function(r){return r.json()}).then(function(c){var x=c[n];
+ if(x){o.innerHTML='<div class="kick">проверка сертификата</div><div class="ok">✓ Сертификат действителен</div><h1>'+x.name+'</h1><p>'+(x.verb||'прошла')+' весь путь курса «Школа метаболического здоровья» - от кишечника до сна</p><div class="rows"><div class="row"><span>Номер</span><b>'+x.num+'</b></div><div class="row"><span>Дата выдачи</span><b>'+x.date+'</b></div><div class="row"><span>Автор курса</span><b>Шынгыс Садык</b></div></div>';}
+ else{o.innerHTML='<div class="kick">проверка сертификата</div><h1>Сертификат не найден</h1><p>Проверьте номер на сертификате. Номер вида ШМЗ-2026-001.</p>';}
+}).catch(function(){o.innerHTML='<p style="margin-top:34px">Не удалось загрузить данные. Обновите страницу.</p>'});
+</script>
+</body></html>
