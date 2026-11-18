@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <!-- security -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-uWT1xsn7TxPzUAVwxPLBUoID1sUbxfZFhntBfosbHaQ=' https://mc.yandex.ru https://mc.yandex.com https://yastatic.net; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob: https://mc.yandex.ru https://mc.yandex.com; media-src 'self'; connect-src 'self' https://mc.yandex.ru https://mc.yandex.com wss://mc.yandex.ru wss://mc.yandex.com; frame-src blob: https://mc.yandex.ru https://mc.yandex.com; child-src blob: https://mc.yandex.ru https://mc.yandex.com; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-+ULG0gVjfEburOSGMx1BvH1jvbacFJrNMzgi7J9bY8E=' https://mc.yandex.ru https://mc.yandex.com https://yastatic.net; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob: https://mc.yandex.ru https://mc.yandex.com; media-src 'self'; connect-src 'self' https://mc.yandex.ru https://mc.yandex.com wss://mc.yandex.ru wss://mc.yandex.com; frame-src blob: https://mc.yandex.ru https://mc.yandex.com; child-src blob: https://mc.yandex.ru https://mc.yandex.com; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
 <meta name="format-detection" content="telephone=no">
@@ -1460,6 +1460,25 @@ section{padding:56px 0}
 .opq-sun::before{content:"";position:absolute;left:50%;top:22px;width:min(84vw,400px);height:420px;background:url(img/opq_form2.webp) top center/100% auto no-repeat;border-radius:18px 18px 0 0;opacity:.75;transform:translateX(-50%) perspective(900px) rotateX(18deg);transform-origin:50% 0;-webkit-mask-image:linear-gradient(#000 0,#000 28%,transparent 92%);mask-image:linear-gradient(#000 0,#000 28%,transparent 92%)}
 .opq-sun::after{content:"";position:absolute;left:50%;top:-18px;width:120vw;max-width:620px;height:420px;transform:translateX(-50%);border-radius:50%;background:radial-gradient(closest-side,rgba(127,233,241,.35),transparent);z-index:-1}
 .opq .opq-ring{margin-top:150px}
+/* graduates' voices: vertical feed of round clips and chat quotes */
+.vf{margin:30px 0 38px;display:flex;flex-direction:column;gap:18px}
+.vf-k{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#7FE9F1;margin-bottom:4px;line-height:1.5}
+.vf-i{display:flex;gap:14px;align-items:flex-end;max-width:520px;margin:0;opacity:0;transform:translateY(46px);transition:opacity .9s cubic-bezier(.25,.6,.3,1),transform 1s cubic-bezier(.22,.8,.25,1)}
+.vf-i.on{opacity:1;transform:none}
+.vf-i.r{flex-direction:row-reverse;align-self:flex-end}
+.vf-t{max-width:300px;margin-left:24px}.vf-t.r{margin-left:0;margin-right:24px}
+.vf-c{position:relative;flex:none;width:104px;height:104px;border-radius:50%;overflow:hidden;padding:0;border:0;cursor:pointer;background:#0A1628;box-shadow:0 0 0 2px #19C3D0,0 12px 30px -12px rgba(25,195,208,.5)}
+.vf-c video{width:100%;height:100%;object-fit:cover;display:block}
+.vf-p{position:absolute;right:8%;bottom:8%;width:28px;height:28px;border-radius:50%;background:rgba(10,22,40,.75);display:flex;align-items:center;justify-content:center}
+.vf-p::after{content:"";width:12px;height:12px;background:center/contain no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='M4 9v6h4l5 4V5L8 9z' fill='white'/%3E%3Cpath d='M17 9l4 6M21 9l-4 6'/%3E%3C/svg%3E")}
+.vf-c.snd .vf-p::after{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='M4 9v6h4l5 4V5L8 9z' fill='white'/%3E%3Cpath d='M17 8a5 5 0 0 1 0 8'/%3E%3C/svg%3E")}
+.vf-c.snd{box-shadow:0 0 0 3px #7FE9F1,0 12px 34px -10px rgba(25,195,208,.7)}
+.vf-b{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:4px 18px 18px 18px;padding:11px 14px 12px}
+.vf-i.r .vf-b{border-radius:18px 4px 18px 18px}
+.vf-b b{font-weight:450;color:#F2F6FB;font-size:14.5px}.vf-b span{margin-left:8px;font-size:12px;color:#9FB2CC}
+.vf-b p{margin-top:4px;font-size:14.5px;line-height:1.5;color:#C9D5E5;font-weight:330}
+.vf-n{font-size:12.5px;color:#9FB2CC;text-align:center;margin-top:2px}
+@media (prefers-reduced-motion:reduce){.vf-i{opacity:1;transform:none;transition:none}}
 </style>
 </head>
 <body>
@@ -1645,6 +1664,7 @@ section{padding:56px 0}
     <div class="kick rv">Отзывы участников</div>
     <h2 class="rv">Что пишут в чате <em class="s">после лекций</em></h2>
     <p class="lead rv">Оригинальные скриншоты чата Zoom-лекций Школы метаболического здоровья. Фамилии скрыты.</p>
+    <div class="vf" id="voices"><div class="vf-k">Голоса выпускников · выпускной Школы метаболического здоровья, 18&nbsp;ноября</div><figure class="vf-i vf-v"><button type="button" class="vf-c" aria-label="Включить звук: Григорий"><video src="img/rv_grigory.mp4" poster="img/rv_grigory.jpg" muted loop playsinline preload="metadata"></video><span class="vf-p" aria-hidden="true"></span></button><figcaption class="vf-b"><b>Григорий</b><span>видеоотзыв</span><p>«Пришёл с&nbsp;тем, что усталость была жёсткая прямо. Наконец сдал анализы, которые никогда не&nbsp;мог сдать, - общая картина уже правильная сложилась. Самочувствие явно улучшилось.»</p></figcaption></figure><div class="vf-i vf-t r"><div class="vf-b"><b>Бибигуль</b><span>в чате выпускного</span><p>Даю себе выспаться</p></div></div><figure class="vf-i vf-v r"><button type="button" class="vf-c" aria-label="Включить звук: Бибигуль"><video src="img/rv_bibigul.mp4" poster="img/rv_bibigul.jpg" muted loop playsinline preload="metadata"></video><span class="vf-p" aria-hidden="true"></span></button><figcaption class="vf-b"><b>Бибигуль</b><span>видеоотзыв</span><p>«Пришла с&nbsp;низким ферритином и&nbsp;витамином D. Многие мифы вы развеиваете. Есть ориентиры - и&nbsp;уже от&nbsp;этого легче, спокойнее, и&nbsp;состояние улучшается.»</p></figcaption></figure><div class="vf-i vf-t"><div class="vf-b"><b>Григорий</b><span>в чате выпускного</span><p>Встаю в одно время без будильника</p></div></div><div class="vf-i vf-t r"><div class="vf-b"><b>Эсмира</b><span>в чате выпускного</span><p>Сон урегулировала</p></div></div><figure class="vf-i vf-v"><button type="button" class="vf-c" aria-label="Включить звук: Эсмира"><video src="img/rv_esmira.mp4" poster="img/rv_esmira.jpg" muted loop playsinline preload="metadata"></video><span class="vf-p" aria-hidden="true"></span></button><figcaption class="vf-b"><b>Эсмира</b><span>видеоотзыв</span><p>«Я&nbsp;была вообще потерянная насчёт состояния. Всё, что мы находим в&nbsp;интернете, - такой хаос. На&nbsp;самом деле состояние намного улучшилось.»</p></figcaption></figure><div class="vf-i vf-t r"><div class="vf-b"><b>Бибигуль</b><span>в чате выпускного</span><p>Знания - сила, и самое главное - это качественный сон, а также питание и физическая активность</p></div></div><div class="vf-i vf-t"><div class="vf-b"><b>Григорий</b><span>в чате выпускного</span><p>Сдать обязательно анализы. Я просто никогда толком их не сдавал и не понимал, какие нужны</p></div></div><p class="vf-n">Нажмите на кружок, чтобы включить звук.</p></div>
     <div class="zrow">
       <figure class="zshot rv"><img src="img/zoom2.webp" alt="Сообщения участников в чате Zoom после лекции" width="700" height="975" loading="lazy"></figure>
       <figure class="zshot rv"><img src="img/zoom1.webp" alt="Сообщения участников в чате Zoom после лекции" width="648" height="640" loading="lazy"></figure>
@@ -1888,6 +1908,14 @@ if(go)go.addEventListener('click',()=>{if(act||!start||dl()<=Date.now())return;a
     if(!seen&&ps.length){const near=ps.reduce((a,p)=>Math.abs(p.getBoundingClientRect().top-H/2)<Math.abs(a.getBoundingClientRect().top-H/2)?p:a);near.scrollIntoView({behavior:RM?'auto':'smooth',block:'center'})}},inOv?1100:650)});
 // stream pill: after the start date the stream is running and people can still join
 {const e=document.querySelector('#hStr span');if(e&&Date.now()>=Date.parse('2026-11-25T00:00:00+05:00'))e.textContent='Поток идёт с 25 ноября · можно присоединиться'}
+// graduates' voices: rise in one by one, play muted while visible, tap for sound
+{const vf=document.getElementById('voices');if(vf){const its=[...vf.querySelectorAll('.vf-i')];
+ if('IntersectionObserver' in window){const io2=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io2.unobserve(e.target)}}),{rootMargin:'0px 0px -8% 0px'});its.forEach(x=>io2.observe(x))}else its.forEach(x=>x.classList.add('on'));
+ const vids=[...vf.querySelectorAll('video')];const still=matchMedia('(prefers-reduced-motion: reduce)').matches;
+ if('IntersectionObserver' in window&&!still){const vo=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;if(e.isIntersecting){const p=v.play();if(p&&p.catch)p.catch(()=>{})}else{v.pause();if(!v.muted){v.muted=true;v.parentElement.classList.remove('snd')}}}),{threshold:.4});vids.forEach(v=>vo.observe(v))}
+ vf.querySelectorAll('.vf-c').forEach(b=>b.addEventListener('click',()=>{const v=b.querySelector('video');const on=v.muted;
+  vids.forEach(o=>{o.muted=true;o.parentElement.classList.remove('snd')});
+  if(on){v.muted=false;v.currentTime=0;b.classList.add('snd');const p=v.play();if(p&&p.catch)p.catch(()=>{});gT('voice_play')}}))}}
 // lockup: name line exactly as wide as the subtitle line
 const fit=()=>{const n=document.getElementById('lkName'),s=document.getElementById('lkSub');if(!n||!s)return;
   const r=document.createRange();r.selectNodeContents(s);const ls=parseFloat(getComputedStyle(s).letterSpacing)||0;const target=r.getBoundingClientRect().width-ls;
