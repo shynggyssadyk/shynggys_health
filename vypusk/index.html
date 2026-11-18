@@ -35,10 +35,10 @@ h1{font-family:Lora,serif;font-style:italic;font-weight:500;font-size:72px;line-
 .cap{font-size:13px;color:var(--gray);margin-top:10px}
 h2{font-size:26px;font-weight:560;margin-top:44px;letter-spacing:-.3px}
 .hint{font-size:14.5px;color:var(--gray);margin-top:6px;line-height:1.5}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px;margin-top:20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px;margin-top:20px}
 .g{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
-.g .th{aspect-ratio:9/12;background:#eef2f8;overflow:hidden}
-.g .th img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.g .th{aspect-ratio:1123/794;background:#eef2f8;overflow:hidden;border-bottom:1px solid var(--line)}
+.g .th img{width:100%;height:100%;object-fit:cover;display:block}
 .g .in{padding:14px 14px 16px;display:flex;flex-direction:column;gap:8px;flex:1}
 .g .nm{font-size:17px;font-weight:550;line-height:1.25}
 .g .no{font-size:12.5px;color:var(--gray)}
@@ -53,11 +53,18 @@ h2{font-size:26px;font-weight:560;margin-top:44px;letter-spacing:-.3px}
 .soc{display:flex;gap:10px}
 .soc a{width:52px;height:48px;display:flex;align-items:center;justify-content:center;border-radius:12px;border:1px solid var(--line);background:#fff}
 .soc svg{width:24px;height:24px}
+.modal{position:fixed;inset:0;z-index:10;background:rgba(10,18,40,.72);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;padding:16px}.modal.on{display:flex}
+.mbox{position:relative;background:var(--paper);border-radius:22px;padding:16px;max-width:400px;width:100%;max-height:96vh;display:flex;flex-direction:column;gap:10px;animation:pop .25s ease-out}
+@keyframes pop{from{transform:scale(.94);opacity:0}}
+.mbox img{width:100%;max-height:62vh;object-fit:contain;border-radius:14px;background:#eef2f8}
+.mbox .x{position:absolute;right:10px;top:8px;width:40px;height:40px;border-radius:50%;border:0;background:rgba(255,255,255,.9);font-size:26px;line-height:1;color:var(--navy);cursor:pointer;z-index:2}
+.btn.plain{background:#f1efe9;color:var(--navy);border:1px solid var(--line)}
+.mh{font-size:13px;color:var(--gray);text-align:center;line-height:1.4}
 .toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,40px);opacity:0;z-index:5;background:#13285b;color:#fff;padding:13px 18px;border-radius:14px;font-size:14.5px;max-width:92vw;text-align:center;transition:.3s;box-shadow:0 12px 30px rgba(0,0,0,.3)}
 .toast.on{opacity:1;transform:translate(-50%,0)}
 @media (max-width:640px){.sheet{padding:22px 18px 28px;border-radius:20px}h1{font-size:50px}.lead{font-size:16px}
  .photo{display:grid;grid-template-columns:1fr 1fr;height:auto;gap:8px}.photo img{width:100%;height:170px;border-radius:12px}.photo img:nth-child(2){grid-column:1/3;order:-1;height:190px}
- .grid{grid-template-columns:1fr;gap:12px}.g{flex-direction:row}.g .th{width:118px;flex:none;aspect-ratio:auto}.g .in{padding:12px;gap:7px;min-width:0}.g .nm{font-size:16px}.btn{font-size:13.5px;padding:10px 8px}.row2 .btn{font-size:12.5px}
+ .grid{grid-template-columns:1fr;gap:14px}.g .in{padding:12px;gap:8px;min-width:0}.g .nm{font-size:16px}.btn{font-size:13.5px;padding:10px 8px}.row2 .btn{font-size:12.5px}
  .sep{display:none}.top{gap:12px}.foot .cta{width:100%}}
 </style></head><body>
 <div class="bg" aria-hidden="true"><video id="v" src="bg.mp4" poster="bg_poster.jpg" autoplay muted loop playsinline preload="auto"></video><div class="tint"></div><div class="grain"></div></div>
@@ -84,28 +91,40 @@ h2{font-size:26px;font-weight:560;margin-top:44px;letter-spacing:-.3px}
  </div>
 </div></div>
 <div class="toast" id="toast"></div>
+<div class="modal" id="modal" aria-hidden="true"><div class="mbox"><button class="x" id="mx" aria-label="Закрыть">×</button>
+ <img id="mimg" alt="">
+ <button class="btn ig" id="mshare"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"><rect x="2" y="2" width="20" height="20" rx="6"/><circle cx="12" cy="12" r="4.4"/><circle cx="17.4" cy="6.6" r="1" fill="#fff"/></svg>Поделиться в Instagram</button>
+ <a class="btn plain" id="mdl" download="">Сохранить картинку</a>
+ <p class="mh" id="mh">Выберите Instagram → История. Отметьте @shynggys_health</p></div></div>
 <script>
 (function(){
  var G=[{"id": "001", "name": "Бибинур Жанабил", "code": "SHMZ-2026-001"}, {"id": "002", "name": "Григорий Малаев", "code": "SHMZ-2026-002"}, {"id": "003", "name": "Наиль Гафаров", "code": "SHMZ-2026-003"}, {"id": "004", "name": "Валерий Бородаев", "code": "SHMZ-2026-004"}, {"id": "005", "name": "Ирина Антонова", "code": "SHMZ-2026-005"}, {"id": "006", "name": "Елена Котунова", "code": "SHMZ-2026-006"}, {"id": "007", "name": "Равиль Боясев", "code": "SHMZ-2026-007"}, {"id": "008", "name": "Эсмира Калита", "code": "SHMZ-2026-008"}, {"id": "009", "name": "Айгуль Ищанова", "code": "SHMZ-2026-009"}];
  var IGI='<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"><rect x="2" y="2" width="20" height="20" rx="6"/><circle cx="12" cy="12" r="4.4"/><circle cx="17.4" cy="6.6" r="1" fill="#fff"/></svg>';
  var grid=document.getElementById('grid');
  G.forEach(function(g){var d=document.createElement('div');d.className='g';
-  d.innerHTML='<div class="th"><img loading="lazy" src="files/'+g.id+'_thumb.jpg?v=3" alt=""></div><div class="in"><div class="nm"></div><div class="no">№ '+g.code.replace('SHMZ','ШМЗ')+'</div>'+
+  d.innerHTML='<div class="th"><img loading="lazy" src="files/'+g.id+'_cert.jpg?v=4" alt=""></div><div class="in"><div class="nm"></div><div class="no">№ '+g.code.replace('SHMZ','ШМЗ')+'</div>'+
   '<button class="btn ig" data-id="'+g.id+'">'+IGI+'Выложить в сторис</button>'+
-  '<div class="row2"><a class="btn" href="files/'+g.id+'.pdf?v=3" download="">PDF для печати</a><a class="btn" href="files/'+g.id+'_story.jpg?v=3" download="">Картинка</a></div>'+
+  '<div class="row2"><a class="btn" href="files/'+g.id+'.pdf?v=3" download="">PDF для печати</a><a class="btn" href="files/'+g.id+'_story.jpg?v=3" download="">Для сторис</a></div>'+
   '<a class="ver" target="_blank" href="../sert/?n='+g.code+'">проверить сертификат →</a></div>';
   d.querySelector('.nm').textContent=g.name;
   var pdf=d.querySelectorAll('.row2 a');pdf[0].setAttribute('download','Сертификат ШМЗ 2026 - '+g.name+'.pdf');pdf[1].setAttribute('download','Сторис ШМЗ 2026 - '+g.name+'.jpg');
   grid.appendChild(d);});
  var t=document.getElementById('toast'),tt;function toast(m){t.textContent=m;t.classList.add('on');clearTimeout(tt);tt=setTimeout(function(){t.classList.remove('on')},4200);}
  var mobile=/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)||(navigator.maxTouchPoints>1&&/Mac/.test(navigator.platform));
- grid.addEventListener('click',function(e){var b=e.target.closest('.btn.ig');if(!b)return;var id=b.getAttribute('data-id'),url='files/'+id+'_story.jpg?v=3';
-  b.disabled=true;fetch(url).then(function(r){return r.blob()}).then(function(bl){var f=new File([bl],'shmz-2026-'+id+'.jpg',{type:'image/jpeg'});
-   if(navigator.canShare&&navigator.canShare({files:[f]})){return navigator.share({files:[f]}).catch(function(){});}
+ var M=document.getElementById('modal'),MI=document.getElementById('mimg'),MS=document.getElementById('mshare'),MD=document.getElementById('mdl'),cur=null,blob=null;
+ function closeM(){M.classList.remove('on');M.setAttribute('aria-hidden','true');}
+ document.getElementById('mx').onclick=closeM;M.addEventListener('click',function(e){if(e.target===M)closeM();});
+ grid.addEventListener('click',function(e){var b=e.target.closest('.btn.ig');if(!b)return;var id=b.getAttribute('data-id'),g=G.filter(function(x){return x.id===id})[0];
+  cur='files/'+id+'_story.jpg?v=3';blob=null;MI.src=cur;MD.href=cur;MD.setAttribute('download','Сторис ШМЗ 2026 - '+g.name+'.jpg');
+  M.classList.add('on');M.setAttribute('aria-hidden','false');
+  fetch(cur).then(function(r){return r.blob()}).then(function(bl){blob=bl;});});
+ MS.addEventListener('click',function(){
+  function go(bl){var f=new File([bl],'shmz-2026.jpg',{type:'image/jpeg'});
+   if(navigator.canShare&&navigator.canShare({files:[f]})){navigator.share({files:[f]}).catch(function(){});return;}
    var a=document.createElement('a');a.href=URL.createObjectURL(bl);a.download='Сторис ШМЗ 2026.jpg';document.body.appendChild(a);a.click();a.remove();
    if(mobile){toast('Картинка сохранена - открываю Instagram');setTimeout(function(){location.href='instagram://story-camera'},900);}
-   else toast('Картинка скачана. Чтобы выложить в сторис, откройте эту страницу на телефоне');
-  }).finally(function(){b.disabled=false;});});
+   else toast('Картинка скачана. Чтобы выложить в сторис, откройте страницу на телефоне');}
+  if(blob)go(blob);else fetch(cur).then(function(r){return r.blob()}).then(go);});
  function gw(el){var r=document.createRange();r.selectNodeContents(el);return r.getBoundingClientRect().width-(parseFloat(getComputedStyle(el).letterSpacing)||0);}
  function fit(){var f=document.querySelector('.lock:not(.school) .fit'),a=f.querySelector('.a'),b=f.querySelector('.b'),tg=gw(b),fs=18;for(var i=0;i<6;i++){a.style.fontSize=fs+'px';fs=fs*tg/gw(a);}a.style.fontSize=fs+'px';}
  (document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(fit);window.addEventListener('resize',fit);
