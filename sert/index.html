@@ -1,35 +1,57 @@
 <!doctype html>
-<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Проверка сертификата · Школа метаболического здоровья</title>
 <meta name="robots" content="noindex">
-<link href="https://fonts.googleapis.com/css2?family=Geologica:wght@350;600&family=Lora:ital@1&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#0f1d3d">
+<link href="https://fonts.googleapis.com/css2?family=Geologica:wght@300..700&family=Lora:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
 <style>
-:root{--navy:#13285b;--teal:#14808a;--gray:#4a587a}
+:root{--navy:#13285b;--teal:#14808a;--gray:#4a587a;--green:#1fae63}
 *{box-sizing:border-box;margin:0}
-body{font-family:Geologica,system-ui,sans-serif;font-weight:350;color:var(--navy);background:#f6fafb;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px 16px}
-.card{background:#fff;max-width:520px;width:100%;border-radius:20px;padding:36px 30px 0;overflow:hidden;box-shadow:0 10px 40px rgba(19,40,91,.08);position:relative}
-.school{display:flex;align-items:center;gap:12px}.school img{height:40px}
-.t1{font-size:12px;font-weight:600;letter-spacing:.12em;color:var(--teal)}.t2{font-size:15px;font-weight:600;letter-spacing:.03em}
-.kick{margin-top:34px;font-size:14px;font-weight:600;color:var(--teal);display:flex;align-items:center;gap:10px}
-.kick:before{content:"";width:26px;height:3px;border-radius:2px;background:linear-gradient(90deg,#38c6d4,#a9d3f2)}
-.ok{display:inline-flex;align-items:center;gap:8px;margin-top:14px;font-size:15px;color:var(--teal);background:#e3f3f5;padding:7px 14px;border-radius:20px}
-h1{font-size:38px;font-weight:600;letter-spacing:-.5px;margin-top:18px;line-height:1.15}
-p{font-size:16px;color:var(--gray);line-height:1.5;margin-top:12px}
-em{font-family:Lora,serif;color:var(--teal)}
-.row{display:flex;justify-content:space-between;border-top:1px solid #e6ebf2;padding:12px 0;font-size:15px}.row span{color:var(--gray)}
-.rows{margin-top:24px}
-.bar{height:6px;margin:30px -30px 0;background:linear-gradient(90deg,#14808a,#38c6d4 60%,#a9d3f2)}
+html,body{height:100%}
+body{font-family:Geologica,system-ui,sans-serif;font-weight:350;color:var(--navy);background:#0f1d3d;min-height:100vh;min-height:100dvh;display:flex;align-items:center;justify-content:center;padding:24px 16px;overflow-x:hidden}
+.bg{position:fixed;inset:0;z-index:0;overflow:hidden;background:#0f1d3d url(bg_poster.jpg) center/cover}
+.bg video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.bg:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,29,61,.35) 0%,rgba(15,29,61,.15) 45%,rgba(15,29,61,.55) 100%)}
+.card{position:relative;z-index:1;background:#FAF8F4;max-width:460px;width:100%;border-radius:22px;padding:30px 28px 0;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.35)}
+.brand{display:flex;align-items:center;gap:12px}
+.brand .av{width:46px;height:46px;border-radius:50%;border:2px solid #d3eef0;flex:none}
+.brand .n{font-weight:600;letter-spacing:.06em;white-space:nowrap;line-height:1.1}
+.brand .s{font-size:10.5px;font-weight:600;letter-spacing:.06em;color:var(--teal);white-space:nowrap;margin-top:2px}
+.brand .sep{width:1.5px;height:38px;background:#9fb0d1;margin:0 6px;flex:none}
+.brand .lg{height:30px;flex:none}
+.kick{margin-top:30px;font-size:12px;font-weight:550;letter-spacing:.16em;text-transform:uppercase;color:var(--teal);display:flex;align-items:center;gap:10px}
+.kick:before{content:"";width:24px;height:3px;border-radius:2px;background:linear-gradient(90deg,#38c6d4,#a9d3f2)}
+.ok{display:inline-flex;align-items:center;gap:10px;margin-top:16px;font-size:15px;font-weight:450;color:#157a46;background:rgba(31,174,99,.10);padding:8px 16px 8px 12px;border-radius:22px}
+.dot{position:relative;width:10px;height:10px;border-radius:50%;background:var(--green);flex:none}
+.dot:after{content:"";position:absolute;inset:0;border-radius:50%;background:var(--green);animation:pulse 1.8s ease-out infinite}
+@keyframes pulse{0%{transform:scale(1);opacity:.7}100%{transform:scale(3.2);opacity:0}}
+@media (prefers-reduced-motion:reduce){.dot:after{animation:none}}
+h1{font-size:36px;font-weight:560;letter-spacing:-.5px;margin-top:16px;line-height:1.12}
+p{font-size:15.5px;color:var(--gray);line-height:1.5;margin-top:10px}
+.rows{margin-top:22px}
+.row{display:flex;justify-content:space-between;gap:12px;border-top:1px solid #e6e2da;padding:12px 0;font-size:14.5px}.row span{color:var(--gray)}.row b{font-weight:550}
+.bar{height:5px;margin:26px -28px 0;background:linear-gradient(90deg,#14808a,#38c6d4 60%,#a9d3f2)}
+@media (max-width:420px){.card{padding:24px 20px 0}.brand{gap:9px}.brand .av{width:40px;height:40px}.brand .s{font-size:9px}.brand .lg{height:24px}.brand .sep{margin:0 2px;height:32px}.bar{margin:26px -20px 0}h1{font-size:32px}}
+.bad{color:#b4472b;background:rgba(229,72,58,.08)}.bad .dot{background:#e5483a}.bad .dot:after{display:none}
 </style></head><body>
+<div class="bg" aria-hidden="true"><video id="v" src="bg.mp4?v=1" poster="bg_poster.jpg" autoplay muted loop playsinline preload="auto"></video></div>
 <div class="card">
- <div class="school"><img src="logo.png" alt=""><div><div class="t1">ШКОЛА</div><div class="t2">МЕТАБОЛИЧЕСКОГО ЗДОРОВЬЯ</div></div></div>
- <div id="out"><p style="margin-top:34px">Проверяем…</p></div>
+ <div class="brand"><img class="av" src="avatar.png?v=1" alt=""><div class="txt"><div class="n">ШЫНГЫС САДЫК</div><div class="s">МЕТАБОЛИЧЕСКОЕ ЗДОРОВЬЕ</div></div><div class="sep"></div><img class="lg" src="logo.png" alt="Школа метаболического здоровья"></div>
+ <div id="out"><p style="margin-top:30px">Проверяем…</p></div>
  <div class="bar"></div>
 </div>
 <script>
-var n=(new URLSearchParams(location.search).get('n')||'').toUpperCase().trim(),o=document.getElementById('out');
-fetch('certs.json',{cache:'no-store'}).then(function(r){return r.json()}).then(function(c){var x=c[n];
- if(x){o.innerHTML='<div class="kick">проверка сертификата</div><div class="ok">✓ Сертификат действителен</div><h1>'+x.name+'</h1><p>'+(x.verb||'прошла')+' весь путь курса «Школа метаболического здоровья» - от кишечника до сна</p><div class="rows"><div class="row"><span>Номер</span><b>'+x.num+'</b></div><div class="row"><span>Дата выдачи</span><b>'+x.date+'</b></div><div class="row"><span>Автор курса</span><b>Шынгыс Садык</b></div></div>';}
- else{o.innerHTML='<div class="kick">проверка сертификата</div><h1>Сертификат не найден</h1><p>Проверьте номер на сертификате. Номер вида ШМЗ-2026-001.</p>';}
-}).catch(function(){o.innerHTML='<p style="margin-top:34px">Не удалось загрузить данные. Обновите страницу.</p>'});
+(function(){
+ function fit(){var b=document.querySelector('.brand'),n=b.querySelector('.n'),s=b.querySelector('.s');var t=s.getBoundingClientRect().width,fs=18;
+  for(var i=0;i<4;i++){n.style.fontSize=fs+'px';fs=fs*t/n.getBoundingClientRect().width;}n.style.fontSize=fs+'px';}
+ (document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(fit);
+ var v=document.getElementById('v');if(v&&v.play){var p=v.play();if(p&&p.catch)p.catch(function(){});}
+ var n=(new URLSearchParams(location.search).get('n')||'').toUpperCase().trim(),o=document.getElementById('out');
+ function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+ fetch('certs.json',{cache:'no-store'}).then(function(r){return r.json()}).then(function(c){var x=c[n];
+  if(x){o.innerHTML='<div class="kick">проверка сертификата</div><div class="ok"><span class="dot"></span>Сертификат действителен</div><h1>'+esc(x.name)+'</h1><p>'+esc(x.verb||'прошла')+' весь путь авторского курса «Школа метаболического здоровья» - от кишечника до сна</p><div class="rows"><div class="row"><span>Номер</span><b>'+esc(x.num)+'</b></div><div class="row"><span>Дата выдачи</span><b>'+esc(x.date)+'</b></div><div class="row"><span>Автор курса</span><b>Шынгыс Садык</b></div></div>';}
+  else{o.innerHTML='<div class="kick">проверка сертификата</div><div class="ok bad"><span class="dot"></span>Не найден</div><h1>Сертификат не найден</h1><p>Проверьте номер на сертификате. Номер вида ШМЗ-2026-001.</p>';}
+ }).catch(function(){o.innerHTML='<p style="margin-top:30px">Не удалось загрузить данные. Обновите страницу.</p>'});
+})();
 </script>
 </body></html>
