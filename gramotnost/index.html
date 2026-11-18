@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <!-- security -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-+ULG0gVjfEburOSGMx1BvH1jvbacFJrNMzgi7J9bY8E=' https://mc.yandex.ru https://mc.yandex.com https://yastatic.net; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob: https://mc.yandex.ru https://mc.yandex.com; media-src 'self'; connect-src 'self' https://mc.yandex.ru https://mc.yandex.com wss://mc.yandex.ru wss://mc.yandex.com; frame-src blob: https://mc.yandex.ru https://mc.yandex.com; child-src blob: https://mc.yandex.ru https://mc.yandex.com; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-DUdSTg750BrXL5qMeM9h24mBc1RNrfsIlNgD9EKbrzw=' https://mc.yandex.ru https://mc.yandex.com https://yastatic.net; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob: https://mc.yandex.ru https://mc.yandex.com; media-src 'self'; connect-src 'self' https://mc.yandex.ru https://mc.yandex.com wss://mc.yandex.ru wss://mc.yandex.com; frame-src blob: https://mc.yandex.ru https://mc.yandex.com; child-src blob: https://mc.yandex.ru https://mc.yandex.com; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
 <meta name="format-detection" content="telephone=no">
@@ -1504,7 +1504,7 @@ section{padding:56px 0}
 
 <!-- HERO -->
 <section class="dark hero" id="top"><div class="xf d b" aria-hidden="true"></div>
-  <div class="hero-media" aria-hidden="true"><video id="heroV" muted loop playsinline preload="metadata" poster="img/hero5_poster.jpg" disablepictureinpicture><source src="img/hero5.mp4" type="video/mp4"></video></div>
+  <div class="hero-media" aria-hidden="true"><video id="heroV" muted autoplay loop playsinline preload="auto" poster="img/hero5_poster.jpg" disablepictureinpicture><source src="img/hero5.mp4" type="video/mp4"></video></div>
   <div class="wrap">
     <div class="hero-grid">
       <div class="hero-txt">
@@ -1912,15 +1912,15 @@ if(go)go.addEventListener('click',()=>{if(act||!start||dl()<=Date.now())return;a
     const ps=[...document.querySelectorAll('#tariffs .plan .price .main')],H=innerHeight,seen=ps.some(p=>{const r=p.getBoundingClientRect();return r.top>=0&&r.bottom<=H});
     if(!seen&&ps.length){const near=ps.reduce((a,p)=>Math.abs(p.getBoundingClientRect().top-H/2)<Math.abs(a.getBoundingClientRect().top-H/2)?p:a);near.scrollIntoView({behavior:RM?'auto':'smooth',block:'center'})}},inOv?1100:650)});
 // stream pill: after the start date the stream is running and people can still join
-{const e=document.querySelector('#hStr span');if(e&&Date.now()>=Date.parse('2026-11-25T00:00:00+05:00'))e.textContent='Поток идёт с 25 ноября · можно присоединиться'}
+try{const e=document.querySelector('#hStr span');if(e&&Date.now()>=Date.parse('2026-11-25T00:00:00+05:00'))e.textContent='Поток идёт с 25 ноября · можно присоединиться'}catch(_){}
 // graduates' voices: rise in one by one, play muted while visible, tap for sound
-{const vf=document.getElementById('voices');if(vf){const its=[...vf.querySelectorAll('.vf-i')];
+try{const vf=document.getElementById('voices');if(vf){const its=[...vf.querySelectorAll('.vf-i')];
  if('IntersectionObserver' in window){const io2=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io2.unobserve(e.target)}}),{rootMargin:'0px 0px -8% 0px'});its.forEach(x=>io2.observe(x))}else its.forEach(x=>x.classList.add('on'));
  const vids=[...vf.querySelectorAll('video')];const still=matchMedia('(prefers-reduced-motion: reduce)').matches;
  if('IntersectionObserver' in window&&!still){const vo=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;if(e.isIntersecting){const p=v.play();if(p&&p.catch)p.catch(()=>{})}else{v.pause();if(!v.muted){v.muted=true;v.parentElement.classList.remove('snd')}}}),{threshold:.4});vids.forEach(v=>vo.observe(v))}
  vf.querySelectorAll('.vf-c').forEach(b=>b.addEventListener('click',()=>{const v=b.querySelector('video');const on=v.muted;
   vids.forEach(o=>{o.muted=true;o.parentElement.classList.remove('snd')});
-  if(on){v.muted=false;v.currentTime=0;b.classList.add('snd');const p=v.play();if(p&&p.catch)p.catch(()=>{});gT('voice_play')}}))}}
+  if(on){v.muted=false;v.currentTime=0;b.classList.add('snd');const p=v.play();if(p&&p.catch)p.catch(()=>{});gT('voice_play')}}))}}catch(_){}
 // lockup: name line exactly as wide as the subtitle line
 const fit=()=>{const n=document.getElementById('lkName'),s=document.getElementById('lkSub');if(!n||!s)return;
   const r=document.createRange();r.selectNodeContents(s);const ls=parseFloat(getComputedStyle(s).letterSpacing)||0;const target=r.getBoundingClientRect().width-ls;
@@ -1940,7 +1940,7 @@ if('IntersectionObserver' in window){
 // hero video: autoplay unless reduced motion / data saver
 const hv=document.getElementById('heroV');
 if(hv){const saver=navigator.connection&&navigator.connection.saveData;const rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if(!saver&&!rm){hv.muted=true;const p=hv.play();if(p&&p.catch)p.catch(()=>{})}}
+  if(!saver&&!rm){hv.muted=true;const p=hv.play();if(p&&p.catch)p.catch(()=>{})}else hv.pause()}
 // fast lecture loop: play only while visible
 const lf=document.getElementById('lecFast');
 if(lf&&'IntersectionObserver' in window&&!matchMedia('(prefers-reduced-motion: reduce)').matches){lf.muted=true;new IntersectionObserver(([e])=>{if(e.isIntersecting){const p=lf.play();if(p&&p.catch)p.catch(()=>{})}else lf.pause()},{threshold:.3}).observe(lf)}
