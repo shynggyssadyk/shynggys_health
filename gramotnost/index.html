@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <!-- security -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-pLEUcejqIHRRZktF0px21BHq+RsA86nJ8EmwiMVy+Go=' https://mc.yandex.ru https://mc.yandex.com https://yastatic.net; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob: https://mc.yandex.ru https://mc.yandex.com; media-src 'self'; connect-src 'self' https://mc.yandex.ru https://mc.yandex.com wss://mc.yandex.ru wss://mc.yandex.com; frame-src blob: https://mc.yandex.ru https://mc.yandex.com; child-src blob: https://mc.yandex.ru https://mc.yandex.com; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-x/vcNw6V78c9HAqJMdYv5CLFZa19abbIviPnkX8zdB8=' https://mc.yandex.ru https://mc.yandex.com https://yastatic.net; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob: https://mc.yandex.ru https://mc.yandex.com; media-src 'self'; connect-src 'self' https://mc.yandex.ru https://mc.yandex.com wss://mc.yandex.ru wss://mc.yandex.com; frame-src blob: https://mc.yandex.ru https://mc.yandex.com; child-src blob: https://mc.yandex.ru https://mc.yandex.com; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
 <meta name="format-detection" content="telephone=no">
@@ -1488,6 +1488,27 @@ section{padding:56px 0}
 .mcta{display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:34px;text-align:center}
 .mcta .btn{width:100%;max-width:360px;display:flex}
 .mcta span{font-size:13px;color:#9FB2CC;letter-spacing:.02em}
+/* author strip + free-content contrast + bonus line */
+.astrip{display:flex;gap:14px;align-items:center;margin:0 0 34px;padding:14px 0;border-top:1px solid rgba(255,255,255,.16);border-bottom:1px solid rgba(255,255,255,.16)}
+.astrip img{width:52px;height:52px;border-radius:50%;flex:none;box-shadow:0 0 0 1.5px rgba(127,233,241,.6)}
+.astrip b{display:block;font-weight:450;color:#F2F6FB;font-size:15.5px}.astrip span{display:block;font-size:13px;line-height:1.45;color:#B9C7DA;margin-top:2px}
+.frc{margin-top:40px}.frc .kick{display:block;margin-bottom:14px}
+.frc-r{display:grid;gap:0}.frc-r>div{padding:14px 0;border-top:1px solid rgba(255,255,255,.16)}
+.frc-n p{color:#9FB2CC}.frc-y{border-top-color:rgba(127,233,241,.5)!important}
+.frc small{display:block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#7FE9F1;margin-bottom:6px}.frc p{font-size:15px;line-height:1.55;color:#DDE6F1;margin:0;font-weight:330}
+.bonl{margin-top:22px;font-size:15px;line-height:1.55;color:#C9D5E5}.bonl b{color:#7FE9F1;font-weight:450}
+@media (min-width:860px){.frc-r{grid-template-columns:1fr 1fr;gap:0 40px}}
+/* compact mobile layout after the cut */
+@media (max-width:859px){
+ .pains{display:grid!important;grid-template-columns:1fr 1fr;gap:30px 12px;max-width:none}
+ .pain{width:auto!important}
+ .pain::after,.pain::before{display:none!important}
+ .pain .ph{width:min(38vw,150px);height:min(38vw,150px);border-radius:34px}.pain .ph img{border-radius:34px}
+ .pain p{font-size:15.5px;line-height:1.4;margin-top:36px}
+ .res .card{padding:14px 0;gap:14px}.res .card b{font-size:40px;width:48px}.res .card p{font-size:15.5px}
+ .st{padding:10px 0}.st small{display:none}
+ .why p{font-size:15px}
+}
 </style>
 </head>
 <body>
@@ -1528,18 +1549,17 @@ section{padding:56px 0}
   </div>
 </section>
 
-<!-- PAINS -->
 <section class="light" id="pains"><div class="xf l t" aria-hidden="true"></div>
   <div class="wrap">
     <div class="kick rv">Узнаёте себя?</div>
     <h2 class="rv">Знакомо хотя бы <em class="s">одно</em>?</h2>
     <ol class="pains">
       <li class="pain rv"><span class="ph"><img src="img/pn1.webp" alt="Женщина утром тянется к будильнику" width="184" height="184" loading="lazy"><small>01</small></span><p>Просыпаетесь уже разбитыми, энергии хватает на полдня</p></li>
-      <li class="pain rv"><span class="ph"><img src="img/pn2.webp" alt="Пробирки с кровью для анализов" width="184" height="184" loading="lazy"><small>02</small></span><p>Сдаёте анализы, слышите «всё в норме» - а лучше не становится</p></li>
-      <li class="pain rv"><span class="ph"><img src="img/pn3.webp" alt="Руки на животе при вздутии" width="184" height="184" loading="lazy"><small>03</small></span><p>Вздутие, тяжесть после еды, непонятные реакции на продукты</p></li>
-      <li class="pain rv"><span class="ph"><img src="img/pn4.webp" alt="Женщина с пончиком" width="184" height="184" loading="lazy"><small>04</small></span><p>Вес не уходит даже на диетах, тянет на сладкое</p></li>
-      <li class="pain rv"><span class="ph"><img src="img/pn5.webp" alt="Выпавшие волосы на расчёске" width="184" height="184" loading="lazy"><small>05</small></span><p>Выпадают волосы, ломаются ногти, кожа сухая или жирная</p></li>
-      <li class="pain rv"><span class="ph"><img src="img/pn6.webp" alt="Женщина не может уснуть ночью" width="184" height="184" loading="lazy"><small>06</small></span><p>Спите достаточно часов - и всё равно не высыпаетесь</p></li>
+      
+      <li class="pain rv"><span class="ph"><img src="img/pn3.webp" alt="Руки на животе при вздутии" width="184" height="184" loading="lazy"><small>02</small></span><p>Вздутие, тяжесть после еды, непонятные реакции на продукты</p></li>
+      <li class="pain rv"><span class="ph"><img src="img/pn4.webp" alt="Женщина с пончиком" width="184" height="184" loading="lazy"><small>03</small></span><p>Вес не уходит даже на диетах, тянет на сладкое</p></li>
+      <li class="pain rv"><span class="ph"><img src="img/pn5.webp" alt="Выпавшие волосы на расчёске" width="184" height="184" loading="lazy"><small>04</small></span><p>Выпадают волосы, ломаются ногти, кожа сухая или жирная</p></li>
+      
     </ol>
     <div class="opq rv">
       <div class="opq-h"><span class="gf"><i></i>Google Forms</span><b>Так клиенты описывают своё состояние</b><small>Скриншоты ответов из опросника перед консультацией. Фамилии сокращены.</small></div>
@@ -1553,9 +1573,9 @@ section{padding:56px 0}
   </div>
 </section>
 
-<!-- MYTHS -->
 <section class="dark apl" id="myths">
   <div class="wrap">
+    <div class="astrip rv"><img src="img/logo.webp" alt="Шынгыс Садык" width="52" height="52"><div><b>Шынгыс Садык</b><span>Дипломированный химик, Назарбаев Университет<br>3&nbsp;года практики · 1&nbsp;000+ консультаций</span></div></div>
     <div class="kick rv">Почему советы наугад не работают</div>
     <h2 class="rv">Три убеждения, которые <em class="s">мешают разобраться</em></h2>
     <ol class="ap-bel"><li class="rv"><small>Убеждение 01</small><b class="ap-t">«Анализы в норме - значит, всё в порядке»</b><p><span>На самом деле.</span> Норма в бланке - это широкий диапазон для всех, а не оптимум для вас. Ниже реальный пример: железо «в норме», а запасов почти нет.</p></li><li class="rv"><small>Убеждение 02</small><b class="ap-t">«Дело в силе воли»</b><p><span>На самом деле.</span> Тяга к сладкому, срывы, вес, который не уходит, часто связаны с биохимическими причинами, которые можно проверить. Вы перестанете винить себя и начнёте искать причину.</p></li><li class="rv"><small>Убеждение 03</small><b class="ap-t">«Нужно просто подобрать правильные БАДы»</b><div class="ap-bots" aria-hidden="true"><div class="ap-row"><img src="img/sup2_iron.webp" alt="" width="200" height="360" loading="lazy"><img src="img/sup2_om3.webp" alt="" width="205" height="360" loading="lazy"><img src="img/sup2_mg.webp?v=2" alt="" width="190" height="360" loading="lazy"><img src="img/sup2_biot.webp" alt="" width="171" height="360" loading="lazy"><img src="img/sup2_d3.webp" alt="" width="189" height="360" loading="lazy"><img src="img/sup2_vitc.webp?v=3" alt="" width="186" height="360" loading="lazy"><img src="img/sup2_b12.webp" alt="" width="205" height="360" loading="lazy"><img src="img/sup2_q10.webp" alt="" width="199" height="360" loading="lazy"><img src="img/sup2_prob.webp" alt="" width="293" height="360" loading="lazy"><img src="img/sup2_zinc.webp" alt="" width="186" height="360" loading="lazy"><img src="img/sup2_mel.webp" alt="" width="175" height="360" loading="lazy"><img src="img/sup2_ashw.webp" alt="" width="176" height="360" loading="lazy"><img src="img/sup2_k2.webp" alt="" width="173" height="360" loading="lazy"><img src="img/sup2_iron.webp" alt="" width="200" height="360" loading="lazy"><img src="img/sup2_om3.webp" alt="" width="205" height="360" loading="lazy"><img src="img/sup2_mg.webp?v=2" alt="" width="190" height="360" loading="lazy"><img src="img/sup2_biot.webp" alt="" width="171" height="360" loading="lazy"><img src="img/sup2_d3.webp" alt="" width="189" height="360" loading="lazy"><img src="img/sup2_vitc.webp?v=3" alt="" width="186" height="360" loading="lazy"><img src="img/sup2_b12.webp" alt="" width="205" height="360" loading="lazy"><img src="img/sup2_q10.webp" alt="" width="199" height="360" loading="lazy"><img src="img/sup2_prob.webp" alt="" width="293" height="360" loading="lazy"><img src="img/sup2_zinc.webp" alt="" width="186" height="360" loading="lazy"><img src="img/sup2_mel.webp" alt="" width="175" height="360" loading="lazy"><img src="img/sup2_ashw.webp" alt="" width="176" height="360" loading="lazy"><img src="img/sup2_k2.webp" alt="" width="173" height="360" loading="lazy"></div></div><p><span>На самом деле.</span> Железо, витамин D, магний по совету из соцсетей могут быть не нужны именно вам. Сначала - понять, чего не хватает и почему. В конце программы у вас будет личный план: что делать и какие анализы сдать в первую очередь.</p></li></ol>
@@ -1567,32 +1587,15 @@ section{padding:56px 0}
         <div class="bl-r bad"><img src="img/bl_tibc.webp" alt="ОЖСС 83,1 мкмоль/л выше нормы" width="960" height="210" loading="lazy"><i><em>3</em>Организм ищет железо</i></div>
       </div>
     </div>
-  <div class="lxw rv"><div class="lx-h"><span class="kick">И так по всему профилю</span><b>Щитовидка, витамины, железо, сахар, холестерин</b><p>Строки из настоящих бланков разных людей. Имена и даты убраны. Листайте вбок.</p></div><div class="lxs" tabindex="0" aria-label="Примеры строк из бланков анализов"><figure class="lx"><small>Щитовидка</small><img src="img/bl3_ttg.webp" alt="ТТГ 3,56 при референсе 0,40-3,77" width="960" height="140" loading="lazy"><figcaption>В норме, но у самой верхней границы: 3,56 при пределе 3,77.</figcaption></figure><figure class="lx"><small>Витамин D</small><img src="img/bl3_vitd.webp" alt="25-OH витамин D 25,9 при референсе 30-100" width="960" height="140" loading="lazy"><figcaption>Ниже нормы. Лаборатория сама пишет: недостаточность.</figcaption></figure><figure class="lx"><small>Железо</small><img src="img/bl3_hgb.webp" alt="Гемоглобин 123 при норме 120-140" width="960" height="138" loading="lazy"><figcaption>Гемоглобин в норме, но почти у нижней границы: 123 при 120.</figcaption></figure><figure class="lx"><small>Запасы железа</small><img src="img/bl3_fer.webp" alt="Ферритин 42,8 при референсе 13-150" width="960" height="140" loading="lazy"><figcaption>В норме. Но диапазон от 13 до 150 - разница больше чем в 10 раз.</figcaption></figure><figure class="lx"><small>Сахар и инсулин</small><img src="img/bl3_ins.webp" alt="Инсулин 3,86 при референсе 2,60-24,90" width="960" height="140" loading="lazy"><figcaption>В норме. Но и 24 было бы «в норме» - диапазон почти десятикратный.</figcaption></figure><figure class="lx"><small>Холестерин</small><img src="img/bl3_chol.webp" alt="Холестерин 5,67 при референсе 3,63-5,20" width="960" height="140" loading="lazy"><figcaption>Выше нормы. Что именно повышено и насколько это важно, показывают соседние строки бланка.</figcaption></figure><figure class="lx"><small>Витамин B12</small><img src="img/bl3_b12.webp" alt="Витамин B12 829 при референсе 191-663" width="960" height="140" loading="lazy"><figcaption>Выше нормы - так тоже бывает, и это тоже нужно уметь читать.</figcaption></figure><figure class="lx"><small>Воспаление</small><img src="img/bl2_crp.webp" alt="СРБ высокочувствительный 1,4 мг/л" width="960" height="240" loading="lazy"><figcaption>Пометки нет. В комментарии лаборатории: 1-3 мг/л - средний сердечно-сосудистый риск.</figcaption></figure></div></div>
-  </div>
-</section>
-
-<!-- WHAT IT IS -->
-<section class="light alt" id="about">
-  <div class="wrap">
-    <div class="kick rv">Что это за программа</div>
-    <h2 class="rv">Системные знания, а не <em class="s">советы из интернета</em></h2>
-    <div class="vs2">
-      <div class="nts2 rv"><span class="nt-k">Это не</span><div class="rls"><div class="rl"><div class="rl-v g1"><video muted loop playsinline autoplay preload="metadata" poster="img/rl_juice.jpg" disablepictureinpicture width="360" height="520" aria-hidden="true"><source src="img/rl_juice.mp4" type="video/mp4"></video></div><div class="rl-c"><span>Сельдерейный сок натощак лечит щитовидку</span></div><div class="rl-u"><i></i><em>nutri_coach</em></div><div class="rl-s"><span>♥<br>48K</span><span>✎<br>1,2K</span></div><span class="stmp">Не доказано</span></div><div class="rl"><div class="rl-v g2"><video muted loop playsinline autoplay preload="metadata" poster="img/rl_bread.jpg" disablepictureinpicture width="360" height="520" aria-hidden="true"><source src="img/rl_bread.mp4" type="video/mp4"></video></div><div class="rl-c"><span>Убрали глютен - усталость ушла за неделю</span></div><div class="rl-u"><i></i><em>health.guru</em></div><div class="rl-s"><span>♥<br>48K</span><span>✎<br>1,2K</span></div><span class="stmp">Общий совет</span></div></div><p class="nts2-p"><s>Сборник информации из интернета без доказательной базы</s> · <s>общие советы и очевидные вещи</s></p><p class="nts2-n">Примеры собирательные, имена скрыты</p></div><div class="vs-ar" aria-hidden="true"><svg width="28" height="36" viewBox="0 0 28 36" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2v30M5 23l9 9 9-9"/></svg></div>
-      <div class="ck rv"><span class="ck-k">Это</span><div><i>✓</i>Системные знания, основанные на научном подходе</div><div><i>✓</i>Инструменты самодиагностики на базовом уровне</div><div><i>✓</i>Первый шаг к осознанным решениям о своём здоровье</div></div>
-    </div>
-
-    <div class="kick rv" style="margin-top:48px">Как построена каждая лекция</div>
-    <div class="lstr">
-      <div class="lecw rv"><div class="lfv"><video id="lecFast" src="img/lec_fast.mp4?v=3" poster="img/lec_fast.jpg?v=3" muted loop playsinline preload="metadata" disablepictureinpicture width="690" height="374"></video><span class="lfb"><i></i>Лекция целиком · ускорено</span></div><div class="dur"><b>50 минут</b><span>в среднем длится лекция в Zoom - смотрите в записи в своём темпе</span></div></div>
-      <ol class="chap"><li class="rv"><img src="img/lc1.webp?v=2" alt="Слайд лекции «Сон»: ночь - это 4-6 циклов по 90 минут" width="442" height="249" loading="lazy"><div><small>Глава 1</small><b>Механика темы: как это устроено</b></div></li><li class="rv"><img src="img/lc2.webp?v=2" alt="Слайд лекции «Сон»: недосып - это лишняя еда" width="442" height="249" loading="lazy"><div><small>Глава 2</small><b>Разбор причинно-следственных связей</b></div></li><li class="rv"><img src="img/lc3.webp?v=2" alt="Слайд лекции «Сон»: женский сон меняется вместе с гормонами" width="442" height="249" loading="lazy"><div><small>Глава 3</small><b>Разбор разных ситуаций на примерах</b></div></li><li class="rv"><img src="img/lc4.webp?v=2" alt="Слайд лекции «Сон»: мелатонин сдвигает ритм сна, а не усыпляет" width="442" height="249" loading="lazy"><div><small>Глава 4</small><b>Развенчание популярных мифов вокруг темы</b></div></li><li class="rv"><img src="img/lc5.webp?v=2" alt="Слайд лекции «Сон»: что работает для восстановления" width="442" height="249" loading="lazy"><div><small>Глава 5</small><b>Как предотвратить проблему, если её ещё нет, и как работать с ней, если она уже есть</b></div></li></ol>
-    </div>
-    <p class="note rv">Только проверенная информация на научной базе - без общих слов.</p>
   
-    <div class="mcta rv"><a class="btn saf" href="#tariffs">Выбрать тариф <span class="ar">→</span></a><span>Поток стартует 25&nbsp;ноября</span></div>
+  
+    <div class="frc rv"><span class="kick">Чем это отличается от бесплатных постов</span>
+      <div class="frc-r"><div class="frc-n"><small>В соцсетях</small><p>Отдельные советы без связи друг с&nbsp;другом: сегодня про&nbsp;железо, завтра про&nbsp;сон.</p></div>
+      <div class="frc-y"><small>В программе</small><p>Всё по&nbsp;порядку: как устроен организм → откуда берётся ваш симптом → какие анализы это покажут → что делать. Плюс гайд по&nbsp;анализам и&nbsp;трекер.</p></div></div>
+    </div>
   </div>
 </section>
 
-<!-- PROGRAM -->
 <section class="light" id="program">
   <div class="wrap">
     <div class="kick rv">Программа</div>
@@ -1601,11 +1604,11 @@ section{padding:56px 0}
     <div class="eps-bar" aria-hidden="true"><i id="epsBar"></i></div>
     <p class="eps-hint">Нажмите на лекцию - откроются её темы. Карусель листается сама, можно листать и пальцем.</p>
     <div class="eps-sheet" id="epsSheet" hidden><div class="eps-in" role="dialog" aria-modal="true" aria-labelledby="epsT"><div class="eps-hd" id="epsH"><button type="button" class="eps-x" id="epsX" aria-label="Закрыть">×</button><div class="eps-ov"><small id="epsN"></small><b id="epsT"></b><span id="epsS"></span></div></div><div class="eps-bd"><div class="eps-lbl">Что разберём</div><div id="epsC"></div></div></div></div>
+    <p class="bonl rv"><b>+ Бонусы:</b> конспекты всех лекций, гайд «Как правильно читать свои анализы», трекер самонаблюдения и&nbsp;2&nbsp;видеоурока - про&nbsp;витамины и&nbsp;БАДы и&nbsp;про&nbsp;перименопаузу.</p>
     <p class="ps rv">P.S. Это базовый уровень осознанности и понимания, как лучше действовать, - не замена персонального разбора ваших анализов.</p>
   </div>
 </section>
 
-<!-- PEEK -->
 <section class="light alt" id="peek"><div class="xf l b" aria-hidden="true"></div>
   <div class="wrap">
     <div class="kick rv">Загляните в лекцию</div>
@@ -1616,46 +1619,14 @@ section{padding:56px 0}
         <div class="vbox"><video src="img/lec_sleep.mp4" poster="img/lec_sleep.jpg" preload="none" playsinline controlslist="nodownload noplaybackrate" disablepictureinpicture width="1180" height="666"></video><button class="vplay" type="button" aria-label="Смотреть отрывок про недосып"><span></span></button><i class="vdur" aria-hidden="true">0:42</i></div>
         <figcaption><small>Лекция «Сон и восстановление»</small><b>После недосыпа человек <em>съедает больше</em>, и дело не в «медленном обмене»</b><span>После короткой ночи человек в среднем съедает на 385 ккал больше - и дело не в силе воли.</span></figcaption>
       </figure>
-      <figure class="vid rv">
-        <div class="vbox"><video src="img/lec_coffee.mp4" poster="img/lec_coffee.jpg" preload="none" playsinline controlslist="nodownload noplaybackrate" disablepictureinpicture width="1180" height="666"></video><button class="vplay" type="button" aria-label="Смотреть отрывок про кофе и сон"><span></span></button><i class="vdur" aria-hidden="true">0:46</i></div>
-        <figcaption><small>Лекция «Сон и восстановление»</small><b>Почему вечерний кофе <em>ухудшает сон</em>, даже если вы засыпаете</b><span>Кофе в 16:00 к полуночи ещё в крови - сон становится поверхностнее, даже если вы уснули.</span></figcaption>
-      </figure>
+      
     </div>
-    <div class="kick rv" style="margin-top:40px">Слайды из лекций</div>
-    <div class="slides rv" id="slides">
-      <button class="sl" type="button" data-full="img/sl_bmi.webp"><img src="img/sl_bmi.webp" alt="Слайд: одинаковый ИМТ - разный риск" width="1280" height="720" loading="lazy"><span>Гормоны и вес</span></button>
-      <button class="sl" type="button" data-full="img/sl_thyroid.webp"><img src="img/sl_thyroid.webp" alt="Слайд: щитовидка даёт килограммы воды" width="1280" height="720" loading="lazy"><span>Щитовидка и вес</span></button>
-      <button class="sl" type="button" data-full="img/sl_appetite.webp"><img src="img/sl_appetite.webp" alt="Слайд: дело не в обмене, а в аппетите" width="1280" height="720" loading="lazy"><span>Обмен и аппетит</span></button>
-      <button class="sl" type="button" data-full="img/sl_ferritin.webp"><img src="img/sl_ferritin.webp" alt="Слайд: ферритин и волосы" width="1280" height="720" loading="lazy"><span>Ферритин и волосы</span></button>
-      <button class="sl" type="button" data-full="img/sl_biotin.webp"><img src="img/sl_biotin.webp" alt="Слайд: биотин не помогает и путает анализы" width="1280" height="720" loading="lazy"><span>Биотин и анализы</span></button>
-      <button class="sl" type="button" data-full="img/sl_sleep.webp"><img src="img/sl_sleep.webp" alt="Слайд: сколько нужно спать" width="1280" height="720" loading="lazy"><span>Сколько нужно спать</span></button>
-      <button class="sl" type="button" data-full="img/sl_coffee.webp"><img src="img/sl_coffee.webp" alt="Слайд: кофе в 16:00 ещё в крови в полночь" width="1280" height="720" loading="lazy"><span>Кофе и сон</span></button>
-    </div>
-    <p class="note rv">Листайте вбок, нажмите на слайд, чтобы увеличить.</p>
+    
   
     <div class="mcta rv"><a class="btn saf" href="#tariffs">Выбрать тариф <span class="ar">→</span></a><span>Поток стартует 25&nbsp;ноября</span></div>
   </div>
 </section>
 
-<!-- BONUSES -->
-<section class="dark lux" id="bonus"><div class="xf d t" aria-hidden="true"></div><div class="xf d b" aria-hidden="true"></div>
-  <div class="wrap">
-    <div class="kick rv">Бонусы к программе</div>
-    <h2 class="rv">Материалы, к которым <em class="s">можно вернуться</em></h2>
-    <div class="shelf rv">
-      <div class="book b1"><div class="cv"><img src="img/cv2_konspekty.webp?v=2" alt="Титульный лист конспектов «Метаболическая грамотность»" width="660" height="932" loading="lazy"></div></div>
-      <div class="book b2"><div class="cv"><img src="img/cv2_gid.webp" alt="Титульный лист гайда «Как читать свои анализы»" width="660" height="932" loading="lazy"></div></div>
-      <div class="book b3"><div class="cv"><img src="img/cv2_treker.webp" alt="Титульный лист трекера «Дневник самонаблюдения»" width="660" height="932" loading="lazy"></div></div>
-    </div>
-    <ol class="mats">
-      <li class="rv"><span class="mn">01</span><div><b>Конспекты всех лекций</b><span>И полезные дополнительные приложения к ним.</span></div></li>
-      <li class="rv"><span class="mn">02</span><div><b>Гайд «Как правильно читать свои анализы»</b><span>На что смотреть, кроме пометки «в норме». Пример из него - в начале страницы.</span></div></li>
-      <li class="rv"><span class="mn">03</span><div><b>Трекер самонаблюдения</b><span>И другие бонусные материалы.</span></div></li>
-    </ol>
-  </div>
-</section>
-
-<!-- RESULTS -->
 <section class="light alt" id="result"><div class="xf l t" aria-hidden="true"></div>
   <div class="wrap">
     <div class="kick rv">Результат программы</div>
@@ -1675,7 +1646,6 @@ section{padding:56px 0}
   </div>
 </section>
 
-<!-- REVIEWS -->
 <section class="light" id="reviews">
   <div class="wrap">
     <div class="kick rv">Отзывы участников</div>
@@ -1683,50 +1653,11 @@ section{padding:56px 0}
     <p class="lead rv">Оригинальные скриншоты чата Zoom-лекций Школы метаболического здоровья. Фамилии скрыты.</p>
     <div class="vf" id="voices"><div class="vf-k">Голоса выпускников · выпускной Школы метаболического здоровья, 18&nbsp;ноября</div><figure class="vf-i vf-v"><button type="button" class="vf-c" aria-label="Включить звук: Григорий"><video src="img/rv_grigory.mp4?v=2" poster="img/rv_grigory.jpg" muted loop playsinline preload="metadata"></video><span class="vf-p" aria-hidden="true"></span></button><figcaption class="vf-b"><b>Григорий</b><span>видеоотзыв</span><p>«Пришёл с&nbsp;тем, что усталость была жёсткая прямо. Наконец сдал анализы, которые никогда не&nbsp;мог сдать, - общая картина уже правильная сложилась. Самочувствие явно улучшилось.»</p></figcaption></figure><div class="vf-i vf-t r"><div class="vf-b"><b>Бибигуль</b><span>в чате выпускного</span><p>Даю себе выспаться</p></div></div><figure class="vf-i vf-v r"><button type="button" class="vf-c" aria-label="Включить звук: Бибигуль"><video src="img/rv_bibigul.mp4?v=2" poster="img/rv_bibigul.jpg" muted loop playsinline preload="metadata"></video><span class="vf-p" aria-hidden="true"></span></button><figcaption class="vf-b"><b>Бибигуль</b><span>видеоотзыв</span><p>«Пришла с&nbsp;низким ферритином и&nbsp;витамином D. Многие мифы вы развеиваете. Есть ориентиры - и&nbsp;уже от&nbsp;этого легче, спокойнее, и&nbsp;состояние улучшается.»</p></figcaption></figure><div class="vf-i vf-t"><div class="vf-b"><b>Григорий</b><span>в чате выпускного</span><p>Встаю в одно время без будильника</p></div></div><div class="vf-i vf-t r"><div class="vf-b"><b>Эсмира</b><span>в чате выпускного</span><p>Сон урегулировала</p></div></div><figure class="vf-i vf-v"><button type="button" class="vf-c" aria-label="Включить звук: Эсмира"><video src="img/rv_esmira.mp4?v=2" poster="img/rv_esmira.jpg" muted loop playsinline preload="metadata"></video><span class="vf-p" aria-hidden="true"></span></button><figcaption class="vf-b"><b>Эсмира</b><span>видеоотзыв</span><p>«Я&nbsp;была вообще потерянная насчёт состояния. Всё, что мы находим в&nbsp;интернете, - такой хаос. На&nbsp;самом деле состояние намного улучшилось.»</p></figcaption></figure><div class="vf-i vf-t r"><div class="vf-b"><b>Бибигуль</b><span>в чате выпускного</span><p>Знания - сила, и самое главное - это качественный сон, а также питание и физическая активность</p></div></div><div class="vf-i vf-t"><div class="vf-b"><b>Григорий</b><span>в чате выпускного</span><p>Сдать обязательно анализы. Я просто никогда толком их не сдавал и не понимал, какие нужны</p></div></div><p class="vf-n">Нажмите на кружок, чтобы включить звук.</p></div>
     <div class="zrow">
-      <figure class="zshot rv"><img src="img/zoom2.webp" alt="Сообщения участников в чате Zoom после лекции" width="700" height="975" loading="lazy"></figure>
       <figure class="zshot rv"><img src="img/zoom1.webp" alt="Сообщения участников в чате Zoom после лекции" width="648" height="640" loading="lazy"></figure>
     </div>
   </div>
 </section>
 
-<!-- AUTHOR -->
-<section class="light" id="author"><div class="xf l b" aria-hidden="true"></div>
-  <div class="wrap">
-    <div class="kick rv">Автор программы</div>
-    <h2 class="rv">Кто ведёт <em class="s">программу</em></h2>
-    <div class="author">
-      <div class="dos rv">
-        <div class="ds-hd">
-          <div class="ds-ph"><video id="auV" muted loop playsinline preload="none" poster="img/author_v.webp" width="720" height="900" aria-label="Шынгыс Садык рассказывает"><source src="img/author_v.mp4" type="video/mp4"></video></div>
-          <div class="ds-id"><b class="ds-nm">Шынгыс<br>Садык</b><span class="ds-rl">Специалист по метаболическому здоровью</span></div>
-        </div>
-        <div class="ds-cr"><img src="img/nu_logo.svg" alt="Nazarbayev University" width="180" height="41"><span>Дипломированный химик</span></div>
-        <div class="ds-rk"><img src="img/the_logo.svg" alt="Times Higher Education" width="92" height="37"><div><b>№1 в Центральной Азии и СНГ</b><small>Назарбаев Университет в рейтинге THE 2027</small></div></div>
-        <div class="ds-st"><div><b>3 <small>года</small></b><span>частной практики</span></div><div><b>1 000<small>+</small></b><span>проведённых консультаций</span></div></div>
-      </div>
-      <div>
-        <ol class="story"><li class="rv"><span class="si" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg></span><small>Откуда я</small><p>Я вырос в среде здравоохранения. Разговоры о здоровье, самочувствии и анализах были обычной частью жизни - поэтому я всегда был чуть более осведомлён, чем окружающие.</p></li><li class="rv"><span class="si" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 1.7 3h10.6a2 2 0 0 0 1.7-3l-5-9V3"/><path d="M7.5 14h9"/></svg></span><small>Метаболическое здоровье</small><p>Химическое образование в Назарбаев Университете дало главное: понимание молекулярных и биохимических процессов - того, что на самом деле происходит в организме за цифрами анализов.</p></li><li class="rv"><span class="si" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg></span><small>Поворот</small><p>После учёбы я работал в корпоративном секторе - и разочаровался. Хотелось заниматься тем, что реально меняет жизнь людей.</p></li><li class="rv"><span class="si" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg></span><small>Вызов</small><p>Вокруг я видел тотальную неосведомлённость. Люди с усталостью при анализах «в норме» пробуют советы наугад, а советы им дают «специалисты» после трёхмесячных курсов. Я решил с этим бороться.</p></li><li class="rv"><span class="si" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 11v2a1 1 0 0 0 1 1h3l6 4V6L7 10H4a1 1 0 0 0-1 1z"/><path d="M17 9a4 4 0 0 1 0 6M19.5 6.5a8 8 0 0 1 0 11"/></svg></span><small>Миссия</small><p>Просвещать: давать людям качественные знания на научной базе и объяснять сложное простым языком - чтобы вы понимали свой организм сами и могли отличить доказательный совет от случайного.</p></li></ol>
-        <div class="quote rv">
-          <p>«Моя цель - чтобы как можно больше людей начали <em class="s">принимать осознанные решения</em> о своём здоровье, а не действовали вслепую. Так улучшается качество жизни - и вашей, и ваших близких. «Метаболическая грамотность» - первый шаг к этому, доступный каждому, независимо от бюджета».</p>
-          <div class="vals"><span>Осознанные решения</span><span>Здоровье близких</span><span>Доступно каждому</span></div>
-        </div>
-      </div>
-    </div>
-  
-    <div class="mcta rv"><a class="btn saf" href="#tariffs">Выбрать тариф <span class="ar">→</span></a><span>Поток стартует 25&nbsp;ноября</span></div>
-  </div>
-</section>
-
-<!-- PROCESS -->
-<section class="dark" id="format"><div class="xf d t" aria-hidden="true"></div><div class="xf d b" aria-hidden="true"></div>
-  <div class="wrap">
-    <div class="kick rv">Что будет после оплаты</div>
-    <h2 class="rv">Как проходит <em class="s">обучение</em></h2>
-    <ol class="fmt"><li class="rv"><div class="fm-t" style="color:#0E8F9B">Сразу<br>после оплаты</div><span class="fm-d" style="border-color:#0E8F9B"></span><div class="fm-n"><span class="fm-ic" style="background:#0E8F9B" aria-hidden="true">✓</span><div><div class="fm-c">Доступ</div><b>Открываете первую лекцию</b><p>В тот же день у вас лекции 01-02, гайд по анализам и трекер. Остальные открываются в&nbsp;дни потока: 2, 5 и&nbsp;8&nbsp;декабря.</p></div></div></li><li class="rv"><div class="fm-t" style="color:#1F5FA8">Когда<br>удобно</div><span class="fm-d" style="border-color:#1F5FA8"></span><div class="fm-n"><span class="fm-ic" style="background:#1F5FA8" aria-hidden="true">▶</span><div><div class="fm-c">Лекции</div><b>Смотрите в своём темпе</b><p>Вечером дома, в дороге, на перемотке - и уже после первых лекций начинаете замечать связи в своём самочувствии.</p></div></div></li><li class="rv"><div class="fm-t" style="color:#5FD6DE">По набору<br>группы</div><span class="fm-d" style="border-color:#5FD6DE"></span><div class="fm-n"><span class="fm-ic" style="background:#1F7FB0" aria-hidden="true">◷</span><div><div class="fm-c">Zoom · до 30 человек</div><b>Групповой созвон</b><p>На тарифе «С разбором». Созвон проходит, когда набирается группа из 30 человек, прошедших лекции, - чтобы каждый получил качественную обратную связь.</p><div class="fm-seat" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div></div></li><li class="rv"><div class="fm-t" style="color:#9FB6D6">Если не<br>успели</div><span class="fm-d" style="border-color:#9FB6D6"></span><div class="fm-n"><span class="fm-ic" style="background:#00306C" aria-hidden="true">↻</span><div><div class="fm-c">Поток</div><b>Переходите в следующую группу</b><p>Не успели к созвону своей группы - попадаете в следующую. Доступ к материалам сохраняется.</p></div></div></li><li class="rv"><div class="fm-t" style="color:#5FD6DE">Весь<br>год</div><span class="fm-d" style="border-color:#5FD6DE"></span><div class="fm-n"><span class="fm-ic" style="background:linear-gradient(135deg,#22BEC8,#1F5FA8)" aria-hidden="true">★</span><div><div class="fm-c">Доступ на 1 год</div><b>Обновления и приглашения</b><p>Обновления программы и приглашения на живые эфиры и лекции - в среднем 5‑6 раз в год.</p></div></div></li></ol>
-  </div>
-</section>
-
-<!-- STACK -->
 <section class="light" id="stack"><div class="xf l t" aria-hidden="true"></div><div class="xf l b" aria-hidden="true"></div>
   <div class="wrap">
     <div class="kick rv">Всё, что вы получаете</div>
@@ -1736,18 +1667,16 @@ section{padding:56px 0}
       <div class="st"><i>✓</i><div><b>2 бонусных видеоурока</b><small>«Как подбирать витамины и БАДы» и «Перименопауза для женщин 40+»</small></div><span class="sv">10 000 ₸</span></div>
       <div class="st"><i>✓</i><div><b>Конспекты всех лекций</b><small>и дополнительные приложения к ним</small></div><span class="sv">8 000 ₸</span></div>
       <div class="st"><i>✓</i><div><b>Гайд «Как правильно читать свои анализы» <em class="st-badge">главный бонус</em></b><small>на что смотреть, кроме пометки «в норме»</small></div><span class="sv">7 000 ₸</span></div>
-      <div class="st"><i>✓</i><div><b>Трекер самонаблюдения и чек-листы</b></div><span class="sv">5 000 ₸</span></div>
+      <div class="st"><i>✓</i><div><b>Трекер самонаблюдения и чек-листы</b></div><span class="sv">5 000 ₸</span></div><div class="st"><i>✓</i><div><b>Общий чат потока в&nbsp;WhatsApp</b><small>вопросы по&nbsp;лекциям и&nbsp;поддержка участников 14&nbsp;дней</small></div><span class="sv">5 000 ₸</span></div>
       <div class="st"><i>✓</i><div><b>Персональная карта восстановления</b><small>что делать самостоятельно и какие анализы сдать в первую очередь</small></div><span class="sv">10 000 ₸</span></div>
       <div class="st plus"><i>+</i><div><b>На тарифе «С разбором»</b><small>групповой Zoom-созвон с Шынгысом, доступ на год, живые лекции и эфиры</small></div><span class="sv">+30 000 ₸</span></div>
-      <div class="st-sum"><div class="sv-t">Общая ценность программы <s>85 000 ₸</s></div><span>Всё это</span><b>от <span class="st-p">28 000</span> ₸</b><small>при полной оплате · или в рассрочку Kaspi 0‑0‑12</small></div>
+      <div class="st-sum"><div class="sv-t">Общая ценность программы <s>90 000 ₸</s></div><span>Всё это</span><b>от <span class="st-p">28 000</span> ₸</b><small>при полной оплате · или в рассрочку Kaspi 0‑0‑12</small></div>
       <a class="btn saf w" href="#tariffs">Выбрать тариф <span class="ar">→</span></a>
     </div>
     <div class="why rv"><b>Почему такая цена?</b><p>Моя цель - чтобы осознанные решения о здоровье были доступны каждому, независимо от бюджета. Если программа избавит вас хотя бы от одной покупки БАДов наугад или ещё одного года советов, которые не работают, - она уже себя оправдала.</p><small>- Шынгыс Садык</small></div>
-    <figure class="zone rv"><figcaption>Из чата Zoom после лекции</figcaption><div class="zshot"><img src="img/zoom3.webp" alt="Участники пишут в чате Zoom после лекции: спасибо, всё понятно" width="778" height="450" loading="lazy"></div></figure>
   </div>
 </section>
 
-<!-- TARIFFS -->
 <section class="dark" id="tariffs"><div class="xf d t" aria-hidden="true"></div><div class="xf d b" aria-hidden="true"></div>
   <div class="wrap">
     <div class="kick rv">Стоимость и варианты участия</div>
@@ -1758,7 +1687,7 @@ section{padding:56px 0}
         <ul>
           <li class="y">10 Zoom-лекций в записи + 2 бонусных видеоурока</li>
           <li class="y">Конспекты всех лекций</li>
-          <li class="y">Чек-листы и все дополнительные материалы</li>
+          <li class="y">Чек-листы и все дополнительные материалы</li><li class="y">Общий чат потока в&nbsp;WhatsApp</li>
           <li class="y">Доступ к материалам на 3 месяца</li>
           <li class="x">Доступ к материалам и обновлениям на 1 год</li>
           <li class="x">Групповой Zoom-созвон с Шынгысом</li>
@@ -1777,7 +1706,7 @@ section{padding:56px 0}
         <ul>
           <li class="y">10 Zoom-лекций в записи + 2 бонусных видеоурока</li>
           <li class="y">Конспекты всех лекций</li>
-          <li class="y">Чек-листы и все дополнительные материалы</li>
+          <li class="y">Чек-листы и все дополнительные материалы</li><li class="y">Общий чат потока в&nbsp;WhatsApp</li>
           <li class="sep">Дополнительно</li>
           <li class="plus">Доступ к материалам и обновлениям программы на 1 год</li>
           <li class="plus">Групповой Zoom-созвон с Шынгысом: ответы на ваши вопросы, до 30 человек</li>
@@ -1796,13 +1725,38 @@ section{padding:56px 0}
   </div>
 </section>
 
-<!-- FAQ -->
+<section class="light" id="author"><div class="xf l b" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="kick rv">Автор программы</div>
+    <h2 class="rv">Кто ведёт <em class="s">программу</em></h2>
+    <div class="author">
+      <div class="dos rv">
+        <div class="ds-hd">
+          <div class="ds-ph"><video id="auV" muted loop playsinline preload="none" poster="img/author_v.webp" width="720" height="900" aria-label="Шынгыс Садык рассказывает"><source src="img/author_v.mp4" type="video/mp4"></video></div>
+          <div class="ds-id"><b class="ds-nm">Шынгыс<br>Садык</b><span class="ds-rl">Специалист по метаболическому здоровью</span></div>
+        </div>
+        <div class="ds-cr"><img src="img/nu_logo.svg" alt="Nazarbayev University" width="180" height="41"><span>Дипломированный химик</span></div>
+        <div class="ds-rk"><img src="img/the_logo.svg" alt="Times Higher Education" width="92" height="37"><div><b>Назарбаев Университет - №1 в&nbsp;Центральной Азии и&nbsp;СНГ</b><small>рейтинг университетов THE 2027</small></div></div>
+        <div class="ds-st"><div><b>3 <small>года</small></b><span>частной практики</span></div><div><b>1 000<small>+</small></b><span>проведённых консультаций</span></div></div>
+      </div>
+      <div>
+        
+        <div class="quote rv">
+          <p>«Моя цель - чтобы как можно больше людей начали <em class="s">принимать осознанные решения</em> о своём здоровье, а не действовали вслепую. Так улучшается качество жизни - и вашей, и ваших близких. «Метаболическая грамотность» - первый шаг к этому, доступный каждому, независимо от бюджета».</p>
+          <div class="vals"><span>Осознанные решения</span><span>Здоровье близких</span><span>Доступно каждому</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="light" id="faq"><div class="xf l t" aria-hidden="true"></div><div class="xf l b" aria-hidden="true"></div>
   <div class="wrap">
     <div class="kick rv">Вопросы</div>
     <h2 class="rv">Частые <em class="s">вопросы</em></h2>
     <div class="faq">
       <details class="rv"><summary>Когда я получу доступ?</summary><p>Сразу после оплаты - лекции 01-02, гайд «Как правильно читать свои анализы» и трекер. Дальше - в&nbsp;дни потока, который стартует 25&nbsp;ноября: 2&nbsp;декабря - лекции 03-06 и&nbsp;бонусный урок про витамины и&nbsp;БАДы, 5&nbsp;декабря - лекции 07-08 и&nbsp;урок про перименопаузу, 8&nbsp;декабря - лекции 09-10, персональная карта и&nbsp;конспекты. Если присоединились после старта, сразу откроем всё, что уже вышло. Все записи остаются у вас на весь срок доступа.</p></details>
+      <details class="rv"><summary>Будет ли общение с&nbsp;участниками?</summary><p>Да. Все участники потока попадают в&nbsp;общий чат в&nbsp;WhatsApp: там можно задавать вопросы по&nbsp;лекциям и&nbsp;делиться тем, что получается. Ссылку менеджер пришлёт после оплаты.</p></details>
       <details class="rv"><summary>Можно ли вернуть деньги?</summary><p>Да, действует «Гарантия двух лекций». Посмотрите лекции 01-02. Если поймёте, что программа не для вас, напишите менеджеру в течение 7 дней после оплаты: в паре фраз - что ожидали и чего не нашли. Вернём деньги полностью, доступ к материалам после возврата закроется.</p></details>
       <details class="rv"><summary>Нужна ли подготовка или медицинские знания?</summary><p>Нет. Первая лекция объясняет устройство организма на простом языке, а каждая тема строится от механики к практике.</p></details>
       <details class="rv"><summary>Сколько действует доступ?</summary><p>На тарифе «Самостоятельный» - 3 месяца. На тарифе «С разбором» - 1 год, вместе с обновлениями программы и приглашениями на живые эфиры.</p></details>
@@ -1815,7 +1769,6 @@ section{padding:56px 0}
   </div>
 </section>
 
-<!-- FINAL -->
 <section class="dark final" id="final"><div class="xf d t" aria-hidden="true"></div><div class="xf d f" aria-hidden="true"></div>
   <div class="wrap">
     <div class="kick rv">Выбор</div>
@@ -1840,7 +1793,7 @@ section{padding:56px 0}
 
 <div class="bar" id="bar" aria-hidden="true">
   <span class="bar-av" aria-hidden="true"></span>
-  <div class="bt"><small class="bar-s">Онлайн · 14 дней</small><b class="bar-b">Метаболическая грамотность</b></div>
+  <div class="bt"><small class="bar-s">Старт 25 ноября · от 28 000 ₸</small><b class="bar-b">Метаболическая грамотность</b></div>
   <a class="btn saf" href="#tariffs" tabindex="-1">Смотреть тарифы</a>
 </div>
 
@@ -1888,7 +1841,7 @@ let ofOn=false,trSeen=false;const setMin=()=>{const br=document.getElementById('
   const live=start&&dl()>Date.now(),mode=live?(act?'cpon':'cp'):'';br.classList.toggle('cp',mode==='cp');br.classList.toggle('cpon',mode==='cpon');
   if(mode==='cp'){sm.innerHTML='Ваш купон −3 000 ₸ · <b id="barT"></b>';bb.textContent='Подарок от Шынгыса';ba.textContent='Применить'}
   else if(mode==='cpon'){sm.innerHTML='✓ Купон применён · <b id="barT"></b>';bb.textContent='от 25 000 ₸ вместо 28 000';ba.textContent='Выбрать тариф'}
-  else{sm.textContent='Онлайн · 14 дней';bb.textContent='Метаболическая грамотность';ba.textContent=trSeen?'Выбрать тариф':'Смотреть тарифы'}
+  else{sm.textContent='Старт 25 ноября · от 28 000 ₸';bb.textContent='Метаболическая грамотность';ba.textContent=trSeen?'Выбрать тариф':'Смотреть тарифы'}
   if(mode){try{tickO()}catch(e){}}};
 {const tr0=document.getElementById('tariffs');if(tr0&&'IntersectionObserver' in window){const o=new IntersectionObserver(es=>{if(es.some(e=>e.isIntersecting)){trSeen=true;setMin();o.disconnect()}});o.observe(tr0)}}
 const pad2=n=>String(n).padStart(2,'0');
