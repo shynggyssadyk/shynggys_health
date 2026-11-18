@@ -1428,6 +1428,12 @@ section{padding:56px 0}
 .nts2-p s{text-decoration-color:rgba(229,72,58,.85);text-decoration-thickness:1.5px}
 .nts2-n{margin-top:4px;font-size:11.5px;color:#9AACC4}
 @media (min-width:700px){.nts2{max-width:440px;margin:0 auto}}
+
+/* hero brand: small avatar left of the programme name */
+.hbrand{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.hbrand img{flex:none;width:40px;height:40px;border-radius:50%;box-shadow:0 0 0 1.5px rgba(255,255,255,.5)}
+.hbrand .hname{margin:0;font-size:13px;letter-spacing:.12em;line-height:1.2}
+.hbrand .hname span{margin-top:2px;text-transform:none;letter-spacing:.01em;font-size:14px;line-height:1.25;white-space:nowrap}
 </style>
 </head>
 <body>
@@ -1450,13 +1456,12 @@ section{padding:56px 0}
 <section class="dark hero" id="top"><div class="xf d b" aria-hidden="true"></div>
   <div class="hero-media" aria-hidden="true"><video id="heroV" muted loop playsinline preload="metadata" poster="img/hero5_poster.jpg" disablepictureinpicture><source src="img/hero5.mp4" type="video/mp4"></video></div>
   <div class="wrap">
-    <div class="lock"><img src="img/logo.webp" alt="Шынгыс Садык" width="52" height="52"><span class="t"><span class="n" id="lkName">ШЫНГЫС САДЫК</span><span class="sub" id="lkSub">Метаболическое здоровье</span></span></div>
     <div class="hero-grid">
       <div class="hero-txt">
-        <p class="hname">Метаболическая грамотность<span>Онлайн-программа · 14 дней</span></p>
+        <div class="hbrand"><img src="img/logo.webp" alt="Шынгыс Садык" width="40" height="40"><p class="hname">Метаболическая грамотность<span>Онлайн-программа от Шынгыса Садыка</span></p></div>
         <h1>Перестаньте разбираться в здоровье <em class="s">наугад</em></h1>
         <a class="from" id="heroFrom" href="#program" hidden></a>
-        <p class="sub">За 14 дней разберётесь, откуда берётся усталость, и уйдёте с личным планом.</p>
+        <p class="sub">Усталость, вес, волосы, ЖКТ, дефициты: за 14 дней разберётесь в причинах и уйдёте с личным планом.</p>
         <div class="ctas">
           <a class="btn hw" href="#program">Смотреть программу</a>
         </div>
