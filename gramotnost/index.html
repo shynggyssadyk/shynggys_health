@@ -216,8 +216,12 @@ img,video{-webkit-touch-callout:none;-webkit-user-drag:none;user-select:none}
 .opw::before{content:none}
 .osun{position:relative;height:0;z-index:0}
 .osun::after{content:"";position:absolute;left:50%;top:-10px;width:120%;height:340px;transform:translateX(-50%);border-radius:50%;background:radial-gradient(closest-side,rgba(25,195,208,.28),transparent);z-index:-1}
-.osun::before{content:"";position:absolute;left:50%;top:14px;width:min(84%,360px);height:400px;background:url(img/opq_form2.webp) top center/100% auto no-repeat;border-radius:14px 14px 0 0;transform:translateX(-50%) perspective(900px) rotateX(16deg);transform-origin:50% 0;box-shadow:0 22px 40px -24px rgba(13,34,56,.4);-webkit-mask-image:linear-gradient(#000 0,#000 34%,transparent 94%);mask-image:linear-gradient(#000 0,#000 34%,transparent 94%)}
-.opw .ops{margin-top:178px;z-index:1}
+.osun::before{content:"";position:absolute;left:50%;top:10px;width:min(74%,300px);height:440px;background:url(img/opq_form2.webp) top center/100% auto no-repeat;border-radius:14px 14px 0 0;transform:translateX(-50%) perspective(1200px) rotateX(7deg);transform-origin:50% 0;box-shadow:0 16px 30px -22px rgba(13,34,56,.35);-webkit-mask-image:linear-gradient(#000 0,#000 48%,transparent 96%);mask-image:linear-gradient(#000 0,#000 48%,transparent 96%)}
+.opw .ops{margin-top:232px;z-index:1}
+/* hero photo: soft fade without a seam; chip centred on the photo edge */
+.hph::after{content:none!important}
+.hph img{-webkit-mask-image:linear-gradient(180deg,#000 0,#000 52%,transparent 100%);mask-image:linear-gradient(180deg,#000 0,#000 52%,transparent 100%)}
+.hero .chip{display:flex;width:fit-content;margin-top:-19px}
 </style>
 </head>
 <body>
