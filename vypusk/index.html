@@ -35,19 +35,21 @@ h1{font-family:Lora,serif;font-style:italic;font-weight:500;font-size:72px;line-
 .cap{font-size:13px;color:var(--gray);margin-top:10px}
 h2{font-size:26px;font-weight:560;margin-top:44px;letter-spacing:-.3px}
 .hint{font-size:14.5px;color:var(--gray);margin-top:6px;line-height:1.5}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px;margin-top:20px}
-.g{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
-.g .th{aspect-ratio:1123/794;background:#eef2f8;overflow:hidden;border-bottom:1px solid var(--line)}
-.g .th img{width:100%;height:100%;object-fit:cover;display:block}
-.g .in{padding:14px 14px 16px;display:flex;flex-direction:column;gap:8px;flex:1}
-.g .nm{font-family:Lora,serif;font-style:italic;font-weight:500;font-size:24px;line-height:1.2}
-.g .no{font-size:12.5px;color:var(--gray)}
+.search{width:100%;margin-top:18px;padding:13px 16px;border-radius:12px;border:1px solid var(--line);background:#fff;font:inherit;font-size:16px;color:var(--navy);outline:none}
+.search:focus{border-color:#38c6d4;box-shadow:0 0 0 3px rgba(56,198,212,.15)}
+.list{margin-top:8px}
+.r{display:grid;grid-template-columns:150px 1fr auto;gap:18px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}
+.r .th img{width:150px;aspect-ratio:1123/794;object-fit:cover;border-radius:8px;border:1px solid var(--line);display:block;background:#eef2f8}
+.r .nm{font-family:Lora,serif;font-style:italic;font-weight:500;font-size:25px;line-height:1.2}
+.r .no{font-size:12.5px;color:var(--gray);margin-top:3px}
+.r .ver{font-size:12.5px;color:var(--teal);text-decoration:none;display:inline-block;margin-top:4px}
+.r .acts{display:flex;gap:8px;align-items:center}
+.r .acts .btn{white-space:nowrap}
+.empty{padding:20px 0;color:var(--gray);display:none}
 .btn{display:flex;align-items:center;justify-content:center;gap:8px;padding:11px 12px;border-radius:12px;font-size:14.5px;font-weight:500;text-decoration:none;cursor:pointer;border:0;font-family:inherit}
 .btn.ig{color:#fff;background:linear-gradient(95deg,#F58529,#DD2A7B 45%,#8134AF 75%,#515BD4);box-shadow:0 8px 20px rgba(221,42,123,.25)}
 .btn.ig svg{width:18px;height:18px}
-.row2{display:flex;gap:8px}
-.row2 .btn{flex:1;background:#f1efe9;color:var(--navy);border:1px solid var(--line)}
-.ver{font-size:12.5px;color:var(--teal);text-decoration:none;text-align:center;margin-top:2px}
+.btn.sm{background:#f1efe9;color:var(--navy);border:1px solid var(--line)}
 .foot{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin-top:40px;padding-top:22px;border-top:1px solid var(--line)}
 .cta{display:inline-flex;align-items:center;justify-content:center;padding:15px 22px;border-radius:14px;background:linear-gradient(95deg,#0f6f78,#14808a 45%,#2fb3c2);color:#fff;font-size:16px;font-weight:550;text-decoration:none;box-shadow:0 10px 26px rgba(20,128,138,.30)}
 .soc{display:flex;gap:10px}
@@ -56,7 +58,7 @@ h2{font-size:26px;font-weight:560;margin-top:44px;letter-spacing:-.3px}
 .modal{position:fixed;inset:0;z-index:10;background:rgba(10,18,40,.72);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;padding:16px}.modal.on{display:flex}
 .mbox{position:relative;background:var(--paper);border-radius:22px;padding:16px;max-width:400px;width:100%;max-height:96vh;display:flex;flex-direction:column;gap:10px;animation:pop .25s ease-out}
 @keyframes pop{from{transform:scale(.94);opacity:0}}
-.mbox img{width:100%;max-height:62vh;object-fit:contain;border-radius:14px;background:#eef2f8}
+.mbox img{width:100%;max-height:50vh;object-fit:contain;border-radius:14px;background:#eef2f8}
 .mbox .x{position:absolute;right:10px;top:8px;width:40px;height:40px;border-radius:50%;border:0;background:rgba(255,255,255,.9);font-size:26px;line-height:1;color:var(--navy);cursor:pointer;z-index:2}
 .btn.plain{background:#f1efe9;color:var(--navy);border:1px solid var(--line)}
 .mh{font-size:13px;color:var(--gray);text-align:center;line-height:1.4}
@@ -64,7 +66,7 @@ h2{font-size:26px;font-weight:560;margin-top:44px;letter-spacing:-.3px}
 .toast.on{opacity:1;transform:translate(-50%,0)}
 @media (max-width:640px){.sheet{padding:22px 18px 28px;border-radius:20px}h1{font-size:50px}.lead{font-size:16px}
  .photo{display:grid;grid-template-columns:1fr 1fr;height:auto;gap:8px}.photo img{width:100%;height:170px;border-radius:12px}.photo img:nth-child(2){grid-column:1/3;order:-1;height:190px}
- .grid{grid-template-columns:1fr;gap:14px}.g .in{padding:12px;gap:8px;min-width:0}.g .nm{font-size:23px}.btn{font-size:13.5px;padding:10px 8px}.row2 .btn{font-size:12.5px}
+ .r{grid-template-columns:104px 1fr;gap:12px}.r .th img{width:104px}.r .nm{font-size:21px}.r .acts{grid-column:1/3}.r .acts .btn{flex:1;font-size:13px;padding:10px 6px}
  .sep{display:none}.top{gap:12px}.foot .cta{width:100%}}
 </style></head><body>
 <div class="bg" aria-hidden="true"><video id="v" src="bg.mp4" poster="bg_poster.jpg" autoplay muted loop playsinline preload="auto"></video><div class="tint"></div><div class="grain"></div></div>
@@ -80,8 +82,9 @@ h2{font-size:26px;font-weight:560;margin-top:44px;letter-spacing:-.3px}
  <div class="photo"><img src="g1.jpg" alt=""><img src="g2.jpg" alt=""><img src="g3.jpg" alt=""></div>
  <div class="cap">Общее фото выпуска, 18 ноября 2026</div>
  <h2>Сертификаты выпускников</h2>
- <p class="hint">На телефоне кнопка «Выложить в сторис» сразу откроет меню - выберите Instagram → История. Отметьте <b>@shynggys_health</b>, я репостну.</p>
- <div class="grid" id="grid"></div>
+ <p class="hint">Найдите своё имя - список по алфавиту. Выложите сторис и отметьте <b>@shynggys_health</b>, я репостну.</p>
+ <input class="search" id="q" type="search" placeholder="Поиск по имени" autocomplete="off">
+ <div class="list" id="grid"></div><div class="empty" id="empty">Никого не нашли - проверьте написание</div>
  <div class="foot">
   <a class="cta" id="cta" target="_blank" rel="noopener noreferrer" href="https://wa.me/77073006756">Записаться на следующий поток</a>
   <div class="soc">
@@ -93,38 +96,45 @@ h2{font-size:26px;font-weight:560;margin-top:44px;letter-spacing:-.3px}
 <div class="toast" id="toast"></div>
 <div class="modal" id="modal" aria-hidden="true"><div class="mbox"><button class="x" id="mx" aria-label="Закрыть">×</button>
  <img id="mimg" alt="">
- <button class="btn ig" id="mshare"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"><rect x="2" y="2" width="20" height="20" rx="6"/><circle cx="12" cy="12" r="4.4"/><circle cx="17.4" cy="6.6" r="1" fill="#fff"/></svg>Поделиться в Instagram</button>
- <a class="btn plain" id="mdl" download="">Сохранить картинку</a>
- <p class="mh" id="mh">В открывшемся меню пролистайте строку приложений вправо → <b>Instagram</b> → <b>История</b>.<br>Нет Instagram в списке? Нажмите «Ещё» и включите его. Или «Сохранить изображение» и выберите фото в сторис.<br>Отметьте @shynggys_health</p></div></div>
+ <button class="btn ig" id="m1"><b>1</b> · Сохранить картинку</button>
+ <button class="btn ig" id="m2" style="opacity:.55"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"><rect x="2" y="2" width="20" height="20" rx="6"/><circle cx="12" cy="12" r="4.4"/><circle cx="17.4" cy="6.6" r="1" fill="#fff"/></svg><b>2</b> · Открыть сторис Instagram</button>
+ <button class="btn plain" id="mshare">или поделиться через меню</button>
+ <p class="mh" id="mh">Шаг 1 - на iPhone выберите «Сохранить изображение» (или удерживайте картинку → «Сохранить в Фото»).<br>Шаг 2 откроет камеру сторис - смахните вверх и выберите картинку. Отметьте @shynggys_health</p></div></div>
 <script>
 (function(){
  var G=[{"id": "001", "name": "Бибинур Жанабил", "code": "SHMZ-2026-001"}, {"id": "002", "name": "Григорий Малаев", "code": "SHMZ-2026-002"}, {"id": "003", "name": "Наиль Гафаров", "code": "SHMZ-2026-003"}, {"id": "004", "name": "Валерий Бородаев", "code": "SHMZ-2026-004"}, {"id": "005", "name": "Ирина Антонова", "code": "SHMZ-2026-005"}, {"id": "006", "name": "Елена Котунова", "code": "SHMZ-2026-006"}, {"id": "007", "name": "Равиль Боясев", "code": "SHMZ-2026-007"}, {"id": "008", "name": "Эсмира Калита", "code": "SHMZ-2026-008"}, {"id": "009", "name": "Айгуль Ищанова", "code": "SHMZ-2026-009"}, {"id": "010", "name": "Бибигуль Ахметова", "code": "SHMZ-2026-010"}];
  var IGI='<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"><rect x="2" y="2" width="20" height="20" rx="6"/><circle cx="12" cy="12" r="4.4"/><circle cx="17.4" cy="6.6" r="1" fill="#fff"/></svg>';
- var grid=document.getElementById('grid');
- G.forEach(function(g){var d=document.createElement('div');d.className='g';
-  d.innerHTML='<div class="th"><img loading="lazy" src="files/'+g.id+'_cert.jpg?v=5" alt=""></div><div class="in"><div class="nm"></div><div class="no">№ '+g.code.replace('SHMZ','ШМЗ')+'</div>'+
-  '<button class="btn ig" data-id="'+g.id+'">'+IGI+'Выложить в сторис</button>'+
-  '<div class="row2"><a class="btn" href="files/'+g.id+'.pdf?v=5" download="">PDF для печати</a><a class="btn" href="files/'+g.id+'_story.jpg?v=5" download="">Для сторис</a></div>'+
-  '<a class="ver" target="_blank" href="../sert/?n='+g.code+'">проверить сертификат →</a></div>';
+ var grid=document.getElementById('grid'),q=document.getElementById('q'),empty=document.getElementById('empty');
+ G.sort(function(x,y){return x.name.localeCompare(y.name,'ru')});
+ G.forEach(function(g){var d=document.createElement('div');d.className='r';d.setAttribute('data-n',g.name.toLowerCase());
+  d.innerHTML='<a class="th" target="_blank" href="files/'+g.id+'.pdf?v=5"><img loading="lazy" src="files/'+g.id+'_cert.jpg?v=5" alt=""></a>'+
+  '<div><div class="nm"></div><div class="no">№ '+g.code.replace('SHMZ','ШМЗ')+'</div><a class="ver" target="_blank" href="../sert/?n='+g.code+'">проверить →</a></div>'+
+  '<div class="acts"><button class="btn ig" data-id="'+g.id+'">'+IGI+'В сторис</button><a class="btn sm" href="files/'+g.id+'.pdf?v=5" download="">PDF</a></div>';
   d.querySelector('.nm').textContent=g.name;
-  var pdf=d.querySelectorAll('.row2 a');pdf[0].setAttribute('download','Сертификат ШМЗ 2026 - '+g.name+'.pdf');pdf[1].setAttribute('download','Сторис ШМЗ 2026 - '+g.name+'.jpg');
+  d.querySelector('.btn.sm').setAttribute('download','Сертификат ШМЗ 2026 - '+g.name+'.pdf');
   grid.appendChild(d);});
+ q.addEventListener('input',function(){var v=q.value.trim().toLowerCase(),n=0;[].forEach.call(grid.children,function(r){var ok=!v||r.getAttribute('data-n').indexOf(v)>=0;r.style.display=ok?'':'none';if(ok)n++;});empty.style.display=n?'none':'block';});
  var t=document.getElementById('toast'),tt;function toast(m){t.textContent=m;t.classList.add('on');clearTimeout(tt);tt=setTimeout(function(){t.classList.remove('on')},4200);}
  var mobile=/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)||(navigator.maxTouchPoints>1&&/Mac/.test(navigator.platform));
- var M=document.getElementById('modal'),MI=document.getElementById('mimg'),MS=document.getElementById('mshare'),MD=document.getElementById('mdl'),cur=null,blob=null;
+ var M=document.getElementById('modal'),MI=document.getElementById('mimg'),M1=document.getElementById('m1'),M2=document.getElementById('m2'),MS=document.getElementById('mshare'),cur=null,blob=null,curName='';
+ var ios=/iPhone|iPad|iPod/i.test(navigator.userAgent)||(navigator.maxTouchPoints>1&&/Mac/.test(navigator.platform));
  function closeM(){M.classList.remove('on');M.setAttribute('aria-hidden','true');}
  document.getElementById('mx').onclick=closeM;M.addEventListener('click',function(e){if(e.target===M)closeM();});
  grid.addEventListener('click',function(e){var b=e.target.closest('.btn.ig');if(!b)return;var id=b.getAttribute('data-id'),g=G.filter(function(x){return x.id===id})[0];
-  cur='files/'+id+'_story.jpg?v=5';blob=null;MI.src=cur;MD.href=cur;MD.setAttribute('download','Сторис ШМЗ 2026 - '+g.name+'.jpg');
+  cur='files/'+id+'_story.jpg?v=5';blob=null;curName=g.name;MI.src=cur;M2.style.opacity='.55';
   M.classList.add('on');M.setAttribute('aria-hidden','false');
   fetch(cur).then(function(r){return r.blob()}).then(function(bl){blob=bl;});});
- MS.addEventListener('click',function(){
-  function go(bl){var f=new File([bl],'shmz-2026.jpg',{type:'image/jpeg'});
-   if(navigator.canShare&&navigator.canShare({files:[f]})){navigator.share({files:[f]}).catch(function(){});return;}
-   var a=document.createElement('a');a.href=URL.createObjectURL(bl);a.download='Сторис ШМЗ 2026.jpg';document.body.appendChild(a);a.click();a.remove();
-   if(mobile){toast('Картинка сохранена - открываю Instagram');setTimeout(function(){location.href='instagram://story-camera'},900);}
-   else toast('Картинка скачана. Чтобы выложить в сторис, откройте страницу на телефоне');}
-  if(blob)go(blob);else fetch(cur).then(function(r){return r.blob()}).then(go);});
+ function withBlob(f){if(blob)f(blob);else fetch(cur).then(function(r){return r.blob()}).then(function(bl){blob=bl;f(bl);});}
+ function file(bl){return new File([bl],'shmz-2026-story.jpg',{type:'image/jpeg'});}
+ function dl(bl){var a=document.createElement('a');a.href=URL.createObjectURL(bl);a.download='Сторис ШМЗ 2026 - '+curName+'.jpg';document.body.appendChild(a);a.click();a.remove();}
+ M1.addEventListener('click',function(){withBlob(function(bl){var f=file(bl);
+   if(ios&&navigator.canShare&&navigator.canShare({files:[f]})){navigator.share({files:[f]}).then(function(){M2.style.opacity='1';}).catch(function(){M2.style.opacity='1';});}
+   else{dl(bl);M2.style.opacity='1';toast(mobile?'Картинка сохранена. Теперь шаг 2':'Картинка скачана. Сторис удобнее выкладывать с телефона');}});});
+ M2.addEventListener('click',function(){if(!mobile){toast('Откройте эту страницу на телефоне - там кнопка откроет Instagram');return;}
+  var t0=Date.now();location.href='instagram://story-camera';
+  setTimeout(function(){if(!document.hidden&&Date.now()-t0<2500)toast('Instagram не открылся. Установлено ли приложение?');},1800);});
+ MS.addEventListener('click',function(){withBlob(function(bl){var f=file(bl);
+   if(navigator.canShare&&navigator.canShare({files:[f]})){navigator.share({files:[f]}).catch(function(){});}else{dl(bl);}});});
  function gw(el){var r=document.createRange();r.selectNodeContents(el);return r.getBoundingClientRect().width-(parseFloat(getComputedStyle(el).letterSpacing)||0);}
  function fit(){var f=document.querySelector('.lock:not(.school) .fit'),a=f.querySelector('.a'),b=f.querySelector('.b'),tg=gw(b),fs=18;for(var i=0;i<6;i++){a.style.fontSize=fs+'px';fs=fs*tg/gw(a);}a.style.fontSize=fs+'px';}
  (document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(fit);window.addEventListener('resize',fit);
