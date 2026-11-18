@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <!-- security -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-8xJ2OP+EuT5nOy6ku06GAq1H1RISi0X8t7Y/2TF9UnM=' https://mc.yandex.ru https://mc.yandex.com https://yastatic.net; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob: https://mc.yandex.ru https://mc.yandex.com; media-src 'self'; connect-src 'self' https://mc.yandex.ru https://mc.yandex.com wss://mc.yandex.ru wss://mc.yandex.com; frame-src blob: https://mc.yandex.ru https://mc.yandex.com; child-src blob: https://mc.yandex.ru https://mc.yandex.com; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-uWT1xsn7TxPzUAVwxPLBUoID1sUbxfZFhntBfosbHaQ=' https://mc.yandex.ru https://mc.yandex.com https://yastatic.net; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob: https://mc.yandex.ru https://mc.yandex.com; media-src 'self'; connect-src 'self' https://mc.yandex.ru https://mc.yandex.com wss://mc.yandex.ru wss://mc.yandex.com; frame-src blob: https://mc.yandex.ru https://mc.yandex.com; child-src blob: https://mc.yandex.ru https://mc.yandex.com; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
 <meta name="format-detection" content="telephone=no">
@@ -964,7 +964,7 @@ h1,h2,h3{font-weight:400!important}
 .grt b{font-size:26px!important;font-weight:400!important;letter-spacing:-.02em;line-height:1.15}
 .grt p{font-size:16.5px!important;margin-top:8px!important;color:#D5DFEC!important}
 .nxt{margin-top:34px!important;padding:0!important;gap:0!important}
-.nxt::before{content:"Что будет после нажатия «Выбрать»";display:block;font-size:13.5px;letter-spacing:.12em;text-transform:uppercase;color:#9FE6EB;font-weight:450;padding-bottom:12px}
+.nxt::before{content:"Как оплатить";display:block;font-size:13.5px;letter-spacing:.12em;text-transform:uppercase;color:#9FE6EB;font-weight:450;padding-bottom:12px}
 .nxt li{padding:16px 0!important;border-top:1px solid rgba(255,255,255,.16);gap:16px!important;align-items:baseline!important}
 .nxt i{background:none!important;border:0!important;width:30px!important;height:auto!important;font:italic 400 30px/1 var(--serif)!important;color:#7FE9F1!important}
 .nxt b{font-size:18px!important}.nxt span{font-size:15.5px!important;color:#B9C7DA!important}
@@ -1448,6 +1448,12 @@ section{padding:56px 0}
 .aul-h img{width:96px;height:96px;border-radius:50%;object-fit:cover;flex:none;box-shadow:0 0 0 2px #19C3D0}
 .aul-h b{display:block;font-weight:450;color:#F2F6FB}
 .aul-c:has(span[hidden]){display:none}
+/* stream pill + Kaspi payment buttons */
+.hstr{display:inline-flex;gap:8px;align-items:center;margin:0 0 14px;padding:6px 12px;border-radius:40px;border:1px solid rgba(127,233,241,.45);color:#7FE9F1;font-size:13px;letter-spacing:.04em}
+.hstr i{width:7px;height:7px;border-radius:50%;background:#19C3D0;flex:none}
+.ksi{display:inline-flex;width:20px;height:20px;border-radius:6px;background:#F14635;color:#fff;font:700 12px/20px Geologica,sans-serif;justify-content:center;align-items:center}
+.pb2{display:flex;width:100%;margin-top:10px;min-height:50px;align-items:center;justify-content:center;border-radius:60px;border:1.5px solid rgba(201,214,232,.35);color:#F2F6FB;font-size:15.5px;text-decoration:none}
+.pbn{margin-top:12px;font-size:13.5px;line-height:1.45;color:#9FB2CC}.pbn a{color:#7FE9F1;text-underline-offset:3px}
 </style>
 </head>
 <body>
@@ -1473,6 +1479,7 @@ section{padding:56px 0}
     <div class="hero-grid">
       <div class="hero-txt">
         <div class="hbrand"><img src="img/logo.webp" alt="Шынгыс Садык" width="40" height="40"><p class="hname">Метаболическая грамотность<span>Онлайн-программа от Шынгыса Садыка</span></p></div>
+        <p class="hstr" id="hStr"><i></i><span>Поток · старт 25&nbsp;ноября</span></p>
         <h1>Перестаньте разбираться в здоровье <em class="s">наугад</em></h1>
         <a class="from" id="heroFrom" href="#program" hidden></a>
         <p class="sub">Усталость, вес, волосы, ЖКТ, дефициты: за 14 дней разберётесь в причинах и уйдёте с личным планом.</p>
@@ -1669,7 +1676,7 @@ section{padding:56px 0}
   <div class="wrap">
     <div class="kick rv">Что будет после оплаты</div>
     <h2 class="rv">Как проходит <em class="s">обучение</em></h2>
-    <ol class="fmt"><li class="rv"><div class="fm-t" style="color:#0E8F9B">Сразу<br>после оплаты</div><span class="fm-d" style="border-color:#0E8F9B"></span><div class="fm-n"><span class="fm-ic" style="background:#0E8F9B" aria-hidden="true">✓</span><div><div class="fm-c">Доступ</div><b>Открываете первую лекцию</b><p>В тот же день у вас лекции 01-02, гайд по анализам и трекер. Остальные лекции открываются по графику за 14 дней.</p></div></div></li><li class="rv"><div class="fm-t" style="color:#1F5FA8">Когда<br>удобно</div><span class="fm-d" style="border-color:#1F5FA8"></span><div class="fm-n"><span class="fm-ic" style="background:#1F5FA8" aria-hidden="true">▶</span><div><div class="fm-c">Лекции</div><b>Смотрите в своём темпе</b><p>Вечером дома, в дороге, на перемотке - и уже после первых лекций начинаете замечать связи в своём самочувствии.</p></div></div></li><li class="rv"><div class="fm-t" style="color:#5FD6DE">По набору<br>группы</div><span class="fm-d" style="border-color:#5FD6DE"></span><div class="fm-n"><span class="fm-ic" style="background:#1F7FB0" aria-hidden="true">◷</span><div><div class="fm-c">Zoom · до 30 человек</div><b>Групповой созвон</b><p>На тарифе «С разбором». Созвон проходит, когда набирается группа из 30 человек, прошедших лекции, - чтобы каждый получил качественную обратную связь.</p><div class="fm-seat" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div></div></li><li class="rv"><div class="fm-t" style="color:#9FB6D6">Если не<br>успели</div><span class="fm-d" style="border-color:#9FB6D6"></span><div class="fm-n"><span class="fm-ic" style="background:#00306C" aria-hidden="true">↻</span><div><div class="fm-c">Поток</div><b>Переходите в следующую группу</b><p>Не успели к созвону своей группы - попадаете в следующую. Доступ к материалам сохраняется.</p></div></div></li><li class="rv"><div class="fm-t" style="color:#5FD6DE">Весь<br>год</div><span class="fm-d" style="border-color:#5FD6DE"></span><div class="fm-n"><span class="fm-ic" style="background:linear-gradient(135deg,#22BEC8,#1F5FA8)" aria-hidden="true">★</span><div><div class="fm-c">Доступ на 1 год</div><b>Обновления и приглашения</b><p>Обновления программы и приглашения на живые эфиры и лекции - в среднем 5‑6 раз в год.</p></div></div></li></ol>
+    <ol class="fmt"><li class="rv"><div class="fm-t" style="color:#0E8F9B">Сразу<br>после оплаты</div><span class="fm-d" style="border-color:#0E8F9B"></span><div class="fm-n"><span class="fm-ic" style="background:#0E8F9B" aria-hidden="true">✓</span><div><div class="fm-c">Доступ</div><b>Открываете первую лекцию</b><p>В тот же день у вас лекции 01-02, гайд по анализам и трекер. Остальные открываются в&nbsp;дни потока: 2, 5 и&nbsp;8&nbsp;декабря.</p></div></div></li><li class="rv"><div class="fm-t" style="color:#1F5FA8">Когда<br>удобно</div><span class="fm-d" style="border-color:#1F5FA8"></span><div class="fm-n"><span class="fm-ic" style="background:#1F5FA8" aria-hidden="true">▶</span><div><div class="fm-c">Лекции</div><b>Смотрите в своём темпе</b><p>Вечером дома, в дороге, на перемотке - и уже после первых лекций начинаете замечать связи в своём самочувствии.</p></div></div></li><li class="rv"><div class="fm-t" style="color:#5FD6DE">По набору<br>группы</div><span class="fm-d" style="border-color:#5FD6DE"></span><div class="fm-n"><span class="fm-ic" style="background:#1F7FB0" aria-hidden="true">◷</span><div><div class="fm-c">Zoom · до 30 человек</div><b>Групповой созвон</b><p>На тарифе «С разбором». Созвон проходит, когда набирается группа из 30 человек, прошедших лекции, - чтобы каждый получил качественную обратную связь.</p><div class="fm-seat" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div></div></li><li class="rv"><div class="fm-t" style="color:#9FB6D6">Если не<br>успели</div><span class="fm-d" style="border-color:#9FB6D6"></span><div class="fm-n"><span class="fm-ic" style="background:#00306C" aria-hidden="true">↻</span><div><div class="fm-c">Поток</div><b>Переходите в следующую группу</b><p>Не успели к созвону своей группы - попадаете в следующую. Доступ к материалам сохраняется.</p></div></div></li><li class="rv"><div class="fm-t" style="color:#5FD6DE">Весь<br>год</div><span class="fm-d" style="border-color:#5FD6DE"></span><div class="fm-n"><span class="fm-ic" style="background:linear-gradient(135deg,#22BEC8,#1F5FA8)" aria-hidden="true">★</span><div><div class="fm-c">Доступ на 1 год</div><b>Обновления и приглашения</b><p>Обновления программы и приглашения на живые эфиры и лекции - в среднем 5‑6 раз в год.</p></div></div></li></ol>
   </div>
 </section>
 
@@ -1724,7 +1731,7 @@ section{padding:56px 0}
           <div class="tmr js-off" hidden><div class="tm-h"><span>Цена по вашему купону</span><b class="js-t">20:00</b></div><div class="tm-b"><i class="js-bar"></i></div></div>
           <div class="alt"><span class="kaspi">Или частями, Kaspi 0‑0‑12</span><span><b>35 000 ₸</b> в рассрочку</span></div>
           <div class="cur">Из других стран: 5 500 ₽ · 65 $</div>
-          <a class="btn ink w js-buy" data-plan="self" href="#" target="_blank" rel="noopener noreferrer">Выбрать «Самостоятельный» <span class="ar">→</span></a>
+          <a class="btn ink w js-ks" data-plan="self" href="https://pay.kaspi.kz/pay/bgxhhln2" target="_blank" rel="noopener noreferrer"><span class="ksi" aria-hidden="true">K</span>Оплатить в Kaspi</a><a class="pb2 js-buy" data-plan="self" data-k="inst" href="#" target="_blank" rel="noopener noreferrer">Kaspi 0-0-12 · рассрочка</a><a class="pb2 js-buy" data-plan="self" data-k="intl" href="#" target="_blank" rel="noopener noreferrer">Из других стран</a><p class="pbn">После оплаты <a class="js-buy" data-plan="self" data-k="chk" href="#" target="_blank" rel="noopener noreferrer">пришлите чек менеджеру</a> - в&nbsp;тот же день откроем доступ.</p>
         </div></div>
       </div>
       <div class="plan top">
@@ -1744,12 +1751,12 @@ section{padding:56px 0}
           <div class="tmr js-off" hidden><div class="tm-h"><span>Цена по вашему купону</span><b class="js-t">20:00</b></div><div class="tm-b"><i class="js-bar"></i></div></div>
           <div class="alt"><span class="kaspi">Или частями, Kaspi 0‑0‑12</span><span><b>45 000 ₸</b> в рассрочку</span></div>
           <div class="cur">Из других стран: 7 500 ₽ · 85 $</div>
-          <a class="btn saf w js-buy" data-plan="review" href="#" target="_blank" rel="noopener noreferrer">Выбрать «С разбором» <span class="ar">→</span></a>
+          <a class="btn saf w js-ks" data-plan="review" href="https://pay.kaspi.kz/pay/bgxhhln2" target="_blank" rel="noopener noreferrer"><span class="ksi" aria-hidden="true">K</span>Оплатить в Kaspi</a><a class="pb2 js-buy" data-plan="review" data-k="inst" href="#" target="_blank" rel="noopener noreferrer">Kaspi 0-0-12 · рассрочка</a><a class="pb2 js-buy" data-plan="review" data-k="intl" href="#" target="_blank" rel="noopener noreferrer">Из других стран</a><p class="pbn">После оплаты <a class="js-buy" data-plan="review" data-k="chk" href="#" target="_blank" rel="noopener noreferrer">пришлите чек менеджеру</a> - в&nbsp;тот же день откроем доступ.</p>
         </div></div>
       </div>
     </div>
     <div class="grt rv"><span class="grt-i" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8.2-7 10-4-1.8-7-5.5-7-10V6l7-3z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg></span><div><b>Гарантия двух лекций</b><p>Посмотрите первые две лекции. Если поймёте, что программа не для вас, - напишите менеджеру в течение 7 дней после оплаты, и мы вернём деньги полностью.</p></div></div>
-    <ol class="nxt rv" aria-label="Что будет после нажатия"><li><i>1</i><div><b>Нажимаете «Выбрать»</b><span>откроется чат с менеджером</span></div></li><li><i>2</i><div><b>Оплачиваете</b><span>менеджер пришлёт ссылку, можно Kaspi 0-0-12</span></div></li><li><i>3</i><div><b>Начинаете в тот же день</b><span>лекции 01-02, гайд и трекер открываются сразу</span></div></li></ol>
+    <ol class="nxt rv" aria-label="Как оплатить"><li><i>1</i><div><b>Оплачиваете в&nbsp;Kaspi</b><span>сумму тарифа, для рассрочки 0-0-12 и&nbsp;других стран - через менеджера</span></div></li><li><i>2</i><div><b>Присылаете чек</b><span>менеджеру в&nbsp;WhatsApp</span></div></li><li><i>3</i><div><b>Начинаете в&nbsp;тот же день</b><span>лекции 01-02, гайд и&nbsp;трекер сразу, поток стартует 25&nbsp;ноября</span></div></li></ol>
   </div>
 </section>
 
@@ -1759,7 +1766,7 @@ section{padding:56px 0}
     <div class="kick rv">Вопросы</div>
     <h2 class="rv">Частые <em class="s">вопросы</em></h2>
     <div class="faq">
-      <details class="rv"><summary>Когда я получу доступ?</summary><p>Сразу после оплаты - лекции 01-02, гайд «Как правильно читать свои анализы» и трекер. Дальше по графику: на 8-й день - лекции 03-06 и бонусный урок про витамины и БАДы, на 11-й - лекции 07-08 и урок про перименопаузу, на 14-й - лекции 09-10, персональная карта и конспекты. Все записи остаются у вас на весь срок доступа.</p></details>
+      <details class="rv"><summary>Когда я получу доступ?</summary><p>Сразу после оплаты - лекции 01-02, гайд «Как правильно читать свои анализы» и трекер. Дальше - в&nbsp;дни потока, который стартует 25&nbsp;ноября: 2&nbsp;декабря - лекции 03-06 и&nbsp;бонусный урок про витамины и&nbsp;БАДы, 5&nbsp;декабря - лекции 07-08 и&nbsp;урок про перименопаузу, 8&nbsp;декабря - лекции 09-10, персональная карта и&nbsp;конспекты. Если присоединились после старта, сразу откроем всё, что уже вышло. Все записи остаются у вас на весь срок доступа.</p></details>
       <details class="rv"><summary>Можно ли вернуть деньги?</summary><p>Да, действует «Гарантия двух лекций». Посмотрите лекции 01-02. Если поймёте, что программа не для вас, напишите менеджеру в течение 7 дней после оплаты: в паре фраз - что ожидали и чего не нашли. Вернём деньги полностью, доступ к материалам после возврата закроется.</p></details>
       <details class="rv"><summary>Нужна ли подготовка или медицинские знания?</summary><p>Нет. Первая лекция объясняет устройство организма на простом языке, а каждая тема строится от механики к практике.</p></details>
       <details class="rv"><summary>Сколько действует доступ?</summary><p>На тарифе «Самостоятельный» - 3 месяца. На тарифе «С разбором» - 1 год, вместе с обновлениями программы и приглашениями на живые эфиры.</p></details>
@@ -1811,9 +1818,11 @@ ym(114310964,'init',{webvisor:true,clickmap:true,referrer:document.referrer,url:
 window.gT=g=>{try{ym(114310964,'reachGoal',g)}catch(e){}};
 (()=>{
 const WA='https://wa.me/77073006756?text=';
+const PN={self:'«Самостоятельный»',review:'«С разбором»'},PG='Здравствуйте! Программа «Метаболическая грамотность», тариф ';
 const BUY={
-  self:WA+encodeURIComponent('Здравствуйте! Хочу на программу «Метаболическая грамотность», тариф «Самостоятельный».'),
-  review:WA+encodeURIComponent('Здравствуйте! Хочу на программу «Метаболическая грамотность», тариф «С разбором».')
+  chk:p=>PG+PN[p]+'. Оплатил(а) в Kaspi, отправляю чек.',
+  inst:p=>PG+PN[p]+'. Хочу оплатить в рассрочку Kaspi 0-0-12.',
+  intl:p=>PG+PN[p]+'. Я живу не в Казахстане, как оплатить?'
 };
 // personal coupon: pops up 1 s after the last tariff card is reached; -3000 KZT on full payment, valid 20 min from that moment (per browser); applied by one tap
 const CPN_MS=20*60*1000,POP_DELAY=1000;let start=0;try{start=+localStorage.getItem('gr_cpn3_start')||0}catch(e){}
@@ -1823,7 +1832,7 @@ const fmt=d=>new Intl.DateTimeFormat('ru-RU',{timeZone:'Asia/Almaty',hour:'2-dig
 const SRC=(()=>{let v='';try{const q=new URLSearchParams(location.search);v=(q.get('utm_campaign')||q.get('from')||'').replace(/[^\wа-яё-]/gi,'').slice(0,20);if(v)localStorage.setItem('gr_src',v);else v=localStorage.getItem('gr_src')||''}catch(e){}return v})();
 const SRCTAG=' (с сайта'+(SRC?', '+SRC.toUpperCase():'')+')';
 const setLinks=on=>{const tail=on?' Купон SHYNGYS3000: -3 000 ₸ при полной оплате, действует до '+fmt(new Date(dl()))+' (Алматы).':'';
-  document.querySelectorAll('.js-buy').forEach(a=>{a.href=BUY[a.dataset.plan]+encodeURIComponent(tail+SRCTAG)})};
+  document.querySelectorAll('.js-buy').forEach(a=>{const k=a.dataset.k;a.href=WA+encodeURIComponent(BUY[k](a.dataset.plan)+(k==='inst'?'':tail)+SRCTAG)})};
 const nf=n=>String(n).replace(/\B(?=(\d{3})+$)/g,' ');
 const countTo=(e,a,b)=>{if(RM){e.textContent=nf(b);return}const t0=performance.now(),D=1100;const f=t=>{const k=Math.min(1,(t-t0)/D),q=1-Math.pow(1-k,3);e.textContent=nf(Math.round((a+(b-a)*q)/100)*100);if(k<1)requestAnimationFrame(f);else e.textContent=nf(b)};requestAnimationFrame(f);setTimeout(()=>{if(ofOn)e.textContent=nf(b)},D+200)};
 const SV={s:'<svg viewBox="0 0 24 24"><path d="M12 0l2.6 9.4L24 12l-9.4 2.6L12 24l-2.6-9.4L0 12l9.4-2.6z"/></svg>',b:'<svg viewBox="0 0 24 24"><path d="M14 1L3 14h7.5L9 23l11-13.5h-7.5z"/></svg>'};
@@ -1870,6 +1879,8 @@ if(go)go.addEventListener('click',()=>{if(act||!start||dl()<=Date.now())return;a
   setTimeout(()=>{if(dl()<=Date.now())return;if(inOv)inline();setOffer(true,true);
     const ps=[...document.querySelectorAll('#tariffs .plan .price .main')],H=innerHeight,seen=ps.some(p=>{const r=p.getBoundingClientRect();return r.top>=0&&r.bottom<=H});
     if(!seen&&ps.length){const near=ps.reduce((a,p)=>Math.abs(p.getBoundingClientRect().top-H/2)<Math.abs(a.getBoundingClientRect().top-H/2)?p:a);near.scrollIntoView({behavior:RM?'auto':'smooth',block:'center'})}},inOv?1100:650)});
+// stream pill: after the start date the stream is running and people can still join
+{const e=document.querySelector('#hStr span');if(e&&Date.now()>=Date.parse('2026-11-25T00:00:00+05:00'))e.textContent='Поток идёт с 25 ноября · можно присоединиться'}
 // lockup: name line exactly as wide as the subtitle line
 const fit=()=>{const n=document.getElementById('lkName'),s=document.getElementById('lkSub');if(!n||!s)return;
   const r=document.createRange();r.selectNodeContents(s);const ls=parseFloat(getComputedStyle(s).letterSpacing)||0;const target=r.getBoundingClientRect().width-ls;
@@ -1905,7 +1916,7 @@ lb.addEventListener('click',closeLb);document.addEventListener('keydown',e=>{if(
 function track(){}
 document.addEventListener('contextmenu',e=>{if(e.target.closest('img,video'))e.preventDefault()});document.addEventListener('dragstart',e=>{if(e.target.closest('img,video'))e.preventDefault()});
 track('page_view');
-document.addEventListener('click',e=>{const a=e.target.closest&&e.target.closest('.js-buy');if(a){gT('buy');gT('buy_'+a.dataset.plan)}});
+document.addEventListener('click',e=>{const a=e.target.closest&&e.target.closest('.js-buy,.js-ks');if(!a)return;if(a.classList.contains('js-ks')){gT('kaspi');gT('kaspi_'+a.dataset.plan)}else{gT('buy');gT('buy_'+a.dataset.k+'_'+a.dataset.plan)}});
 {const tf=document.getElementById('tariffs');if(tf&&'IntersectionObserver' in window){const o=new IntersectionObserver(es=>{if(es.some(x=>x.isIntersecting)){o.disconnect();gT('tariffs_view')}},{threshold:.15});o.observe(tf)}}
 {let vp=false;document.querySelectorAll('.vid video').forEach(v=>v.addEventListener('play',()=>{if(!vp){vp=true;gT('video_play')}}))}
 })();
