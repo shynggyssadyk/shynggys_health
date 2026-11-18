@@ -203,6 +203,14 @@ footer{padding:26px 0 30px;font-size:12.5px;color:var(--mute)}
 .toast.on{opacity:1;transform:translate(-50%,0)}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 img,video{-webkit-touch-callout:none;-webkit-user-drag:none;user-select:none}
+/* returned arguments */
+.wp{margin-top:22px;font-size:16px;line-height:1.55;color:var(--ink2)}
+.frc{margin-top:34px}.fr{padding:14px 0;border-top:1px solid var(--line)}.fr small,.fit small{display:block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink2);margin-bottom:6px}
+.fr p{margin:0;font-size:15.5px;line-height:1.55;color:var(--ink2)}.fr.y{border-top-color:var(--tt)}.fr.y small{color:var(--tt)}.fr.y p{color:var(--ink)}
+.fit{margin-top:34px;display:grid;gap:0}.fit>div{padding:14px 0;border-top:1px solid var(--line)}.fit ul{margin:0;padding-left:18px}.fit li{font-size:15.5px;line-height:1.5;color:var(--ink);margin:4px 0}.fit .n li{color:var(--ink2)}
+.fit>div:first-child small{color:var(--tt)}
+.pk .k{margin-bottom:12px}
+#faq details a{color:var(--tt);text-underline-offset:3px}
 </style>
 </head>
 <body>
@@ -249,6 +257,7 @@ img,video{-webkit-touch-callout:none;-webkit-user-drag:none;user-select:none}
       <li><img src="img/pn4.webp" alt="" loading="lazy" width="58" height="58"><span>Вес не&nbsp;уходит даже на&nbsp;диетах, тянет на&nbsp;сладкое</span></li>
       <li><img src="img/pn5.webp" alt="" loading="lazy" width="58" height="58"><span>Выпадают волосы, ломаются ногти, кожа сухая или&nbsp;жирная</span></li>
     </ul>
+    <p class="wp">Дело часто не&nbsp;в&nbsp;силе воли. У&nbsp;усталости, тяги к&nbsp;сладкому и&nbsp;веса бывают причины, которые можно проверить анализами.</p>
     <div class="opw">
       <div class="t"><b>Так клиенты описывают своё состояние</b>Ответы из&nbsp;опросника перед консультацией. Фамилии сокращены.</div>
       <div class="ops">
@@ -280,6 +289,11 @@ img,video{-webkit-touch-callout:none;-webkit-user-drag:none;user-select:none}
       <figure><img src="img/bl_tibc.webp" alt="Бланк: ОЖСС" loading="lazy" width="960" height="210"><figcaption><i>3</i>ОЖСС повышена: организм ищет железо</figcaption></figure>
     </div>
     <p style="margin-top:18px;color:var(--ink2)">В&nbsp;программе разберём, на&nbsp;что&nbsp;смотреть кроме пометки «в&nbsp;норме», и&nbsp;какие анализы сдать в&nbsp;первую очередь.</p>
+  
+    <div class="frc"><div class="k" style="margin-bottom:6px">Чем это отличается от&nbsp;бесплатных постов</div>
+      <div class="fr"><small>В&nbsp;соцсетях</small><p>Отдельные советы без&nbsp;связи друг с&nbsp;другом: сегодня про&nbsp;железо, завтра про&nbsp;сон.</p></div>
+      <div class="fr y"><small>В&nbsp;программе</small><p>Всё по&nbsp;порядку: как&nbsp;устроен организм → откуда берётся ваш симптом → какие анализы это&nbsp;покажут → что&nbsp;делать. Плюс гайд по&nbsp;анализам и&nbsp;трекер.</p></div>
+    </div>
   </div>
 </section>
 
@@ -300,6 +314,16 @@ img,video{-webkit-touch-callout:none;-webkit-user-drag:none;user-select:none}
       <figure><img src="img/cv2_konspekty.webp" alt="Обложка конспектов" loading="lazy" width="660" height="932"><figcaption>Конспекты лекций</figcaption></figure>
     </div>
     <div class="cta"><a class="btn" href="#tariffs">Выбрать тариф</a><small>Лекции 01‑02 откроются в&nbsp;день оплаты</small></div>
+  
+    <div class="pk" style="margin-top:44px"><div class="k">Загляните в&nbsp;лекцию</div>
+    <div class="lec card" style="margin:0">
+      <button type="button" class="vbx" data-snd aria-label="Включить звук: отрывок лекции" aria-pressed="false"><video data-auto src="img/lec_sleep.mp4" poster="img/lec_sleep.jpg" muted loop playsinline preload="none"></video><span class="sn"><svg class="off" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M17 9l4 6M21 9l-4 6"/></svg><svg class="on" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 010 7M19 6a8.5 8.5 0 010 12"/></svg></span></button>
+      <p>Отрывок лекции «Сон и&nbsp;восстановление»: после короткой ночи человек в&nbsp;среднем съедает на&nbsp;385&nbsp;ккал больше.</p>
+    </div></div>
+    <div class="fit">
+      <div><small>Подойдёт, если</small><ul><li>анализы «в&nbsp;норме», а&nbsp;самочувствие&nbsp;- нет</li><li>хотите понимать причину, а&nbsp;не&nbsp;пить БАДы наугад</li></ul></div>
+      <div class="n"><small>Не&nbsp;подойдёт, если</small><ul><li>ищете быстрое средство или&nbsp;готовый протокол лечения</li><li>нужен разбор именно ваших анализов&nbsp;- это&nbsp;отдельный формат</li></ul></div>
+    </div>
   </div>
 </section>
 
@@ -364,11 +388,6 @@ img,video{-webkit-touch-callout:none;-webkit-user-drag:none;user-select:none}
 
 <section id="author">
   <div class="w">
-    <div class="k">Загляните в&nbsp;лекцию</div>
-    <div class="lec card" style="margin:0 0 44px">
-      <button type="button" class="vbx" data-snd aria-label="Включить звук: отрывок лекции" aria-pressed="false"><video data-auto src="img/lec_sleep.mp4" poster="img/lec_sleep.jpg" muted loop playsinline preload="none"></video><span class="sn"><svg class="off" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M17 9l4 6M21 9l-4 6"/></svg><svg class="on" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 010 7M19 6a8.5 8.5 0 010 12"/></svg></span></button>
-      <p>Отрывок лекции «Сон и&nbsp;восстановление»: после короткой ночи человек в&nbsp;среднем съедает на&nbsp;385&nbsp;ккал больше.</p>
-    </div>
     <div class="k">Автор программы</div>
     <h2>Кто <em class="s">ведёт</em> программу</h2>
     <div class="au card">
@@ -393,6 +412,7 @@ img,video{-webkit-touch-callout:none;-webkit-user-drag:none;user-select:none}
     <div class="k">Вопросы</div>
     <h2>Частые <em class="s">вопросы</em></h2>
     <details><summary>Когда я&nbsp;получу доступ?</summary><p>Сразу после оплаты&nbsp;- лекции 01‑02, гайд по&nbsp;анализам и&nbsp;трекер. 2&nbsp;декабря&nbsp;- лекции 03‑06 и&nbsp;урок про&nbsp;витамины и&nbsp;БАДы, 5&nbsp;декабря&nbsp;- лекции 07‑08 и&nbsp;урок про&nbsp;перименопаузу, 8&nbsp;декабря&nbsp;- лекции 09‑10, персональная карта и&nbsp;конспекты.</p></details>
+      <details><summary>Можно сначала попробовать бесплатно?</summary><p>Да. Начните с&nbsp;бесплатных интерактивных гидов: <a href="/ferritin/">ферритин и&nbsp;железо</a>, <a href="/zhkt/">кишечник и&nbsp;энергия</a>, <a href="/hormones/">гормоны</a>, <a href="/heart/">сердце и&nbsp;сосуды</a>. Программа даёт систему, которую в&nbsp;гидах не&nbsp;уместить.</p></details>
     <details><summary>Как оплатить в&nbsp;Kaspi?</summary><p>Нажмите «Оплатить в&nbsp;Kaspi», введите сумму тарифа (14&nbsp;900&nbsp;₸ или&nbsp;29&nbsp;900&nbsp;₸) и&nbsp;оплатите. Пришлите чек менеджеру в&nbsp;WhatsApp&nbsp;- в&nbsp;тот же&nbsp;день откроем доступ.</p></details>
     <details><summary>Можно ли&nbsp;вернуть деньги?</summary><p>Да, действует «Гарантия двух лекций». Если после лекций 01‑02 поймёте, что&nbsp;программа не&nbsp;для&nbsp;вас, напишите менеджеру в&nbsp;течение 7&nbsp;дней после оплаты. Вернём деньги полностью.</p></details>
     <details><summary>Нужны ли&nbsp;медицинские знания?</summary><p>Нет. Первая лекция объясняет устройство организма простым языком, а&nbsp;каждая тема идёт от&nbsp;механики к&nbsp;практике.</p></details>
