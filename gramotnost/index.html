@@ -1479,6 +1479,11 @@ section{padding:56px 0}
 .vf-b p{margin-top:4px;font-size:14.5px;line-height:1.5;color:#C9D5E5;font-weight:330}
 .vf-n{font-size:12.5px;color:#9FB2CC;text-align:center;margin-top:2px}
 @media (prefers-reduced-motion:reduce){.vf-i{opacity:1;transform:none;transition:none}}
+/* stream badge: teal neon, slow flicker */
+.hstr{border-color:#7FE9F1;color:#C9F7FA;background:rgba(25,195,208,.08);text-shadow:0 0 4px rgba(127,233,241,.9),0 0 12px rgba(25,195,208,.75);box-shadow:0 0 6px rgba(127,233,241,.7),0 0 16px rgba(25,195,208,.45),inset 0 0 8px rgba(25,195,208,.35);animation:neon 5s ease-in-out infinite}
+.hstr i{background:#B6F6FA;box-shadow:0 0 6px #7FE9F1,0 0 12px #19C3D0}
+@keyframes neon{0%,100%{opacity:1;filter:brightness(1)}40%{opacity:.86;filter:brightness(.85)}48%{opacity:1;filter:brightness(1.15)}52%{opacity:.7;filter:brightness(.75)}55%{opacity:1;filter:brightness(1.1)}75%{opacity:.9;filter:brightness(.92)}}
+@media (prefers-reduced-motion:reduce){.hstr{animation:none}}
 </style>
 </head>
 <body>
