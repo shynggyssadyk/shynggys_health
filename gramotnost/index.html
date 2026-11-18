@@ -1434,6 +1434,20 @@ section{padding:56px 0}
 .hbrand img{flex:none;width:40px;height:40px;border-radius:50%;box-shadow:0 0 0 1.5px rgba(255,255,255,.5)}
 .hbrand .hname{margin:0;font-size:13px;letter-spacing:.12em;line-height:1.2}
 .hbrand .hname span{margin-top:2px;text-transform:none;letter-spacing:.01em;font-size:14px;line-height:1.25;white-space:nowrap}
+/* hero E: facts row, teal CTA, guarantee */
+.hfacts{display:grid;grid-template-columns:1fr 1fr;gap:14px 18px;margin-top:20px;padding-top:16px;border-top:1px solid rgba(255,255,255,.16);max-width:420px}
+.hfacts b{display:block;font-size:22px;font-weight:400;color:#F2F6FB;line-height:1.1}.hfacts span{font-size:13px;color:#9FB2CC}
+#top .ctas .btn.hcta{display:flex;width:100%;max-width:420px;min-height:56px;font-size:17px}
+.hlnk{display:inline-block;margin-top:12px;color:#B9C7DA;font-size:15px;text-decoration:underline;text-underline-offset:4px}
+.hgar{display:flex;gap:8px;align-items:center;margin-top:12px;font-size:13.5px;color:#B9C7DA;line-height:1.4}.hgar svg{flex:none}
+/* final: author letter */
+.aul{margin-top:34px;padding-top:26px;border-top:1px solid rgba(255,255,255,.16);max-width:720px}
+.aul-k{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#7FE9F1}
+.aul p{margin-top:14px;font-size:16.5px;line-height:1.6;color:#C9D5E5;font-weight:330}
+.aul-h{display:flex;gap:16px;align-items:center;margin-top:16px}.aul-h p{margin:0}
+.aul-h img{width:96px;height:96px;border-radius:50%;object-fit:cover;flex:none;box-shadow:0 0 0 2px #19C3D0}
+.aul-h b{display:block;font-weight:450;color:#F2F6FB}
+.aul-c:has(span[hidden]){display:none}
 </style>
 </head>
 <body>
@@ -1462,10 +1476,12 @@ section{padding:56px 0}
         <h1>Перестаньте разбираться в здоровье <em class="s">наугад</em></h1>
         <a class="from" id="heroFrom" href="#program" hidden></a>
         <p class="sub">Усталость, вес, волосы, ЖКТ, дефициты: за 14 дней разберётесь в причинах и уйдёте с личным планом.</p>
+        <div class="hfacts"><div><b>14&nbsp;дней</b><span>программа</span></div><div><b>10&nbsp;лекций</b><span>по&nbsp;50&nbsp;минут</span></div><div><b>2&nbsp;бонуса</b><span>видеоурока</span></div><div><b>Конспекты</b><span>гайд и&nbsp;трекер</span></div></div>
         <div class="ctas">
-          <a class="btn hw" href="#program">Смотреть программу</a>
+          <a class="btn saf hcta" href="#tariffs">Выбрать тариф <span class="ar">→</span></a>
         </div>
-        <p class="hmeta">10 лекций · по 50 минут · 2 бонуса</p>
+        <a class="hlnk" href="#program">Смотреть программу</a>
+        <p class="hgar"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7FE9F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v6c0 4-3 7-7 9-4-2-7-5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg>Гарантия двух лекций: 7&nbsp;дней на&nbsp;возврат денег</p>
       </div>
     </div>
   </div>
@@ -1768,7 +1784,12 @@ section{padding:56px 0}
     <div class="ctas rv">
       <a class="btn saf" href="#tariffs">Выбрать тариф <span class="ar">→</span></a>
     </div>
-    <p class="ps2 rv"><b>P.S.</b> Если вы дочитали до сюда, вы уже знаете главное: усталость, вес и волосы - это не «характер» и не «возраст», а <mark class="hl">причинно-следственные связи, которые можно понять</mark>. Программа даёт эту базу за 14 дней и в своём темпе. <span class="js-off" hidden>И пока действует ваш купон, полная оплата - на 3 000 ₸ дешевле.</span> А если после двух лекций поймёте, что это не ваше, - напишите в течение 7 дней после оплаты, и мы вернём деньги полностью.</p>
+    <div class="aul rv">
+      <div class="aul-k">Сообщение от автора</div>
+      <div class="aul-h"><img src="img/author_v.webp" alt="Шынгыс Садык" width="96" height="96" loading="lazy"><p>Если выберете «С&nbsp;разбором», свои вопросы на&nbsp;созвоне вы зададите мне напрямую.<b>Шынгыс Садык</b></p></div>
+      <p>Я&nbsp;сделал эту программу, потому что на&nbsp;консультациях вижу одно и&nbsp;то&nbsp;же: люди годами пробуют советы наугад и&nbsp;не&nbsp;понимают, что происходит в&nbsp;организме. За&nbsp;14&nbsp;дней я&nbsp;объясню вам то, что объясняю клиентам лично, - простым языком и&nbsp;с&nbsp;опорой на&nbsp;исследования.</p>
+      <p class="aul-c"><span class="js-off" hidden>И пока действует ваш купон, полная оплата - на 3 000 ₸ дешевле.</span></p>
+    </div>
   </div>
 </section>
 
