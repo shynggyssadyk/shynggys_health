@@ -211,6 +211,13 @@ img,video{-webkit-touch-callout:none;-webkit-user-drag:none;user-select:none}
 .fit>div:first-child small{color:var(--tt)}
 .pk .k{margin-bottom:12px}
 #faq details a{color:var(--tt);text-underline-offset:3px}
+/* real questionnaire rising behind the answers */
+.opw{background:linear-gradient(180deg,#E3F1F4 0%,#EEF4F8 60%,#F3F7FA 100%)}
+.opw::before{content:none}
+.osun{position:relative;height:0;z-index:0}
+.osun::after{content:"";position:absolute;left:50%;top:-10px;width:120%;height:340px;transform:translateX(-50%);border-radius:50%;background:radial-gradient(closest-side,rgba(25,195,208,.28),transparent);z-index:-1}
+.osun::before{content:"";position:absolute;left:50%;top:14px;width:min(84%,360px);height:400px;background:url(img/opq_form2.webp) top center/100% auto no-repeat;border-radius:14px 14px 0 0;transform:translateX(-50%) perspective(900px) rotateX(16deg);transform-origin:50% 0;box-shadow:0 22px 40px -24px rgba(13,34,56,.4);-webkit-mask-image:linear-gradient(#000 0,#000 34%,transparent 94%);mask-image:linear-gradient(#000 0,#000 34%,transparent 94%)}
+.opw .ops{margin-top:178px;z-index:1}
 </style>
 </head>
 <body>
@@ -260,18 +267,26 @@ img,video{-webkit-touch-callout:none;-webkit-user-drag:none;user-select:none}
     <p class="wp">Дело часто не&nbsp;в&nbsp;силе воли. У&nbsp;усталости, тяги к&nbsp;сладкому и&nbsp;веса бывают причины, которые можно проверить анализами.</p>
     <div class="opw">
       <div class="t"><b>Так клиенты описывают своё состояние</b>Ответы из&nbsp;опросника перед консультацией. Фамилии сокращены.</div>
+      <div class="osun" aria-hidden="true"></div>
       <div class="ops">
-        <figure class="op"><figcaption><span class="av" style="background:#C2185B">А</span><span><b>Асем Н.</b>26&nbsp;лет</span></figcaption><img src="img/op8.webp" alt="Ответ Асем Н. в опроснике" loading="lazy" width="806" height="249"></figure>
-        <figure class="op"><figcaption><span class="av" style="background:#7248B9">О</span><span><b>Ольга К.</b>38&nbsp;лет</span></figcaption><img src="img/op1.webp" alt="Ответ Ольги К. в опроснике" loading="lazy" width="806" height="233"></figure>
+        <figure class="op"><figcaption><span class="av" style="background:#C2185B">А</span><span><b>Асем Н.</b>26&nbsp;лет</span></figcaption><img src="img/op8.webp" alt="Ответ Асем Н. в опроснике" loading="lazy"></figure>
+        <figure class="op"><figcaption><span class="av" style="background:#7248B9">О</span><span><b>Ольга К.</b>38&nbsp;лет</span></figcaption><img src="img/op1.webp" alt="Ответ Ольга К. в опроснике" loading="lazy"></figure>
+        <figure class="op"><figcaption><span class="av" style="background:#1A73E8">С</span><span><b>Санжар Ә.</b>27&nbsp;лет</span></figcaption><img src="img/op11.webp" alt="Ответ Санжар Ә. в опроснике" loading="lazy"></figure>
         <figure class="op"><figcaption><span class="av" style="background:#0E8F9B">М</span><span><b>Меруерт Б.</b>31&nbsp;год</span></figcaption><img src="img/op9.webp" alt="Ответ Меруерт Б. в опроснике" loading="lazy"></figure>
-        <figure class="op"><figcaption><span class="av" style="background:#E8710A">С</span><span><b>Сабина С.</b>27&nbsp;лет</span></figcaption><img src="img/op12.webp" alt="Ответ Сабины С. в опроснике" loading="lazy"></figure>
-        <figure class="op"><figcaption><span class="av" style="background:#1A73E8">Л</span><span><b>Людмила П.</b>24&nbsp;года</span></figcaption><img src="img/op2.webp" alt="Ответ Людмилы П. в опроснике" loading="lazy"></figure>
-        <figure class="op"><figcaption><span class="av" style="background:#7248B9">А</span><span><b>Акерке А.</b>33&nbsp;года</span></figcaption><img src="img/op7.webp" alt="Ответ Акерке А. в опроснике" loading="lazy"></figure>
-        <figure class="op"><figcaption><span class="av" style="background:#C2185B">К</span><span><b>Кристина С.</b>30&nbsp;лет</span></figcaption><img src="img/op6.webp" alt="Ответ Кристины С. в опроснике" loading="lazy"></figure>
-        <figure class="op"><figcaption><span class="av" style="background:#0E8F9B">С</span><span><b>Салтанат А.</b>39&nbsp;лет</span></figcaption><img src="img/op5.webp" alt="Ответ Салтанат А. в опроснике" loading="lazy"></figure>
-        <figure class="op"><figcaption><span class="av" style="background:#1A73E8">А</span><span><b>Айгуль Б.</b>39&nbsp;лет</span></figcaption><img src="img/op4.webp" alt="Ответ Айгуль Б. в опроснике" loading="lazy"></figure>
+        <figure class="op"><figcaption><span class="av" style="background:#0E8F9B">А</span><span><b>Айдос Д.</b>33&nbsp;года</span></figcaption><img src="img/op3.webp" alt="Ответ Айдос Д. в опроснике" loading="lazy"></figure>
+        <figure class="op"><figcaption><span class="av" style="background:#E8710A">С</span><span><b>Сабина С.</b>27&nbsp;лет</span></figcaption><img src="img/op12.webp" alt="Ответ Сабина С. в опроснике" loading="lazy"></figure>
+        <figure class="op"><figcaption><span class="av" style="background:#5F6368">В</span><span><b>Валихан С.</b>34&nbsp;года</span></figcaption><img src="img/op10.webp" alt="Ответ Валихан С. в опроснике" loading="lazy"></figure>
+        <figure class="op"><figcaption><span class="av" style="background:#1A73E8">Л</span><span><b>Людмила П.</b>24&nbsp;года</span></figcaption><img src="img/op2.webp" alt="Ответ Людмила П. в опроснике" loading="lazy"></figure>
+        <figure class="op"><figcaption><span class="av" style="background:#7248B9">Ә</span><span><b>Әсем Б.</b>29&nbsp;лет</span></figcaption><img src="img/op14.webp" alt="Ответ Әсем Б. в опроснике" loading="lazy"></figure>
+        <figure class="op"><figcaption><span class="av" style="background:#2E7D32">А</span><span><b>Алишер М.</b>30&nbsp;лет</span></figcaption><img src="img/op15.webp" alt="Ответ Алишер М. в опроснике" loading="lazy"></figure>
+        <figure class="op"><figcaption><span class="av" style="background:#C2185B">А</span><span><b>Акерке А.</b>33&nbsp;года</span></figcaption><img src="img/op7.webp" alt="Ответ Акерке А. в опроснике" loading="lazy"></figure>
+        <figure class="op"><figcaption><span class="av" style="background:#0E9BA6">Б</span><span><b>Бибінұр Ж.</b>29&nbsp;лет</span></figcaption><img src="img/op13.webp" alt="Ответ Бибінұр Ж. в опроснике" loading="lazy"></figure>
+        <figure class="op"><figcaption><span class="av" style="background:#2E7D32">К</span><span><b>Кристина С.</b>30&nbsp;лет</span></figcaption><img src="img/op6.webp" alt="Ответ Кристина С. в опроснике" loading="lazy"></figure>
+        <figure class="op"><figcaption><span class="av" style="background:#E8710A">М</span><span><b>Мухаметали А.</b>30&nbsp;лет</span></figcaption><img src="img/op16.webp" alt="Ответ Мухаметали А. в опроснике" loading="lazy"></figure>
+        <figure class="op"><figcaption><span class="av" style="background:#C2185B">С</span><span><b>Салтанат А.</b>39&nbsp;лет</span></figcaption><img src="img/op5.webp" alt="Ответ Салтанат А. в опроснике" loading="lazy"></figure>
+        <figure class="op"><figcaption><span class="av" style="background:#0E9BA6">А</span><span><b>Айгуль Б.</b>39&nbsp;лет</span></figcaption><img src="img/op4.webp" alt="Ответ Айгуль Б. в опроснике" loading="lazy"></figure>
       </div>
-      <div class="swh"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M14 7l5 5-5 5"/></svg>Листайте: 9 ответов</div>
+      <div class="swh"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M14 7l5 5-5 5"/></svg>Листайте: 16 ответов</div>
     </div>
     <p style="margin-top:22px">За&nbsp;каждым из&nbsp;этих состояний стоят причинно-следственные связи внутри организма. Программа объясняет их&nbsp;простым языком.</p>
     <div class="cta"><a class="btn" href="#tariffs">Выбрать тариф</a></div>
