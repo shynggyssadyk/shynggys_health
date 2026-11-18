@@ -102,9 +102,9 @@ h2{font-size:26px;font-weight:560;margin-top:44px;letter-spacing:-.3px}
  var IGI='<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"><rect x="2" y="2" width="20" height="20" rx="6"/><circle cx="12" cy="12" r="4.4"/><circle cx="17.4" cy="6.6" r="1" fill="#fff"/></svg>';
  var grid=document.getElementById('grid');
  G.forEach(function(g){var d=document.createElement('div');d.className='g';
-  d.innerHTML='<div class="th"><img loading="lazy" src="files/'+g.id+'_cert.jpg?v=4" alt=""></div><div class="in"><div class="nm"></div><div class="no">№ '+g.code.replace('SHMZ','ШМЗ')+'</div>'+
+  d.innerHTML='<div class="th"><img loading="lazy" src="files/'+g.id+'_cert.jpg?v=5" alt=""></div><div class="in"><div class="nm"></div><div class="no">№ '+g.code.replace('SHMZ','ШМЗ')+'</div>'+
   '<button class="btn ig" data-id="'+g.id+'">'+IGI+'Выложить в сторис</button>'+
-  '<div class="row2"><a class="btn" href="files/'+g.id+'.pdf?v=3" download="">PDF для печати</a><a class="btn" href="files/'+g.id+'_story.jpg?v=3" download="">Для сторис</a></div>'+
+  '<div class="row2"><a class="btn" href="files/'+g.id+'.pdf?v=5" download="">PDF для печати</a><a class="btn" href="files/'+g.id+'_story.jpg?v=5" download="">Для сторис</a></div>'+
   '<a class="ver" target="_blank" href="../sert/?n='+g.code+'">проверить сертификат →</a></div>';
   d.querySelector('.nm').textContent=g.name;
   var pdf=d.querySelectorAll('.row2 a');pdf[0].setAttribute('download','Сертификат ШМЗ 2026 - '+g.name+'.pdf');pdf[1].setAttribute('download','Сторис ШМЗ 2026 - '+g.name+'.jpg');
@@ -115,7 +115,7 @@ h2{font-size:26px;font-weight:560;margin-top:44px;letter-spacing:-.3px}
  function closeM(){M.classList.remove('on');M.setAttribute('aria-hidden','true');}
  document.getElementById('mx').onclick=closeM;M.addEventListener('click',function(e){if(e.target===M)closeM();});
  grid.addEventListener('click',function(e){var b=e.target.closest('.btn.ig');if(!b)return;var id=b.getAttribute('data-id'),g=G.filter(function(x){return x.id===id})[0];
-  cur='files/'+id+'_story.jpg?v=3';blob=null;MI.src=cur;MD.href=cur;MD.setAttribute('download','Сторис ШМЗ 2026 - '+g.name+'.jpg');
+  cur='files/'+id+'_story.jpg?v=5';blob=null;MI.src=cur;MD.href=cur;MD.setAttribute('download','Сторис ШМЗ 2026 - '+g.name+'.jpg');
   M.classList.add('on');M.setAttribute('aria-hidden','false');
   fetch(cur).then(function(r){return r.blob()}).then(function(bl){blob=bl;});});
  MS.addEventListener('click',function(){
