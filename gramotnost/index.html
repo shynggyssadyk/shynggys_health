@@ -217,7 +217,8 @@ img,video{-webkit-touch-callout:none;-webkit-user-drag:none;user-select:none}
 .opw .ops{margin-top:16px;z-index:1}
 /* hero photo: soft fade without a seam; chip centred on the photo edge */
 .hph::after{content:none!important}
-.hph img{-webkit-mask-image:linear-gradient(180deg,#000 0,#000 52%,transparent 100%);mask-image:linear-gradient(180deg,#000 0,#000 52%,transparent 100%)}
+.hph{height:min(92vw,380px)}
+.hph img{object-position:50% 50%;-webkit-mask-image:linear-gradient(180deg,#000 0,#000 70%,transparent 100%);mask-image:linear-gradient(180deg,#000 0,#000 70%,transparent 100%)}
 .hero .chip{display:flex;width:fit-content;margin-top:-19px}
 .ivb{position:relative;margin:22px auto 0;max-width:420px;aspect-ratio:4/5;border-radius:14px;overflow:hidden;background:#cfdce6}
 .ivb video{width:100%;height:100%;object-fit:cover;display:block}
@@ -233,7 +234,7 @@ img,video{-webkit-touch-callout:none;-webkit-user-drag:none;user-select:none}
 <section class="hero" id="top">
   <div class="w">
     <a class="lock" href="#top" aria-label="Шынгыс Садык · Метаболическое здоровье"><img src="img/logo.webp" alt="" width="44" height="44"><span><b>Шынгыс Садык</b><small>Метаболическое здоровье</small></span></a>
-    <div class="hph"><img src="img/author_v.webp" alt="Шынгыс Садык, автор программы" width="720" height="900" fetchpriority="high"></div>
+    <div class="hph"><img src="img/hero_photo.webp" alt="Шынгыс Садык, автор программы" width="1080" height="1350" fetchpriority="high"></div>
     <div class="chip"><i></i>Онлайн-поток · 25&nbsp;ноября&nbsp;- 8&nbsp;декабря</div>
     <h1>Перестаньте разбираться в&nbsp;здоровье <em class="s">наугад</em></h1>
     <p class="lead">Программа «Метаболическая грамотность»: усталость, вес, волосы, ЖКТ, дефициты. За&nbsp;14&nbsp;дней поймёте причины и&nbsp;уйдёте с&nbsp;личным планом.</p>
@@ -247,7 +248,7 @@ img,video{-webkit-touch-callout:none;-webkit-user-drag:none;user-select:none}
   <div class="w">
     <div class="k">Обращение автора</div>
     <h2>О&nbsp;программе за&nbsp;<em class="s">минуту</em></h2>
-    <div class="ivb"><video src="img/intro.mp4?v=3" poster="img/intro.jpg?v=2" playsinline webkit-playsinline x5-playsinline disablepictureinpicture controlslist="nofullscreen nodownload noremoteplayback" preload="none"></video><button type="button" class="ivp" data-play aria-label="Смотреть видео: Шынгыс о программе, 1 минута 10 секунд"><i><svg viewBox="0 0 24 24"><path d="M6 3.5v17l14-8.5z"/></svg></i><span>Смотреть · 1:10 · с&nbsp;субтитрами</span></button></div>
+    <div class="ivb"><video src="img/intro.mp4?v=3" poster="img/intro.jpg?v=3" playsinline webkit-playsinline x5-playsinline disablepictureinpicture controlslist="nofullscreen nodownload noremoteplayback" preload="none"></video><button type="button" class="ivp" data-play aria-label="Смотреть видео: Шынгыс о программе, 1 минута 10 секунд"><i><svg viewBox="0 0 24 24"><path d="M6 3.5v17l14-8.5z"/></svg></i><span>Смотреть · 1:10 · с&nbsp;субтитрами</span></button></div>
   </div>
 </section>
 
