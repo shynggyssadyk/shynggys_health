@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <!-- security -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-QtLwWR8guQnEfsTFFV1QhsCVbS/T7iSQh1uW9nd2XH8=' https://mc.yandex.ru https://mc.yandex.com https://yastatic.net; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob: https://mc.yandex.ru https://mc.yandex.com; media-src 'self'; connect-src 'self' https://mc.yandex.ru https://mc.yandex.com wss://mc.yandex.ru wss://mc.yandex.com; frame-src blob: https://mc.yandex.ru https://mc.yandex.com; child-src blob: https://mc.yandex.ru https://mc.yandex.com; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-XcyCAtxt8mQooSt/etMl3LG3rO8NhPDt83IMh+9kXU4=' https://mc.yandex.ru https://mc.yandex.com https://yastatic.net; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob: https://mc.yandex.ru https://mc.yandex.com; media-src 'self'; connect-src 'self' https://mc.yandex.ru https://mc.yandex.com wss://mc.yandex.ru wss://mc.yandex.com; frame-src blob: https://mc.yandex.ru https://mc.yandex.com; child-src blob: https://mc.yandex.ru https://mc.yandex.com; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
 <meta name="format-detection" content="telephone=no">
@@ -264,7 +264,7 @@ summary,.qt,.wp,.opw .t b{font-size:18px}
   <div class="w">
     <div class="k">Обращение автора</div>
     <h2>О&nbsp;программе за&nbsp;<em class="s">минуту</em></h2>
-    <div class="ivb"><video src="img/intro_a.mp4" poster="img/intro.jpg?v=4" playsinline webkit-playsinline x5-playsinline disablepictureinpicture controlslist="nofullscreen nodownload noremoteplayback" preload="none"></video><video class="v2" src="img/intro_b.mp4" playsinline webkit-playsinline x5-playsinline disablepictureinpicture controlslist="nofullscreen nodownload noremoteplayback" preload="none"></video><button type="button" class="ivp" data-play aria-label="Смотреть видео: Шынгыс о программе, 1 минута 10 секунд"><i><svg viewBox="0 0 24 24"><path d="M6 3.5v17l14-8.5z"/></svg></i><span>Смотреть · 1:10 · с&nbsp;субтитрами</span></button></div>
+    <div class="ivb"><video src="img/intro_a.mp4" poster="img/intro.jpg?v=4" playsinline webkit-playsinline x5-playsinline disablepictureinpicture controlslist="nofullscreen nodownload noremoteplayback" preload="none"></video><video class="v2" data-src="img/intro_b.mp4" playsinline webkit-playsinline x5-playsinline disablepictureinpicture controlslist="nofullscreen nodownload noremoteplayback" preload="none"></video><button type="button" class="ivp" data-play aria-label="Смотреть видео: Шынгыс о программе, 1 минута 10 секунд"><i><svg viewBox="0 0 24 24"><path d="M6 3.5v17l14-8.5z"/></svg></i><span>Смотреть · 1:10 · с&nbsp;субтитрами</span></button></div>
   </div>
 </section>
 
@@ -516,13 +516,14 @@ if('IntersectionObserver' in window){
   const io=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;if(e.isIntersecting){if(!RM||!v.muted)v.play().catch(()=>{})}else v.pause()}),{threshold:.5});
   vids.forEach(v=>io.observe(v));
 }
-document.querySelectorAll('[data-play]').forEach(b=>{const bx=b.parentNode,vs=[...bx.querySelectorAll('video')],A=vs[0],B=vs[1];let cur=A,un=0;
-const go=()=>{bx.classList.add('on');cur.play().catch(()=>bx.classList.remove('on'))};
-b.addEventListener('click',()=>{document.querySelectorAll('[data-snd]').forEach(o=>{const x=o.querySelector('video');x.muted=true;o.classList.remove('snd');o.setAttribute('aria-pressed','false')});
-if(!un){un=1;B.preload='auto';B.muted=true;const p=B.play();if(p&&p.then)p.then(()=>{B.pause();B.currentTime=0;B.muted=false}).catch(()=>{B.muted=false;B.load()});gT('intro_play')}go()});
+document.querySelectorAll('[data-play]').forEach(b=>{const bx=b.parentNode,vs=[...bx.querySelectorAll('video')],A=vs[0],B=vs[1],SA=A.getAttribute('src'),SB=B.dataset.src;let cur=A,part=1,pl=0;
+const go=()=>{bx.classList.add('on');const p=cur.play();if(p&&p.catch)p.catch(()=>bx.classList.remove('on'))};
+const fin=()=>{bx.classList.remove('on','p2');if(A.getAttribute('src')!==SA){A.src=SA;A.load()}else{try{A.currentTime=0}catch(e){}}try{B.currentTime=0}catch(e){}cur=A;part=1;if(!b.dataset.e){b.dataset.e=1;gT('intro_end')}};
+b.addEventListener('click',()=>{document.querySelectorAll('[data-snd]').forEach(o=>{const x=o.querySelector('video');x.muted=true;o.classList.remove('snd');o.setAttribute('aria-pressed','false')});if(!b.dataset.g){b.dataset.g=1;gT('intro_play')}go()});
 vs.forEach(v=>{v.playsInline=true;v.addEventListener('click',()=>{if(v!==cur)return;if(cur.paused)go();else{cur.pause();bx.classList.remove('on')}})});
-A.addEventListener('ended',()=>{cur=B;B.muted=false;bx.classList.add('p2');go()});
-B.addEventListener('ended',()=>{if(cur!==B)return;bx.classList.remove('on','p2');cur=A;try{A.currentTime=0;B.currentTime=0}catch(e){}if(!b.dataset.e){b.dataset.e=1;gT('intro_end')}})});
+A.addEventListener('timeupdate',()=>{if(!pl&&part===1&&A.currentTime>10){pl=1;B.src=SB;B.preload='auto';B.load()}});
+A.addEventListener('ended',()=>{if(part===2){fin();return}part=2;if(!pl){pl=1;B.src=SB}cur=B;bx.classList.add('p2','on');const p=B.play();if(p&&p.catch)p.catch(()=>{bx.classList.remove('p2');cur=A;A.src=SB;A.load();go()})});
+B.addEventListener('ended',()=>{if(cur===B)fin()})});
 document.querySelectorAll('[data-snd]').forEach(b=>b.addEventListener('click',()=>{const v=b.querySelector('video'),turnOn=v.muted;
   document.querySelectorAll('[data-snd]').forEach(o=>{if(o!==b){const x=o.querySelector('video');x.muted=true;o.classList.remove('snd');o.setAttribute('aria-pressed','false')}});
   v.muted=!turnOn;if(turnOn){try{v.currentTime=0}catch(e){}}v.play().catch(()=>{});b.classList.toggle('snd',turnOn);b.setAttribute('aria-pressed',String(turnOn))}));
