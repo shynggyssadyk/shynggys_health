@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <!-- security -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-mrSYzJgaZiy37y2+aeDz/uTQ2L/384E0/dJQa7Sx5gs=' https://mc.yandex.ru https://mc.yandex.com https://yastatic.net; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob: https://mc.yandex.ru https://mc.yandex.com; media-src 'self'; connect-src 'self' https://mc.yandex.ru https://mc.yandex.com wss://mc.yandex.ru wss://mc.yandex.com; frame-src blob: https://mc.yandex.ru https://mc.yandex.com; child-src blob: https://mc.yandex.ru https://mc.yandex.com; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-3Q7pQeM0VSwfpfw3QZ2teZzyH/AtLygNpdsOpMfY6z0=' https://mc.yandex.ru https://mc.yandex.com https://yastatic.net; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob: https://mc.yandex.ru https://mc.yandex.com; media-src 'self'; connect-src 'self' https://mc.yandex.ru https://mc.yandex.com wss://mc.yandex.ru wss://mc.yandex.com; frame-src blob: https://mc.yandex.ru https://mc.yandex.com; child-src blob: https://mc.yandex.ru https://mc.yandex.com; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
 <meta name="format-detection" content="telephone=no">
@@ -247,7 +247,7 @@ img,video{-webkit-touch-callout:none;-webkit-user-drag:none;user-select:none}
   <div class="w">
     <div class="k">Обращение автора</div>
     <h2>О&nbsp;программе за&nbsp;<em class="s">минуту</em></h2>
-    <div class="ivb"><video src="img/intro.mp4" poster="img/intro.jpg" playsinline preload="none"></video><button type="button" class="ivp" data-play aria-label="Смотреть видео: Шынгыс о программе, 1 минута 18 секунд"><i><svg viewBox="0 0 24 24"><path d="M6 3.5v17l14-8.5z"/></svg></i><span>Смотреть · 1:18 · с&nbsp;субтитрами</span></button></div>
+    <div class="ivb"><video src="img/intro.mp4" poster="img/intro.jpg" playsinline webkit-playsinline x5-playsinline disablepictureinpicture controlslist="nofullscreen nodownload noremoteplayback" preload="none"></video><button type="button" class="ivp" data-play aria-label="Смотреть видео: Шынгыс о программе, 1 минута 18 секунд"><i><svg viewBox="0 0 24 24"><path d="M6 3.5v17l14-8.5z"/></svg></i><span>Смотреть · 1:18 · с&nbsp;субтитрами</span></button></div>
   </div>
 </section>
 
@@ -499,7 +499,7 @@ if('IntersectionObserver' in window){
   const io=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;if(e.isIntersecting){if(!RM||!v.muted)v.play().catch(()=>{})}else v.pause()}),{threshold:.5});
   vids.forEach(v=>io.observe(v));
 }
-document.querySelectorAll('[data-play]').forEach(b=>{const bx=b.parentNode,v=bx.querySelector('video');b.addEventListener('click',()=>{document.querySelectorAll('[data-snd]').forEach(o=>{const x=o.querySelector('video');x.muted=true;o.classList.remove('snd');o.setAttribute('aria-pressed','false')});bx.classList.add('on');v.controls=true;v.play().catch(()=>{});gT('intro_play')});v.addEventListener('ended',()=>gT('intro_end'),{once:true})});
+document.querySelectorAll('[data-play]').forEach(b=>{const bx=b.parentNode,v=bx.querySelector('video');b.addEventListener('click',()=>{document.querySelectorAll('[data-snd]').forEach(o=>{const x=o.querySelector('video');x.muted=true;o.classList.remove('snd');o.setAttribute('aria-pressed','false')});bx.classList.add('on');v.playsInline=true;v.play().catch(()=>{});if(!b.dataset.g){b.dataset.g=1;gT('intro_play')}});v.addEventListener('click',()=>{v.paused?v.play().catch(()=>{}):v.pause()});v.addEventListener('pause',()=>{if(!v.ended)bx.classList.remove('on')});v.addEventListener('play',()=>bx.classList.add('on'));v.addEventListener('ended',()=>{bx.classList.remove('on');if(!b.dataset.e){b.dataset.e=1;gT('intro_end')}})});
 document.querySelectorAll('[data-snd]').forEach(b=>b.addEventListener('click',()=>{const v=b.querySelector('video'),turnOn=v.muted;
   document.querySelectorAll('[data-snd]').forEach(o=>{if(o!==b){const x=o.querySelector('video');x.muted=true;o.classList.remove('snd');o.setAttribute('aria-pressed','false')}});
   v.muted=!turnOn;if(turnOn){try{v.currentTime=0}catch(e){}}v.play().catch(()=>{});b.classList.toggle('snd',turnOn);b.setAttribute('aria-pressed',String(turnOn))}));
