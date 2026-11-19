@@ -217,8 +217,10 @@ img,video{-webkit-touch-callout:none;-webkit-user-drag:none;user-select:none}
 .opw .ops{margin-top:16px;z-index:1}
 /* hero photo: soft fade without a seam; chip centred on the photo edge */
 .hph::after{content:none!important}
-.hph{height:min(92vw,380px)}
-.hph img{object-position:50% 50%;-webkit-mask-image:linear-gradient(180deg,#000 0,#000 70%,transparent 100%);mask-image:linear-gradient(180deg,#000 0,#000 70%,transparent 100%)}
+.hph{height:min(78vw,330px);-webkit-mask-image:linear-gradient(180deg,#000 0,#000 58%,transparent 100%);mask-image:linear-gradient(180deg,#000 0,#000 58%,transparent 100%)}
+.hph img{-webkit-mask-image:none;mask-image:none}
+.hph video{width:100%;height:100%;object-fit:cover;display:block}
+.hph::before{content:"";position:absolute;inset:0;z-index:1;background:url(img/noise_s.png) 0 0/220px;opacity:.45;pointer-events:none}
 .hero .chip{display:flex;width:fit-content;margin-top:-19px}
 .ivb{position:relative;margin:22px auto 0;max-width:420px;aspect-ratio:4/5;border-radius:14px;overflow:hidden;background:#cfdce6}
 .ivb video{width:100%;height:100%;object-fit:cover;display:block}
@@ -227,6 +229,18 @@ img,video{-webkit-touch-callout:none;-webkit-user-drag:none;user-select:none}
 .ivp i svg{width:26px;height:26px;fill:var(--ink);margin-left:4px}
 .ivp span{position:absolute;left:16px;bottom:14px;font-size:14px;font-weight:450;letter-spacing:.01em}
 .ivb.on .ivp{display:none}
+/* читабельность: размеры как на лендинге-ориентире (основной текст 18px/400) */
+:root{--ink2:#3A4F66}
+body{font-size:18px;font-weight:400}
+.lead{font-size:18.5px}
+summary,.qt,.wp,.opw .t b{font-size:18px}
+.v p,.tl .ls span,.inc li,.steps li,details p,.fr p,.fit li{font-size:17px}
+.bub,.lab figcaption,.chk,.gar p,.cr li{font-size:16.5px}
+.lec p,.tf .sub{font-size:16px}
+.who,.opw .t,.pr2,.alt{font-size:15.5px}
+.cta small,.tl .bn{font-size:14.5px}
+.note{font-size:14px}
+.bub small,.fr small,.fit small{font-size:13px}
 </style>
 </head>
 <body>
@@ -234,7 +248,7 @@ img,video{-webkit-touch-callout:none;-webkit-user-drag:none;user-select:none}
 <section class="hero" id="top">
   <div class="w">
     <a class="lock" href="#top" aria-label="Шынгыс Садык · Метаболическое здоровье"><img src="img/logo.webp" alt="" width="44" height="44"><span><b>Шынгыс Садык</b><small>Метаболическое здоровье</small></span></a>
-    <div class="hph"><img src="img/hero_photo.webp" alt="Шынгыс Садык, автор программы" width="1080" height="1350" fetchpriority="high"></div>
+    <div class="hph" aria-hidden="true"><video data-auto autoplay muted loop playsinline disablepictureinpicture preload="auto" poster="img/hero5_poster.jpg" src="img/hero5.mp4"></video></div>
     <div class="chip"><i></i>Онлайн-поток · 25&nbsp;ноября&nbsp;- 8&nbsp;декабря</div>
     <h1>Перестаньте разбираться в&nbsp;здоровье <em class="s">наугад</em></h1>
     <p class="lead">Программа «Метаболическая грамотность»: усталость, вес, волосы, ЖКТ, дефициты. За&nbsp;14&nbsp;дней поймёте причины и&nbsp;уйдёте с&nbsp;личным планом.</p>
