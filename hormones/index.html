@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <!-- security -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-tAkvXiXf5uAtwXipQWb0YS1Xtdws1HHnS1lYTnlO1RQ='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-BcHN5ymEPM4uUK+qlE7SnJ8xog/gEu2gAo1zvrBRApU='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
 <meta name="format-detection" content="telephone=no">
@@ -434,6 +434,7 @@ footer{padding:26px 0 30px;font-size:13px;line-height:1.5;color:var(--ink2)}
 .hph{-webkit-mask-image:linear-gradient(180deg,#000 0,#000 76%,transparent 100%);mask-image:linear-gradient(180deg,#000 0,#000 76%,transparent 100%)}
 .hph::before{opacity:.3}
 @media (max-height:700px){.hph{height:220px}}
+img,video{-webkit-touch-callout:none;-webkit-user-drag:none;user-select:none}
 </style>
 </head>
 <body>
@@ -464,7 +465,7 @@ footer{padding:26px 0 30px;font-size:13px;line-height:1.5;color:var(--ink2)}
 </svg>
 
 <nav class="nav" id="nav" aria-label="Разделы">
-  <div class="in"><div class="chips" id="chips"><a href="#quiz"><span>Тест</span></a><a href="#why"><span>Почему</span></a><a href="#map"><span>Анализы</span></a><a href="#today"><span>План</span></a><a href="#invite"><span>Разбор</span></a></div><span class="lbl" id="pTxt" aria-label="Раздел 1 из 5 · осталось ~6 мин">1 из 5 · ~6 мин</span></div>
+  <div class="in"><div class="chips" id="chips"><a href="#quiz"><span>Тест</span></a><a href="#why"><span>Почему</span></a><a href="#map"><span>Анализы</span></a><a href="#today"><span>План</span></a><a href="#invite"><span>Диагностика</span></a></div><span class="lbl" id="pTxt" aria-label="Раздел 1 из 5 · осталось ~6 мин">1 из 5 · ~6 мин</span></div>
   <div class="rbar" aria-hidden="true"><i id="pbar"></i></div>
 </nav>
 
@@ -603,11 +604,11 @@ footer{padding:26px 0 30px;font-size:13px;line-height:1.5;color:var(--ink2)}
 </div></section>
 
 <section id="invite"><div class="w">
-  <div class="k">Шаг 5 из 5 · личный разбор</div>
+  <div class="k">Шаг 5 из 5 · диагностика</div>
   <h2>Разберём ваши анализы и вашу <em class="s">усталость</em></h2>
   <p class="lead">Один и тот же ТТГ «в норме» значит разное - в зависимости от антител, ферритина, цикла и ваших симптомов.</p>
 
-  <div class="k sub-k">Что даёт разбор</div>
+  <div class="k sub-k">Что даёт диагностика</div>
   <ul class="pl gets-l">
     <li><span class="ti"><svg class="ic"><use href="#i-list"/></svg></span><span class="tx"><b>Свой список анализов</b></span></li>
     <li><span class="ti"><svg class="ic"><use href="#i-thy"/></svg></span><span class="tx"><b>Как работает ваша щитовидная</b></span></li>
@@ -617,15 +618,13 @@ footer{padding:26px 0 30px;font-size:13px;line-height:1.5;color:var(--ink2)}
 
 </div>
 <div class="band alt"><div class="w">
-  <div class="k sub-k">Как проходит разбор</div>
+  <div class="k sub-k">Трёхэтапная комплексная диагностика</div>
   <h3 class="h3b">От анкеты до <em class="s">определённости</em></h3>
   <p class="sm" style="margin-top:6px">Zoom 1:1 · <span class="nw">60-90</span> минут</p>
   <ol class="tl">
-    <li><div class="d">Шаг 1</div><b>Анкета</b><p>Всего 3 вопроса и пара минут. Менеджер напишет в WhatsApp и подберёт формат.</p><figure class="shot"><div class="fade"><img src="img/form_shot.webp?v=4" alt="Анкета «Заявка на консультацию»: как это работает" width="780" height="912" loading="lazy"></div></figure></li>
-    <li><div class="d">Шаг 2</div><b>Ваша история</b><p>Симптомы, цикл, сон, стресс, лекарства, что уже пробовали.</p></li>
-    <li><div class="d">Шаг 3</div><b>Анализы</b><p>Составлю персональный список. Есть свежие - посмотрю, чего не хватает.</p></li>
-    <li><div class="d">Шаг 4</div><b>Консультация со мной</b><p>Один на один в Zoom: разбираем цифры и находим, где сбой в гормональной цепочке.</p></li>
-    <li class="f"><div class="d">Шаг 5</div><b>Ваш план</b><p>Персональный протокол восстановления, питание и образ жизни под ваши гормоны и <span class="nw">3-5</span> дней обратной связи.</p><figure class="shot"><div class="fade"><img src="img/proto2.webp?v=3" alt="Письмо с выводами по анализам, данные клиента скрыты" width="450" height="488" loading="lazy"></div><figcaption>Так выглядит письмо с выводами по вашим анализам. Данные клиента скрыты.</figcaption></figure></li>
+    <li><div class="d">Этап 1</div><b>Анкета и список анализов</b><p>Короткая анкета на пару минут: симптомы, цикл, сон, стресс, лекарства, что уже пробовали. По ней составлю персональный список анализов, а если есть свежие - посмотрю, чего не хватает.</p><figure class="shot"><div class="fade"><img src="img/form_shot.webp?v=5" alt="Анкета «Заявка на диагностику»: как это работает" width="780" height="912" loading="lazy"></div></figure></li>
+    <li><div class="d">Этап 2</div><b>Разбор анализов со мной</b><p>Один на один в Zoom, <span class="nw">60-90</span> минут: разбираем цифры и находим, где сбой в гормональной цепочке.</p></li>
+    <li class="f"><div class="d">Этап 3</div><b>Ваш план</b><p>Персональный протокол восстановления, питание и образ жизни под ваши гормоны и <span class="nw">3-5</span> дней обратной связи.</p><figure class="shot"><div class="fade"><img src="img/proto2.webp?v=3" alt="Письмо с выводами по анализам, данные клиента скрыты" width="450" height="488" loading="lazy"></div><figcaption>Так выглядит письмо с выводами по вашим анализам. Данные клиента скрыты.</figcaption></figure></li>
   </ol>
 
   <div class="pc" id="pc">
@@ -639,21 +638,21 @@ footer{padding:26px 0 30px;font-size:13px;line-height:1.5;color:var(--ink2)}
       <li><span class="st"><svg class="ic"><use href="#i-check"/></svg></span><span><b>Чёткий план на <span class="nw">8-12</span> недель</b> - день за днём</span></li>
       <li><span class="st"><svg class="ic"><use href="#i-check"/></svg></span><span><b>Вы идёте к своей цели</b> по курсу, а не наугад</span></li>
     </ul>
-    <p class="pq">Это и есть главное, ради чего приходят на разбор.</p>
+    <p class="pq">Это и есть главное, ради чего приходят на диагностику.</p>
   </div>
-  <div class="cta"><a class="btn" href="https://forms.gle/igVPeinj4NKTAGSYA" target="_blank" rel="noopener noreferrer" data-ev="plan_form">Записаться на разбор</a></div>
+  <div class="cta"><a class="btn" href="https://forms.gle/igVPeinj4NKTAGSYA" target="_blank" rel="noopener noreferrer" data-ev="plan_form">Записаться на диагностику</a></div>
 </div></div>
 <div class="w">
 
   <div class="seats" id="ny">
     <div class="k">До Нового года</div>
-    <div class="facts"><div><b id="cdD">--</b>дней до Нового года</div><div><b id="seats">12</b>мест на разбор</div></div>
+    <div class="facts"><div><b id="cdD">--</b>дней до Нового года</div><div><b id="seats">12</b>мест на диагностику</div></div>
     <p class="sm">Беру до 3 человек в неделю. Разберитесь до праздников: недосып и застолья бьют по гормонам.</p>
     <div class="book">
       <div class="bk-h"><div><b>Запись на следующую неделю</b><small id="bkRange">--</small></div><span class="bn" id="bkBadge" hidden>Zoom</span></div>
       <div class="bk-days" id="bkDays"></div>
       <div class="bk-seats" id="bkSeats" hidden><div class="bk-s"><i></i><span>Место 1</span></div><div class="bk-s"><i></i><span>Место 2</span></div><div class="bk-s"><i></i><span>Место 3</span></div></div>
-      <p class="bk-note">До 3 консультаций в неделю, Zoom <span class="nw">60-90</span> минут. Удобный день и время подберёт менеджер после анкеты.</p>
+      <p class="bk-note">До 3 диагностик в неделю, Zoom <span class="nw">60-90</span> минут. Удобный день и время подберёт менеджер после анкеты.</p>
     </div>
   </div>
 
@@ -668,12 +667,12 @@ footer{padding:26px 0 30px;font-size:13px;line-height:1.5;color:var(--ink2)}
       <li><i>2</i><div><b>Объясню простым языком</b><span>Что значит каждая цифра и почему «норма» - не всегда норма.</span></div></li>
       <li><i>3</i><div><b>Только нужные анализы</b><span>Без лишних трат и «сдайте всё на всякий случай».</span></div></li>
       <li><i>4</i><div><b>План, который можно начать в тот же день</b><span>Питание, сон и нагрузка под ваши гормоны, без жёстких диет.</span></div></li>
-      <li><i>5</i><div><b>Не оставлю одних после консультации</b><span><span class="nw">3-5</span> дней на связи, чтобы ответить на вопросы.</span></div></li>
+      <li><i>5</i><div><b>Не оставлю одних после диагностики</b><span><span class="nw">3-5</span> дней на связи, чтобы ответить на вопросы.</span></div></li>
     </ol>
     <p class="after">Первый шаг - <strong>короткая анкета на 2 минуты.</strong> Менеджер напишет в WhatsApp, ответит на вопросы и подберёт формат.</p>
     <p>До Нового года - <strong>осталось <span class="js-seats">12</span> мест.</strong> Давайте начнём, пока они есть.</p>
   </div>
-  <div class="cta"><a class="btn" href="https://forms.gle/igVPeinj4NKTAGSYA" target="_blank" rel="noopener noreferrer" data-ev="invite_form">Записаться на разбор</a><small>Короткая анкета, пара минут. Менеджер ответит в WhatsApp. Консультация платная, стоимость зависит от формата.</small></div>
+  <div class="cta"><a class="btn" href="https://forms.gle/igVPeinj4NKTAGSYA" target="_blank" rel="noopener noreferrer" data-ev="invite_form">Записаться на диагностику</a><small>Короткая анкета, пара минут. Менеджер ответит в WhatsApp. Диагностика платная, стоимость зависит от формата.</small></div>
 </div></section>
 
 <section id="sources" class="alt"><div class="w">
@@ -698,7 +697,7 @@ footer{padding:26px 0 30px;font-size:13px;line-height:1.5;color:var(--ink2)}
 </div></section>
 </main>
 
-<div class="bar" id="sticky"><div class="in"><button class="fab" id="fab" type="button" aria-label="Открыть мой список анализов"><svg class="ic"><use href="#i-list"/></svg><b id="fabn">0</b></button><div class="bi" id="stickyT"><b>Разбор анализов</b><span>12 мест до Нового года</span></div><a class="btn" href="https://forms.gle/igVPeinj4NKTAGSYA" target="_blank" rel="noopener noreferrer" data-ev="sticky_form">Записаться</a></div></div>
+<div class="bar" id="sticky"><div class="in"><button class="fab" id="fab" type="button" aria-label="Открыть мой список анализов"><svg class="ic"><use href="#i-list"/></svg><b id="fabn">0</b></button><div class="bi" id="stickyT"><b>Диагностика</b><span>12 мест до Нового года</span></div><a class="btn" href="https://forms.gle/igVPeinj4NKTAGSYA" target="_blank" rel="noopener noreferrer" data-ev="sticky_form">Записаться</a></div></div>
 
 <div class="scrim" id="scrim"></div>
 <div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="shTitle">
@@ -802,7 +801,7 @@ function showRes(){ const n=ans.filter(Boolean).length;$('#qbar').style.width='1
   const aa=$('#addAll');aa&&(aa.onclick=()=>{buzz();rec.forEach(id=>list.add(id));store.set('list',[...list]);syncList();onScroll();toast('Добавлено: '+rec.length+' ✓');track('list_add_all',{n:rec.length})});
   const cta=$('#rcta');cta.className='btn'+(hi?'':' ghost');cta.textContent=hi?'Разобрать мой случай':'Задать вопрос через анкету';
   track(hi?'quiz_3plus':'quiz_low',{n,g:G});updSticky(n);onScroll(); }
-function updSticky(n){ $('#stickyT').innerHTML= n==null?'<b>Разбор анализов</b><span>'+seatsTxt()+' до Нового года</span>': n>=3?'<b>Совпало '+n+' из 8</b><span>Разберём? · '+seatsTxt()+'</span>':'<b>Есть вопросы?</b><span>Ответим в WhatsApp</span>'; }
+function updSticky(n){ $('#stickyT').innerHTML= n==null?'<b>Диагностика</b><span>'+seatsTxt()+' до Нового года</span>': n>=3?'<b>Совпало '+n+' из 8</b><span>Разберём? · '+seatsTxt()+'</span>':'<b>Есть вопросы?</b><span>Ответим в WhatsApp</span>'; }
 const initQuiz=()=>{renderG()};
 
 // TESTS data
